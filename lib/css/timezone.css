@@ -1,0 +1,44 @@
+ .tz-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+ .tz-date { font-size: 22px; font-weight: 800; color: #1a1a1a; } 
+ .tz-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; } 
+ .tz-legend { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 600; line-height: 1.2; letter-spacing: -0.35px; color:#555; } 
+ .tz-legend span { display: inline-flex; align-items: center; gap: 6px; } 
+ .tz-legend .dot { width: 9px; height: 9px; border-radius: 100px; display: inline-block; } 
+ .tz-legend .dot.approved { background: linear-gradient(180deg, var(--color-theme) 0%, var(--color-theme-opacity) 100%); } 
+ .tz-legend .dot.standby { background: #DEE1E5; } 
+ .tz-floor-filter { display: inline-flex; border-radius: 24px; border: 1px solid #E8E8E8; height: 40px; padding: 4px; justify-content: center; align-items: flex-start; gap: 4px; } 
+ .tz-floor-filter button { border: none; font-size: 14px; font-weight: 700; color: #666; padding: 4px 12px; border-radius: 999px; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; white-space: nowrap; text-align:center; } 
+ .tz-floor-filter button.all { width:77px; }
+ .tz-floor-filter button.active { background: #000; color: #fff; } 
+ .tz-grid-area { display: flex; width:calc(100% + clamp(25px, 3vw, 48px)); } 
+ .tz-time-col { flex: 0 0 90px; position: sticky; left: 0; z-index: 3; } 
+ .tz-time-col .tz-room-header-spacer { height: 32px; } 
+ .tz-time-col .tz-time-label { color: #333; font-size: 18px; font-weight: 400; line-height: 1.3; letter-spacing: -0.45px; height:35px; display:flex; align-items:center; border-bottom: 1px dashed #EEE; } 
+.tz-scroll-area { flex: 1; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: #c4c8cf transparent; padding-bottom: 14px; }
+.tz-scroll-area::-webkit-scrollbar { height: 4px; }
+.tz-scroll-area::-webkit-scrollbar-track { background: #eef0f3; border-radius: 4px; }
+.tz-scroll-area::-webkit-scrollbar-thumb { background: #b9b9b9; border-radius: 4px; }
+.tz-scroll-area::-webkit-scrollbar-thumb:hover { background: #9a9a9a; }
+.tz-rooms-track { display: flex; min-width: max-content; } 
+.tz-room-col { flex: 0 0 143px; position: relative; margin-left:-3px; } 
+.tz-room-col:last-child { border-right: none; } 
+.tz-room-header { display: flex; align-items: center; justify-content: flex-start; text-align: center; white-space: nowrap; color: #333; font-size: 14px; font-weight: 600;  letter-spacing: -0.35px; margin-bottom:8px; padding-left:4px; } 
+.tz-room-body { position: relative; height: calc(35px * 14); }
+.tz-room-body .row-line { position: absolute; left: 0; right: 0; height: 1px; border-bottom: 1px dashed #EEE; } 
+.tz-bar { position: absolute; left: 4px; width: 20px; border-radius: 999px; cursor: pointer; } 
+.tz-bar::after { content: ""; position: absolute; left: 50%; bottom:8px; width: 8px; height: 8px; border-radius: 100px; transform: translateX(-50%); background: #fff; } 
+.tz-bar.standby { background: #d9d9d9; color: #d9d9d9; } 
+.tz-bar.approved { background: linear-gradient(180deg, var(--color-theme), var(--color-theme-hover)); } 
+.tz-tooltip { position: absolute; z-index: 10; background: #fff; border: 1px solid; border-radius: 8px; padding: 8px 16px; text-align: center; font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.28px; white-space: nowrap; opacity:0; transition: opacity 0.12s ease; transform: translate(-50%, -50%); pointer-events: none; }
+.tz-tooltip.approved { border-color:var(--color-theme); color:var(--color-theme); }
+.tz-tooltip.standby { border-color:#d9d9d9; color:#838383; }
+.tz-tooltip.show { opacity:1; } 
+.tz-tooltip strong { font-weight: 700; margin-right: 4px; } 
+.tz-scrollbar-hint { height: 4px; background: #eef0f3; border-radius: 4px; margin-top: 14px; overflow: hidden; } 
+.tz-scrollbar-hint .fill { height: 100%; background: #b9b9b9; border-radius: 4px; width: 30%; } 
+.tz-empty { padding: 40px 0; text-align: center; color: #aaa; font-size: 13px; } 
+
+@media (max-width: 768px) {
+   .tz-header { flex-direction: column; justify-content: center; }
+   .tz-right { flex-direction: column-reverse; width:100%; } 
+}

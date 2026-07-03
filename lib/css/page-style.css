@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.body.work { position:relative; /*background:url('../img/bg.png') center top -71px / 100% auto no-repeat;*/ }
+@media (max-width: 768px) {
+   .body.work { /*background:url('../img/bg.png') center top 134px / 100% auto no-repeat;*/ }
+}
+
+/* site A */
+#siteA {
+  --logo: url('../img/siteA/logo.png');
+  --logo-white: url('../img/siteA/logo-white.png');
+  --logo-w: 17%;
+  --logo-max-w: 222px;
+  --logo-h: auto;
+  --logo-ratio: 222 / 36;
+  --gnb-dep1-padding: 70px;
+  --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+  --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+  --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+  --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff;
+  --bg-arch:   url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff;
+}
+
+@media (max-width: 1240px) {
+   #siteA { 
+   --logo-w: auto;      
+   --logo-h: 32px;
+   }
+}
+
+@media (max-width: 768px) {
+   #siteA #ft-logo { 
+      --logo-w: 50%;      
+      --logo-h: 32px;
+   }
+}
