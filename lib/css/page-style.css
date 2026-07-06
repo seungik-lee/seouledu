@@ -3,6 +3,7 @@
 .body.work { position:relative; /*background:url('../img/bg.png') center top -71px / 100% auto no-repeat;*/ }
 @media (max-width: 768px) {
    .body.work { /*background:url('../img/bg.png') center top 134px / 100% auto no-repeat;*/ }
+   .test {}
 }
 
 /* site A */
