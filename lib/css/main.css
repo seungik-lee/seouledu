@@ -1,8 +1,14 @@
+/* =========================================================
+ 1. more 버튼
+========================================================= */
 .more.text { display: inline-flex; padding: 12px 20px; justify-content: center; align-items: center; gap: 10px; border-radius: 100px; border: 1px solid #CCC; background: #FFF; backdrop-filter: blur(10px); color: #333; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.45px; } 
 .more.text:after { content:""; display:block; width:4px; height:auto; aspect-ratio: 1/1; background:#333; border-radius:10px; } 
 .more.plus { display:inline-flex; width:32px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-plus.svg') center / 100% auto no-repeat; text-indent:-9999px; overflow:hidden; } 
 .more.plus.black { background-image:url('../img/common/ico-plus-black.svg') } 
 
+/* =========================================================
+ 2. 레이어 팝업
+========================================================= */
 #layer-popup { display:none; max-width:320px; position:absolute; top:150px; left:10px; z-index: 99; border-radius: 20px; border: 1px solid #E5E5E5; background: #FFF; box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.16); overflow:hidden; padding:24px; }
 #layer-popup.active { display:block; }
 #layer-popup .swiper-slide .title { color: #222; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-bottom:16px; }
@@ -198,7 +204,9 @@
 .slider-wrap.text-image .slider-control .btn.prev { background-image: url('../img/common/ico-arrow-left.svg'); } 
 .slider-wrap.text-image .slider-control .btn.next { background-image: url('../img/common/ico-arrow-right.svg'); } 
 
-/* 주요일정 슬라이더 */
+/* =========================================================
+ 10. 주요일정 슬라이더
+========================================================= */
 .slider-wrap.schedule { position:relative; padding:60px 0; }
 .slider-wrap.schedule .title { margin-bottom:40px; }
 .slider-wrap.schedule .month-title { color: #111; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: -0.64px; margin-bottom:24px; }
@@ -236,7 +244,7 @@
 .slider-wrap.schedule .slider-control .btn.next:hover, .slider-wrap.schedule .slider-control .btn.next:active, .slider-wrap.schedule .slider-control .btn.next:focus { background-image:url('../img/common/ico-arrow-right.svg'); } 
 
 /* =========================================================
- 10. 퀵버튼 / 최신글(타일·게시판) / 테이블스와이퍼 / 스케줄 / 지도
+ 11. 퀵버튼 / 최신글(타일·게시판) / 테이블스와이퍼 / 스케줄 / 지도
 ========================================================= */
 
 /* --- 퀵버튼 --- */
@@ -328,7 +336,7 @@
 .map-table .table-wrap table th, .map-table .table-wrap table td { padding:12px 5px; }
 
 /* =========================================================
- 11. 지도 핀 색상 유틸리티 (c01~c19)
+ 12. 지도 핀 색상 유틸리티 (c01~c19)
 ========================================================= */
 .c01.on, .c01:hover { color:#3A8DDE !important; } 
 .c02.on, .c02:hover { color:#3730FF !important; } 
@@ -391,7 +399,7 @@
 .c19.on p, .c19:hover p { border-color:#AEE9FF !important; } 
 
 /* =========================================================
- 12. Type A
+ 13. Type A
 ========================================================= */
 [data-type="typeA"].slider-wrap.main { margin-top:94px; } 
 [data-type="typeA"] .swiper-slide > img { border-radius:40px; overflow:hidden; aspect-ratio: 91/51; } 
@@ -407,7 +415,7 @@
 .quick-btn-wrap.typeA a p { flex-shrink:0; color: #111; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; margin-right:10%; } 
 
 /* =========================================================
- 13. Type B
+ 14. Type B
 ========================================================= */
 [data-type="typeB"].slider-wrap.main { margin-top:100px; } 
 [data-type="typeB"] .swiper-slide > img { border-radius:40px; overflow:hidden; aspect-ratio: 157/88; } 
@@ -431,7 +439,7 @@
 .quick-btn-wrap.typeB p { color: #FFF; font-size: 20px; font-weight: 600; line-height: 1.4; letter-spacing: -0.5px; } 
 
 /* =========================================================
- 14. Type C
+ 15. Type C
 ========================================================= */
 [data-type="typeC"].slider-wrap.main .swiper-slide { height:100vh; min-height:700px; max-height:1100px; } 
 [data-type="typeC"].slider-wrap.main .swiper-slide > img { width:100%; height:100%; object-fit: cover; object-position: center; } 
@@ -449,7 +457,7 @@
 [data-type="typeC"].schedule-wrap .title.vertical * { color:#fff; } 
 
 /* =========================================================
- 15. 안내 센터
+ 16. 안내 센터
 ========================================================= */
 .info-wrap { padding:120px 0; }
 .info-wrap .title.vertical { margin-bottom:64px; }
@@ -569,7 +577,7 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  .slider-wrap.text-image .mo-fl { display:flex; flex-direction: column-reverse; margin-top:40px; align-items: flex-end; gap:20px; } 
  .slider-wrap.text-image .slider-control { position:unset; padding:0; } 
 
- /* 주요일정 슬라이더*/
+ /* 주요일정 슬라이더 */
  .slider-wrap.schedule { padding:30px 0; }
  .slider-wrap.schedule .title { margin-bottom:20px; }
  .slider-wrap.schedule .month-title { font-size: 24px; }
@@ -651,7 +659,7 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  [data-type="typeC"] .slide-content .more { font-size:16px; padding:10px 18px; } 
  [data-type="typeC"] .slider-control { width: 63%; left: unset; transform: none; bottom: min(59vw, 255px); } 
  
- /*  안내 센터 */
+ /* 안내 센터 */
  .info-wrap { padding:15vw 0; }
  .info-wrap .title.vertical { margin-bottom:32px; }
  .info-wrap .item { grid-template-columns: repeat(1, 1fr); }

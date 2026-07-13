@@ -5,7 +5,11 @@
    .body.work { /*background:url('../img/bg.png') center top 134px / 100% auto no-repeat;*/ }
 }
 
-/* site A */
+/* =========================================================
+ 1. 사이트별 변수 선언
+========================================================= */
+
+/* --- site A --- */
 #siteA {
   --logo: url('../img/siteA/logo.png');
   --logo-white: url('../img/siteA/logo-white.png');

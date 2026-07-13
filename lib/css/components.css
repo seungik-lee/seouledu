@@ -1,4 +1,6 @@
-@charset "UTF-8"; /* =========================================================
+@charset "UTF-8";
+
+/* =========================================================
  1. 공통 유틸리티
 ========================================================= */
 .mo-only { display:none !important; } 
@@ -6,6 +8,17 @@
 
 .inner { width:100%; max-width:calc(1440px + var(--content-padding-x) * 2); padding:0 var(--content-padding-x); margin:0 auto; transition: all 0.3s ease; } 
 .inner.wide { width:100%; max-width:calc(1792px + var(--content-padding-x-wide) * 2); padding:0 var(--content-padding-x-wide); margin:0 auto; } 
+
+/* --- 셀렉트 박스 --- */
+.select-box-wrap { position:relative; } 
+.select-box-wrap > p { display:flex; justify-content:space-between; align-items:center; font-weight:500; padding:14px 24px; border-radius:24px; background:#F5F5F5; transition: all 0.2s linear; color: #666; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; cursor:pointer; } 
+.select-box-wrap > p.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; } 
+.select-box-wrap > p:after { content:""; display:block; width:24px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-arrow-down-black.svg') center / 100% auto no-repeat; } 
+.select-box-wrap > p.open:after { transform:rotate(180deg); } 
+.select-box-wrap .select-box-list-wr { display:none; position:absolute; top:52px; left:0; width:100%; max-height:120px; background:#F5F5F5; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; padding-bottom: 10px; overflow:hidden; } 
+.select-box-wrap .select-box-list-wr ul { max-height:120px; overflow-y:auto; } 
+.select-box-wrap .select-box-list-wr ul li p { display:block; font-size:inherit; padding:7px 24px; color: #666; cursor:pointer; } 
+.select-box-wrap .select-box-list-wr ul li:hover p { color:#000; }
 
 /* =========================================================
  2. 레이아웃 (header / footer)
@@ -113,22 +126,8 @@ footer .familysite .site-list-wr { display:none; position:absolute; top:48px; le
 footer .familysite .site-list-wr ul { max-height:120px; overflow-y:auto; } 
 footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; padding:5px 18px; } 
 
-#wrap { display:flex; align-items: flex-start; margin-top:100px; padding:40px 0 100px; }
-#lnb { display:flex; flex-direction:column; gap:32px; width:clamp(338px, 24vw, 448px); padding:0 64px 0 var(--content-padding-x-wide); }
-#lnb p { color: #111; font-size: 28px; font-weight: 700; line-height: 1.45; letter-spacing: -0.56px; padding:12px 8px; }
-#lnb li a { display:block; color: #555; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; padding:20px 8px; white-space: nowrap; }
-#lnb li.on a { color: #1D1D1D; border-radius: 4px; background: #F5F5F5; }
-
-#contents { display:flex; flex-direction: column; width:calc(100% - clamp(338px, 24vw, 448px)); padding-right:240px; }
-#contents .cont-top { display:flex; align-items: flex-end; justify-content: space-between; width:100%; }
-#contents .cont-top .page-title { color: #111; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; }
-#contents .cont-top .location { display:flex; align-items: center; gap:12px; }
-#contents .cont-top .location a { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
-#contents .cont-top .location a.cur { color: #3A8DDE; font-weight: 700; }
-#contents .cont-top .location span { width: 3px; height: auto; aspect-ratio: 1/1; background:#999; border-radius:10px; }
-
 /* =========================================================
- 16. 플로팅
+ 3. 플로팅
 ========================================================= */
 .floating { position:fixed; right:var(--content-padding-x-wide); bottom:var(--content-padding-x-wide); display:flex; flex-direction: column; justify-content: center; align-items: center; gap:16px; background:var(--color-theme); padding:24px; border-radius:1000px; z-index:99; }
 .floating a { display:flex; flex-direction: column; justify-content: center; align-items: center; gap:7px; max-width:30px; }
@@ -136,10 +135,31 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .floating a p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; white-space: nowrap; }
 
 /* =========================================================
+ 4. 서브페이지 레이아웃
+========================================================= */
+#wrap { display:flex; align-items: flex-start; margin-top:100px; padding:40px 0 100px; }
+#lnb { display:flex; flex-direction:column; gap:32px; width:clamp(338px, 24vw, 448px); padding:0 64px 0 var(--content-padding-x-wide); }
+#lnb p { color: #111; font-size: 28px; font-weight: 700; line-height: 1.45; letter-spacing: -0.56px; padding:12px 8px; }
+#lnb li a { display:block; color: #555; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; padding:20px 8px; white-space: nowrap; }
+#lnb li.on a { color: #1D1D1D; border-radius: 4px; background: #F5F5F5; }
+
+#contents { display:flex; flex-direction: column; width:calc(100% - clamp(338px, 24vw, 448px)); padding-right:240px; }
+#contents .cont-top { display:flex; align-items: flex-end; justify-content: space-between; width:100%; padding-bottom:24px; border-bottom: 1px solid #E5E5E5; }
+#contents .cont-top.no-border { border:0; }
+#contents .cont-top .page-title { color: #111; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; }
+#contents .cont-top .location { display:flex; align-items: center; gap:12px; }
+#contents .cont-top .location a { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+#contents .cont-top .location a.cur { color: #3A8DDE; font-weight: 700; }
+#contents .cont-top .location span { width: 3px; height: auto; aspect-ratio: 1/1; background:#999; border-radius:10px; }
+
+/* --- 게시판 --- */
+
+/* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
  각 미디어쿼리 내부도 본문과 동일한 카테고리 순서로 정렬
 ========================================================= */
-@media (max-width: 1240px) { /* 레이아웃 */
+@media (max-width: 1240px) {
+  /* 레이아웃 */
  body.menu-open { overflow:hidden; } 
  body.menu-open header #gnb { opacity: 1; visibility: visible; } 
 
