@@ -545,12 +545,17 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 grid-template-columns: repeat(4, 1fr); gap:12px; }
 .info-wrap .item dl { display:flex; align-items:center; border-radius: 8px;
  background: #F5F5F5; padding:20px; gap:12px; line-height: 1.4; letter-spacing: -0.45px; color: #111;  }
- .info-wrap .item dt { display:flex; gap:8px; font-size: 18px; font-weight: 700; width:96px; }
- .info-wrap .item dd { font-size: 18px; font-weight: 400; }
- .info-wrap .item.full { display:block; margin-top:64px; }
- .info-wrap .item.full dt { width:140px; }
- .info-wrap .item.full dd { display:flex; align-items:center; gap:12px; }
- .info-wrap .item.full dd .dot { width:6px; height:6px; background:#666; border-radius:10px; }
+.info-wrap .item dt { display:flex; gap:8px; font-size: 18px; font-weight: 700; width:96px; }
+.info-wrap .item dd { font-size: 18px; font-weight: 400; }
+.info-wrap .item.full { display:block; margin-top:64px; }
+.info-wrap .item.full dt { width:140px; }
+.info-wrap .item.full dd { display:flex; align-items:center; gap:12px; }
+.info-wrap .item.full dd .dot { width:6px; height:6px; background:#666; border-radius:10px; }
+
+.floating { position:fixed; right:var(--content-padding-x-wide); bottom:var(--content-padding-x-wide); display:flex; flex-direction: column; justify-content: center; align-items: center; gap:16px; background:var(--color-theme); padding:24px; border-radius:1000px; z-index:99; }
+.floating a { display:flex; flex-direction: column; justify-content: center; align-items: center; gap:7px; max-width:30px; }
+.floating a svg { max-width:28px; height:auto; }
+.floating a p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; white-space: nowrap; }
 
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
@@ -798,4 +803,9 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  .info-wrap .item.full dt { width:auto; font-size:18px; text-align: center; margin-bottom:10px; }
  .info-wrap .item.full dd { flex-direction: column; gap:5px; }
  .info-wrap .item.full dd .dot { width:4px; height:4px; }
+
+ .floating { padding:15px; }
+ .floating a { gap:5px; max-width:25px; }
+ .floating a svg { max-width:28px; height:auto; }
+ .floating a p { font-size: 12px; }
  }
