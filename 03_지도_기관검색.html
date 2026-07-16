@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="./lib/css/base.css" />
   <link rel="stylesheet" href="./lib/css/swiperjs/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./lib/css/components.css" />
-  <link rel="stylesheet" href="./lib/css/template-module.css" />
   <link rel="stylesheet" href="./lib/css/page-style.css" />
 
   <!-- JS -->
@@ -34,15 +33,6 @@
 
   <title>청소년국 프로젝트</title>
 </head>
-
-<!--
-=========================================================
-   body에 data-theme에 따라 포인트 컬러 변경
-   theme01 = 파란색 / theme02 = 노란색 / theme03 = 오렌지
-   theme04 = 초록색 / theme05 = 빨간색
-   id="siteA"는 사이트별 커스텀을 위한 구분값
-=========================================================
--->
 
 <body data-theme="theme05" id="siteA">
   <header class="typeB">
@@ -136,28 +126,120 @@
 
   <div id="wrap">
     <div id="lnb">
-      <p>사업소개</p>
+      <p>커뮤니티</p>
       <ul>
-        <li class="on"><a href="">서울가톨릭청소년연극제</a></li>
-        <li><a href="">평화마켓</a></li>
-        <li><a href="">산티아고 성지순례</a></li>
-        <li><a href="">SPACE 갤러리</a></li>
-        <li><a href="">JU 콘서트</a></li>
+        <li class="on"><a href="">본당 자료 나눔</a></li>
+        <li><a href="">지구교사연합회</a></li>
+        <li><a href="">교구교사연합회</a></li>
       </ul>
     </div>
     <div id="contents">
       <div class="cont-top">
-        <div class="page-title">서울가톨릭청소년연극제</div>
+        <div class="page-title">본당 자료 나눔</div>
         <div class="location">
           <a href="">홈</a>
           <span></span>
-          <a href="">사업소개</a>
+          <a href="">커뮤니티</a>
           <span></span>
-          <a href="" class="cur">서울가톨릭청소년연극제</a>
+          <a href="" class="cur">본당 자료 나눔</a>
         </div>
       </div>
       <div class="cont-wrap">
+        <div class="search-wrap">
+          <div class="select-box-wrap">
+            <p>선택</p>
+            <div class="select-box-list-wr">
+              <ul>
+                <li>
+                  <p>전체</p>
+                </li>
+                <li>
+                  <p>유치원</p>
+                </li>
+                <li>
+                  <p>어린이집</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="search-input-wrap">
+            <div class="select-box-wrap">
+              <p>소속</p>
+              <div class="select-box-list-wr">
+                <ul>
+                  <li>
+                    <p>전체</p>
+                  </li>
+                  <li>
+                    <p>서울교구</p>
+                  </li>
+                  <li>
+                    <p>수도회</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-wrap">
+              <input type="text" placeholder="검색어를 입력해 주세요">
+              <button type="button">검색</button>
+            </div>
+          </div>
+        </div>
 
+        <div class="tab-wrap map-list-tab">
+          <button class="tab-btn active" data-tab="map">지도보기</button>
+          <button class="tab-btn" data-tab="list">목록보기</button>
+          <span class="tab-indicator"></span>
+        </div>
+        <div class="tab-cont map-tab on">
+          <script src="./lib/js/kakao-maps.js"></script>
+          <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
+          <script>
+            kakao.maps.load(function () {
+              initKakaoMap();
+            });
+          </script>
+          <div class="map-search-wrap">
+            <div class="map-wrap">
+              <div id="map"></div>
+            </div>
+            <div class="map-list-panel">
+              <ul class="map-list-ul">
+                <li class="map-list-item" data-name="가명유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,서울교구" data-lat="37.5585" data-lng="126.9673">
+                  <strong class="name">가명유치원</strong>
+                  <p class="address">서울 중구 청파로 447-1 (중림동)</p>
+                  <p class="tel">02-362-7593</p>
+                  <div class="tags">
+                    <span>유치원</span>
+                    <span>서울교구</span>
+                  </div>
+                </li>
+                <li class="map-list-item" data-name="개봉샛별유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,서울교구" data-lat="37.5595" data-lng="126.9683">
+                  <strong class="name">개봉샛별유치원</strong>
+                  <p class="address">서울 중구 청파로 447-1 (중림동)</p>
+                  <p class="tel">02-362-7593</p>
+                  <div class="tags">
+                    <span>유치원</span>
+                    <span>서울교구</span>
+                  </div>
+                </li>
+                <li class="map-list-item" data-name="계성유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,수도회" data-lat="37.5575" data-lng="126.9663">
+                  <strong class="name">계성유치원</strong>
+                  <p class="address">서울 중구 청파로 447-1 (중림동)</p>
+                  <p class="tel">02-362-7593</p>
+                  <div class="tags">
+                    <span>유치원</span>
+                    <span>수도회</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class="tab-cont list-tab">
+          <!-- 목록 영역 -->
+        </div>
       </div>
     </div>
   </div>

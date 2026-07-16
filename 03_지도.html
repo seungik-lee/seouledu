@@ -144,132 +144,53 @@
                <a href="" class="cur">본당 자료 나눔</a>
             </div>
          </div>
-         <div class="cont-wrap">
-            <div class="board-wrap thumbnail-type">
-               <div class="view-wrap">
-                  <div class="slider-wrap">
-                     <div class="swiper slide">
-                        <div class="swiper-wrapper">
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=1">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=2">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=3">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=4">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=5">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=6">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=7">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=8">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=9">
-                              </div>
-                           </div>
-                        </div>
-                        <div class="slider-control">
-                           <button class="btn prev">prev</button>
-                           <button class="btn next">next</button>
-                        </div>
+         <div class="cont-wrap">            
+            <script src="./lib/js/kakao-maps.js"></script>
+            <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
+            <script>
+               kakao.maps.load(function () {
+               initKakaoMap();
+               });
+            </script>
+            <div class="map-wrap">
+               <div id="map" data-address="서울 중구 명동길 74-3"></div>
+            </div>
+            <div class="title-dot">장애인신앙교육부 사무실</div>
+            <div class="dl-wrap">
+               <dl>
+                  <div class="row">
+                     <dt>주소</dt>
+                     <dd>서울 중구 명동길 74-3 교구청별관 4층 장애인신앙교육부</dd>
+                  </div>
+                  <div class="row double">
+                     <div class="col">
+                        <dt>전화</dt>
+                        <dd>02-727-2107</dd>
                      </div>
-                     <div class="swiper thumb">
-                        <div class="swiper-wrapper">
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=1">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=2">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=3">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=4">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=5">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=6">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=7">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=8">
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="img">
-                                 <img src="https://picsum.photos/1920/1080?random=9">
-                              </div>
-                           </div>
-                        </div>
+                     <div class="col">
+                        <dt>팩스</dt>
+                        <dd>02-727-2097</dd>
                      </div>
                   </div>
-
-                  <div class="btn-wrap">
-                     <a href="" class="list">목록</a>
+                  <div class="row">
+                     <dt>이메일</dt>
+                     <dd>cafema@cafema.or.kr</dd>
                   </div>
-                  <div class="post-nav">
-                     <div class="post-nav-item prev">
-                        <span class="label">이전글</span>
-                        <div class="subject">
-                           <a href="">타이틀이 들어갈 영역</a>
-                        </div>
+                  <div class="row double">
+                     <div class="col">
+                        <dt>근무시간</dt>
+                        <dd>매주 월~금 09:00~18:00</dd>
                      </div>
-                     <div class="post-nav-item next">
-                        <span class="label">다음글</span>
-                        <div class="subject">
-                           <a href="">타이틀이 들어갈 영역</a>
-                        </div>
+                     <div class="col">
+                        <dt>점심시간</dt>
+                        <dd>점심 12:00~13:00</dd>
                      </div>
                   </div>
-               </div>
+                  <div class="row">
+                     <dt>휴무</dt>
+                     <dd>매주 토, 일 및 공휴일 휴무 (휴무일은 교육일정에 따라 변경될 수 있으니 자세한 사항은 홈페이지를 확인하세요.)</dd>
+                  </div>
+               </dl>
             </div>
          </div>
       </div>
@@ -312,7 +233,7 @@
             </div>
          </div>
       </div>
-      
+
       <div class="floating">
          <div class="defalut">
             <img src="./lib/img/common/ico-floating-default.svg">
