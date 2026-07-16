@@ -39,16 +39,7 @@
 /* =========================================================
  3. 탭 / 로그인 / 테이블 공통
 ========================================================= */
-.tab-wrap { display:flex; justify-content: space-between; } 
-.tab-wrap.center { justify-content: center; } 
-.tab-wrap ul { display:flex; justify-content:flex-start; align-items:stretch; gap:12px; } 
-.tab-wrap.center ul { justify-content: center; } 
-.tab-wrap li { font-size: 18px; font-style: normal; font-weight: 700; line-height: 1.4; letter-spacing: -0.45px; cursor:pointer; background:#fff; border-radius:100px; color:#111; padding: 17px 28px; transition: all 0.2s ease; white-space: nowrap; box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.04); } 
-.tab-wrap li.on, .tab-btn-wrap li:hover, .tab-btn-wrap li:active { background-color:var(--color-theme); color:#fff; } 
-.tab-wrap li > * { font-size:inherit; color:inherit; font-weight:inherit; white-space: inherit; } 
-
-.tab-cont { display:none; } 
-.tab-cont.on { display:block; } 
+.tab-wrap li { color:#111; padding: 17px 28px; } 
 
 .login-wrap .inner > .flex { padding:11px clamp(15px, 5vw, 96px); border-radius:12px; gap:var(--clamp-size-24); background:#F5F8FB; } 
 .login-wrap .inner > .flex > .flex { width:100%; gap:8px; } 
@@ -504,9 +495,6 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
 @media (max-width: 768px) {
  /* 탭 / 로그인 / 테이블스와이퍼 */
  .tab-btn-wrap li { font-size:clamp(14px, calc(3.75vw), 16px); padding:min(3.4vw, 15px) min(5.4vw, 24px); } 
- .tab-wrap { overflow-x:auto; } 
- .tab-wrap ul { display:flex; justify-content: flex-start; align-items: stretch; gap:12px; } 
- .tab-wrap li, .tab-wrap li.on { white-space: nowrap; font-size: 17px; padding: 14px var(--clamp-size-24); } 
 
  .login-wrap .inner > .flex, .login-wrap .inner > .flex > .flex { flex-direction: column; } 
  .login-wrap .inner > .flex { padding:24px clamp(15px, 5vw, 96px); } 
