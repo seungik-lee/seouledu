@@ -21,11 +21,19 @@
 select-box-wrap .select-box-list-wr ul li:hover p { color:#000; }
 
 /* --- 인풋 영역 ---*/
-.input-wrap { display:flex; justify-content: space-between; align-items: center; height:54px; padding:14px 24px; border-radius:24px; background:#F5F5F5; }
-.input-wrap input { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; width:100%; }
-.input-wrap input::placeholder { color: #666; }
-.input-wrap button { width:24px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-search.svg') center / contain no-repeat; text-indent:-9999px; overflow:hidden; flex-shrink: 0; }
+.input-wrap { display:flex; justify-content: space-between; align-items: center;  }
+.input-wrap.col { flex-direction: column; align-items: flex-start; }
+.input-wrap + .input-wrap { margin-top:24px; }
+.input-wrap .label { display:flex; color: #313030; font-size: 18px; font-weight: 600; line-height: 1.45; letter-spacing: -0.36px; gap:3px; margin-bottom:8px; }
+.input-wrap .label .required { display:block; text-indent:-999px; overflow:hidden; width: 6px; height: 6px; aspect-ratio: 1/1; background:#FF2929; border-radius:20px; margin-top: 4px; }
+.input-wrap input { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; width:100%; border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; padding: 12px; height:48px; }
+.input-wrap input::placeholder { color: #BCBABA; }
+.input-info-wrap { margin:32px 0; }
+.input-info-wrap p { color: #666; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; text-indent:-14px; padding-left:14px; } 
+.input-info-wrap p + p { margin-top:12px; }
+.input-btn { width:100%; color: #FFF; font-size: 18px; font-weight: 600; line-height: 1.45; letter-spacing: -0.36px;  padding: 16px 24px; border-radius: 8px; background: var(--color-theme); }
 
+/* --- 테이블 영역 ---*/
 .tab-wrap { display:flex; justify-content: space-between; } 
 .tab-wrap.center { justify-content: center; } 
 .tab-wrap ul { display:flex; justify-content:flex-start; align-items:stretch; gap:12px; } 
@@ -50,7 +58,7 @@ select-box-wrap .select-box-list-wr ul li:hover p { color:#000; }
 header { position:fixed; top:0; left:0; width:100%; z-index:999; display:flex; justify-content: space-between; } 
 header:hover, header.scroll { background:#fff; } 
 header.scroll { border-bottom: 1px solid rgba(255, 255, 255, 0.20); } 
-header .inner { display:flex; justify-content: space-between; align-items: center; } 
+header .inner { display:flex; justify-content: space-between; align-items: center; height:var(--headerH); } 
 header #logo { background: var(--logo) center / 100% auto no-repeat; width: var(--logo-w); max-width: var(--logo-max-w); height: var(--logo-h); aspect-ratio: var(--logo-ratio); flex-shrink: 0; } 
 header.typeC #logo { background-image: var(--logo-white); } 
 .menu-open header.typeC #logo, header.typeC:hover #logo, header.typeC.scroll #logo { background-image: var(--logo); } 
@@ -186,6 +194,11 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 5. 게시판 레이아웃
 ========================================================= */
 .search-wrap, .search-input-wrap { display:flex; justify-content: space-between; gap:12px; }
+.search-input-wrap .input-wrap { height:54px; padding:14px 24px; border-radius:24px; background:#F5F5F5; }
+.search-input-wrap .input-wrap input { color: #111; font-size: 18px; line-height: 1.45; letter-spacing: -0.36px; border:0; background:transparent; height:auto; padding:0; }
+.search-input-wrap .input-wrap input::placeholder { color: #666; }
+.search-input-wrap .input-wrap button { width:24px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-search.svg') center / contain no-repeat; text-indent:-9999px; overflow:hidden; flex-shrink: 0; }
+
 .board-wrap .search-wrap { padding-top:24px; }
 
 .board-wrap .view-wrap .btn-wrap { display:flex; justify-content: flex-end; align-items: stretch; gap:8px; margin:40px 0; }
@@ -339,6 +352,19 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .tbl-wrap.overflow { overflow-x:auto; }
 .tbl-wrap.overflow table { min-width:500px; white-space: nowrap; }
 
+
+/* =========================================================
+7. 로그인, 회원가입, 마이페이지
+========================================================= */
+.mypage header { border-bottom: 1px solid #E5E5E5; }
+.mypage #wrap { background:var(--bg-board); }
+.mypage #wrap .inner { position:relative; }
+.mypage #wrap .inner:before { content:""; display:block; position:absolute; width:450px; height:auto; aspect-ratio: 1/1; border-radius:1000px; opacity: 0.4; background: linear-gradient(285deg, rgba(245, 245, 245, 0.00) 4.61%, #F5F5F5 74.01%); left:20%; top:0; }
+.mypage #wrap .inner .top { text-align:center; margin:64px 0; color: #111; line-height: 1.45; position: relative; z-index: 1; }
+.mypage #wrap .inner .top .tit { font-size: 40px; font-weight: 700; letter-spacing: -0.8px; }
+.mypage #wrap .inner .top .des { font-size: 24px; font-weight: 400;  letter-spacing: -0.48px; }
+.mypage #wrap .inner .cont { max-width:500px; margin:0 auto;  position: relative; z-index: 1; }
+
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
  각 미디어쿼리 내부도 본문과 동일한 카테고리 순서로 정렬
@@ -396,7 +422,12 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .tab-wrap ul { display:flex; justify-content: flex-start; align-items: stretch; gap:12px; } 
  .tab-wrap li, .tab-wrap li.on { white-space: nowrap; font-size: 17px; padding: 14px var(--clamp-size-24); } 
  
- .input-wrap input { font-size:16px; }
+ .input-wrap .label { font-size: 16px; }
+ .input-wrap .label .required { margin-top: 4px; }
+ .input-wrap input { font-size: 14px; height:46px; }
+ .input-wrap input::placeholder { color: #BCBABA; }
+ .input-info-wrap p { font-size: 14px; text-indent:-12px; padding-left:12px; } 
+ .input-btn { font-size: 16px; padding: 12px;}
 
  /* 레이아웃 (header / footer) */
  header .util { display:none; } 
@@ -429,7 +460,8 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .title-dot { font-size:26px; margin-bottom:12px; }
  .title-dot:before { width:3px; }
 
- .search-wrap, .search-input-wrap { flex-direction: column; }
+ .search-wrap, .search-input-wrap { flex-direction: column; } 
+ .search-input-wrap .input-wrap input { font-size:16px; }
  .select-box-wrap > p { width:100%; }
 
  .board-wrap .search-wrap { padding-top:0; }
@@ -488,4 +520,9 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .map-list-ul { display:flex; justify-content: flex-start; align-items:stretch; overflow-x:auto; gap:12px; padding:0; padding-bottom:10px; } 
  .map-list-item { width:300px; flex-shrink: 0; }
  .map-list-item + .map-list-item { margin:0; }
+
+ .mypage .inner .top { margin: 40px 0; }
+ .mypage .inner .top .tit { font-size: 24px; }
+ .mypage .inner .top .des { font-size: 16px; }
+
  }

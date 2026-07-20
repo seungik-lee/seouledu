@@ -49,7 +49,8 @@
 .login-wrap .input-wrap:before { content:""; display:block; width:28px; height:auto; aspect-ratio: 1/1; background:center / 100% auto no-repeat; } 
 .login-wrap .input-wrap.id:before { background-image:url('../img/common/ico-login-id.svg'); } 
 .login-wrap .input-wrap.pw:before { background-image:url('../img/common/ico-login-pw.svg'); } 
-.login-wrap .input-wrap input { width:100%; } 
+.login-wrap .input-wrap input { width:100%; border:0; padding:0; height:auto; font-size:inherit; } 
+.login-wrap .input-wrap + .input-wrap { margin:0; }
 .login-wrap .login-btn { color: #FFF; text-align: center; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.36px; background-color:var(--color-theme); border-radius:12px; width:100%; max-width:104px; } 
 .login-wrap .link { gap:8px; flex-shrink: 0; } 
 .login-wrap .link a { color: #555; font-size: 14px; font-weight: 400; } 
