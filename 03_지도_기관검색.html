@@ -192,6 +192,7 @@
           <span class="tab-indicator"></span>
         </div>
         <div class="tab-cont map-tab on">
+          <!--자바스크립트 키 변경필요-->
           <script src="./lib/js/kakao-maps.js"></script>
           <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
           <script>
@@ -205,7 +206,7 @@
             </div>
             <div class="map-list-panel">
               <ul class="map-list-ul">
-                <li class="map-list-item" data-name="가명유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,서울교구" data-lat="37.5585" data-lng="126.9673">
+                <li class="map-list-item" data-name="가명유치원" data-address="서울 중구 청파로 447-1 (중림동)">
                   <strong class="name">가명유치원</strong>
                   <p class="address">서울 중구 청파로 447-1 (중림동)</p>
                   <p class="tel">02-362-7593</p>
@@ -214,18 +215,18 @@
                     <span>서울교구</span>
                   </div>
                 </li>
-                <li class="map-list-item" data-name="개봉샛별유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,서울교구" data-lat="37.5595" data-lng="126.9683">
+                <li class="map-list-item" data-name="개봉샛별유치원" data-address="서울 중구 명동길 74-3">
                   <strong class="name">개봉샛별유치원</strong>
-                  <p class="address">서울 중구 청파로 447-1 (중림동)</p>
+                  <p class="address">서울 중구 명동길 74-3</p>
                   <p class="tel">02-362-7593</p>
                   <div class="tags">
                     <span>유치원</span>
                     <span>서울교구</span>
                   </div>
                 </li>
-                <li class="map-list-item" data-name="계성유치원" data-address="서울 중구 청파로 447-1 (중림동)" data-tel="02-362-7593" data-tags="유치원,수도회" data-lat="37.5575" data-lng="126.9663">
+                <li class="map-list-item" data-name="계성유치원" data-address="서울 금천구 가산디지털1로 171">
                   <strong class="name">계성유치원</strong>
-                  <p class="address">서울 중구 청파로 447-1 (중림동)</p>
+                  <p class="address">서울 금천구 가산디지털1로 171</p>
                   <p class="tel">02-362-7593</p>
                   <div class="tags">
                     <span>유치원</span>
@@ -235,10 +236,125 @@
               </ul>
             </div>
 
+            <div class="mo-only">
+              <div class="paging">
+                <a href="" class="first">처음으로</a>
+                <a href="" class="prev">이전</a>
+                <div class="number">
+                  <a href="">1</a>
+                  <a href="">2</a>
+                  <a href="">3</a>
+                  <a href="" class="current">4</a>
+                </div>
+                <a href="" class="next">다음</a>
+                <a href="" class="last">마지막으로</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="tab-cont list-tab">
           <!-- 목록 영역 -->
+          <p class="search-total">총 <strong>NNM</strong> 개의 기관이 검색되었습니다.</p>
+          <div class="tbl-wrap overflow">
+            <table>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>소속</th>
+                  <th>원명</th>
+                  <th>주소</th>
+                  <th>전화번호</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>유치원</td>
+                  <td>서울교구</td>
+                  <td>가명유치원</td>
+                  <td>서울 중구 청파로 447-1 (중림동)</td>
+                  <td>02-362-7593</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>부산교구</td>
+                  <td>바다유치원</td>
+                  <td>부산 해운대구 해운대로 123 (우동)</td>
+                  <td>051-123-4567</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>대구교구</td>
+                  <td>별빛유치원</td>
+                  <td>대구 중구 국채보상로 89 (동인동)</td>
+                  <td>053-987-6543</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>인천교구</td>
+                  <td>하늘유치원</td>
+                  <td>인천 남동구 인주대로 456 (간석동)</td>
+                  <td>032-876-5432</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>서울교구</td>
+                  <td>가명유치원</td>
+                  <td>서울 중구 청파로 447-1 (중림동)</td>
+                  <td>02-362-7593</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>부산교구</td>
+                  <td>바다유치원</td>
+                  <td>부산 해운대구 해운대로 123 (우동)</td>
+                  <td>051-123-4567</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>대구교구</td>
+                  <td>별빛유치원</td>
+                  <td>대구 중구 국채보상로 89 (동인동)</td>
+                  <td>053-987-6543</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>인천교구</td>
+                  <td>하늘유치원</td>
+                  <td>인천 남동구 인주대로 456 (간석동)</td>
+                  <td>032-876-5432</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>서울교구</td>
+                  <td>가명유치원</td>
+                  <td>서울 중구 청파로 447-1 (중림동)</td>
+                  <td>02-362-7593</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>부산교구</td>
+                  <td>바다유치원</td>
+                  <td>부산 해운대구 해운대로 123 (우동)</td>
+                  <td>051-123-4567</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>대구교구</td>
+                  <td>별빛유치원</td>
+                  <td>대구 중구 국채보상로 89 (동인동)</td>
+                  <td>053-987-6543</td>
+                </tr>
+                <tr>
+                  <td>유치원</td>
+                  <td>인천교구</td>
+                  <td>하늘유치원</td>
+                  <td>인천 남동구 인주대로 456 (간석동)</td>
+                  <td>032-876-5432</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tbl-info">* 서울가톨릭사회복지회에서 운영하는 구립 어린이집은 서울가톨릭사회복지회의 홈페이지를 확인하시기 바랍니다.</p>
         </div>
       </div>
     </div>
