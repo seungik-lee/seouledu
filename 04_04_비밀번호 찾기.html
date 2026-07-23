@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="./lib/css/import.css" />
+   <link rel="stylesheet" href="./lib/css/base.css" />
+   <link rel="stylesheet" href="./lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="./lib/css/components.css" />
+   <link rel="stylesheet" href="./lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="./lib/js/jquery-4.0.0.min.js"></script>
+   <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="./lib/js/common.js" defer></script>
+
+   <title>청소년국 프로젝트</title>
+</head>
+
+<body data-theme="theme03" id="siteA" class="mypage">
+   <header class="typeB">
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div class="inner flex flex-col justify-center">
+         <div class="top mb-24">
+            <h2 class="tit">비밀번호 찾기</h2>
+            <p class="des">비밀번호를 재설정하기 위해 이메일 인증을 진행해 주세요.</p>
+         </div>
+         <div class="cont">
+            <div class="input-wrap">
+               <input type="text" placeholder="아이디를 입력하세요">
+            </div>
+            <button type="button" class="input-btn br mt-48" data-popup="popup01">이메일 인증</button>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">서울 종로구 대학로 156 가톨릭청소년회관 청소년국 중고등부</p>
+            <ul class="contact">
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+            </ul>
+            <div class="sns-link">
+               <a class="blog"></a>
+               <a class="youtube"></a>
+               <a class="facebook"></a>
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">Copyrightsⓒ 2022 foryouth. All Rights Reserved.</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li><a>사이트 1</a></li>
+                  <li><a>사이트 2</a></li>
+                  <li><a>사이트 3</a></li>
+                  <li><a>사이트 4</a></li>
+                  <li><a>사이트 5</a></li>
+                  <li><a>사이트 6</a></li>
+                  <li><a>사이트 7</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="./lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-02.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>교재구입<br>링크</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>공모전<br>전시관</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   <div class="layer-popup-wrap">      
+      <div class="layer-popup" data-popup="popup01">
+         <div class="head">
+            <p class="tit">이메일 인증</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <div class="input-wrap col">
+               <p class="label">이메일</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="example@email.com">
+                  <button class="btn">인증번호 발송</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="alert">올바른 이메일 주소를 입력해 주세요.</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">인증번호</p>
+               <div class="input-btn-wrap">
+                  <div class="timer-wrap">
+                     <input type="text" placeholder="인증번호 6자리 입력">
+                     <p class="timer">3:00</p>
+                  </div>
+                  <button class="btn">재발송</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="none">입력하신 번호로 인증번호가 발송되었습니다.</p>
+               </div>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">취소</button>
+               <button>인증하기</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</body>
+
+</html>
