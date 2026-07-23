@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="./lib/css/import.css" />
+   <link rel="stylesheet" href="./lib/css/base.css" />
+   <link rel="stylesheet" href="./lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="./lib/css/components.css" />
+   <link rel="stylesheet" href="./lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="./lib/js/jquery-4.0.0.min.js"></script>
+   <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="./lib/js/common.js" defer></script>
+
+   <title>청소년국 프로젝트</title>
+</head>
+
+<body data-theme="theme03" id="siteA" class="mypage">
+   <header class="typeB">
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div class="inner">
+         <div class="top">
+            <h2 class="tit">청소년국 통합 회원가입</h2>
+            <p class="des">통합 아이디로 청소년국 부서의 <br class="mo-only">홈페이지를 편리하게 이용해보세요.</p>
+         </div>
+         <div class="cont">
+            <div class="input-wrap col">
+               <p class="label">아이디</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="아이디를 입력하세요">
+                  <button class="btn">중복확인</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="confirm">사용가능한 아이디입니다.</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">비밀번호</p>
+               <input type="text" placeholder="비밀번호">
+               <div class="input-wrap-info-wrap">
+                  <p class="none">※ 영문+숫자+특수문자를 조합하여 8~16자까지 입력 가능합니다.</p>
+                  <p class="none">※ 비밀번호는 ID를 포함할 수 없습니다.</p>
+                  <p class="none">※ 동일한 문자 및 숫자를 3자 이상 연속 입력할 수 없습니다.</p>
+                  <p class="none">※ 사용가능 특수문자: !"#$%&'()*+,-./:;<=>?@[]^_{|}~`</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">회원 이름</p>
+               <input type="text" placeholder="회원 이름" value="홍길동" readonly>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">생년월일/성별</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="생년월일 6자리를 입력해 주세요" value="2002.02.02" readonly>
+                  <div class="select-box-wrap">
+                     <input type="hidden" value="">
+                     <p>성별 선택</p>
+                     <div class="select-box-list-wr">
+                        <ul>
+                           <li>
+                              <p>남자</p>
+                           </li>
+                           <li>
+                              <p>여자</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">휴대폰 번호</p>
+               <input type="text" placeholder="휴대폰번호를 입력해 주세요" value="010-1234-5678" readonly>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">이메일</p>
+               <div class="input-btn-wrap">
+                  <div class="timer-wrap">
+                     <input type="text" placeholder="example@email.com">
+                     <p class="timer">3:00</p>
+                  </div>
+                  <button class="btn nb">인증메일 발송</button>
+               </div>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="000000" maxlength="6" class="wa">
+                  <button class="btn">인증하기</button>
+                  <button class="btn nb">재발송</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="confirm">인증완료 <span>메일을 받지 못하셨나요? 스팸함을 확인하거나 재발송해 주세요.</span></p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">약관</p>
+               <div class="agree-wrap">
+                  <div class="chk">
+                     <input type="checkbox" id="chk-all">
+                     <label for="chk-all">전체 약관 동의</label>
+                  </div>
+                  <div class="accordion-wrap">
+                     <div class="accordion-head">
+                        <div class="chk">
+                           <input type="checkbox" id="chk-01">
+                           <label for="chk-01">[필수] 이용 약관 동의</label>
+                        </div>
+                        <button class="open-btn">보기</button>
+                     </div>
+                     <div class="accordion-bottom">
+                        이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.
+                     </div>
+                  </div>
+                  <div class="accordion-wrap">
+                     <div class="accordion-head">
+                        <div class="chk">
+                           <input type="checkbox" id="chk-02">
+                           <label for="chk-02">[필수] 개인정보 수집 및 이용 동의</label>
+                        </div>
+                        <button class="open-btn">보기</button>
+                     </div>
+                     <div class="accordion-bottom">
+                        이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.이용약관동의 내용이 들어가는 영역 입니다.
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <button type="submit" class="input-btn">통합회원가입</button>
+            <div class="input-info-wrap">
+               <p class="bl">※ 가입 완료 후 각 부서 홈페이지에 <strong>처음 로그인</strong>하시면 부서별 추가 정보 입력 페이지로 이동합니다.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">서울 종로구 대학로 156 가톨릭청소년회관 청소년국 중고등부</p>
+            <ul class="contact">
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+            </ul>
+            <div class="sns-link">
+               <a class="blog"></a>
+               <a class="youtube"></a>
+               <a class="facebook"></a>
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">Copyrightsⓒ 2022 foryouth. All Rights Reserved.</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li><a>사이트 1</a></li>
+                  <li><a>사이트 2</a></li>
+                  <li><a>사이트 3</a></li>
+                  <li><a>사이트 4</a></li>
+                  <li><a>사이트 5</a></li>
+                  <li><a>사이트 6</a></li>
+                  <li><a>사이트 7</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="./lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-02.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>교재구입<br>링크</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>공모전<br>전시관</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+</body>
+
+</html>
