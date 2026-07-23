@@ -14,7 +14,7 @@
 .chk input[type="checkbox"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 .chk label { font-size: 14px; font-weight: 400; width: auto; padding-left: 28px; color: #313030; cursor:pointer; }
 .chk input[type="checkbox"] + label:before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1px solid #999; border-radius: 3px; background:#fff; }
-.chk input[type="checkbox"]:checked + label:after { content: ""; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 14px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 3px; background: url('../img/common/ico-chk.svg') center 62% / 62% auto no-repeat var(--color-theme); border: 1px solid var(--color-theme); }
+.chk input[type="checkbox"]:checked + label:after { content: ""; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 14px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 3px; background: url('../img/common/ico-chk.svg') center 60% / 62% auto no-repeat var(--color-theme); border: 1px solid var(--color-theme); }
 
 /* --- 셀렉트 박스 --- */
 .select-box-wrap { position:relative; } 
@@ -71,7 +71,7 @@ select-box-wrap .select-box-list-wr ul li:hover p { color:#000; }
 .input-info-wrap p + p { margin-top:12px; }
 .input-btn { width:100%; color: #FFF; font-size: 18px; font-weight: 600; line-height: 1.45; letter-spacing: -0.36px;  padding: 16px 24px; border-radius: 8px; background: var(--color-theme); }
 .input-btn:hover, .input-btn:active { background:var(--color-theme-hover); }
-.input-btn.br { border-radius:1000px; }
+.input-btn.br { border-radius:1000px; display:inline-block; width:auto !important; margin:0 auto; }
 .input-wrap .select-box-wrap > p { border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; color: #111; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.24px; padding:12px; width:120px; height:48px; }
 .input-wrap .select-box-wrap .select-box-list-wr { top:46px; border: 1px solid #CECCCC; background: #FFF; border-top:0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding-bottom:5px; }
 .input-wrap .select-box-wrap .select-box-list-wr ul li p { padding: 5px 12px; }
@@ -425,15 +425,46 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .mypage #wrap .inner .top { text-align:center; margin:64px 0; color: #111; line-height: 1.45; position: relative; z-index: 1; }
 .mypage #wrap .inner .top .cate { display:inline-block; border-radius: 24px; border: 1px solid #E5E5E5; background: #FFF; padding: 12px 16px; color: #111; font-size: 14px; font-weight: 600; line-height: 1.57; letter-spacing: -0.14px; margin-bottom:12px; }
 .mypage #wrap .inner .top .tit { font-size: 40px; font-weight: 700; letter-spacing: -0.8px; }
-.mypage #wrap .inner .top .des { font-size: 24px; font-weight: 400;  letter-spacing: -0.48px; }
+.mypage #wrap .inner .top .des { font-size: 24px; font-weight: 400;  letter-spacing: -0.48px; margin-top:20px; }
+.mypage #wrap .inner .top .des strong { color:var(--color-theme); }
 .mypage #wrap .inner .top .sub-des { display:flex; justify-content: center; align-items:flex-start; text-align:center; gap:3px; margin-top:8px; }
-.mypage #wrap .inner .cont { max-width:500px; margin:0 auto;  position: relative; z-index: 1; }
+.mypage #wrap .inner .cont { max-width:500px; margin:0 auto;  position: relative; z-index: 1; width:100%; display:flex; flex-direction: column; align-items: center; }
+.mypage #wrap .inner .cont > * { width:100%; }
 
 .mypage .agree-wrap { display: flex; padding: 40px 20px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; align-self: stretch; border-radius: 8px; background: #F5F5F5; margin-bottom:24px; }
 .mypage .agree-wrap .chk label { color: #313030; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
 .mypage .agree-wrap .accordion-head { display:flex; justify-content: space-between; }
 .mypage .agree-wrap .accordion-head .open-btn { color: var(--color-theme); font-size: 12px; font-weight: 700; line-height: 1.4; letter-spacing: -0.24px; text-decoration-line: underline; text-decoration-style: solid; text-decoration-skip-ink: auto; text-decoration-thickness: auto; text-underline-offset: auto; text-underline-position: from-font; }
 .mypage .agree-wrap .accordion-bottom { color: #555; font-size: 14px;  font-weight: 400; line-height: 1.45; letter-spacing: -0.28px; padding-top:4px; }
+
+.mypage .box-wrap { max-width:660px; padding: 80px; border-radius: 20px; border: 1px solid #E5E5E5; background: rgba(255, 255, 255, 0.40); backdrop-filter: blur(10px); margin:0 auto; }
+
+.mypage #wrap.login .inner .top { margin:0; margin-bottom:40px; }
+.mypage #wrap.login .inner .input-wrap { position:relative; }
+.mypage #wrap.login .inner .input-wrap:before { content:""; position:absolute; top:50%; transform:translateY(-50%); left:14px; display:block; width:24px; height:auto; aspect-ratio: 1/1; background:center / 100% auto no-repeat; }
+.mypage #wrap.login .inner .input-wrap.id:before { background-image: url(../img/common/ico-login-id.svg); }
+.mypage #wrap.login .inner .input-wrap.pw:before { background-image: url(../img/common/ico-login-pw.svg); }
+.mypage #wrap.login .inner .input-wrap input { padding-left:42px; }
+.mypage #wrap.login .inner .input-wrap + .input-wrap { margin-top:12px; }
+.mypage #wrap.login .inner .chk { margin-top:20px; }
+.mypage #wrap.login .inner .chk label { color: #666; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.mypage #wrap.login .inner .input-btn { margin-top:32px; }
+.mypage #wrap.login .inner .link { display:flex; justify-content: space-between; align-items: center; margin-top:12px; }
+.mypage #wrap.login .inner .link .lost { display:flex; justify-content: center; align-items: center; gap:8px; }
+.mypage #wrap.login .inner .link .lost a { color: #666; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.mypage #wrap.login .inner .link .lost span { width: 1px; height: 12px; background:#999;}
+.mypage #wrap.login .inner .link .register { color: var(--color-theme-hover); font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; }
+
+.popup-cont .id-info { display:flex; flex-direction: column; align-items: flex-start; gap:16px; border-bottom: 1px dashed #CECCCC; margin:16px 0; }
+.popup-cont .id-info .cate { color: #FFF; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: -0.14px; border-radius: 200px; background: var(--color-theme); padding: 8px 12px; }
+.popup-cont .id-info .text { width:100%; display:flex; justify-content: flex-start; align-items: center; border-radius: 8px; background:var(--color-theme-opacity); padding: 12px 16px; gap:8px; }
+.popup-cont .id-info .text:before { content:""; display:block; width:20px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-info-i.svg') center / auto no-repeat var(--color-theme);  flex-shrink: 0; border-radius:100px; }
+.popup-cont .id-info .text p { color: #222; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.popup-cont .id-info .text p strong { font-weight:700; }
+.popup-cont .id-info .id-wr { display:flex; justify-content: flex-start; align-items: center; color: #333; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.popup-cont .id-info .id-wr * { font-size:inherit; font-weight:inherit; color:inherit; padding: 12px 8px; }
+.popup-cont .id-info .id-wr .label { width:140px; flex-shrink: 0; }
+.popup-cont .id-info .id-wr .id { font-weight:600; color:var(--color-theme); }
 
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
@@ -613,12 +644,14 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .mypage #wrap .inner .top { margin:30px 0; }
  .mypage #wrap .inner .top .cate { padding:6px 12px; }
  .mypage #wrap .inner .top .tit { font-size: 28px; }
- .mypage #wrap .inner .top .des { font-size: 18px; }
+ .mypage #wrap .inner .top .des { font-size: 18px; margin-top:10px; }
  .mypage #wrap .inner .top .sub-des { margin-top:4px; }
  
  .mypage #wrap:before { display:none; }
  .mypage #wrap { background:none; min-height:calc(100vh - 70px); }
  .mypage .agree-wrap { padding:24px 12px; gap:12px; }
  .mypage .agree-wrap .chk label { font-size:14px; }
+
+ .mypage #wrap.login .inner .top { margin:30px 0; }
 
  }
