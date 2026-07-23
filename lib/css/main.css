@@ -28,11 +28,6 @@
 #layer-popup .slider-control .btn.next { transform:rotate(180deg); } 
 #layer-popup .slider-control .btn:hover, #layer-popup .slider-control .btn:active, #layer-popup .slider-control .btn:focus { background-color:#000; border-color:#000; background-image:url('../img/common/ico-arrow-left.svg'); } 
 #layer-popup .bottom { display:flex; justify-content: space-between; align-items:center; }
-#layer-popup .bottom .chk { position:relative; }
-#layer-popup .bottom .chk input[type="checkbox"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-#layer-popup .bottom .chk label { font-size: 14px; font-weight: 400; width: auto; padding-left: 28px; color: #313030; cursor:pointer; }
-#layer-popup .bottom .chk input[type="checkbox"] + label:before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1px solid #999; border-radius: 3px; }
-#layer-popup .bottom .chk input[type="checkbox"]:checked + label:after { content: "✔"; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 14px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 3px; background: var(--color-theme); border: 1px solid var(--color-theme); }
 #layer-popup .bottom .close { display: flex; padding: 8px 32px; justify-content: center; align-items: center; gap: 10px; color: #111; font-size: 16px;  font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; border-radius: 60px; background: #F5F5F5; }
 #layer-popup .bottom .close:hover { background: #e9e9e9; }
 
