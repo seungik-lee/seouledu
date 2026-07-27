@@ -616,6 +616,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 
  .layer-popup .head .tit { font-size:22px;}
  .layer-popup .btn-wrap > * { font-size:14px; min-width:120px; padding:12px 20px; }
+ .layer-popup .popup-cont .list-bx > * { font-size:14px; }
 
  /* --- 레이아웃 (header / footer) --- */
  header .util { display:none; } 
@@ -645,7 +646,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  #contents .cont-top .page-title { font-size:32px; }
  #contents .cont-top .location { gap:8px; }
 
- .title-dot { font-size:26px; margin-bottom:12px; }
+ .title-dot { font-size:24px; margin-bottom:8px; gap:4px; }
  .title-dot:before { width:3px; }
 
  .search-wrap, .search-input-wrap { flex-direction: column; } 
