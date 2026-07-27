@@ -94,6 +94,8 @@ section + section { margin-top:64px; }
 .input-wrap textarea { font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; resize:none; width:100%; padding:12px; height:120px; }
 .input-wrap textarea::placeholder { color:#BCBABA; }
 
+.radio-input-wrap { display:flex; }
+
 /* --- 데이트 픽커 --- */
 .datepicker-wrap { position: relative; }
 .datepicker-btn { position:absolute; top: 50%; transform: translateY(-50%); right: 12px; width: 24px; height: auto; aspect-ratio: 1/1; background: url('../img/common/ico-calendar02.svg') center / 100% auto no-repeat; }
@@ -445,7 +447,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .dl-wrap dl .double { display:flex; justify-content: flex-start; align-items: center; }
 .dl-wrap dl .double .col { width:50%; }
 .dl-wrap dt { color: #000; text-align: center; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; background: #F5F5F5; width: max(100px, 11.5vw); padding: 16px 0; flex-shrink: 0; display:flex; justify-content: center; align-items: center; }
-.dl-wrap dd { width:100%; color: #000; font-size: 16px;  font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; padding:16px 24px; gap:12px; display:flex; align-items: center; min-width:0; }
+.dl-wrap dd { width:100%; color: #000; font-size: 16px;  font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; padding:16px 24px; gap:12px; display:flex; align-items: center; min-width:0; flex-wrap: wrap; }
 .dl-wrap dd.pd { padding:12px 24px; }
 .dl-wrap dd.col { flex-direction: column; gap:12px; }
 .dl-wrap dd .input-wrap { width:100%; }
@@ -455,6 +457,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .dl-wrap dd .input-wrap .select-box-wrap .select-label { padding:4px 12px; height:33px; }
 .dl-wrap dd .input-wrap .select-box-wrap .select-box-list-wr { top:32px; }
 .dl-wrap dd .desc { color: #666; font-size: 14px; font-weight: 400; line-height: 1.4; letter-spacing: -0.28px; }
+.dl-wrap dd .desc.ti { text-indent:-12px; padding-left:12px; }
 .dl-wrap dd .radio-wrap span { font-size:16px; }
 .dl-wrap dd .radio-wrap, .dl-wrap dd .btn-de { flex-shrink: 0; }
 .dl-wrap dd .flex { gap:8px; }
@@ -523,7 +526,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .popup-cont .id-info .id-wr .label { width:140px; flex-shrink: 0; }
 .popup-cont .id-info .id-wr .id { font-weight:600; color:var(--color-theme); }
 
-.addr-postcode-wrap { display: none; width: 100%; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; margin: 8px 0; }
+.addr-postcode-wrap { display: none; width: 100%; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; }
 .addr-postcode-layer { width: 100%; height: 400px; }
 
 /* =========================================================
@@ -572,15 +575,19 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .inner.wide { padding:0 var(--content-padding-x); } 
  .more.plus { width:27px; } 
 
+ section + section { margin-top:32px; }
+
  .chk label { padding-left:24px; }
  .chk input[type="checkbox"] + label:before, .chk input[type="checkbox"]:checked + label:after { width:16px; height:16px; background-position: center; background-size:60% auto; }
 
  .radio-wrap span { font-size:15px; padding-left:20px;}
+ .radio-chk-group .radio-row, .radio-chk-group .chk-group { flex-direction: column; align-items: flex-start; gap:6px; }
+ .radio-chk-group .radio-row { gap:6px; }
 
-
-  .select-box-wrap { width: 100%; }
-  .select-box-wrap .select-label { width: 100% !important; }
-  .select-box-wrap .select-box-list-wr { width: 100%; }
+ .select-box-wrap { width: 100%; }
+ .select-box-wrap .select-label { width: 100% !important; }
+ .select-box-wrap .select-label p { font-size:14px; }
+ .select-box-wrap .select-box-list-wr { width: 100%; }
   
  .tab-wrap { overflow-x:auto; } 
  .tab-wrap ul { display:flex; justify-content: flex-start; align-items: stretch; gap:12px; } 
@@ -591,18 +598,21 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .input-wrap input { font-size: 14px; height:46px; }
  .input-wrap input::placeholder { color: #BCBABA; }
  .input-info-wrap { margin:16px 0; }
+ .input-wrap input.sm { width:100%; }
  .input-info-wrap p { font-size: 14px; text-indent:-12px; padding-left:12px; } 
- .input-info-wrap p + p { margin-top:6px; }
+ .input-info-wrap p + p { margin-top:6px; } 
+ .input-wrap .input-btn-wrap.co { flex-direction: column; }
  .input-btn { font-size: 16px; padding: 12px;}
  .input-wrap-info-wrap p { font-size: 14px; gap:2px; flex-wrap:wrap; } 
  .input-wrap-info-wrap p:before { width:15px; }  
- .input-wrap .select-box-wrap .select-label { height:46px; font-size:14px; }
+ .input-wrap .select-box-wrap .select-label { height:46px; }
  .input-wrap .select-box-wrap .select-box-list-wr { top:44px; }
  .input-wrap .select-box-wrap .select-box-list-wr ul li p { font-size:14px; }
  .input-wrap .input-btn-wrap .btn { font-size:14px; }
  .input-btn.br { padding:12px 24px; }
  .input-wrap-info-wrap { margin-top:6px; }
  .input-wrap textarea { font-size:14px; height:100px; }
+ .radio-input-wrap { flex-direction: column; gap:4px; }
 
  .layer-popup .head .tit { font-size:22px;}
  .layer-popup .btn-wrap > * { font-size:14px; min-width:120px; padding:12px 20px; }
@@ -641,6 +651,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .search-wrap, .search-input-wrap { flex-direction: column; } 
  .search-input-wrap .input-wrap input { font-size:16px; }
  .select-box-wrap > p { width:100%; }
+ .search-wrap .select-box-wrap .select-label p { font-size:16px; }
 
  .board-wrap .search-wrap { padding-top:0; }
  .board-wrap .select-box-wrap { display:none; }  
@@ -691,6 +702,8 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .dl-wrap dt, .dl-wrap dd { font-size:14px; }
  .dl-wrap dt { padding:8px 0; }
  .dl-wrap dd, .dl-wrap dd.pd { padding:8px 12px; }
+ .dl-wrap dd .radio-wrap span { font-size:14px; }
+ .dl-wrap dd.m-co { flex-direction: column; align-items: flex-start; }
 
  .map-search-wrap { flex-direction: column; height:auto; }
  .map-search-wrap .map-wrap { aspect-ratio: 1/1; border-radius:12px; }
@@ -703,13 +716,13 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .mypage #wrap .inner .top .cate { padding:6px 12px; }
  .mypage #wrap .inner .top .tit { font-size: 28px; }
  .mypage #wrap .inner .top .des { font-size: 18px; margin-top:10px; }
- .mypage #wrap .inner .top .sub-des { margin-top:4px; }
- 
+ .mypage #wrap .inner .top .sub-des { margin-top:4px; } 
  .mypage #wrap:before { display:none; }
  .mypage #wrap { background:none; min-height:calc(100vh - 70px); }
  .mypage .agree-wrap { padding:24px 12px; gap:12px; }
  .mypage .agree-wrap .chk label { font-size:14px; }
-
  .mypage #wrap.login .inner .top { margin:30px 0; }
+
+ .addr-postcode-wrap { position: absolute; top:45px; right:12px; z-index: 1; min-width:300px; }
 
  }

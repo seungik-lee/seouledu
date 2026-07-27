@@ -358,14 +358,14 @@
                                  </div>
                               </div>
                            </div>
-                           <p class="desc">※ 학부모는 자녀의 소속(서울지구-단위대)으로 선택해주세요!</p>
-                           <p class="desc">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
+                           <p class="desc ti">※ 학부모는 자녀의 소속(서울지구-단위대)으로 선택해주세요!</p>
+                           <p class="desc ti">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
                         </dd>
                      </div>
                      <div class="row">
                         <dt>본당</dt>
                         <dd class="pd col">
-                           <div class="flex">
+                           <div class="radio-input-wrap">
                               <label class="radio-wrap" style="min-width:125px;">
                                  <input type="radio" name="diocese-type" value="서울대교구" data-radio-pair="diocese01">
                                  <span>서울대교구</span>
@@ -377,13 +377,13 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="flex">
+                           <div class="radio-input-wrap">
                               <label class="radio-wrap" style="min-width:125px;">
                                  <input type="radio" name="diocese-type" value="타교구" data-radio-pair="diocese02">
                                  <span>타교구</span>
                               </label>
                               <div class="input-wrap">
-                                 <div class="input-btn-wrap">
+                                 <div class="input-btn-wrap co">
                                     <input type="text" name="diocese02" placeholder="" disabled>
                                     <p class="desc">(타교구, 교구청 및 기타부서는 직접입력 해주세요!)</p>
                                  </div>
@@ -500,7 +500,7 @@
                      <div class="row">
                         <dt>알림 서비스</dt>
                         <dd class="pd col">
-                           <p class="desc">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
+                           <p class="desc ti">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
                            <div class="input-wrap">
                               <textarea placeholder="작성작성작성작성"></textarea>
                            </div>
@@ -670,7 +670,7 @@
                      </div>
                      <div class="row">
                         <dt>부가정보</dt>
-                        <dd class="pd">
+                        <dd class="pd m-co">
                            <label class="radio-wrap">
                               <input type="radio" name="extra-info" value="재학">
                               <span>재학</span>
@@ -698,7 +698,7 @@
                            <div class="flex" style="align-items:center; gap:8px;">
                               <label class="radio-wrap">
                                  <input type="radio" name="extra-info" value="대학생" data-radio-pair="university">
-                                 <span>대학생</span>
+                                 <span>대학생 : </span>
                               </label>
                               <div class="input-wrap">
                                  <input type="text" name="university" class="wa" placeholder="" style="width:120px;" disabled>
