@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="./lib/css/import.css" />
+   <link rel="stylesheet" href="./lib/css/base.css" />
+   <link rel="stylesheet" href="./lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="./lib/css/components.css" />
+   <link rel="stylesheet" href="./lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="./lib/js/jquery-4.0.0.min.js"></script>
+   <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="./lib/js/common.js" defer></script>
+
+   <!-- 카카오톡 주소 -->
+   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+   <title>청소년국 프로젝트</title>
+</head>
+
+<body data-theme="theme05" id="siteA">
+   <header class="typeB">
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+         <nav id="gnb">
+            <ul>
+               <li class="dep1">
+                  <a href=""><span>초등부</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>소개</span></a>
+                        <ul>
+                           <li class="dep3"><a href=""><span>신부님 말씀</span></a></li>
+                           <li class="dep3"><a href=""><span>수녀님 말씀</span></a></li>
+                        </ul>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>주요업무</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>연혁</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>조직도</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>올해의 주제</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>일정</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>교육</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>연합회 현황</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>자료실</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2"><a href=""><span>월례교육(2026년)</span></a></li>
+                     <li class="dep2"><a href=""><span>과거 월례교육 교안(PDF)</span></a></li>
+                     <li class="dep2"><a href=""><span>월례교육(2025년 이전)</span></a></li>
+                     <li class="dep2"><a href=""><span>교육자료요청</span></a></li>
+                     <li class="dep2"><a href=""><span>기업정첫 영성체 자료보</span></a></li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>새소식</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2"><a href=""><span>공지사항</span></a></li>
+                     <li class="dep2"><a href=""><span>교육&연수 갤러리</span></a></li>
+                     <li class="dep2"><a href=""><span>공문보기</span></a></li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>커뮤니티</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2"><a href=""><span>본당 자료 나눔</span></a></li>
+                     <li class="dep2"><a href=""><span>지구교사연합회</span></a></li>
+                     <li class="dep2"><a href=""><span>교구교사연합회</span></a></li>
+                     <li class="dep2"><a href=""><span>기업정보</span></a></li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>작은마음</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2"><a href=""><span>어린이 주보</span></a></li>
+                  </ul>
+               </li>
+            </ul>
+            <div class="gnb_bg"></div>
+         </nav>
+         <div class="util">
+            <a href="" class="register bg-grey-scale-01">회원가입</a>
+            <a href="" class="login">로그인</a>
+         </div>
+         <button type="button" class="menu"></button>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div id="lnb">
+         <p>마이페이지</p>
+         <ul>
+            <li class="on"><a href="">회원정보수정</a></li>
+            <li><a href="">회원정보수정</a></li>
+            <li><a href="">회원정보수정</a></li>
+         </ul>
+      </div>
+      <div id="contents">
+         <div class="cont-top">
+            <div class="page-title">회원정보수정</div>
+            <div class="location">
+               <a href="">홈</a>
+               <span></span>
+               <a href="">마이페이지</a>
+               <span></span>
+               <a href="" class="cur">회원정보수정</a>
+            </div>
+         </div>
+         <div class="cont-wrap">
+            <section>
+               <div class="title-dot">기본정보</div>
+               <div class="dl-wrap">
+                  <dl>
+                     <div class="row">
+                        <dt>통합아이디</dt>
+                        <dd>dbwls</dd>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>이름</dt>
+                           <dd>홍길동</dd>
+                        </div>
+                        <div class="col">
+                           <dt>생년월일/성별</dt>
+                           <dd>1997-02-10 / 여</dd>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <dt>휴대폰번호</dt>
+                        <dd>
+                           010-1234-5678
+                           <button type="button" class="btn-de" data-popup="popup01">변경하기</button>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>이메일</dt>
+                        <dd class="pd">
+                           <div class="input-wrap">
+                              <input type="text" placeholder="" value="abc@gmail.com">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>비밀번호</dt>
+                        <dd>
+                           <button type="button" class="btn-de" data-popup="popup02">변경하기</button>
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
+            </section>
+            <section>
+               <div class="title-dot">추가정보</div>
+               <div class="dl-wrap">
+                  <dl>
+                     <div class="row">
+                        <dt>세례명</dt>
+                        <dd class="pd">
+                           <div class="input-wrap">
+                              <input type="text" placeholder="" value="미카엘라">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>세례명</dt>
+                        <dd class="pd col">
+                           <div class="input-wrap">
+                              <div class="select-box-wrap">
+                                 <input type="hidden" value="">
+                                 <div class="select-label">
+                                    <p>단위대 선택</p>
+                                 </div>
+                                 <div class="select-box-list-wr">
+                                    <ul>
+                                       <li>
+                                          <p>가온(직할)</p>
+                                       </li>
+                                       <li>
+                                          <p>개봉동성당</p>
+                                       </li>
+                                       <li>
+                                          <p>길동성당 기리울</p>
+                                       </li>
+                                       <li>
+                                          <p>노원성당</p>
+                                       </li>
+                                       <li>
+                                          <p>대치동성당</p>
+                                       </li>
+                                       <li>
+                                          <p>동정성모지역(직할)</p>
+                                       </li>
+                                       <li>
+                                          <p>무악동선교본당 무지개지역</p>
+                                       </li>
+                                       <li>
+                                          <p>목3동성당 삼위일체</p>
+                                       </li>
+                                       <li>
+                                          <p>반포4동성당</p>
+                                       </li>
+                                       <li>
+                                          <p>반포성당</p>
+                                       </li>
+                                       <li>
+                                          <p>번동성당</p>
+                                       </li>
+                                       <li>
+                                          <p>신내동성당 대건</p>
+                                       </li>
+                                       <li>
+                                          <p>자양2동성당 폴라리스</p>
+                                       </li>
+                                       <li>
+                                          <p>삼양동선교본당 푸른솔지역(직할)</p>
+                                       </li>
+                                       <li>
+                                          <p>혜화동성당 베네딕도</p>
+                                       </li>
+                                       <li>
+                                          <p>창4동성당 예수성심</p>
+                                       </li>
+                                       <li>
+                                          <p>키로(직할)</p>
+                                       </li>
+                                       <li>
+                                          <p>칠극지역(서울SOS어린이마을)</p>
+                                       </li>
+                                       <li>
+                                          <p>드림트리빌리지(서울꿈나무마을)</p>
+                                       </li>
+                                       <li>
+                                          <p>기타는 뒤로 돌아가 [일반회원]으로 가입하세요</p>
+                                       </li>
+                                       <li>
+                                          <p>가별대</p>
+                                       </li>
+                                       <li>
+                                          <p>개포동</p>
+                                       </li>
+                                       <li>
+                                          <p>까리따스</p>
+                                       </li>
+                                       <li>
+                                          <p>도림동</p>
+                                       </li>
+                                       <li>
+                                          <p>독산1동</p>
+                                       </li>
+                                       <li>
+                                          <p>둔촌동</p>
+                                       </li>
+                                       <li>
+                                          <p>보라매대</p>
+                                       </li>
+                                       <li>
+                                          <p>상봉동</p>
+                                       </li>
+                                       <li>
+                                          <p>서초비오</p>
+                                       </li>
+                                       <li>
+                                          <p>성현동</p>
+                                       </li>
+                                       <li>
+                                          <p>수유동</p>
+                                       </li>
+                                       <li>
+                                          <p>압구정동</p>
+                                       </li>
+                                       <li>
+                                          <p>신당샛별대</p>
+                                       </li>
+                                       <li>
+                                          <p>우이동</p>
+                                       </li>
+                                       <li>
+                                          <p>은하수대</p>
+                                       </li>
+                                       <li>
+                                          <p>유토피아대</p>
+                                       </li>
+                                       <li>
+                                          <p>장위동</p>
+                                       </li>
+                                       <li>
+                                          <p>정릉4동</p>
+                                       </li>
+                                       <li>
+                                          <p>창5동</p>
+                                       </li>
+                                       <li>
+                                          <p>청담동</p>
+                                       </li>
+                                       <li>
+                                          <p>하계동</p>
+                                       </li>
+                                       <li>
+                                          <p>행당동</p>
+                                       </li>
+                                       <li>
+                                          <p>흑석동</p>
+                                       </li>
+                                       <li>
+                                          <p>희망별자리</p>
+                                       </li>
+                                       <li>
+                                          <p>장한평성당 로사리오성모대</p>
+                                       </li>
+                                       <li>
+                                          <p>메리워드지역대(직할)</p>
+                                       </li>
+                                       <li>
+                                          <p>서울지구연합회 사무국</p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <p class="desc">※ 학부모는 자녀의 소속(서울지구-단위대)으로 선택해주세요!</p>
+                           <p class="desc">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>본당</dt>
+                        <dd class="pd col">
+                           <div class="flex">
+                              <label class="radio-wrap" style="min-width:125px;">
+                                 <input type="radio" name="diocese-type" value="서울대교구" data-radio-pair="diocese01">
+                                 <span>서울대교구</span>
+                              </label>
+                              <div class="input-wrap">
+                                 <div class="input-btn-wrap">
+                                    <input type="text" name="diocese01" placeholder="" disabled>
+                                    <button type="button" class="btn-de color lp-search-btn" data-popup="popup03">본당검색</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="flex">
+                              <label class="radio-wrap" style="min-width:125px;">
+                                 <input type="radio" name="diocese-type" value="타교구" data-radio-pair="diocese02">
+                                 <span>타교구</span>
+                              </label>
+                              <div class="input-wrap">
+                                 <div class="input-btn-wrap">
+                                    <input type="text" name="diocese02" placeholder="" disabled>
+                                    <p class="desc">(타교구, 교구청 및 기타부서는 직접입력 해주세요!)</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>전화번호</dt>
+                        <dd class="pd">
+                           <div class="tel-wrap">
+                              <div class="input-wrap">
+                                 <div class="select-box-wrap">
+                                    <input type="hidden" value="">
+                                    <div class="select-label">
+                                       <p>선택</p>
+                                    </div>
+                                    <div class="select-box-list-wr">
+                                       <ul>
+                                          <li>
+                                             <p>010</p>
+                                          </li>
+                                          <li>
+                                             <p>011</p>
+                                          </li>
+                                          <li>
+                                             <p>016</p>
+                                          </li>
+                                          <li>
+                                             <p>017</p>
+                                          </li>
+                                          <li>
+                                             <p>018</p>
+                                          </li>
+                                          <li>
+                                             <p>019</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>주소</dt>
+                        <dd class="pd col">
+                           <div class="input-wrap">
+                              <div class="input-btn-wrap">
+                                 <input type="text" class="addr-zip sm" placeholder="우편번호" readonly>
+                                 <button type="button" class="btn-de color addr-search-btn" data-popup="">주소검색</button>
+                              </div>
+                           </div>
+                           <div class="addr-postcode-wrap">
+                              <div class="addr-postcode-layer"></div>
+                           </div>
+                           <div class="input-wrap">
+                              <input type="text" class="addr-main" placeholder="기본 주소" readonly>
+                           </div>
+                           <div class="input-wrap">
+                              <input type="text" class="addr-detail" placeholder="상세 주소 입력">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>알림 서비스</dt>
+                        <dd class="pd col">
+                           <div class="radio-chk-group">
+                              <div class="radio-row">
+                                 <label class="radio-wrap" style="min-width:100px;">
+                                    <input type="radio" name="alarm" value="신청">
+                                    <span>신청</span>
+                                 </label>
+                                 <div class="chk-group">
+                                    <div class="chk">
+                                       <input type="checkbox" id="alarm-01" name="alarm-type" value="장애인신앙교육부">
+                                       <label for="alarm-01">장애인신앙교육부</label>
+                                    </div>
+                                    <div class="chk">
+                                       <input type="checkbox" id="alarm-02" name="alarm-type" value="초등부">
+                                       <label for="alarm-02">초등부</label>
+                                    </div>
+                                    <div class="chk">
+                                       <input type="checkbox" id="alarm-03" name="alarm-type" value="중고등부">
+                                       <label for="alarm-03">중고등부</label>
+                                    </div>
+                                    <div class="chk">
+                                       <input type="checkbox" id="alarm-04" name="alarm-type" value="청년부">
+                                       <label for="alarm-04">청년부</label>
+                                    </div>
+                                    <div class="chk">
+                                       <input type="checkbox" id="alarm-05" name="alarm-type" value="선택">
+                                       <label for="alarm-05">선택</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="radio-row">
+                                 <label class="radio-wrap">
+                                    <input type="radio" name="alarm" value="거부">
+                                    <span>거부</span>
+                                 </label>
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>알림 서비스</dt>
+                        <dd class="pd col">
+                           <p class="desc">※ 본당단위대의 경우, 지역명만 명시됨을 양해바랍니다.</p>
+                           <div class="input-wrap">
+                              <textarea placeholder="작성작성작성작성"></textarea>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>축일</dt>
+                        <dd class="pd col">
+                           <div class="tel-wrap">
+                              <div class="input-wrap">
+                                 <div class="select-box-wrap">
+                                    <input type="hidden" value="">
+                                    <div class="select-label">
+                                       <p>선택</p>
+                                    </div>
+                                    <div class="select-box-list-wr">
+                                       <ul>
+                                          <li>
+                                             <p>1</p>
+                                          </li>
+                                          <li>
+                                             <p>2</p>
+                                          </li>
+                                          <li>
+                                             <p>3</p>
+                                          </li>
+                                          <li>
+                                             <p>4</p>
+                                          </li>
+                                          <li>
+                                             <p>5</p>
+                                          </li>
+                                          <li>
+                                             <p>6</p>
+                                          </li>
+                                          <li>
+                                             <p>7</p>
+                                          </li>
+                                          <li>
+                                             <p>8</p>
+                                          </li>
+                                          <li>
+                                             <p>9</p>
+                                          </li>
+                                          <li>
+                                             <p>10</p>
+                                          </li>
+                                          <li>
+                                             <p>11</p>
+                                          </li>
+                                          <li>
+                                             <p>12</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                              <span>월</span>
+                              <div class="input-wrap ml-8">
+                                 <div class="select-box-wrap">
+                                    <input type="hidden" value="">
+                                    <div class="select-label">
+                                       <p>선택</p>
+                                    </div>
+                                    <div class="select-box-list-wr">
+                                       <ul>
+                                          <li>
+                                             <p>1</p>
+                                          </li>
+                                          <li>
+                                             <p>2</p>
+                                          </li>
+                                          <li>
+                                             <p>3</p>
+                                          </li>
+                                          <li>
+                                             <p>4</p>
+                                          </li>
+                                          <li>
+                                             <p>5</p>
+                                          </li>
+                                          <li>
+                                             <p>6</p>
+                                          </li>
+                                          <li>
+                                             <p>7</p>
+                                          </li>
+                                          <li>
+                                             <p>8</p>
+                                          </li>
+                                          <li>
+                                             <p>9</p>
+                                          </li>
+                                          <li>
+                                             <p>10</p>
+                                          </li>
+                                          <li>
+                                             <p>11</p>
+                                          </li>
+                                          <li>
+                                             <p>12</p>
+                                          </li>
+                                          <li>
+                                             <p>13</p>
+                                          </li>
+                                          <li>
+                                             <p>14</p>
+                                          </li>
+                                          <li>
+                                             <p>15</p>
+                                          </li>
+                                          <li>
+                                             <p>16</p>
+                                          </li>
+                                          <li>
+                                             <p>17</p>
+                                          </li>
+                                          <li>
+                                             <p>18</p>
+                                          </li>
+                                          <li>
+                                             <p>19</p>
+                                          </li>
+                                          <li>
+                                             <p>20</p>
+                                          </li>
+                                          <li>
+                                             <p>21</p>
+                                          </li>
+                                          <li>
+                                             <p>22</p>
+                                          </li>
+                                          <li>
+                                             <p>23</p>
+                                          </li>
+                                          <li>
+                                             <p>24</p>
+                                          </li>
+                                          <li>
+                                             <p>25</p>
+                                          </li>
+                                          <li>
+                                             <p>26</p>
+                                          </li>
+                                          <li>
+                                             <p>27</p>
+                                          </li>
+                                          <li>
+                                             <p>28</p>
+                                          </li>
+                                          <li>
+                                             <p>29</p>
+                                          </li>
+                                          <li>
+                                             <p>30</p>
+                                          </li>
+                                          <li>
+                                             <p>31</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                              <span>일</span>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>부가정보</dt>
+                        <dd class="pd">
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="재학">
+                              <span>재학</span>
+                           </label>
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="휴학">
+                              <span>휴학</span>
+                           </label>
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="졸업">
+                              <span>졸업</span>
+                           </label>
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="협조수도자">
+                              <span>협조수도자</span>
+                           </label>
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="집행부">
+                              <span>집행부</span>
+                           </label>
+                           <label class="radio-wrap">
+                              <input type="radio" name="extra-info" value="중앙일꾼">
+                              <span>중앙일꾼</span>
+                           </label>
+                           <div class="flex" style="align-items:center; gap:8px;">
+                              <label class="radio-wrap">
+                                 <input type="radio" name="extra-info" value="대학생" data-radio-pair="university">
+                                 <span>대학생</span>
+                              </label>
+                              <div class="input-wrap">
+                                 <input type="text" name="university" class="wa" placeholder="" style="width:120px;" disabled>
+                                 <span>&nbsp;&nbsp;대학교</span>
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
+               <div class="flex justify-center">
+                  <button type="button" class="input-btn br de mt-64">정보수정하기</button>
+               </div>
+            </section>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">서울 종로구 대학로 156 가톨릭청소년회관 청소년국 중고등부</p>
+            <ul class="contact">
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+               <li>연락처<span class="line"></span>02-1234-5678</li>
+            </ul>
+            <div class="sns-link">
+               <a class="blog"></a>
+               <a class="youtube"></a>
+               <a class="facebook"></a>
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">Copyrightsⓒ 2022 foryouth. All Rights Reserved.</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li><a>사이트 1</a></li>
+                  <li><a>사이트 2</a></li>
+                  <li><a>사이트 3</a></li>
+                  <li><a>사이트 4</a></li>
+                  <li><a>사이트 5</a></li>
+                  <li><a>사이트 6</a></li>
+                  <li><a>사이트 7</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="./lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-02.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>교재구입<br>링크</p>
+            </a>
+            <a href="">
+               <img src="./lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>공모전<br>전시관</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   <div class="layer-popup-wrap">
+      <div class="layer-popup" data-popup="popup01">
+         <div class="head">
+            <p class="tit">휴대폰 번호 변경</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <div class="input-wrap col">
+               <p class="label">새 휴대폰 번호</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="‘-’ 없이 숫자만 입력">
+                  <button class="btn">인증번호 발송</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="alert">올바른 휴대폰 번호를 입력해 주세요.</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">인증번호</p>
+               <div class="input-btn-wrap">
+                  <div class="timer-wrap">
+                     <input type="text" placeholder="인증번호 6자리 입력">
+                     <p class="timer">3:00</p>
+                  </div>
+                  <button class="btn">재발송</button>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="none">입력하신 번호로 인증번호가 발송되었습니다.</p>
+               </div>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">취소</button>
+               <button>변경하기</button>
+            </div>
+         </div>
+      </div>
+
+      <div class="layer-popup" data-popup="popup02">
+         <div class="head">
+            <p class="tit">비밀번호 변경</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <p class="des">기존 비밀번호와 변경할 비밀번호를 입력하세요.</p>
+            <div class="input-wrap col">
+               <p class="label">현재 비밀번호</p>
+               <div class="input-btn-wrap">
+                  <input type="password" placeholder="현재 비밀번호를 입력하세요">
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">새 비밀번호</p>
+               <div class="input-btn-wrap">
+                  <input type="password" placeholder="새 비밀번호를 입력하세요">
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="none">영문+숫자+특수문자를 조합하여 8~16자</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">새 비밀번호 확인</p>
+               <div class="input-btn-wrap">
+                  <input type="password" placeholder="새 비밀번호를 다시 입력하세요">
+               </div>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">취소</button>
+               <button>변경하기</button>
+            </div>
+         </div>
+      </div>
+
+      <div class="layer-popup lp-search" data-popup="popup03">
+         <div class="head">
+            <p class="tit">본당 검색</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <div class="input-wrap col">
+               <p class="label">본당 이름을 입력해 주세요.(예: 명동성당 → 명동)</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="현재 비밀번호를 입력하세요">
+                  <button class="btn">검색</button>
+               </div>
+            </div>
+            <div class="list-bx lp-search-list">
+               <p><strong>명동</strong> (제01중구 - 용산지구)</p>
+               <p><strong>명동(아미쿠스)</strong> (제02중구 - 용산지구)</p>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">닫기</button>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+</body>
+
+</html>
