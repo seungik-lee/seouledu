@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* 기본 스타일 (Reset + Common) */
-* { -webkit-tap-highlight-color: transparent; } 
+* { -webkit-tap-highlight-color: transparent; word-break:keep-all; } 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; } 
 html { font-size: 16px; line-height: 1.15; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; height: 100%;  overflow-x: hidden; }
