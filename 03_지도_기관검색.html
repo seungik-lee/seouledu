@@ -192,12 +192,12 @@
           </div>
         </div>
 
-        <div class="tab-wrap map-list-tab">
-          <button class="tab-btn active" data-tab="map">지도보기</button>
-          <button class="tab-btn" data-tab="list">목록보기</button>
+        <div class="tab-wrap move-list-tab">
+          <button class="tab-btn active" data-tab="tab01">지도보기</button>
+          <button class="tab-btn" data-tab="tab02">목록보기</button>
           <span class="tab-indicator"></span>
         </div>
-        <div class="tab-cont map-tab on">
+        <div class="tab-cont map-tab on" id="tab01">
           <!--자바스크립트 키 변경필요-->
           <script src="./lib/js/kakao-maps.js"></script>
           <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
@@ -258,7 +258,7 @@
             </div>
           </div>
         </div>
-        <div class="tab-cont list-tab">
+        <div class="tab-cont list-tab" id="tab02">
           <!-- 목록 영역 -->
           <p class="search-total">총 <strong>NNM</strong> 개의 기관이 검색되었습니다.</p>
           <div class="tbl-wrap overflow">
