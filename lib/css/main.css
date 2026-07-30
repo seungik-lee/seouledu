@@ -498,20 +498,7 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  .login-wrap .login-btn { margin-top:7px; max-width: 100%; padding:14px; } 
  .login-wrap .link a { font-size:17px; } 
 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx { border-radius: 20px; border: 1px solid #CCC; background: #FFF; padding:24px; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 { letter-spacing: -0.2px; margin-bottom:var(--clamp-size-24); } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li { display:flex; justify-content: flex-start; padding:8px 0; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li p { color: #333; font-size: 15px; font-weight: 500; line-height: 1.4; letter-spacing: -0.14px; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt { display:flex; justify-content:space-between; align-items:center; width: 40%; min-width: 130px; font-weight:600; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt:after { content:""; display:block; width:1px; height:39%; background:#ccc; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dd { padding-left:10px; } 
- .table-swiper-wrap .status { display: flex; padding: 12px 16px; justify-content: center; align-items: center; gap: 6px; align-self: stretch; border-radius: 8px; color: #111; font-size: 15px; font-weight: 600; letter-spacing: -0.14px; margin-top:15px; } 
- .table-swiper-wrap .status.wait { background: #F5F8FB; color:#666; } 
- .table-swiper-wrap .slider-wrap .slider-control { position: unset; display: flex; justify-content: center; align-items: center; margin-top:38px; gap:min(6vw, 25px); } 
- .table-swiper-wrap .slider-wrap .slider-control .btn { width:40px; height:auto; aspect-ratio:1/1; border-radius:100px; border:1px solid #CDD1D5; text-indent:-999px; overflow:hidden; background:url('../img/common/ico-arrow-left-black.svg') center / auto no-repeat #fff; } 
- .table-swiper-wrap .slider-wrap .slider-control .btn.next { background-image:url('../img/common/ico-arrow-right-black.svg'); } 
- .table-swiper-wrap .slider-wrap .slider-control .counter { display:flex; justify-content: center; align-items:center; font-weight:700; color:#111; font-size:17px; gap:5px; } 
- .table-swiper-wrap .slider-wrap .slider-control .counter .cur { color:var(--color-theme); } 
+ .table-swiper-wrap .slider-wrap .slider-control { margin-top:38px; } 
 
  /* 타이틀 공통 */
  .title.vertical p { font-size:clamp(18px, calc(4.7vw), 20px); margin-bottom: clamp(14px, calc(4vw), 18px); } 
