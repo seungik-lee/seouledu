@@ -6,6 +6,7 @@
 /* --- 표시 / 숨김 --- */
 .mo-only, .hidden { display:none !important; } 
 .pc-only { display:block !important; } 
+table .pc-only { display:table-cell !important; }
 
 /* --- 레이아웃 컨테이너 --- */
 .inner { width:100%; max-width:calc(1440px + var(--content-padding-x) * 2); padding:0 var(--content-padding-x); margin:0 auto; transition: all 0.3s ease; } 
@@ -104,6 +105,15 @@ section + section { margin-top:64px; }
 .datepicker-wrap input { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; width: 100%; border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; padding: 12px; height: 48px; }
 .datepicker-btn { position:absolute; top: 50%; transform: translateY(-50%); right: 12px; width: 24px; height: auto; aspect-ratio: 1/1; background: url('../img/common/ico-calendar02.svg') center / 100% auto no-repeat; }
 
+/* --- 버튼 --- */
+.btn { display:flex; align-items: center; color: #FFF; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.36px; border-radius: 12px; padding: 12px 16px; gap:8px; background:#F5F5F5; }
+.btn:hover, .btn:active { background:#e1e1e1; }
+.btn.color { background: var(--color-theme); }
+.btn.color:hover, .btn.color:active { background:var(--color-theme-hover); }
+.btn.after:after { content:""; width:20px; height:auto; aspect-ratio: 1/1; background:center / 100% auto no-repeat; }
+.btn.plus:after { background-image:url('../img/common/ico-plus.svg'); }
+.btn.right { margin-left:auto; }
+
 /* --- 탭 --- */
 .tab-wrap { display:flex; justify-content: space-between; } 
 .tab-wrap.center { justify-content: center; } 
@@ -128,7 +138,8 @@ section + section { margin-top:64px; }
 /* --- 레이어 팝업 --- */
 .layer-popup-wrap { display:none; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.5); z-index: 9999; }
 .layer-popup-wrap.active { display:block; }
-.layer-popup { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index: 10; border-radius: 20px; border: 1px solid #E5E5E5; background: #FFF; box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.16); width:90%; max-width: 600px; padding: 24px; display:none; }
+.layer-popup { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index: 10; border-radius: 20px; border: 1px solid #E5E5E5; background: #FFF; box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.16); width:90%; max-width: 600px; padding: 24px; display:none; max-height:80vh; overflow-y:auto; }
+.layer-popup.mw800 { max-width:800px; }
 .layer-popup.active { display:block; }
 .layer-popup .head { display:flex; justify-content: space-between; align-items: center; margin-bottom:16px; }
 .layer-popup .head .tit { color: #222; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; }
@@ -141,7 +152,8 @@ section + section { margin-top:64px; }
 .layer-popup .popup-cont .lp-search-list { cursor:pointer; }
 .layer-popup .btn-wrap { display:flex; justify-content: flex-end; align-items: stretch; margin-top:32px; gap:8px; }
 .layer-popup .btn-wrap > * { border-radius: 60px; background: #F5F5F5; color: #111;  font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; padding: 12px 32px; min-width:150px; }
-
+.layer-popup .btn-wrap .download { display: flex; padding: 12px 32px; justify-content: center; align-items: center; gap: 8px; border-radius: 8px; border: 1px solid #CECCCC; background: #FFF; color: #111; font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; }
+.layer-popup .btn-wrap .download:after { content:""; display:block; width:18px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-download.svg') center / 100% auto no-repeat; }
 
 /* --- 아코디언 --- */
 .accordion-wrap { width:100%; }
@@ -286,8 +298,10 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 
 .title-dot { display:flex; justify-content: flex-start; align-items: center; gap:8px; color: #1D1D1D; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: -0.64px; margin-bottom:24px; }
 .title-dot:before { content:""; display:block; width:6px; height:auto; aspect-ratio: 1/1; background:#111; border-radius:20px; }
+.title-dot.none:before { display:none; }
 .title-dot a { color: #666; font-size: 16px; font-weight: 700; line-height: 1.55; letter-spacing: -0.32px; margin-left:auto; display:block; }
 .title-dot span { color:#666; font-weight:400; padding-left:8px; }
+.title-dot button {  }
 
 /* =========================================================
  5. 게시판 레이아웃
@@ -489,10 +503,16 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 /* --- 테이블 --- */
 .search-total { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-bottom:24px; }
 .search-total strong { color: var(--color-theme); font-size: 20px; font-weight: 700; letter-spacing: -0.4px; }
+
+.tbl-wrap { width:100%; }
 .tbl-wrap table { width:100%; border-radius: 20px 20px 0 0; overflow:hidden; }
 .tbl-wrap thead th { color: #111; font-size: 16px; font-weight: 600; line-height: 1.40; letter-spacing: -0.16px; padding: 20px 8px; background: #F5F5F5; }
 .tbl-wrap tbody tr { border-bottom: 1px dashed #CCC; }
+.tbl-wrap tbody th { color: #333; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
 .tbl-wrap tbody td { color: #333; text-align: center; font-size: 16px; font-weight: 500; line-height: 1.40; letter-spacing: -0.16px; padding: 20px 8px; }
+.tbl-wrap tbody .bold { font-weight: 600; }
+.tbl-wrap tbody .left { text-align:left; }
+.tbl-wrap tbody .right { text-align:right; }
 .tbl-wrap .btn-wrap { display:flex; align-items: stretch; gap:4px; }
 .tbl-info { color: #000; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; margin-top:16px; text-indent: -12px; padding-left:12px; }
 .tbl-wrap.overflow { overflow-x:auto; }
@@ -630,6 +650,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
   /* --- 공통 유틸리티 --- */
  .mo-only { display:block !important; } 
  .pc-only { display:none !important; } 
+ table .pc-only { display:none !important; }
  .inner.wide { padding:0 var(--content-padding-x); } 
  .more.plus { width:27px; } 
 
