@@ -357,6 +357,7 @@ td.right { text-align: right !important; }
 .mb-64 { margin-bottom: 64px !important; } 
 .mb-80 { margin-bottom: 80px !important; } 
 
+.ml-auto { margin-left:auto !important; }
 .ml-0 { margin-left: 0 !important; } 
 .ml-8 { margin-left: 8px !important; } 
 .ml-16 { margin-left: 16px !important; } 
@@ -365,6 +366,7 @@ td.right { text-align: right !important; }
 .ml-32 { margin-left: 32px !important; } 
 .ml-40 { margin-left: 40px !important; } 
 
+.mr-auto { margin-right:auto !important; }
 .mr-0 { margin-right: 0 !important; } 
 .mr-8 { margin-right: 8px !important; } 
 .mr-16 { margin-right: 16px !important; } 
