@@ -111,9 +111,10 @@ section + section { margin-top:64px; }
 .datepicker-btn { position:absolute; top: 50%; transform: translateY(-50%); right: 12px; width: 24px; height: auto; aspect-ratio: 1/1; background: url('../img/common/ico-calendar02.svg') center / 100% auto no-repeat; }
 
 /* --- 버튼 --- */
-.btn { display:flex; align-items: center; color: #FFF; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.36px; border-radius: 12px; padding: 12px 16px; gap:8px; background:#F5F5F5; }
+.btn { display:flex; align-items: center; color: #111; font-size: 18px; font-weight: 600; line-height: 1.4; letter-spacing: -0.36px; border-radius: 12px; padding: 12px 16px; gap:8px; background:#F5F5F5; }
+.btn.pd { padding: 12px 32px; }
 .btn:hover, .btn:active { background:#e1e1e1; }
-.btn.color { background: var(--color-theme); }
+.btn.color { background: var(--color-theme); color:#fff; font-weight:700; }
 .btn.color:hover, .btn.color:active { background:var(--color-theme-hover); }
 .btn.after:after { content:""; width:20px; height:auto; aspect-ratio: 1/1; background:center / 100% auto no-repeat; }
 .btn.plus:after { background-image:url('../img/common/ico-plus.svg'); }
@@ -313,6 +314,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .title-dot a { color: #666; font-size: 16px; font-weight: 700; line-height: 1.55; letter-spacing: -0.32px; margin-left:auto; display:block; }
 .title-dot span { color:#666; font-weight:400; padding-left:8px; }
 .title-dot button {  }
+.title-sub { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; }
 .title-desc { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
 
 /* =========================================================
@@ -331,7 +333,6 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .search-wrap .select-box-wrap .select-box-list-wr ul li p { padding:7px 24px;  }
 
 .board-wrap .search-wrap { padding-top:24px; }
-
 
 /* --- 게시판 공통 (뷰 / 이전다음글) --- */
 .board-wrap .view-wrap .btn-wrap { display:flex; justify-content: flex-end; align-items: stretch; gap:8px; margin:40px 0; }
@@ -516,6 +517,16 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .dl-wrap dd .tel-wrap { display:flex; gap:8px; }
 .dl-wrap dd .tel-wrap span { display:flex; align-items:center; }
 .dl-wrap dd .tel-wrap .input-wrap { width:auto; }
+.dl-wrap dd.tbl { padding:0; }
+.dl-wrap dd.tbl table { text-align:center; color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.dl-wrap dd.tbl table td { padding: 16px 24px; }
+.dl-wrap dd.tbl table td p { font-size:inherit; font-weight:inherit; line-height:inherit; letter-spacing: inherit; }
+.dl-wrap dd.tbl table td p + p { margin-top:8px; }
+.dl-wrap dd.tbl table td + td { border-left:1px solid #E5E5E5; }
+.dl-wrap dd.tbl table tr + tr { border-top:1px solid #E5E5E5; }
+
+.num-item { display:flex; justify-content: flex-start; align-items: flex-start; color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; gap:4px; }
+.num-item * { all:inherit; }
 
 /* --- 테이블 --- */
 .search-total { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-bottom:24px; }
@@ -657,6 +668,10 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .count-wrap input { width:40px; color: var(--color-theme); text-align: center; font-size: 18px; font-weight: 700; line-height: 1.45; letter-spacing: -0.36px; }
 .count-wrap .unit { color: #111; font-size: 14px; font-weight: 400; line-height: 1.45; letter-spacing: -0.28px; }
 .count-wrap .desc { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
+
+.img-wrap { display:flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.img-wrap img { display:block; width:100%; }
+.img-wrap p { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
 
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
