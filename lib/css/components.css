@@ -962,7 +962,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .mo-bx dd.tbl dl { width:100%; flex-direction: row; align-items: flex-start; }
  .mo-bx dd.tbl dt { width:max(100px, 11.5vw); color: #111; font-size: 14px; font-weight: 600; line-height: 1.40; letter-spacing: -0.14px; padding:0; }
  .mo-bx dd.tbl dd { border:0; padding:0; align-items: flex-start; }
- .mo-bx dd.tbl dd p { display:flex; justify-content: flex-start; align-items: center; gap:8px; }
- .mo-bx dd.tbl dd p:before { content:""; display:block; width:4px; height:auto; aspect-ratio: 1/1; background:#111; border-radius:10px; }
+ .mo-bx dd.tbl dd p { display:flex; justify-content: flex-start; align-items: flex-start; gap:8px; text-align:left; }
+ .mo-bx dd.tbl dd p:before { content:""; display:block; width:4px; height:auto; aspect-ratio: 1/1; background:#111; border-radius:10px; margin-top:6px; }
  .mo-bx dd.tbl dl + dl { border:0; margin-top:20px; }
  }
