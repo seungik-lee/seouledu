@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 WYD 교구대회 - 카카오맵 예제 (주소 기반 지오코딩)</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, "Malgun Gothic", sans-serif; }
+
+  #page-wrap { display: flex; width: 100%; height: 100vh; }
+
+  #map-wrap { position: relative; flex: 1 1 auto; min-width: 0; height: 100%; }
+  #map { width: 100%; height: 100%; }
+
+  #legend-col {
+    flex: 0 0 220px;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 16px 0;
+    border-left: 1px solid #e2e2e2;
+    background: #fff;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 18px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .legend-row:hover { background: #f2f5fa; }
+  .legend-row.active { background: #e7edf7; font-weight: 700; }
+  .legend-letter {
+    flex: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #173F73;
+    color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .legend-row.seoul .legend-letter { background: #C0392B; }
+
+  .diocese-popup {
+    position: relative;
+    min-width: 220px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .diocese-popup .popup-title { font-weight: 700; display: block; margin-bottom: 6px; }
+  .diocese-popup .popup-close {
+    position: absolute; top: 6px; right: 8px;
+    border: 0; background: none; font-size: 16px; cursor: pointer; color: #888;
+  }
+  .diocese-popup .popup-link {
+    display: inline-block; margin-top: 8px; padding: 6px 10px;
+    border: 1px solid #333; border-radius: 4px; text-decoration: none;
+    color: #111; font-size: 13px;
+  }
+
+  .mobile-modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.4);
+    align-items: center; justify-content: center;
+    z-index: 1000;
+  }
+  .mobile-modal-overlay.open { display: flex; }
+  .mobile-modal-inner {
+    position: relative;
+    width: 82%; max-width: 320px;
+    padding: 20px 18px;
+    background: #fff; border-radius: 10px;
+    font-size: 15px; line-height: 1.6;
+  }
+  .mobile-modal-inner .modal-close {
+    position: absolute; top: 8px; right: 10px;
+    border: 0; background: none; font-size: 18px; cursor: pointer; color: #888;
+  }
+  .mobile-modal-inner .popup-link {
+    display: inline-block; margin-top: 10px; padding: 8px 12px;
+    border: 1px solid #333; border-radius: 4px; text-decoration: none; color: #111;
+  }
+
+  @media (max-width: 700px) {
+    #page-wrap { flex-direction: column; }
+    #legend-col {
+      flex: 0 0 auto; width: 100%; height: auto; max-height: 40vh;
+      border-left: none; border-top: 1px solid #e2e2e2;
+    }
+    #map-wrap { flex: 1 1 auto; }
+  }
+</style>
+</head>
+<body>
+
+<div id="page-wrap">
+  <div id="map-wrap">
+    <div id="map"></div>
+  </div>
+  <div id="legend-col"></div>
+</div>
+
+<div id="mobile-modal" class="mobile-modal-overlay"></div>
+
+<!-- YOUR_APP_KEY를 Kakao Developers에서 발급받은 JavaScript 키로 교체하고,
+     해당 앱의 플랫폼 설정에 실제 서비스 도메인을 등록해야 정상 동작합니다.
+     주소 -> 좌표 변환(지오코딩)을 쓰려면 libraries=services 파라미터가 반드시 필요합니다. -->
+          <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
+<script>
+/*
+  address 값은 예시용 자리표시자입니다. 실제 배포 전 각 교구청의 공식 주소로 반드시 교체하세요.
+  letter: 우측 리스트/핀에 표기할 알파벳
+  lat/lng는 지오코딩 결과로 실행 중 채워지므로 처음에는 비워둠
+*/
+const dioceseList = [
+  { letter: 'A', name: '군종교구',   address: '충청남도 계룡시 (주소 입력 필요)', didUrl: '#',  isSeoul: false },
+  { letter: 'B', name: '서울대교구', address: '서울특별시 중구 명동길 74',          didUrl: null, isSeoul: true  },
+  { letter: 'C', name: '인천교구',   address: '인천광역시 (주소 입력 필요)',        didUrl: '#',  isSeoul: false },
+  { letter: 'D', name: '수원교구',   address: '경기도 수원시 (주소 입력 필요)',      didUrl: '#',  isSeoul: false },
+  { letter: 'E', name: '청주교구',   address: '충청북도 청주시 (주소 입력 필요)',    didUrl: '#',  isSeoul: false },
+  { letter: 'F', name: '대전교구',   address: '대전광역시 (주소 입력 필요)',        didUrl: '#',  isSeoul: false },
+  { letter: 'G', name: '전주교구',   address: '전북특별자치도 전주시 (주소 입력 필요)', didUrl: '#',  isSeoul: false },
+  { letter: 'H', name: '광주대교구', address: '광주광역시 (주소 입력 필요)',        didUrl: '#',  isSeoul: false },
+  { letter: 'I', name: '의정부교구', address: '경기도 의정부시 (주소 입력 필요)',    didUrl: '#',  isSeoul: false },
+  { letter: 'J', name: '춘천교구',   address: '강원특별자치도 춘천시 (주소 입력 필요)', didUrl: '#',  isSeoul: false },
+  { letter: 'K', name: '원주교구',   address: '강원특별자치도 원주시 (주소 입력 필요)', didUrl: '#',  isSeoul: false },
+  { letter: 'L', name: '안동교구',   address: '경상북도 안동시 (주소 입력 필요)',    didUrl: '#',  isSeoul: false },
+  { letter: 'M', name: '대구대교구', address: '대구광역시 (주소 입력 필요)',        didUrl: '#',  isSeoul: false },
+  { letter: 'N', name: '부산교구',   address: '부산광역시 (주소 입력 필요)',        didUrl: '#',  isSeoul: false },
+  { letter: 'O', name: '마산교구',   address: '경상남도 창원시 마산합포구 (주소 입력 필요)', didUrl: '#',  isSeoul: false },
+  { letter: 'P', name: '제주교구',   address: '제주특별자치도 제주시 (주소 입력 필요)', didUrl: '#',  isSeoul: false }
+];
+
+const FOCUS_LEVEL = 6; // 리스트 클릭 시 확대될 레벨(숫자가 작을수록 더 확대됨)
+
+let map = null;
+let activeOverlay = null;
+const markerByName = {};
+
+function isMobile() {
+  return window.matchMedia('(max-width: 700px)').matches;
+}
+
+function closeAllPopups() {
+  if (activeOverlay) { activeOverlay.setMap(null); activeOverlay = null; }
+  document.getElementById('mobile-modal').classList.remove('open');
+}
+
+function openDesktopPopup(diocese, position) {
+  const content = document.createElement('div');
+  content.className = 'diocese-popup';
+  content.innerHTML =
+    '<button class="popup-close" type="button" aria-label="닫기">×</button>' +
+    '<span class="popup-title">' + diocese.name + '</span>' +
+    '<a class="popup-link" href="' + diocese.didUrl + '" target="_blank" rel="noopener">교구 DID 홈페이지 바로가기</a>';
+  content.querySelector('.popup-close').addEventListener('click', closeAllPopups);
+
+  const overlay = new kakao.maps.CustomOverlay({
+    position: position, content: content, yAnchor: 1.3, zIndex: 10
+  });
+  overlay.setMap(map);
+  activeOverlay = overlay;
+}
+
+function openMobileModal(diocese) {
+  const modal = document.getElementById('mobile-modal');
+  modal.innerHTML =
+    '<div class="mobile-modal-inner">' +
+      '<button class="modal-close" type="button" aria-label="닫기">×</button>' +
+      '<strong>' + diocese.name + '</strong><br>' +
+      '<a class="popup-link" href="' + diocese.didUrl + '" target="_blank" rel="noopener">교구 DID 홈페이지 바로가기</a>' +
+    '</div>';
+  modal.querySelector('.modal-close').addEventListener('click', closeAllPopups);
+  modal.classList.add('open');
+}
+
+function handleDioceseActivate(diocese, position) {
+  if (diocese.isSeoul) return; // 서울대교구는 팝업 없음
+  closeAllPopups();
+  if (isMobile()) {
+    openMobileModal(diocese);
+  } else {
+    openDesktopPopup(diocese, position);
+  }
+}
+
+function letterMarkerImage(letter, isSeoul) {
+  const color = isSeoul ? '#C0392B' : '#173F73';
+  const svg =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="34" height="44" viewBox="0 0 34 44">' +
+      '<path d="M17 0C7.6 0 0 7.6 0 17c0 12 17 27 17 27s17-15 17-27C34 7.6 26.4 0 17 0z" ' +
+        'fill="' + color + '" stroke="#fff" stroke-width="2"/>' +
+      '<text x="17" y="22" text-anchor="middle" font-size="15" font-weight="700" ' +
+        'fill="#fff" font-family="Arial, sans-serif">' + letter + '</text>' +
+    '</svg>';
+  const src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+  return new kakao.maps.MarkerImage(
+    src,
+    new kakao.maps.Size(34, 44),
+    { offset: new kakao.maps.Point(17, 44) }
+  );
+}
+
+function buildLegend() {
+  const col = document.getElementById('legend-col');
+  dioceseList.forEach(d => {
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'legend-row' + (d.isSeoul ? ' seoul' : '');
+    row.dataset.name = d.name;
+    row.innerHTML =
+      '<span class="legend-letter">' + d.letter + '</span><span>' + d.name + '</span>';
+
+    row.addEventListener('click', () => {
+      if (d.lat == null || d.lng == null) {
+        console.warn('아직 좌표가 준비되지 않았습니다: ' + d.name);
+        return;
+      }
+      document.querySelectorAll('.legend-row').forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+
+      const latlng = new kakao.maps.LatLng(d.lat, d.lng);
+      map.setLevel(FOCUS_LEVEL);
+      map.panTo(latlng);
+
+      handleDioceseActivate(d, latlng);
+    });
+
+    col.appendChild(row);
+  });
+}
+
+// 카카오 지오코더(주소 -> 좌표)를 Promise로 감싸서 async/await로 사용
+function geocodeAddress(geocoder, address) {
+  return new Promise((resolve, reject) => {
+    geocoder.addressSearch(address, (result, status) => {
+      if (status === kakao.maps.services.Status.OK) {
+        resolve({ lat: parseFloat(result[0].y), lng: parseFloat(result[0].x) });
+      } else {
+        reject(new Error('주소 검색 실패(' + status + '): ' + address));
+      }
+    });
+  });
+}
+
+async function initMap() {
+  const container = document.getElementById('map');
+  map = new kakao.maps.Map(container, {
+    center: new kakao.maps.LatLng(36.5, 127.8),
+    level: 12
+  });
+  map.setZoomable(true);
+
+  buildLegend();
+
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  // 지오코딩은 순차 처리(요청 폭주 방지). 16개 정도는 체감 지연 없이 끝남.
+  for (const d of dioceseList) {
+    try {
+      const { lat, lng } = await geocodeAddress(geocoder, d.address);
+      d.lat = lat;
+      d.lng = lng;
+
+      const position = new kakao.maps.LatLng(lat, lng);
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: position,
+        image: letterMarkerImage(d.letter, d.isSeoul),
+        title: d.name
+      });
+      markerByName[d.name] = marker;
+
+      kakao.maps.event.addListener(marker, 'click', () => handleDioceseActivate(d, position));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+}
+
+kakao.maps.load(initMap);
+</script>
+</body>
+</html>
