@@ -142,16 +142,114 @@
             <div class="location">
                <a href="">홈</a>
                <span></span>
-               <a href="">마이페이지</a>
+               <a href="">대관안내</a>
                <span></span>
-               <a href="" class="cur">입력</a>
+               <a href="" class="cur">대관현황</a>
             </div>
          </div>
          <div class="cont-wrap">
-            <section>
 
+            <div class="rental-status-wrap">
+
+               <div class="bx calendar-wrap" data-type="rental">
+                  <div class="calendar" style="background:#fff;"></div>
+                  <ul class="calendar-legend">
+                     <li><span class="dot"></span>승인</li>
+                     <li><span class="dot wait"></span>대기</li>
+                  </ul>
+               </div>
+
+               <div class="bx rental-detail-wrap">
+
+                  <div class="rental-empty">
+                     <span class="ico"></span>
+                     <p>날짜를 선택하면<br>시설별 대관 현황을 확인할 수 있습니다.</p>
+                  </div>
+
+                  <div class="rental-detail" style="display:none;">
+                     <p class="date-tit"></p>
+
+                     <p class="sub-tit">시간대별 현황</p>
+                     <ul class="timeline-legend">
+                        <li><span class="dot"></span>대관확정</li>
+                        <li><span class="dot wait"></span>대관예약</li>
+                     </ul>
+
+                     <div class="timeline-grid">
+                        <div class="timeline-hours">
+                           <span>09</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span>
+                        </div>
+                        <div class="timeline-rows"></div>
+                     </div>
+
+                     <p class="tbl-info">* 표시 기준 시간 09:00 ~ 23:00</p>
+                  </div>
+
+               </div>
+            </div>
+
+            <section class="mt-40">
+               <div class="tit-total">
+                  <div class="title-dot">예약목록</div>
+                  <p class="total">총 <strong class="rental-total-count">0</strong>건</p>
+               </div>
+
+               <div class="tbl-wrap overflow mt-20">
+                  <table>
+                     <colgroup>
+                        <col style="width:30%;">
+                        <col style="width:25%;">
+                        <col style="width:20%;">
+                        <col style="width:25%;">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>시설</th>
+                           <th>예약시간</th>
+                           <th>이용시간</th>
+                           <th>상태</th>
+                        </tr>
+                     </thead>
+                     <tbody class="rental-list-body">
+                        <tr>
+                           <td colspan="4">날짜를 선택해 주세요.</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
             </section>
+
          </div>
+
+         <!-- 캘린더 CDN 호출 -->
+         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
+         <!-- 캘린더 CSS -->
+         <link rel="stylesheet" href="./lib/css/calendar.css" />
+         <script>
+            /* 날짜별 상세 데이터: 시간대별 현황(rooms) + 예약목록(list) */
+            window.rentalStatusData = {
+               '2026-08-07': {
+                  rooms: [
+                     { name: '모임방3', bars: [{ status: 'confirm', start: '09:00', end: '11:00' }, { status: 'wait', start: '14:00', end: '17:00' }] },
+                     { name: '모임방4', bars: [{ status: 'confirm', start: '13:00', end: '15:00' }] },
+                     { name: '모임방7', bars: [{ status: 'wait', start: '10:00', end: '12:00' }, { status: 'wait', start: '16:00', end: '19:00' }] },
+                     { name: '모임방9+10', bars: [{ status: 'confirm', start: '09:00', end: '18:00' }] },
+                     { name: '다리소극장', bars: [{ status: 'wait', start: '18:00', end: '21:00' }] },
+                     { name: '카페', bars: [{ status: 'confirm', start: '11:00', end: '14:00' }] }
+                  ],
+                  list: [
+                     { facility: '혜화동 가톨릭청소년회관', time: '09:00 ~ 11:00', duration: '2시간', status: 'confirm' },
+                     { facility: '청소년국 회의실', time: '14:00 ~ 17:00', duration: '2시간', status: 'wait' },
+                     { facility: '혜화동 가톨릭청소년회관', time: '13:00 ~ 15:00', duration: '2시간', status: 'wait' },
+                     { facility: '혜화동 가톨릭청소년회관', time: '13:00 ~ 15:00', duration: '2시간', status: 'confirm' },
+                     { facility: '청소년국', time: '13:00 ~ 15:00', duration: '2시간', status: 'wait' },
+                     { facility: '청소년국', time: '13:00 ~ 15:00', duration: '2시간', status: 'confirm' }
+                  ]
+               }
+            };
+         </script>
+         <!-- 캘린더 JS -->
+         <script src="./lib/js/callendar.js"></script>
       </div>
    </div>
 

@@ -293,9 +293,10 @@
 .schedule-wrap .inner { position:relative; gap: var(--clamp-size-40); z-index: 1; } 
 .schedule-wrap .inner .inner-wrap { width:calc(50% - var(--clamp-size-40) / 2); } 
 .schedule-wrap .title.horizontal { margin-bottom:35px; color:#fff; } 
-.inner-wrap .bx { background:#fff; border-radius:20px; padding:clamp(25px, 3vw, 48px); height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; position:relative; overflow:hidden; } 
+.inner-wrap .bx { background:#fff; border-radius:20px; padding:clamp(25px, 3vw, 48px); height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 20px; position:relative; overflow:hidden; } 
 
 /* --- 지도 --- */
+.map-wrap { aspect-ratio: auto; margin-bottom:0; }
 .map-wrap .map { position:relative; width: fit-content; margin: 0 auto; } 
 .map-wrap .map .map-img { display:block; width:100%; margin:0 auto; } 
 .map-wrap .map .pin-wrap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; } 
@@ -486,7 +487,17 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  /* 최신글 / 지도 */
  .lastest-wrap.tile .list { grid-template-columns: repeat(2, 1fr); } 
  .map-wrap .list { grid-template-columns: repeat(2, 1fr); padding:0 var(--clamp-size-32); } 
- .info-wrap .item { grid-template-columns: repeat(2, 1fr); }
+ .info-wrap .item { grid-template-columns: repeat(2, 1fr); } 
+}
+
+@media (max-width: 900px) {
+ .schedule-wrap { padding:17vw 0 19vw; } 
+ .schedule-wrap .inner.flex { flex-direction: column; gap:var(--clamp-size-48); align-items: center; } 
+ .schedule-wrap .title.horizontal { margin-bottom:20px; } 
+ .schedule-wrap .inner .inner-wrap { width:100%; max-width:700px; } 
+ .inner-wrap .bx { padding:30px 20px; } 
+ .schedule-wrap .bg-circle::before, .schedule-wrap .bg-circle::after { width:90vw; } 
+ .schedule-wrap .bg-circle::before { bottom:-9vw; }
 }
 
 @media (max-width: 768px) {
@@ -589,16 +600,11 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
 
  .lastest-wrap.slider { padding:3vw 0; } 
  .lastest-wrap.slider .title.vertical { display:none; } 
-
- .schedule-wrap { padding:17vw 0 19vw; } 
- .schedule-wrap .inner.flex { flex-direction: column; gap:var(--clamp-size-48); } 
- .schedule-wrap .title.horizontal { margin-bottom:20px; } 
- .schedule-wrap .inner .inner-wrap { width:100%; } 
- .inner-wrap .bx { padding:30px 20px; } 
- .schedule-wrap .bg-circle::before, .schedule-wrap .bg-circle::after { width:90vw; } 
- .schedule-wrap .bg-circle::before { bottom:-9vw; } 
-
+ 
  .map-wrap .map .pin-wrap { top:-2.8vw; } 
+ .map-wrap .map .pin-wrap .pin:before { width:22px; }
+ .map-wrap .map .pin-wrap .pin p { padding:6px 8px; font-size:14px; top:-40px; }
+ .map-wrap .list { padding: 0 var(--clamp-size-16); }
 
  /* Type A */
  [data-type="typeA"] .swiper-slide > img { aspect-ratio: 335/240; border-radius:16px; object-fit: cover; object-position: center; } 
@@ -617,6 +623,7 @@ grid-template-columns: repeat(4, 1fr); gap:12px; }
  [data-type="typeB"] .slider-control .progress-track .seg { border-radius:100px; } 
  [data-type="typeB"] .slide-content .more { background: #FFF; color: #333; } 
  [data-type="typeB"] .slide-content .more:after { background:#333; } 
+ [data-type="typeB"] .inner-wrap .bx { height:auto; } 
 
  .quick-btn-wrap.typeB { margin:32px auto; } 
  .quick-btn-wrap.typeB .inner .wrap { justify-content: flex-start; flex-wrap:wrap; background:transparent; padding:0; gap:10px 0; } 
