@@ -148,53 +148,47 @@
             </div>
          </div>
          <div class="cont-wrap">
-
             <div class="rental-status-wrap">
-
-               <div class="bx calendar-wrap" data-type="rental">
+               <div class="line-bx calendar-wrap" data-type="rental">
                   <div class="calendar" style="background:#fff;"></div>
                   <ul class="calendar-legend">
                      <li><span class="dot"></span>승인</li>
                      <li><span class="dot wait"></span>대기</li>
                   </ul>
                </div>
-
-               <div class="bx rental-detail-wrap">
-
+               <div class="line-bx rental-detail-wrap">
                   <div class="rental-empty">
                      <span class="ico"></span>
                      <p>날짜를 선택하면<br>시설별 대관 현황을 확인할 수 있습니다.</p>
                   </div>
-
                   <div class="rental-detail" style="display:none;">
                      <p class="date-tit"></p>
-
-                     <p class="sub-tit">시간대별 현황</p>
-                     <ul class="timeline-legend">
-                        <li><span class="dot"></span>대관확정</li>
-                        <li><span class="dot wait"></span>대관예약</li>
-                     </ul>
-
-                     <div class="timeline-grid">
-                        <div class="timeline-hours">
-                           <span>09</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span>
+                     <div class="retal-detail-info">
+                        <p class="sub-tit">시간대별 현황</p>
+                        <ul class="timeline-legend">
+                           <li><span class="dot"></span>대관확정</li>
+                           <li><span class="dot wait"></span>대관예약</li>
+                        </ul>
+                        <div class="timeline-grid">
+                           <div class="timeline-hours">
+                              <span>09</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span>
+                           </div>
+                           <div class="timeline-rows"></div>
                         </div>
-                        <div class="timeline-rows"></div>
+                        <div class="input-info-wrap mt-16">
+                           <p>* 표시 기준 시간 09:00 ~ 23:00</p>
+                        </div>
                      </div>
-
-                     <p class="tbl-info">* 표시 기준 시간 09:00 ~ 23:00</p>
                   </div>
 
                </div>
             </div>
-
-            <section class="mt-40">
+            <section class="mt-40 line-bx rental-list-wrap" style="display:none;">
                <div class="tit-total">
                   <div class="title-dot">예약목록</div>
                   <p class="total">총 <strong class="rental-total-count">0</strong>건</p>
                </div>
-
-               <div class="tbl-wrap overflow mt-20">
+               <div class="tbl-wrap overflow">
                   <table>
                      <colgroup>
                         <col style="width:30%;">
