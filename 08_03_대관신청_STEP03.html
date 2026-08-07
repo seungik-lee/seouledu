@@ -31,8 +31,9 @@
    <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
    <script src="./lib/js/common.js" defer></script>
 
-   <!-- 카카오톡 주소 -->
-   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <!-- Datepicker-->
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
    <title>청소년국 프로젝트</title>
 </head>
@@ -148,10 +149,237 @@
             </div>
          </div>
          <div class="cont-wrap">
-            <section>
 
+            <!-- 5단계 진행 표시 : 03번째 항목 on -->
+            <div class="step-flow">
+               <div class="step-flow-item">
+                  <p class="num">01</p>
+                  <p class="tit">대관안내</p><span class="ico ico01"></span>
+               </div>
+               <span class="arr"></span>
+               <div class="step-flow-item">
+                  <p class="num">02</p>
+                  <p class="tit">관련동의</p><span class="ico ico02"></span>
+               </div>
+               <span class="arr"></span>
+               <div class="step-flow-item on">
+                  <p class="num">03</p>
+                  <p class="tit">대관정보입력</p><span class="ico ico03"></span>
+               </div>
+               <span class="arr"></span>
+               <div class="step-flow-item">
+                  <p class="num">04</p>
+                  <p class="tit">신청자 정보 입력</p><span class="ico ico04"></span>
+               </div>
+               <span class="arr"></span>
+               <div class="step-flow-item">
+                  <p class="num">05</p>
+                  <p class="tit">신청완료</p><span class="ico ico05"></span>
+               </div>
+            </div>
+
+            <div class="rental-input-wrap mt-40">
+               <div class="rental-input-col facility-select-col">
+                  <div class="title-dot">시설선택 <span class="sm">(복수선택가능)</span></div>
+                  <div class="accordion-wrap-list" id="facilityAccordionList"></div>
+               </div>
+
+               <!-- 이용시간(선택시설 동일적용) -->
+               <div class="rental-input-col time-select-col">
+                  <div class="title-dot">이용시간 <span class="sm">(선택시설 동일적용)</span></div>
+                  <div class="line-bx bx mt-20">
+                     <div class="input-wrap col">
+                        <p class="label">선택된 시설</p>
+                        <div class="tag-chip-wrap" id="selectedFacilityTags">
+                           <p class="empty-txt">아직 선택된 시설이 없습니다.</p>
+                        </div>
+                     </div>
+                     <div class="input-wrap col">
+                        <p class="label">대관일자</p>
+                        <div class="datepicker-wrap">
+                           <input type="text" placeholder="YY-MM-DD" class="datepicker-input">
+                           <button type="button" class="datepicker-btn"></button>
+                        </div>
+                     </div>
+                     <div class="input-wrap col">
+                        <p class="label">시작시간</p>
+                        <div class="input-flex-wrap">
+                           <div class="select-box-wrap w100" id="startHourSelect">
+                              <input type="hidden" value="10">
+                              <div class="select-label">
+                                 <p>시 선택</p>
+                              </div>
+                              <div class="select-box-list-wr">
+                                 <ul></ul>
+                              </div>
+                           </div>
+                           <div class="select-box-wrap w100" id="startMinSelect">
+                              <input type="hidden" value="00">
+                              <div class="select-label">
+                                 <p>분 선택</p>
+                              </div>
+                              <div class="select-box-list-wr">
+                                 <ul>
+                                    <li>
+                                       <p>00분</p>
+                                    </li>
+                                    <li>
+                                       <p>30분</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="input-wrap col">
+                        <p class="label">이용시간</p>
+                        <div class="select-box-wrap w100" id="durationSelect">
+                           <input type="hidden" value="2">
+                           <div class="select-label">
+                              <p>선택</p>
+                           </div>
+                           <div class="select-box-list-wr">
+                              <ul>
+                                 <li>
+                                    <p data-value="1">1시간</p>
+                                 </li>
+                                 <li>
+                                    <p data-value="2">2시간</p>
+                                 </li>
+                                 <li>
+                                    <p data-value="3">3시간</p>
+                                 </li>
+                                 <li>
+                                    <p data-value="4">4시간</p>
+                                 </li>
+                                 <li>
+                                    <p data-value="5">5시간</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="input-wrap col">
+                        <p class="label">종료시간</p>
+                        <input type="text" id="endTimeView" placeholder="00시 00분" disabled>
+                     </div>
+                     <button type="button" class="input-btn accent mt-32" id="checkAvailableBtn">이용가능여부 확인</button>
+                  </div>
+               </div>
+            </div>
+
+            <!-- 부대설비 선택 -->
+            <section class="mt-40" id="equipmentSection">
+               <div class="title-dot">부대설비 선택</div>
+
+               <div class="info-bx info mt-20">
+                  <div class="tit sm">부대설비는 동일 시간대에 시설 간 공유가 불가합니다. 다른 시설에서 이미 대여한 설비는 선택할 수 없습니다.</div>
+               </div>
+
+               <div class="tbl-wrap overflow mw800 mt-40">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>시설</th>
+                           <th>냉난방</th>
+                           <th>빔 프로젝터</th>
+                           <th>노트북</th>
+                           <th>43인치 TV+웹캠</th>
+                           <th>유선마이크</th>
+                           <th>무선마이크</th>
+                        </tr>
+                     </thead>
+                     <tbody id="equipmentTableBody"></tbody>
+                  </table>
+               </div>
+               <p class="tbl-info">* 부대설비는 시설별로 개별 선택합니다. 동일 시간대 설비 수량 제한은 담당자가 별도 확인합니다.</p>
             </section>
+
+            <!-- 예상 대관비용 -->
+            <section class="mt-40" id="costSection">
+               <div class="title-dot">예상 대관비용</div>
+               <p class="tbl-info" id="costSummaryDate"></p>
+               <div class="tbl-wrap overflow mw800 mt-40">
+                  <table>
+                     <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                        <col style="width:15%;">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>시설</th>
+                           <th>대관료</th>
+                           <th>부대설비</th>
+                           <th>소계</th>
+                        </tr>
+                     </thead>
+                     <tbody id="costTableBody"></tbody>
+                     <tfoot>
+                        <tr class="total-row">
+                           <td class="bold" id="costTotalLabel">총 대관료</td>
+                           <td class="bold" colspan="2"></td>
+                           <td class="bold" id="costTotalValue">0원</td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </section>
+
+            <div class="mode-nav between mt-40">
+               <a href="08_03_대관신청_STEP02.html" id="prevStepBtn">이전단계</a>
+               <a href="08_03_대관신청_STEP04.html" class="on" id="nextStepBtn">다음단계</a>
+            </div>
+
          </div>
+
+         <style>
+         </style>
+
+         <script>
+            window.rentalHourRange = { start: 0, end: 23 }; // 아무 시설도 안 골랐을 때 기본 범위
+
+            window.rentalFacilities = {
+               // 모임방(개별)
+               room3: { name: '모임방3', group: '모임방', rate: 25000, exclusiveWith: ['room34'], hourRange: { start: 9, end: 22 } },
+               room4: { name: '모임방4', group: '모임방', rate: 25000, exclusiveWith: ['room34'], hourRange: { start: 9, end: 22 } },
+               room5: { name: '모임방5', group: '모임방', rate: 25000, exclusiveWith: [], hourRange: { start: 9, end: 22 } },
+               room6: { name: '모임방6', group: '모임방', rate: 25000, exclusiveWith: [], hourRange: { start: 9, end: 22 } },
+               room7: { name: '모임방7', group: '모임방', rate: 25000, exclusiveWith: ['room78'], hourRange: { start: 9, end: 22 } },
+               room8: { name: '모임방8', group: '모임방', rate: 25000, exclusiveWith: ['room78'], hourRange: { start: 9, end: 22 } },
+               room9: { name: '모임방9', group: '모임방', rate: 25000, exclusiveWith: ['room910'], hourRange: { start: 9, end: 22 } },
+               room10: { name: '모임방10', group: '모임방', rate: 25000, exclusiveWith: ['room910'], hourRange: { start: 9, end: 22 } },
+
+               // 모임방(결합)
+               room34: { name: '모임방3+4', group: '모임방', rate: 45000, exclusiveWith: ['room3', 'room4'], hourRange: { start: 9, end: 22 } },
+               room78: { name: '모임방7+8', group: '모임방', rate: 45000, exclusiveWith: ['room7', 'room8'], hourRange: { start: 9, end: 22 } },
+               room910: { name: '모임방9+10', group: '모임방', rate: 45000, exclusiveWith: ['room9', 'room10'], hourRange: { start: 9, end: 22 } },
+
+               // 대형공간
+               nicolao: { name: '니콜라오홀(대강당)', group: '대형공간', rate: 150000, exclusiveWith: [], hourRange: { start: 9, end: 22 } },
+               theater: { name: '다리소극장(공연장)', group: '대형공간', rate: 410000, exclusiveWith: ['cafe'], hourRange: { start: 9, end: 22 } },
+               cafe: { name: '카페', group: '대형공간', rate: 80000, exclusiveWith: ['theater'], hourRange: { start: 9, end: 18 } },
+               practice1: { name: '연습실1', group: '대형공간', rate: 30000, exclusiveWith: [], hourRange: { start: 9, end: 21 } },
+               practice2: { name: '연습실2', group: '대형공간', rate: 30000, exclusiveWith: [], hourRange: { start: 9, end: 21 } },
+               practice3: { name: '연습실3', group: '대형공간', rate: 30000, exclusiveWith: [], hourRange: { start: 9, end: 21 } },
+               practice4: { name: '연습실4', group: '대형공간', rate: 30000, exclusiveWith: [], hourRange: { start: 9, end: 21 } },
+
+               // 청소년문화공간JU
+               juAll: { name: '청소년문화공간JU(전체)', group: '청소년문화공간JU', rate: 200000, exclusiveWith: ['juRoom', 'room3', 'room4', 'room5', 'room6', 'room7', 'room8', 'room9', 'room10', 'room34', 'room78', 'room910'], hourRange: { start: 9, end: 22 } },
+               juRoom: { name: '청소년문화공간JU(모임방)', group: '청소년문화공간JU', rate: 100000, exclusiveWith: ['juAll'], hourRange: { start: 9, end: 22 } }
+            };
+
+            window.rentalEquipments = [
+               { id: 'hvac', name: '냉난방', price: 20000 },
+               { id: 'beam', name: '빔 프로젝터', price: 10000 },
+               { id: 'laptop', name: '노트북', price: 5000 },
+               { id: 'tv', name: '43인치 TV+웹캠', price: 15000 },
+               { id: 'wiredMic', name: '유선마이크', price: 3000 },
+               { id: 'wirelessMic', name: '무선마이크', price: 5000 }
+            ];
+         </script>
+
       </div>
    </div>
 
