@@ -31,8 +31,9 @@
    <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
    <script src="./lib/js/common.js" defer></script>
 
-   <!-- 카카오톡 주소 -->
-   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <!-- Datepicker-->
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
    <title>청소년국 프로젝트</title>
 </head>
@@ -142,16 +143,132 @@
             <div class="location">
                <a href="">홈</a>
                <span></span>
-               <a href="">마이페이지</a>
+               <a href="">자원활동가</a>
                <span></span>
-               <a href="" class="cur">입력</a>
+               <a href="" class="cur">지원하기</a>
             </div>
          </div>
          <div class="cont-wrap">
-            <section>
-
+            <section class="mt-64">
+               <div class="title-dot">기본정보</div>
+               <div class="dl-wrap">
+                  <dl>
+                     <div class="row">
+                        <dt>이름</dt>
+                        <dd class="pd">
+                           <div class="input-wrap">
+                              <input type="text" placeholder="이름 입력" value="">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>전화번호</dt>
+                        <dd class="pd">
+                           <div class="tel-wrap">
+                              <div class="input-wrap">
+                                 <div class="select-box-wrap">
+                                    <input type="hidden" value="">
+                                    <div class="select-label">
+                                       <p>선택</p>
+                                    </div>
+                                    <div class="select-box-list-wr">
+                                       <ul>
+                                          <li>
+                                             <p>010</p>
+                                          </li>
+                                          <li>
+                                             <p>011</p>
+                                          </li>
+                                          <li>
+                                             <p>016</p>
+                                          </li>
+                                          <li>
+                                             <p>017</p>
+                                          </li>
+                                          <li>
+                                             <p>018</p>
+                                          </li>
+                                          <li>
+                                             <p>019</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>이메일</dt>
+                        <dd class="pd">
+                           <div class="input-wrap">
+                              <input type="text" placeholder="" value="abc@gmail.com">
+                           </div>
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
             </section>
+
+            <section class="mt-64">
+               <div class="title-dot">지원서 첨부</div>
+               <div class="line-bx file-dropzone mt-24">
+                  <span class="ico"></span>
+                  <div class="text">
+                     <p class="tit">작성하신 지원서 파일을 첨부해 주세요</p>
+                     <p class="desc">클릭하여 파일 선택 · .hwp .doc .docx .pdf · 최대 10MB</p>
+                  </div>
+                  <input type="file" class="dropzone-input" accept=".hwp,.doc,.docx,.pdf" hidden>
+               </div>
+               <div class="file-dropzone-result mt-24" style="display:none;">
+                  <p class="name"></p>
+                  <button type="button" class="del">삭제</button>
+               </div>
+               <p class="tbl-info gray">* 첨부파일은 1개만 등록 가능합니다.</p>
+            </section>
+
+            <div class="mode-nav between mt-40">
+               <a href="">목록으로</a>
+               <a href="" class="on">제출하기</a>
+            </div>
+
          </div>
+
+         <script>
+
+            (function () {
+               /* 지원서 첨부 드롭존 */
+               $(document).on('click', '.file-dropzone', function (e) {
+                  if ($(e.target).closest('.dropzone-input').length) return;
+                  $(this).find('.dropzone-input').trigger('click');
+               });
+
+               $(document).on('change', '.dropzone-input', function () {
+                  if (!this.files.length) return;
+                  var file = this.files[0];
+                  var sizeKB = Math.round(file.size / 1024);
+
+                  $('.file-dropzone-result')
+                     .show()
+                     .find('.name').text(file.name + ' (' + sizeKB + ' KB)');
+               });
+
+               $(document).on('click', '.file-dropzone-result .del', function () {
+                  $('.dropzone-input').val('');
+                  $('.file-dropzone-result').hide();
+                  $('.file-dropzone').show();
+               });
+            })();
+         </script>
+
       </div>
    </div>
 

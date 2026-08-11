@@ -68,7 +68,7 @@ section + section { margin-top:64px; }
 .input-wrap.col { flex-direction: column; align-items: flex-start; } 
 .input-wrap .label { display:flex; color: #313030; font-size: 18px; font-weight: 600; line-height: 1.45; letter-spacing: -0.36px; gap:3px; margin-bottom:8px; } 
 .input-wrap input { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; width:100%; border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; padding: 12px; height:48px; } 
-.input-wrap input.wa { width:auto; } 
+.input-wrap input.wa { width:auto; min-width: 0; } 
 .input-wrap input.sm { width:200px; } 
 .input-wrap input.ssm { width:170px; } 
 .input-wrap input::placeholder { color: #BCBABA; } 
@@ -512,6 +512,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .line-bx.co { background:var(--color-theme-opacity); border-color:var(--color-theme); } 
 .line-bx .tit { color: #111; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
 .line-bx .desc { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; margin-top:8px; } 
+.line-bx.fl { display:flex; justify-content: space-between; align-items: center; }
 
 .box-wrap { max-width:660px; padding: 80px; border-radius: 20px; border: 1px solid #E5E5E5; background: rgba(255, 255, 255, 0.40); backdrop-filter: blur(10px); margin:0 auto; display: flex; flex-direction: column; gap: 24px; } 
 .box-wrap .title { color: #000; text-align: center; font-size: 24px; font-weight: 400; line-height: 1.45; letter-spacing: -0.48px; } 
@@ -811,10 +812,11 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .result-nav { display: flex; justify-content: space-between; align-items: center; } 
 .result-nav-left { display: flex; gap: 8px; } 
 
-.photo-wrap { display:flex; justify-content: space-between; align-items: center; gap:8px; } 
+.photo-wrap { display:flex; justify-content: space-between; align-items: center; } 
 .photo-wrap .left { width:100%; } 
-.photo-wrap .right { flex-shrink: 0; padding:10px; } 
-.photo-upload-bx { display: flex; width: 170px; height: 210px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; border-radius: 5px; border: 1px dashed #CECCCC; background: #F5F5F5; position:relative; overflow:hidden; } 
+.photo-wrap .right { flex-shrink: 0; } 
+.photo-wrap .right dt { display:none; }
+.photo-upload-bx { display: flex; width : 167px; height: auto; aspect-ratio: 170/210; flex-direction: column; justify-content: center; align-items: center; gap: 8px; border-radius: 5px; border: 1px dashed #CECCCC; background: #F5F5F5; position:relative; overflow:hidden; } 
 .photo-upload-bx .ico { width:24px; height:auto; aspect-ratio: 1/1; background:url("../img/common/ico-camera.svg") center / 100% auto no-repeat; } 
 .photo-upload-bx .txt { color: #000; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; } 
 .photo-upload-bx .photo-input { position:absolute; top:0; left:0; width:100%; height:100%; } 
@@ -966,10 +968,11 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  #contents .cont-top .page-title { font-size:32px; } 
  #contents .cont-top .location { gap:8px; } 
 
- .title-dot { font-size:24px; margin-bottom:8px; gap:4px; } 
+ .title-dot { font-size:24px; margin-bottom:8px; gap:0 4px; flex-wrap:wrap; } 
  .title-dot:before { width:3px; } 
  .title-dot a { font-size:14px; } 
  .title-desc { font-size:14px; line-height: 1.55; letter-spacing: -0.28px; } 
+ .title-dot span.sm { font-size:16px; }
 
  .img-wrap p { font-size:14px; line-height: 1.55; letter-spacing: -0.28px; } 
  .img-wrap.overflow { padding-bottom:10px; overflow-x:auto; } 
@@ -1021,6 +1024,10 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .paging a { width:32px; } 
  .paging .number { margin:0 8px; } 
  
+ .line-bx { padding: var(--clamp-size-24); }
+ .line-bx .desc { margin-top:4px; }
+ .line-bx.fl { flex-direction: column; gap:8px; align-items: flex-start; }
+
  .map-wrap { aspect-ratio: 1/1; } 
 
  .box-wrap { padding:40px 20px; } 
@@ -1174,4 +1181,9 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 
  .result-nav { flex-direction: column; align-items: flex-end; gap:8px; } 
  .result-nav-left { margin-right:auto; } 
+
+ .photo-wrap { flex-direction: column; }
+ .photo-upload-bx { width:100%; }
+ .photo-wrap .right { width:100%; }
+ .photo-wrap .right dt { display:block; }
  }
