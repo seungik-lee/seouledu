@@ -13,6 +13,7 @@
 #siteA {
   --logo: url('../img/siteA/logo.png');
   --logo-white: url('../img/siteA/logo-white.png');
+  --logo-receipt: url('../img/siteA/receipt-stamp.png');
   --logo-w: 17%;
   --logo-max-w: 222px;
   --logo-h: auto;
