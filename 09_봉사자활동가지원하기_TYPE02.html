@@ -31,8 +31,9 @@
    <script src="./lib/js/swiperjs/swiper-bundle.min.js" defer></script>
    <script src="./lib/js/common.js" defer></script>
 
-   <!-- 카카오톡 주소 -->
-   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <!-- Datepicker-->
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
    <title>청소년국 프로젝트</title>
 </head>
@@ -142,16 +143,577 @@
             <div class="location">
                <a href="">홈</a>
                <span></span>
-               <a href="">마이페이지</a>
+               <a href="">자원활동가</a>
                <span></span>
-               <a href="" class="cur">입력</a>
+               <a href="" class="cur">지원하기</a>
             </div>
          </div>
          <div class="cont-wrap">
-            <section>
+            <div class="line-bx co fl">
+               <div class="txt">
+                  <p class="tit">서울아지트_자원활동가_지원서_양식_2026하반기.hwp</p>
+                  <p class="desc">최종 업데이트: 2026.06.01 · 48 KB</p>
+               </div>
+               <a href="" class="btn color sm">양식 다운로드</a>
+            </div>
 
+            <section class="mt-64">
+               <div class="title-dot">기본정보</div>
+               <div class="dl-wrap">
+                  <dl class="photo-wrap">
+                     <div class="left">
+                        <div class="row">
+                           <dt>통합아이디</dt>
+                           <dd class="pd">
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="이름 입력" value="">
+                              </div>
+                           </dd>
+                        </div>
+                        <div class="row">
+                           <dt>성별</dt>
+                           <dd class="pd">
+                              <div class="radio-group">
+                                 <label class="radio-wrap"><input type="radio" name="gender" value="M"><span>남</span></label>
+                                 <label class="radio-wrap"><input type="radio" name="gender" value="F"><span>여</span></label>
+                              </div>
+                           </dd>
+                        </div>
+                        <div class="row">
+                           <dt>세례명</dt>
+                           <dd class="pd">
+                              <div class="input-wrap"><input type="text" placeholder="세례명 입력"></div>
+                           </dd>
+                        </div>
+                        <div class="row">
+                           <dt>생년월일</dt>
+                           <dd class="pd">
+                              <div class="input-wrap"><input type="text" placeholder="19990101" maxlength="8"></div>
+                           </dd>
+                        </div>
+                     </div>
+                     <div class="right">
+                        <div class="row">
+                           <dt>사진</dt>
+                           <dd class="pd">
+                              <div class="photo-upload-bx">
+                                 <span class="ico"></span>
+                                 <p class="txt">사진 첨부<br>(3*4cm)</p>
+                                 <img class="preview-img" alt="첨부된 사진">
+                                 <input type="file" class="photo-input" accept="image/jpeg,image/png" hidden>
+                              </div>
+                           </dd>
+                     </div>
+                  </dl>
+                  <dl>
+                     <div class="row">
+                        <dt>교구/본당</dt>
+                        <dd class="pd">
+                           <div class="input-wrap gap justify-start">
+                              <div class="select-box-wrap">
+                                 <input type="hidden" value="">
+                                 <div class="select-label">
+                                    <p>교구선택</p>
+                                 </div>
+                                 <div class="select-box-list-wr">
+                                    <ul>
+                                       <li>
+                                          <p>서울대교구</p>
+                                       </li>
+                                       <li>
+                                          <p>의정부교구</p>
+                                       </li>
+                                       <li>
+                                          <p>인천교구</p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <input type="text" placeholder="본당명 입력" class="wa">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>전화번호</dt>
+                        <dd class="pd">
+                           <div class="tel-wrap">
+                              <div class="input-wrap">
+                                 <div class="select-box-wrap">
+                                    <input type="hidden" value="">
+                                    <div class="select-label">
+                                       <p>선택</p>
+                                    </div>
+                                    <div class="select-box-list-wr">
+                                       <ul>
+                                          <li>
+                                             <p>010</p>
+                                          </li>
+                                          <li>
+                                             <p>011</p>
+                                          </li>
+                                          <li>
+                                             <p>016</p>
+                                          </li>
+                                          <li>
+                                             <p>017</p>
+                                          </li>
+                                          <li>
+                                             <p>018</p>
+                                          </li>
+                                          <li>
+                                             <p>019</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                              <span>-</span>
+                              <div class="input-wrap">
+                                 <input type="text" placeholder="" value="" size="5" maxlength="4">
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>이메일</dt>
+                        <dd class="pd">
+                           <div class="input-wrap">
+                              <input type="text" placeholder="" value="abc@gmail.com">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>주소</dt>
+                        <dd class="pd col">
+                           <div class="input-wrap">
+                              <div class="input-btn-wrap">
+                                 <input type="text" class="addr-zip sm" placeholder="우편번호" readonly>
+                                 <button type="button" class="btn-de color addr-search-btn" data-popup="">주소검색</button>
+                              </div>
+                           </div>
+                           <div class="addr-postcode-wrap">
+                              <div class="addr-postcode-layer"></div>
+                           </div>
+                           <div class="input-wrap">
+                              <input type="text" class="addr-main" placeholder="기본 주소" readonly>
+                           </div>
+                           <div class="input-wrap">
+                              <input type="text" class="addr-detail" placeholder="상세 주소 입력">
+                           </div>
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
             </section>
+
+            <section class="mt-64">
+               <div class="title-dot">지원서 첨부</div>
+               <div class="dl-wrap">
+                  <dl>
+                     <div class="row">
+                        <dt>최종학력</dt>
+                        <dd class="pd">
+                           <div class="input-wrap gap justify-start">
+                              <div class="select-box-wrap">
+                                 <input type="hidden" value="">
+                                 <div class="select-label">
+                                    <p>학력구분</p>
+                                 </div>
+                                 <div class="select-box-list-wr">
+                                    <ul>
+                                       <li>
+                                          <p>고등학교 졸업</p>
+                                       </li>
+                                       <li>
+                                          <p>대학교 재학</p>
+                                       </li>
+                                       <li>
+                                          <p>대학교 졸업</p>
+                                       </li>
+                                       <li>
+                                          <p>대학원 이상</p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <input type="text" placeholder="본당명 입력" class="wa">
+                           </div>
+                        </dd>
+                     </div>
+                     <div class="row">
+                        <dt>지원과목</dt>
+                        <dd class="pd">
+                           <div class="radio-group">
+                              <label class="chk sm"><input type="checkbox" id="subjectKor" value="국어"><label for="subjectKor">국어</label></label>
+                              <label class="chk sm"><input type="checkbox" id="subjectEng" value="영어"><label for="subjectEng">영어</label></label>
+                              <label class="chk sm"><input type="checkbox" id="subjectMath" value="수학"><label for="subjectMath">수학</label></label>
+                              <label class="chk sm"><input type="checkbox" id="subjectSci" value="과학"><label for="subjectSci">과학</label></label>
+                              <label class="chk sm"><input type="checkbox" id="subjectSoc" value="사회"><label for="subjectSoc">사회</label></label>
+                              <label class="chk sm"><input type="checkbox" id="subjectHist" value="한국사"><label for="subjectHist">한국사</label></label>
+                              <div class="flex justify-start items-center">
+                                 <label class="chk sm"><input type="checkbox" id="subjectEtc" value="기타"><label for="subjectEtc">기타</label></label>
+                                 <div class="input-wrap sm"><input type="text" placeholder="기타 과목명 입력"></div>
+                              </div>
+                           </div>
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
+               <div class="line-bx file-dropzone mt-24">
+                  <span class="ico"></span>
+                  <div class="text">
+                     <p class="tit">작성하신 지원서 파일을 첨부해 주세요</p>
+                     <p class="desc">클릭하여 파일 선택 · .hwp .doc .docx .pdf · 최대 10MB</p>
+                  </div>
+                  <input type="file" class="dropzone-input" accept=".hwp,.doc,.docx,.pdf" hidden>
+               </div>
+               <div class="file-dropzone-result mt-24" style="display:none;">
+                  <p class="name"></p>
+                  <button type="button" class="del">삭제</button>
+               </div>
+               <p class="tbl-info gray">* 첨부파일은 1개만 등록 가능합니다.</p>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">활동희망일 <span class="sm">(활동 가능한 시간 모두 체크)</span></div>
+
+               <div class="tbl-wrap overflow mw800 mt-20">
+                  <table>
+                     <colgroup>
+                        <col style="width:16%;">
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>구분</th>
+                           <th>월</th>
+                           <th>화</th>
+                           <th>수</th>
+                           <th>목</th>
+                           <th>금</th>
+                           <th>토</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td class="left">오전(09:00~12:00)</td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk1"><label for="availChk1"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk2"><label for="availChk2"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk3"><label for="availChk3"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk4"><label for="availChk4"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk5"><label for="availChk5"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk6"><label for="availChk6"></label></div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="left">오후1(13:00~18:00)</td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk7"><label for="availChk7"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk8"><label for="availChk8"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk9"><label for="availChk9"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk10"><label for="availChk10"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk11"><label for="availChk11"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk12"><label for="availChk12"></label></div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="left">오후2(18:00~20:00)</td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk13"><label for="availChk13"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk14"><label for="availChk14"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk15"><label for="availChk15"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk16"><label for="availChk16"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk17"><label for="availChk17"></label></div>
+                           </td>
+                           <td>
+                              <div class="chk sm inline"><input type="checkbox" id="availChk18"><label for="availChk18"></label></div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <p class="tbl-info gray">* 부대설비는 시설별로 개별 선택합니다. 동일 시간대 설비 수량 제한은 담당자가 별도 확인합니다.</p>
+               </div>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">자격사항 <span class="sm">(해당 시 작성, 여러 건 입력 가능)</span></div>
+
+               <div class="tbl-wrap overflow mt-20">
+                  <table>
+                     <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                        <col style="width:25%;">
+                        <col style="width:10%;">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>취득일</th>
+                           <th>자격증명</th>
+                           <th>발급기관명</th>
+                           <th>삭제</th>
+                        </tr>
+                     </thead>
+                     <tbody id="qualificationRows">
+                        <tr>
+                           <td>
+                              <div class="input-wrap datepicker-wrap">
+                                 <input type="text" placeholder="YYYY-MM-DD" class="datepicker-input ssm">
+                                 <button type="button" class="datepicker-btn"></button>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="input-wrap"><input type="text" placeholder="자격증명을 입력하세요"></div>
+                           </td>
+                           <td>
+                              <div class="input-wrap"><input type="text" placeholder="발급기관명을 입력하세요"></div>
+                           </td>
+                           <td><button type="button" class="row-del">삭제</button></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <button type="button" class="row-add btn de pd mt-16" data-target="qualificationRows">행 추가 +</button>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">자원봉사 활동내역 <span class="sm">(이전 경력이 있으시면 작성, 여러건 입력 가능)</span></div>
+
+               <div class="tbl-wrap overflow mw800 mt-20">
+                  <table>
+                     <colgroup>
+                        <col style="width:30%;">
+                        <col style="width:auto;">
+                        <col style="width:25%;">
+                        <col style="width:10%;">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>봉사기간</th>
+                           <th>봉사내용</th>
+                           <th>기관명</th>
+                           <th>삭제</th>
+                        </tr>
+                     </thead>
+                     <tbody id="activityRows">
+                        <tr>
+                           <td>
+                              <div class="flex justify-between items-center" style="gap:4px;">
+                                 <div class="input-wrap datepicker-wrap">
+                                    <input type="text" placeholder="YYYY-MM-DD" class="datepicker-input ssm">
+                                    <button type="button" class="datepicker-btn"></button>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="input-wrap datepicker-wrap">
+                                    <input type="text" placeholder="YYYY-MM-DD" class="datepicker-input ssm">
+                                    <button type="button" class="datepicker-btn"></button>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="input-wrap"><input type="text" placeholder="봉사내용을 입력하세요"></div>
+                           </td>
+                           <td>
+                              <div class="input-wrap"><input type="text" placeholder="기관명을 입력하세요"></div>
+                           </td>
+                           <td><button type="button" class="row-del">삭제</button></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <button type="button" class="row-add btn de pd mt-16" data-target="activityRows">행 추가 +</button>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">자기소개서</div>
+
+               <div class="input-wrap mt-20">
+                  <textarea placeholder="지원동기와 자기소개를 작성해 주세요."></textarea>
+               </div>
+               <p class="tbl-info gray">* 직접 작성이 어려우신 경우, 아래에 파일 첨부로 대체하실 수 있습니다.</p>
+
+               <div class="file-upload-wrap mt-8">
+                  <button type="button" class="file-btn">파일선택</button>
+                  <span class="file-name">선택된 파일없음 (자기소개서 파일로 대체 시 첨부)</span>
+                  <input type="file" class="file-input" hidden>
+               </div>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">개인정보 수집·이용 동의</div>
+
+               <div class="scroll-bx mt-16">
+                  <p>
+                     ○ 개인정보 수집항목 및 이용목적<br>
+                     - 수집항목 : 성명, 생년월일, 연락처, 이메일, 주소 및 활동 사진촬영 시 활용 동의<br>
+                     - 이용목적 : 신청 확인 및 활동 관리, SMS 안내문자 발송 등 전반적인 자원봉사활동 운영 관련<br><br>
+                     ○ 개인정보 보유 및 이용기간 : 신청서 작성 시점부터 관련 문서 보존 연한이 다한 시점<br><br>
+                     ○ 개인정보 제공 동의를 거부할 수 있으며, 거부 시에는 일부 서비스가 제한됩니다.<br><br>
+                     ○ 법적근거 : 개인정보보호법 제15조, 제17조, 제22조, 제24조<br><br>
+                     ○ 기재된 정보는 운영 업무 이외의 용도로는 절대로 활용하지 않습니다.
+                  </p>
+               </div>
+
+               <div class="chk mt-16">
+                  <input type="checkbox" id="chkPrivacyAgree">
+                  <label for="chkPrivacyAgree">(필수) 개인정보 수집 및 이용에 동의합니다.</label>
+               </div>
+            </section>
+
+            <div class="mode-nav between mt-40">
+               <a href="">목록으로</a>
+               <a href="" class="on">제출하기</a>
+            </div>
+
          </div>
+
+         <script>
+            $(document).ready(function () {
+               if ($.fn.datepicker) {
+                  $('.datepicker-input').datepicker('option', 'dateFormat', 'yy-mm-dd');
+               }
+            });
+
+            (function () {
+
+               /* 사진 첨부 박스 클릭 -> 파일 선택 */
+               $(document).on('click', '.photo-upload-bx', function (e) {
+                  if ($(e.target).closest('.photo-input').length) return; // 버블링으로 되돌아온 클릭이면 무시
+                  $(this).find('.photo-input').trigger('click');
+               });
+
+               $(document).on('change', '.photo-upload-bx .photo-input', function () {
+                  var $box = $(this).closest('.photo-upload-bx');
+                  var file = this.files[0];
+                  if (!file) return;
+
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                     $box.find('.preview-img').attr('src', e.target.result);
+                     $box.addClass('has-image');
+                  };
+                  reader.readAsDataURL(file);
+               });
+
+               /* 지원서 첨부 드롭존 */
+               $(document).on('click', '.file-dropzone', function (e) {
+                  if ($(e.target).closest('.dropzone-input').length) return;
+                  $(this).find('.dropzone-input').trigger('click');
+               });
+
+               $(document).on('change', '.dropzone-input', function () {
+                  if (!this.files.length) return;
+                  var file = this.files[0];
+                  var sizeKB = Math.round(file.size / 1024);
+
+                  $('.file-dropzone-result')
+                     .show()
+                     .find('.name').text(file.name + ' (' + sizeKB + ' KB)');
+               });
+
+               $(document).on('click', '.file-dropzone-result .del', function () {
+                  $('.dropzone-input').val('');
+                  $('.file-dropzone-result').hide();
+                  $('.file-dropzone').show();
+               });
+
+               /* 자기소개서 대체 파일 */
+               $(document).on('click', '.file-upload-wrap .file-btn', function () {
+                  $(this).siblings('.file-input').trigger('click');
+               });
+               $(document).on('change', '.file-upload-wrap .file-input', function () {
+                  var name = this.files.length ? this.files[0].name : '선택된 파일없음 (자기소개서 파일로 대체 시 첨부)';
+                  $(this).siblings('.file-name').text(name);
+               });
+
+               /* 자격사항 / 자원봉사 활동내역 : 행 추가·삭제 */
+               /* 자격사항 / 자원봉사 활동내역 : 행 추가·삭제 */
+               $(document).on('click', '.row-add', function () {
+                  var $body = $('#' + $(this).data('target'));
+                  var $newRow = $body.find('tr').first().clone();
+
+                  $newRow.find('input').val('');
+
+                  // 원본 행의 datepicker-input엔 jQuery UI가 붙여놓은 클래스/id가 있어서 복제 시 같이 딸려옴 -> 지워서 새 위젯으로 다시 초기화되게 함
+                  $newRow.find('.datepicker-input').removeClass('hasDatepicker').removeAttr('id');
+
+                  $body.append($newRow);
+
+                  if ($.fn.datepicker) {
+                     $newRow.find('.datepicker-input').datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        showOn: 'both',
+                        buttonText: '',
+                        prevText: '&#8249;',
+                        nextText: '&#8250;',
+                        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                        showButtonPanel: false
+                     });
+                  }
+               });
+
+               $(document).on('click', '.row-del', function () {
+                  var $body = $(this).closest('tbody');
+                  if ($body.find('tr').length <= 1) {
+                     $(this).closest('tr').find('input').val('');
+                     return; // 마지막 한 줄은 지우지 않고 값만 비움
+                  }
+                  $(this).closest('tr').remove();
+               });
+
+               /* 제출하기 : 필수 동의 체크 확인 */
+               $('#submitApplyBtn').on('click', function (e) {
+                  e.preventDefault();
+                  if (!$('#chkPrivacyAgree').is(':checked')) {
+                     alert('개인정보 수집 및 이용에 동의해 주셔야 제출할 수 있습니다.');
+                     return;
+                  }
+                  /* 실제로는 여기서 폼 유효성 검사 후 서버로 제출해야 합니다. */
+                  alert('제출 로직은 아직 연결되지 않았습니다.');
+               });
+
+            })();
+         </script>
+
       </div>
    </div>
 
