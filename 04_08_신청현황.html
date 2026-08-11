@@ -435,7 +435,7 @@
                               <p class="status green">입금완료</p>
                            </td>
                            <td>
-                              <a href="" class="status gray">영수증 발급</a>
+                              <button href="" class="status gray" data-popup="popup01">영수증 발급</button>
                            </td>
                         </tr>
                         <tr>
@@ -555,6 +555,37 @@
          </div>
       </div>
    </footer>
+
+   <div class="layer-popup-wrap">
+      <div class="layer-popup" data-popup="popup01">
+         <div class="head">
+            <p class="tit">교육신청</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <p class="tbl-info">* JU소강당 · 2026.06.20 13:00~15:00<br>총 대관비 50,000원 (계약금 25,000원 / 잔금 25,000원)</p>
+
+            <div class="payment-chk-list mt-16">
+               <div class="chk payment-chk">
+                  <input type="checkbox" id="payDeposit">
+                  <label for="payDeposit">계약금<span class="amount">25,000원</span></label>
+               </div>
+               <div class="chk payment-chk">
+                  <input type="checkbox" id="payBalance">
+                  <label for="payBalance">잔금<span class="amount">25,000원</span></label>
+               </div>
+               <div class="chk payment-chk">
+                  <input type="checkbox" id="payTotal">
+                  <label for="payTotal">총액<span class="amount">25,000원</span></label>
+               </div>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">취소</button>
+               <button class="black">발급하기</button>
+            </div>
+         </div>
+      </div>
+   </div>
 
 </body>
 

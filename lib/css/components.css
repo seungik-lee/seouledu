@@ -182,6 +182,12 @@ section + section { margin-top:64px; }
 .layer-popup .btn-wrap > * { border-radius: 60px; background: #F5F5F5; color: #111; font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; padding: 12px 32px; min-width:150px; } 
 .layer-popup .btn-wrap .download { display: flex; padding: 12px 32px; justify-content: center; align-items: center; gap: 8px; border-radius: 8px; border: 1px solid #CECCCC; background: #FFF; color: #111; font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; } 
 .layer-popup .btn-wrap .download:after { content:""; display:block; width:18px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-download.svg') center / 100% auto no-repeat; } 
+.layer-popup .btn-wrap > *.black { background:#000; color:#fff; }
+
+.payment-total { margin-top:4px; margin-left:14px; color:#666; font-size:14px; }
+.payment-chk-list .payment-chk + .payment-chk { margin-top:12px; }
+.payment-chk label { display:flex; align-items:center; justify-content:space-between; width:100%; }
+.payment-chk .amount { color:#222; font-weight:600; }
 
 /* --- 아코디언 --- */
 .accordion-wrap { width:100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; align-self: stretch; } 
@@ -346,6 +352,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .title-dot span { color:#666; font-weight:400; } 
 .title-dot span.sm { font-size:20px; margin-top: 7px; } 
 .title-dot button { } 
+.title-dot .required { margin-top:-20px; }
 .title-sub { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
 .title-desc { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; } 
 
@@ -526,6 +533,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .info-bx.info { background: rgba(58, 141, 222, 0.04); } 
 .info-bx.info .tit:before { background:url('../img/common/ico-info-i.svg') center / auto no-repeat #3A8DDE; border-radius:100px; width:20px; height:auto; aspect-ratio: 1/1; } 
 .info-bx p { color: #222; font-size: 14px; font-weight: 400; line-height: 1.55; letter-spacing: -0.28px; } 
+.info-bx.survey-intro .tit:before { display:none; }
 
 .notice-bx { display: flex; padding: 24px 16px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; align-self: stretch; border-radius: 8px; background: #F5F5F5; } 
 .notice-bx p { color: #222; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; display:flex; gap:8px; justify-content: flex-start; align-items: flex-start; } 
@@ -838,6 +846,34 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .file-dropzone-result .del:after { content:""; display:block; width:18px; height:auto; aspect-ratio:1/1; background: url('../img/common/ico-close.svg') center / 100% auto no-repeat; }
  .row-del { display:inline-flex; justify-content: space-between; align-items: center; gap:8px; color:var(--accent-color-04);  font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px; } 
  .row-del:after { content:""; width:20px; height:auto; aspect-ratio: 1/1; background:url("../img/common/ico-basket.svg") center / 100% auto no-repeat; }
+
+/* 영수증 */
+body.receipt-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+.receipt-wrap { width: 100%; max-width: 1048px; }
+.receipt-card { border-radius: 20px; border: 1px solid #E5E5E5; background: #FFF; padding: 80px 64px; }
+.receipt-head { text-align: center; }
+.receipt-head .tit { color: #111; text-align: center; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; }
+
+.receipt-head .type-badge { display: inline-block; margin-top: 24px; padding: 12px 20px; border-radius: 100px; background: var(--color-theme); color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1% letter-spacing: -0.14px; }
+.receipt-info-row { display: flex; margin: 64px 0; }
+.receipt-info-row .info-item { flex: 1; text-align: center; color: #4C4C4C; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
+.receipt-info-row .label { font-weight: 700; }
+.receipt-info-row .value { margin-top: 8px; }
+
+.receipt-amount-bx { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 8px; background: #F5F5F5;font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; }
+.receipt-amount-bx .label { color: #1B1B1B; }
+.receipt-amount-bx .amount { color: var(--color-theme); }
+.receipt-amount-bx .amount span { font-size: 16px; color:#666; }
+.receipt-note { margin-top: 24px; }
+.receipt-note p { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.receipt-note p strong { font-weight: 700; }
+
+.receipt-confirm { margin-top: 64px; text-align: center; }
+.receipt-confirm p { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
+.receipt-confirm p + p { margin-top:8px; }
+
+.receipt-stamp { display:flex; justify-content: center; margin-top:64px;}
+.receipt-stamp .logo { width:236px; height:auto;  background: var(--logo-receipt) center / 100% auto no-repeat; aspect-ratio: 236/47; }
 
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
@@ -1186,4 +1222,25 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
  .photo-upload-bx { width:100%; }
  .photo-wrap .right { width:100%; }
  .photo-wrap .right dt { display:block; }
- }
+
+ body.receipt-page { padding: 20px 16px; }
+ .receipt-card { padding: 40px 24px; border-radius: 16px; }
+ .receipt-head .tit { font-size: 28px; }
+ .receipt-head .type-badge { margin-top: 12px; padding: 10px 16px; font-size: 13px; }
+
+ .receipt-info-row { margin: 32px 0; flex-direction: column; gap:6px;}
+ .receipt-info-row .info-item { font-size: 16px; display: flex; align-items: center; justify-content: space-between; }
+ .receipt-info-row .value { margin-top:0; }
+
+ .receipt-amount-bx { padding: 10px 14px; font-size: 16px; }
+ .receipt-amount-bx .amount span { font-size: 14px; }
+
+ .receipt-note { margin-top: 16px; }
+ .receipt-note p { font-size: 14px; }
+
+ .receipt-confirm { margin-top: 32px; }
+ .receipt-confirm p { font-size: 15px; }
+
+ .receipt-stamp { margin-top: 32px; }
+ .receipt-stamp .logo { width: 180px; }
+}
