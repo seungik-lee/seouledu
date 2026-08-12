@@ -374,6 +374,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .board-wrap .search-wrap { padding-top:24px; } 
 
 /* --- 게시판 공통 (뷰 / 이전다음글) --- */
+.board-wrap .view-wrap > .subject { color: #1D1D1D; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-bottom:40px; } 
 .board-wrap .view-wrap .btn-wrap { display:flex; justify-content: flex-end; align-items: stretch; gap:8px; margin:40px 0; } 
 
 /* --- 게시판 공통 (뷰 / 이전다음글) --- */
@@ -406,8 +407,10 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .board-wrap.list-type .table-wrap table tr:hover { background: #F5F5F5; transition: all 0.2s ease; } 
 .board-wrap.list-type .table-wrap table td { color: #121212; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; padding: 28px 20px; } 
 .board-wrap.list-type .table-wrap table td.no { width:0; } 
+.board-wrap.list-type .table-wrap table td.no.notice { text-indent:-999px; overflow:hidden; background: url(../img/common/ico-megaphone.svg) center / auto no-repeat; @supports (mask: url('')) { background-color: var(--color-theme); -webkit-mask: url(../img/common/ico-megaphone.svg) center / auto no-repeat; mask: url(../img/common/ico-megaphone.svg) center / auto no-repeat; background-image: none; } }
 .board-wrap.list-type .table-wrap table td.subject { width:auto; max-width: 0; overflow:hidden; } 
-.board-wrap.list-type .table-wrap table td.subject a { display:flex; justify-content: flex-start; min-width:0; gap:5px; } 
+.board-wrap.list-type .table-wrap table td.subject a { display:flex; justify-content: flex-start; align-items: center; min-width:0; gap:5px; } 
+.board-wrap.list-type .table-wrap table td.subject.new a:before { width: 20px; height: auto; aspect-ratio: 1 / 1; content: "N"; display: flex; justify-content: center; align-items: center; background: var(--color-theme); border-radius: 3.667px; color: #FFF; font-size: 12px; font-weight: 500; line-height: 1; letter-spacing: -0.12px; flex-shrink: 0; }
 .board-wrap.list-type .table-wrap table td.subject a * { font-weight:600; font-size:18px; } 
 .board-wrap.list-type .table-wrap table td.subject a p { min-width:0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } 
 .board-wrap.list-type .table-wrap table td.subject a span.reply { color:var(--color-theme); flex-shrink: 0; } 
@@ -419,7 +422,6 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .board-wrap.list-type .table-wrap table td.info .bx a[download] + a[download] { margin-left:16px; } 
 
 /* --- 게시판 목록형 뷰 --- */
-.board-wrap.list-type .view-wrap .subject { color: #1D1D1D; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; } 
 .board-wrap.list-type .view-wrap .content { color: #1D1D1D; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; min-height:290px; margin:40px auto; } 
 /* .board-wrap.list-type .view-wrap .content p { } */ /* 빈 규칙 */
 .board-wrap.list-type .view-wrap .attached { padding: 16px 20px; border-radius: 4px; background: #FAFAFA; margin-bottom:40px; } 
@@ -1021,6 +1023,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 
  .board-wrap .search-wrap { padding-top:0; } 
  .board-wrap .select-box-wrap { display:none; } 
+ .board-wrap .view-wrap > .subject { font-size:20px; } 
  .board-wrap .view-wrap .btn-wrap { margin:20px 0; } 
  .board-wrap .view-wrap .post-nav { padding:24px 20px; } 
  .board-wrap .view-wrap .post-nav .post-nav-item { gap:5px; } 
@@ -1037,7 +1040,6 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .board-wrap.list-type .table-wrap table td.info .bx span:last-child { display:none; } 
  .board-wrap.list-type .table-wrap table td.info .bx a[download] { width:20px; } 
  .board-wrap.list-type .table-wrap table td.info .bx a[download] + a[download] { margin-left:8px; } 
- .board-wrap.list-type .view-wrap .subject { font-size:20px; } 
  .board-wrap.list-type .view-wrap .content { font-size:14px; line-height: 1.55; letter-spacing: -0.28px; } 
  .board-wrap.list-type .view-wrap .attached { margin-bottom:20px; } 
  .board-wrap.list-type .view-wrap .attached li { gap:8px; } 
@@ -1122,17 +1124,17 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .authority-list .item .text .des { font-size: 14px; } 
 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx { border-radius: 20px; border: 1px solid #CCC; background: #FFF; padding:24px; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 { letter-spacing: -0.2px; margin-bottom:var(--clamp-size-24); display:flex; justify-content: space-between; align-items: center; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 p { font-size: 24px; line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; } 
+ .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 { letter-spacing: -0.2px; margin-bottom:var(--clamp-size-24); display:flex; justify-content: space-between; align-items: flex-start; } 
+ .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 p { font-size: 24px; line-height: 1.45; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx h5 .status { margin-top:0; font-size:14px; flex-shrink: 0; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx li { display:flex; justify-content: flex-start; padding:8px 0; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx li p { color: #333; font-size: 15px; font-weight: 500; line-height: 1.4; letter-spacing: -0.14px; } 
- .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt { display:flex; justify-content:space-between; align-items:center; width: 40%; min-width: 130px; font-weight:600; } 
+ .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt { display:flex; justify-content:space-between; align-items:center; width: 35%; min-width: 80px; font-weight:600; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt:after { content:""; display:block; width:1px; height:39%; background:#ccc; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dd { padding-left:10px; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx .btn-wrap { display: flex; justify-content: space-between; align-items: stretch; gap:8px; } 
  .table-swiper-wrap .slider-wrap .swiper-slide .bx .btn-wrap .status { width:100%; aspect-ratio: none; } 
- .table-swiper-wrap .status { display: flex; padding: 12px 16px; justify-content: center; align-items: center; gap: 6px; align-self: stretch; border-radius: 8px; color: #111; font-size: 15px; font-weight: 600; letter-spacing: -0.14px; margin-top:15px; height:32px; } 
+ .table-swiper-wrap .status { display: flex; padding: 12px 16px; justify-content: center; align-items: center; gap: 6px; border-radius: 8px; color: #111; font-size: 15px; font-weight: 600; letter-spacing: -0.14px; margin-top:15px; height:32px; } 
  .table-swiper-wrap .status.wait { background: #F5F8FB; color:#666; } 
  .table-swiper-wrap .slider-wrap .slider-control { position: unset; display: flex; justify-content: center; align-items: center; margin-top:12px; gap:min(6vw, 25px); } 
  .table-swiper-wrap .slider-wrap .slider-control .btn { width:40px; height:auto; aspect-ratio:1/1; border-radius:100px; border:1px solid #CDD1D5; text-indent:-999px; overflow:hidden; background:url('../img/common/ico-arrow-left-black.svg') center / auto no-repeat #fff; } 
