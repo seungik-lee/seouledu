@@ -139,11 +139,10 @@ section + section { margin-top:64px; }
 
 /* --- 탭 --- */
 .tab-wrap { display:flex; justify-content: space-between; } 
-.tab-wrap.center { justify-content: center; } 
 .tab-wrap ul { display:flex; justify-content:flex-start; align-items:stretch; gap:12px; } 
-.tab-wrap.center ul { justify-content: center; } 
+.tab-wrap.center ul { justify-content: center; width:100%; } 
 .tab-wrap.wrap ul { flex-wrap:wrap; } 
-.tab-wrap li { font-size: 18px; font-style: normal; font-weight: 700; line-height: 1.4; letter-spacing: -0.45px; cursor:pointer; background:#fff; border-radius:100px; color:#555; padding: 16px 24px; transition: all 0.2s ease; white-space: nowrap; box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.04); } 
+.tab-wrap li { font-size: 18px; font-style: normal; font-weight: 700; line-height: 1.4; letter-spacing: -0.45px; cursor:pointer; background:#fff; border-radius:100px; color:#555; padding: 16px 24px; transition: all 0.2s ease; white-space: nowrap; box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.04); display:inline-flex; align-items: center; } 
 .tab-wrap li.on, .tab-btn-wrap li:hover, .tab-btn-wrap li:active { background-color:var(--color-theme); color:#fff; backdrop-filter: blur(10px); } 
 .tab-wrap li > * { font-size:inherit; color:inherit; font-weight:inherit; white-space: inherit; } 
 .tab-wrap.two-row { flex-direction: column; gap:12px; } 
@@ -359,7 +358,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 /* =========================================================
  5. 게시판 레이아웃
 ========================================================= */
-.board-wrap { display:flex; flex-direction: column; gap:24px; }
+.board-wrap { display:flex; flex-direction: column; gap:24px; min-width:0; }
 .board-wrap .sub-title { color: #1D1D1D; font-size: 30px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; }
 
 /* --- 검색 --- */
@@ -443,6 +442,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .board-wrap.list-type .view-wrap .reply-wrap .reply-bx .reply .user { display:flex; justify-content: flex-start; align-items:center; gap:12px; } 
 .board-wrap.list-type .view-wrap .reply-wrap .reply-bx .reply .user .name { color: #1D1D1D; font-size: 16px; font-weight: 700; line-height: 1.55; letter-spacing: -0.32px; } 
 .board-wrap.list-type .view-wrap .reply-wrap .reply-bx .reply .user .date { color: #666; font-size: 14px; font-weight: 400; line-height: 1.55; letter-spacing: -0.28px; } 
+.board-wrap.list-type .view-wrap .reply-wrap .reply-bx .reply .user .del { width:20px; height:auto; aspect-ratio: 1/1; text-indent:-999px; background:url('../img/common/ico-delete.svg') center / 100% auto no-repeat; overflow:hidden; margin-left:-6px; }
 .board-wrap.list-type .view-wrap .reply-wrap .reply-bx .reply .comment { color: #1D1D1D; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; } 
 .board-wrap.list-type .view-wrap .reply-wrap .textfield { display:flex; justify-content: space-between; align-items: stretch; gap:16px; } 
 .board-wrap.list-type .view-wrap .reply-wrap .textfield .textarea-wr { width:100%; position:relative; } 
@@ -957,7 +957,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .accordion-wrap .accordion-head .tit:after { width:18px; } 
  .accordion-wrap .tbl-wrap thead th, .accordion-wrap .tbl-wrap tbody td { font-size:14px; } 
  
- .tab-wrap { overflow-x:auto; } 
+ .tab-wrap { overflow-x: auto; }
+ .tab-wrap.center { justify-content: center; }
+ .tab-wrap.center ul { justify-content: flex-start; width:auto; max-width: 100%; } 
  .tab-wrap ul { display:flex; justify-content: flex-start; align-items: stretch; gap:12px; padding-bottom:10px; } 
  .tab-wrap li, .tab-wrap li.on { white-space: nowrap; font-size: 17px; padding: 14px var(--clamp-size-24); } 
  
