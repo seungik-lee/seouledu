@@ -121,72 +121,75 @@
       <div id="lnb">
          <p>장애인신앙교육부</p>
          <ul>
-            <li class="on"><a href="">장애인신앙교육부 소개</a></li>
+            <li><a href="">장애인신앙교육부 소개</a></li>
             <li><a href="">부서조직</a></li>
             <li><a href="">장애인 주일학교 현황</a></li>
             <li><a href="">연혁</a></li>
             <li><a href="">일정</a></li>
-            <li><a href="">오시는 길</a></li>
+            <li class="on"><a href="">오시는 길</a></li>
          </ul>
       </div>
       <div id="contents">
          <div class="cont-top">
-            <div class="page-title">장애인신앙교육부 소개</div>
+            <div class="page-title">오시는 길</div>
             <div class="location">
                <a href="">홈</a>
                <span></span>
                <a href="">장애인신앙교육부</a>
                <span></span>
-               <a href="" class="cur">장애인신앙교육부 소개</a>
+               <a href="" class="cur">오시는 길</a>
             </div>
          </div>
          <div class="cont-wrap">
-
-            <section>
-               <div class="title-dot">설립 목적</div>
-               <ul class="num-circle-list">
-                  <li>
-                     <span class="num">1</span>
-                     <p>발달장애인이 주체가 되어 원활하게 신앙생활을 할 수 있도록 돕습니다.</p>
-                  </li>
-                  <li>
-                     <span class="num">2</span>
-                     <p>발달장애인들의 신앙교육을 통해 복음화에 기여합니다.</p>
-                  </li>
-                  <li>
-                     <span class="num">3</span>
-                     <p>장애인 주일학교 교사 교육을 진행하고 각 본당에서 활동할 수 있도록 안내합니다.</p>
-                  </li>
-                  <li>
-                     <span class="num">4</span>
-                     <p>발달장애인들을 위한 교리교육자료를 마련하여 본당의 주일학교 운영을 지원합니다.</p>
-                  </li>
-               </ul>
-            </section>
-
-            <section class="mt-40">
-               <div class="title-dot">주보성인</div>
-               <div class="img-wrap overflow">
-                  <img src="../../lib/img/cafema/introduce_img01.png">
-               </div>
-            </section>
-
-            <section class="mt-40">
-               <div class="title-dot">로고</div>
-               <div class="img-wrap auto py-24 mb-24">
-                  <img src="../../lib/img/cafema/introduce_img02.png" style="width:clamp(150px, 20vw, 220px);">
-               </div>
-               <div class="text-bx">
-                  <p class="tit">하느님께서 우리 모두를 만드셨기에, 그 기쁨과 감사를 표현하였습니다.</p>
-                  <div class="desc">
-                     <p>네 개의 손 → 하느님, 교사, 학생, 학부모를 상징합니다.</p>
-                     <p>네 개의 엄지 손가락 → 십자가를 상징합니다.</p>
-                     <p>나머지 손가락 → 십자가를 중심으로 뻗어 나가는 빛을 상징합니다.</p>
+            <!--자바스크립트 키 변경필요-->
+            <script src="../../lib/js/kakao-maps.js"></script>
+            <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
+            <script>
+               kakao.maps.load(function () {
+                  initKakaoMap();
+               });
+            </script>
+            <div class="map-wrap">
+               <div id="map" data-address="서울 중구 명동길 74-3" class="logo"></div>
+            </div>
+            <div class="dl-wrap">
+               <dl>
+                  <div class="row">
+                     <dt>주소</dt>
+                     <dd>서울 중구 명동길 74-3 교구청별관 4층 장애인신앙교육부</dd>
                   </div>
-               </div>
-            </section>
-
+                  <div class="row double">
+                     <div class="col">
+                        <dt>전화</dt>
+                        <dd>02-727-2107</dd>
+                     </div>
+                     <div class="col">
+                        <dt>팩스</dt>
+                        <dd>02-727-2097</dd>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <dt>이메일</dt>
+                     <dd>cafema@cafema.or.kr</dd>
+                  </div>
+                  <div class="row double">
+                     <div class="col">
+                        <dt>근무시간</dt>
+                        <dd>매주 월~금 09:00~18:00</dd>
+                     </div>
+                     <div class="col">
+                        <dt>점심시간</dt>
+                        <dd>점심 12:00~13:00</dd>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <dt>휴무</dt>
+                     <dd>매주 토, 일 및 공휴일 휴무<br>(휴무일은 교육일정에 따라 변경될 수 있으니 자세한 사항은 홈페이지를 확인하세요.)</dd>
+                  </div>
+               </dl>
+            </div>
          </div>
+
       </div>
    </div>
 
