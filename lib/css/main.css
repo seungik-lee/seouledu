@@ -432,6 +432,12 @@
 /* =========================================================
  15. Type C
 ========================================================= */
+header.typeC .rnb .mypage { background-image: url('../img/common/ico-mypage-white.svg'); }
+header.typeC .rnb .menu { background-image:url('../img/common/ico-menu-white.svg'); }
+
+.menu-open header.typeC .rnb .mypage, header.typeC:hover .rnb .mypage, header.typeC.scroll .rnb .mypage { background-image: url('../img/common/ico-mypage.svg'); } 
+.menu-open header.typeC .rnb .menu, header.typeC:hover .rnb .menu, header.typeC.scroll .rnb .menu { background-image:url('../img/common/ico-menu.svg'); }
+
 [data-type="typeC"].slider-wrap.main .swiper-slide { height:100vh; min-height:700px; max-height:1100px; } 
 [data-type="typeC"].slider-wrap.main .swiper-slide > img { width:100%; height:100%; object-fit: cover; object-position: center; } 
 [data-type="typeC"] .slide-content { left:50%; bottom:14.6%; color:#fff; transform: translateX(-50%); } 
