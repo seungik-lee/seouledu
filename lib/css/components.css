@@ -309,14 +309,14 @@ footer .ft-wrap .sns-link a.facebook { background-image:url('../img/common/ico-f
 footer .ft-wrap .sns-link a.instagram { background-image:url('../img/common/ico-ft-instagram.svg'); } 
 footer .ft-wrap .ft-link { display:flex; align-items:center; gap:32px; margin:20px 0 10px; } 
 footer .copyright { color: #FFF; font-size: 14px; font-weight: 400; line-height: 1.45; letter-spacing: -0.35px; } 
-footer .familysite { position:relative; } 
-footer .familysite p { display:flex; justify-content:space-between; align-items:center; font-weight:500; color:#111; width:180px; padding:12px 18px; border-radius:24px; background:#fff; transition: all 0.2s linear; } 
+footer .familysite { position:relative; cursor:pointer; } 
+footer .familysite p { display:flex; justify-content:space-between; align-items:center; font-weight:500; color:#111; width:200px; padding:12px 18px; border-radius:24px; background:#fff; transition: all 0.2s linear; } 
 footer .familysite p.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; } 
 footer .familysite p:after { content:""; display:block; width:24px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-arrow-down-black.svg') center / 100% auto no-repeat; } 
 footer .familysite p.open:after { transform:rotate(180deg); } 
 footer .familysite .site-list-wr { display:none; position:absolute; top:48px; left:0; width:100%; max-height:120px; background:#fff; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; padding-bottom: 10px; overflow:hidden; } 
 footer .familysite .site-list-wr ul { max-height:120px; overflow-y:auto; } 
-footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; padding:5px 18px; } 
+footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul li > * { display:block; font-size:inherit; padding:5px 18px; }
 
 /* =========================================================
  3. 플로팅
@@ -336,9 +336,15 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 ========================================================= */
 #wrap { display:flex; align-items: flex-start; margin-top:100px; padding:40px 0 100px; } 
 #lnb { display:flex; flex-direction:column; gap:32px; width:clamp(338px, 24vw, 448px); padding:0 64px 0 var(--content-padding-x-wide); } 
-#lnb p { color: #111; font-size: 28px; font-weight: 700; line-height: 1.45; letter-spacing: -0.56px; padding:12px 8px; } 
-#lnb li a { display:block; color: #555; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; padding:20px 8px; white-space: nowrap; } 
-#lnb li.on a { color: #1D1D1D; border-radius: 4px; background: #F5F5F5; } 
+#lnb > p { color: #111; font-size: 28px; font-weight: 700; line-height: 1.45; letter-spacing: -0.56px; padding:12px 8px; } 
+#lnb > ul > li > a { display:block; color: #555; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; padding:20px 8px; white-space: nowrap; } 
+#lnb > ul > li.on > a { color: #1D1D1D; border-radius: 4px; background: #F5F5F5; } 
+#lnb .dep1 > a { display:flex; justify-content:space-between; align-items: center; cursor: pointer; }
+#lnb .dep1 > a:after { content:""; display:block; width:20px; height:auto; aspect-ratio:1/1; background:url('../img/common/ico-arrow-down-black.svg') center / 100% auto no-repeat; }
+#lnb .dep1.open > a:after { transform:rotate(-180deg); }
+#lnb .dep2 { display:none; }
+#lnb .dep2 a { display: block; padding: 20px; color: #555; font-size: 16px; font-weight: 600; line-height: 1.45; letter-spacing: -0.32px;}
+#lnb .dep2 .on a { color:var(--color-theme); }
 
 #contents { display:flex; flex-direction: column; width:calc(100% - clamp(338px, 24vw, 448px)); padding-right:min(13vw, 232px); } 
 #contents .cont-top { display:flex; align-items: flex-end; justify-content: space-between; width:100%; padding-bottom:24px; border-bottom: 1px solid #E5E5E5; margin-bottom:40px; } 
@@ -534,6 +540,7 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 
 .box-wrap { max-width:660px; padding: 80px; border-radius: 20px; border: 1px solid #E5E5E5; background: rgba(255, 255, 255, 0.40); backdrop-filter: blur(10px); margin:0 auto; display: flex; flex-direction: column; gap: 24px; } 
 .box-wrap .title { color: #000; text-align: center; font-size: 24px; font-weight: 400; line-height: 1.45; letter-spacing: -0.48px; } 
+.box-wrap .chk label { font-size:16px; color:#1B1B1B; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; } 
 
 .info-bx { display: flex; padding: 16px; justify-content: flex-start; align-items: flex-start; gap: 8px; align-self: stretch; border-radius: 8px; margin:10px 0; } 
 .info-bx .ico { background:center / auto no-repeat; line-height: 1; aspect-ratio: 22/20; flex-shrink: 0; }
@@ -553,8 +560,10 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .notice-bx { display: flex; padding: 24px 16px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; align-self: stretch; border-radius: 8px; background: #F5F5F5; } 
 .notice-bx p { color: #222; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; display:flex; gap:8px; justify-content: flex-start; align-items: flex-start; } 
 .notice-bx p:before { content:""; width: 6px; height: auto; aspect-ratio: 1/1; border-radius:10px; background:#111; margin-top:8px; } 
+.notice-bx.nb p:before { display:none; }
+.notice-bx.f20, .notice-bx.f20 p { font-size:20px }
 
-.box-wrap .chk label { font-size:16px; color:#1B1B1B; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; } 
+.gray-bx { padding: 40px 10px; font-size:24px; font-weight:700; color:#000; background: var(--Grey01, #F5F5F5); width:100%; text-align:center; border-radius: 12px; }
 
 /* --- dl 테이블 --- */
 .dl-wrap { border-top: 1px solid #111; } 
@@ -631,6 +640,14 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .tbl-wrap.overflow.mw800 table { min-width:800px; } 
 .tbl-wrap.overflow .select-box-wrap .select-box-list-wr { position:fixed; top:auto; left:auto; width:auto; min-width:0; } 
 
+.tbl-dl-wrap { width:100%; }
+.tbl-dl-wrap table { width:100%; border-top: 1px solid #111; color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.tbl-dl-wrap th { font-weight:600; padding:16px 24px; background:#F5F5F5; }
+.tbl-dl-wrap td { font-weight:400; padding:16px 24px; }
+.tbl-dl-wrap thead th { background:#E9E9E9; }
+.tbl-dl-wrap tbody th, .tbl-dl-wrap tbody td { border-bottom:1px solid #E5E5E5; }
+.tbl-dl-wrap tbody td:not(.last) { border-right:1px solid #E5E5E5; }
+
 .data-card { padding: 40px 0; border-radius: 20px; background: #F5F5F5; } 
 .data-list { display: grid; } 
 .data-card.col4 .data-list { grid-template-columns: repeat(4, 1fr); } 
@@ -654,6 +671,8 @@ footer .familysite .site-list-wr ul li a { display:block; font-size:inherit; pad
 .date-list-bx li strong { color: #111; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; flex-shrink: 0; } 
 .date-list-bx li p { color: #000; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; display:flex; justify-content: flex-start; align-items: center; gap:12px; } 
 .date-list-bx li p:before { content:""; display:block; width:6px; height:auto; aspect-ratio: 1/1; background:#666; border-radius:10px; flex-shrink: 0; } 
+
+
 
 /* =========================================================
 7. 로그인, 회원가입, 마이페이지
