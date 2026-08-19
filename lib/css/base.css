@@ -110,7 +110,7 @@ template { display: none; }
  --container-3xl: 1792px;
 
  --content-padding-x: calc(100vw / 1920 * 40);
- --content-padding-x-wide: calc(100vw / 1920 * 64);
+ --content-padding-x-wide: clamp(calc(100vw / 1920 * 40), 3.4vw, calc(100vw / 1920 * 64));
 
  --breakpoint-sm: 640px;
  --breakpoint-md: 768px;
@@ -445,18 +445,6 @@ td.right { text-align: right !important; }
 .py-32 { padding-top: 32px !important; padding-bottom: 32px !important; } 
 
 @media (max-width: 768px) {
-  .m-64 { margin: 32px !important; }
-  .m-80 { margin: 40px !important; }
-
-  .mt-64 { margin-top: 32px !important; }
-  .mt-80 { margin-top: 40px !important; }
-
-  .mb-64 { margin-bottom: 32px !important; }
-  .mb-80 { margin-bottom: 40px !important; }
-
-  .ml-40 { margin-left: 20px !important; }
-  .mr-40 { margin-right: 20px !important; }
-
   .p-40 { padding: 20px !important; }
   .p-48 { padding: 24px !important; }
   .p-64 { padding: 32px !important; }

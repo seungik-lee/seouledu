@@ -36,14 +36,40 @@
   --logo: url('../img/cafema/logo.png');
   --logo-white: url('../img/cafema/logo-white.png');
   --logo-receipt: url('../img/siteA/receipt-stamp.png');
-  --logo-w: 40%;
+  --logo-w: 30%;
   --logo-max-w: 194px;
   --logo-h: auto;
   --logo-ratio: 194 / 36;
-  --gnb-dep1-padding: 70px;
+  --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
   --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
   --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
   --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
   --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff;
   --bg-arch:   url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff;
+}
+
+#cafema[data-theme="theme04"] {
+  --color-theme: #87C237;
+  --color-theme-hover: #497e00;
+  --color-theme-opacity: rgba(135, 194, 55, 0.08);
+}
+
+#cafema[data-theme="theme04"] .lastest-wrap.board .board-wrap li.new:before {
+   --color-theme: #FFC629;
+}
+
+#cafema .lastest-wrap.board { background:#fff; }
+
+@media (max-width: 1240px) {
+   #cafema { 
+   --logo-w: auto;      
+   --logo-h: 32px;
+   }
+}
+
+@media (max-width: 768px) {
+   #cafema #ft-logo { 
+      --logo-w: 50%;      
+      --logo-h: 32px;
+   }
 }
