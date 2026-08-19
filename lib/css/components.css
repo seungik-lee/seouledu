@@ -15,6 +15,7 @@ table .pc-only { display:table-cell !important; }
 .text-bx .tit {  font-size: 20px; font-weight: 700; letter-spacing: -0.4px; }
 .text-bx .desc p {  font-size: 18px;  letter-spacing: -0.36px; }
 .text-bx .tit + .desc { margin-top:16px; }
+.text-bx span { color: #555; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
 
 /* --- 레이아웃 컨테이너 --- */
 .inner { width:100%; max-width:calc(1440px + var(--content-padding-x) * 2); padding:0 var(--content-padding-x); margin:0 auto; transition: all 0.3s ease; } 
@@ -122,17 +123,22 @@ section + section { margin-top:64px; }
 .datepicker-btn { position:absolute; top: 50%; transform: translateY(-50%); right: 12px; width: 24px; height: auto; aspect-ratio: 1/1; background: url('../img/common/ico-calendar02.svg') center / 100% auto no-repeat; } 
 
 /* --- 버튼 --- */
-.btn { display:flex; align-items: center; color: #111; font-size: 18px; font-weight: 600; line-height: 1.4; letter-spacing: -0.36px; border-radius: 12px; padding: 12px 16px; gap:8px; background:#F5F5F5; } 
+.btn { display:flex; align-items: center; color: #111; font-size: 18px; font-weight: 600; line-height: 1.4; letter-spacing: -0.36px; border-radius: 12px; padding: 12px 16px; gap:8px; background:#F5F5F5; white-space: nowrap; } 
+.btn.inline { display:inline-flex; }
 .btn.sm { font-size:14px; } 
 .btn.pd { padding: 12px 32px; } 
 .btn.br { border-radius:1000px; } 
 .btn:hover, .btn:active { background:#e1e1e1; } 
+.btn.ch:hover, .btn.ch:active { background:var(--color-theme); color:#fff; } 
 .btn.bl { background:#000; color:#fff; } 
 .btn.color { background: var(--color-theme); color:#fff; font-weight:700; } 
 .btn.color:hover, .btn.color:active { background:var(--color-theme-hover); } 
 .btn.after:after { content:""; width:20px; height:auto; aspect-ratio: 1/1; background:center / 100% auto no-repeat; } 
 .btn.plus:after { background-image:url('../img/common/ico-plus.svg'); } 
 .btn.home:after { background-image: url('../img/common/ico-home.svg'); } 
+.btn.download:after { background-image: url('../img/common/ico-download.svg'); } 
+.btn.ch.download:hover:after, .btn.ch.download:active:after { background-image: url('../img/common/ico-download-white.svg'); } 
+.btn.bl { background:#000; color:#fff; } 
 .btn.right { margin-left:auto; } 
 
  .mode-nav { display: flex; justify-content: center; gap: 8px; } 
@@ -647,6 +653,8 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .tbl-dl-wrap thead th { background:#E9E9E9; }
 .tbl-dl-wrap tbody th, .tbl-dl-wrap tbody td { border-bottom:1px solid #E5E5E5; }
 .tbl-dl-wrap tbody td:not(.last) { border-right:1px solid #E5E5E5; }
+.tbl-dl-wrap.overflow { overflow-x:auto; } 
+.tbl-dl-wrap.overflow table { min-width:800px; white-space: nowrap; } 
 
 .data-card { padding: 40px 0; border-radius: 20px; background: #F5F5F5; } 
 .data-list { display: grid; } 
@@ -671,8 +679,6 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .date-list-bx li strong { color: #111; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; flex-shrink: 0; } 
 .date-list-bx li p { color: #000; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; display:flex; justify-content: flex-start; align-items: center; gap:12px; } 
 .date-list-bx li p:before { content:""; display:block; width:6px; height:auto; aspect-ratio: 1/1; background:#666; border-radius:10px; flex-shrink: 0; } 
-
-
 
 /* =========================================================
 7. 로그인, 회원가입, 마이페이지
@@ -776,11 +782,20 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 
 .img-wrap { display:flex; flex-direction: column; justify-content: center; align-items: flex-start; } 
 .img-wrap img { display:block; width:100%; } 
-.img-wrap p { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; } 
-.img-wrap.auto { flex-direction: row; }
+.img-wrap p { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:12px; } 
+.img-wrap p.note { color: #555; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
+.img-wrap p a { text-decoration: underline; text-underline-position: under; }
+.img-wrap.center { align-items: center; }
 .img-wrap.auto img { width:auto; } 
 .img-wrap.cap-wrap { position: relative; max-width:678px; border-radius: 20px; overflow:hidden; } 
 .img-wrap.cap-wrap .cap { position: absolute; left: 0; bottom: 0; width:100%; height:100%; color: #FFF; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: -0.64px; background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.8) 100%); display:flex; align-items: flex-end; padding:40px; } 
+.img-wrap.text { flex-direction: row; justify-content: flex-start; gap:24px; }
+.img-wrap.text img { width:auto; flex-shrink: 0; }
+.img-wrap.text .cont { display:flex; flex-direction: column; gap:12px; }
+.img-wrap.text .cont .tit { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; }
+.img-wrap.text .cont .bullet-list { display:flex; flex-direction: column; gap:4px; }
+.img-wrap.text .cont .bullet-list li { display:flex; justify-content: flex-start; align-items: flex-start; gap:4px; }
+.img-wrap.text .cont .bullet-list li:before { content:"·"; display:block; }
 
 /* 연혁 */
 .history-page { position: relative; } 
@@ -1059,6 +1074,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .img-wrap.overflow { padding-bottom:10px; overflow-x:auto; } 
  .img-wrap.overflow img { width:auto; max-width:none; } 
  .img-wrap.cap-wrap .cap { padding:24px; font-size:20px; } 
+ .img-wrap.text { flex-direction: column; }
 
  .search-wrap, .search-input-wrap { flex-direction: column; } 
  .search-input-wrap .input-wrap input { font-size:16px; } 
@@ -1109,6 +1125,10 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .line-bx { padding: var(--clamp-size-24); }
  .line-bx .desc { margin-top:4px; }
  .line-bx.fl { flex-direction: column; gap:8px; align-items: flex-start; }
+
+ .notice-bx.f20, .notice-bx.f20 p { font-size:16px }
+ 
+ .gray-bx { padding: 20px 10px; font-size:18px; }
 
  .map-wrap { aspect-ratio: 1/1; } 
 

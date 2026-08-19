@@ -445,18 +445,12 @@ td.right { text-align: right !important; }
 .py-32 { padding-top: 32px !important; padding-bottom: 32px !important; } 
 
 @media (max-width: 768px) {
-  .m-40 { margin: 20px !important; }
-  .m-48 { margin: 24px !important; }
   .m-64 { margin: 32px !important; }
   .m-80 { margin: 40px !important; }
 
-  .mt-40 { margin-top: 20px !important; }
-  .mt-48 { margin-top: 24px !important; }
   .mt-64 { margin-top: 32px !important; }
   .mt-80 { margin-top: 40px !important; }
 
-  .mb-40 { margin-bottom: 20px !important; }
-  .mb-48 { margin-bottom: 24px !important; }
   .mb-64 { margin-bottom: 32px !important; }
   .mb-80 { margin-bottom: 40px !important; }
 
