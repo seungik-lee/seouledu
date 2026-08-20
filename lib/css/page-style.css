@@ -35,17 +35,11 @@
 #cafema {
   --logo: url('../img/cafema/logo.png');
   --logo-white: url('../img/cafema/logo-white.png');
-  --logo-receipt: url('../img/siteA/receipt-stamp.png');
   --logo-w: 30%;
   --logo-max-w: 194px;
   --logo-h: auto;
   --logo-ratio: 194 / 36;
   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
-  --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
-  --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
-  --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
-  --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff;
-  --bg-arch:   url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff;
 }
 
 #cafema[data-theme="theme04"] {
@@ -72,4 +66,62 @@
       --logo-w: 50%;      
       --logo-h: 32px;
    }
+}
+
+/* --- 천주교서울대교구 청소년국 유아부 --- */
+#catholicinfant {
+  --logo: url('../img/catholicinfant/logo.png');
+  --logo-white: url('../img/catholicinfant/logo-white.png');
+  --logo-receipt: url('../img/siteA/receipt-stamp.png');
+  --logo-w: 30%;
+  --logo-max-w: 251px;
+  --logo-h: auto;
+  --logo-ratio: 251 / 36;
+  --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+  --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+  --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+  --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+  --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff;
+  --bg-arch:   url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff;
+}
+
+#catholicinfant .ideology .img-bx { padding:40px 32px; border-radius: 16px; background:url('../img/catholicinfant/ideology_img01.png') left center / cover no-repeat; }
+#catholicinfant .ideology .img-bx ul { display:flex; flex-direction: column; gap:8px; }
+#catholicinfant .ideology .img-bx li { color: #FFF; font-size: 16px; font-weight: 500; line-height: 1.55; letter-spacing: -0.32px; display:flex; justify-content: flex-start; align-items: flex-start; gap:4px; }
+#catholicinfant .ideology .img-bx li:before { content:""; display:block; width:3px; height:auto; aspect-ratio: 1/1; flex-shrink: 0; background:#fff; border-radius:100px; margin-top:9px; }
+
+#catholicinfant .project .bullet-list li { font-size:20px; }
+
+#catholicinfant .father .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; }
+#catholicinfant .father .sign span { color:var(--color-theme); }
+
+#catholicinfant .work .text-bx .tit.big { display:flex; justify-content: flex-start; align-items: flex-start; gap:8px; }
+#catholicinfant .work .text-bx .tit.big:before { content:"◎"; display:block; flex-shrink: 0; font-size:20px; font-weight:900; color:var(--color-theme); margin-top:10px;}
+#catholicinfant .work .text-bx p { margin-left:30px; }
+
+#catholicinfant .family .flex { gap:20px; flex-wrap:wrap; }
+#catholicinfant .family .notice-bx { padding: 24px 20px; display:flex; flex-direction: column; width:calc(25% - 20px); justify-content: flex-start; align-items:stretch; min-height:200px; gap:54px; }
+#catholicinfant .family .notice-bx .status { margin-left:auto; border-radius:500px; }
+#catholicinfant .family .notice-bx .text { min-height:70px; }
+#catholicinfant .family .notice-bx .text .name { color: #000; font-size: 18px; font-weight: 700; line-height: 1.45; letter-spacing: -0.36px; margin-bottom:4px; }
+#catholicinfant .family .notice-bx .text .work { color: #000; font-size: 14px; font-weight: 400; line-height: 1.55; letter-spacing: -0.28px; }
+
+@media (max-width: 1240px) {
+   #catholicinfant { 
+   --logo-w: auto;      
+   --logo-h: 32px;
+   }
+}
+
+@media (max-width: 768px) {
+   #catholicinfant #ft-logo { 
+      --logo-w: 50%;      
+      --logo-h: 32px;
+   }
+   #catholicinfant .bullet-list li { font-size:16px; }
+   #catholicinfant .work .text-bx .tit.big { gap:4px; }
+   #catholicinfant .work .text-bx .tit.big:before { font-size:16px; margin-top: 5px; }
+   #catholicinfant .work .text-bx p { margin-left:22px; }
+
+   #catholicinfant .family .notice-bx { padding: 20px 16px; width:calc(50% - 10px); }
 }
