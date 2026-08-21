@@ -18,6 +18,8 @@ table .pc-only { display:table-cell !important; }
 .text-bx .tit + .desc { margin-top:16px; }
 .text-bx span { color: #555; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; }
 
+.text-underline { text-decoration: underline; text-underline-position: under; }
+
 /* --- 레이아웃 컨테이너 --- */
 .inner { width:100%; max-width:calc(1440px + var(--content-padding-x) * 2); padding:0 var(--content-padding-x); margin:0 auto; transition: all 0.3s ease; } 
 .inner.wide { width:100%; max-width:calc(1792px + var(--content-padding-x) * 2); padding:0 var(--content-padding-x); margin:0 auto; } 
@@ -442,6 +444,9 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .board-wrap.list-type .table-wrap table td.info .bx a.download { @supports not (mask: url('')) { background-image: url('../img/common/ico-download.svg'); } @supports (mask: url('')) { -webkit-mask-image: url('../img/common/ico-download.svg'); mask-image: url('../img/common/ico-download.svg'); } } 
 .board-wrap.list-type .table-wrap table td.info .bx a.link { @supports not (mask: url('')) { background-image: url('../img/common/ico-link.svg'); } @supports (mask: url('')) { -webkit-mask-image: url('../img/common/ico-link.svg'); mask-image: url('../img/common/ico-link.svg'); } } 
 
+.tbl-desc { margin-top:16px; }
+.tbl-desc p { color: #666; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.28px; }
+
 /* --- 게시판 목록형 뷰 --- */
 .board-wrap.list-type .view-wrap .content { color: #1D1D1D; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; min-height:290px; margin:40px auto; } 
 /* .board-wrap.list-type .view-wrap .content p { } */ /* 빈 규칙 */
@@ -521,6 +526,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .map-list-ul { list-style: none; padding-right:10px; } 
 .map-list-item { border-radius: 15px; border: 1px solid #000; padding:20px; cursor: pointer; transition: all 0.2s ease; } 
 .map-list-item + .map-list-item { margin-top:12px; } 
+.map-list-panel .map-list-item.first-visible { margin-top: 0; }
 .map-list-item:hover, .map-list-item.active { background: var(--color-theme-opacity); border-color:var(--color-theme); } 
 .map-list-item .name { display: block; color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; margin-bottom:8px; } 
 .map-list-item .address { color: #000; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; } 
