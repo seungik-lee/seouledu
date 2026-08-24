@@ -12,11 +12,8 @@
 
 /* --- 천주교 서울대교구 청소년국 장애인신앙교육부 --- */
 #cafema { --logo: url('../img/cafema/logo.png'); --logo-white: url('../img/cafema/logo-white.png'); --logo-w: 30%; --logo-max-w: 194px; --logo-h: auto; --logo-ratio: 194 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); } 
-
 #cafema[data-theme="theme04"] { --color-theme: #87C237; --color-theme-hover: #497e00; --color-theme-opacity: rgba(135, 194, 55, 0.08); } 
-
 #cafema[data-theme="theme04"] .lastest-wrap.board .board-wrap li.new:before { --color-theme: #FFC629; } 
-
 #cafema .lastest-wrap.board { background:#fff; } 
 
 @media (max-width: 1240px){
@@ -29,6 +26,15 @@
 
 /* --- 천주교서울대교구 청소년국 유아부 --- */
 #catholicinfant { --logo: url('../img/catholicinfant/logo.png'); --logo-white: url('../img/catholicinfant/logo-white.png'); --logo-receipt: url('../img/siteA/receipt-stamp.png'); --logo-w: 30%; --logo-max-w: 251px; --logo-h: auto; --logo-ratio: 251 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat; --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff; --bg-arch: url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff; } 
+
+#catholicinfant .map-wrap .label { display:flex; justify-content: center; align-items: center; gap:12px; margin-top:40px; }
+#catholicinfant .map-wrap .label > * { display:flex; justify-content: flex-start; align-items: center; gap:8px; color: #111; font-size: 14px; font-weight: 600; line-height: 1.2; letter-spacing: -0.35px; }
+#catholicinfant .map-wrap .label > *:before { content:""; display:block; width:12px; height:auto; aspect-ratio: 1/1; border-radius:200px; }
+#catholicinfant .map-wrap .label > *.red:before { background:#DD312D; }
+#catholicinfant .map-wrap .label > *.green:before { background:#43A924; }
+#catholicinfant .quick-btn-wrap { margin-bottom:0; }
+#catholicinfant .board-wrap li { border-bottom: 1px dashed #ccc; padding:10px 5px; }
+#catholicinfant .slider-wrap.tab .youtube .swiper-slide .img { aspect-ratio: 184/97; }
 
 #catholicinfant .ideology .img-bx { padding:40px 32px; border-radius: 16px; background:url('../img/catholicinfant/ideology_img01.png') left center / cover no-repeat; } 
 #catholicinfant .ideology .img-bx ul { display:flex; flex-direction: column; gap:8px; } 
@@ -73,6 +79,14 @@
 #catholicinfant .edu_parents .img-wrap img { border-radius: 12px; overflow:hidden; }
 #catholicinfant .edu_parents .img-wrap p { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; }
 
+#catholicinfant .program .program-list .item { display:flex; justify-content: flex-start; align-items: flex-start; padding:20px; border-bottom: 1px dashed #CCC; gap:20px; }
+#catholicinfant .program .program-list .item .img-wr { flex-shrink: 0; text-align:center; }
+#catholicinfant .program .program-list .item .img-wr img { display:block; }
+#catholicinfant .program .program-list .item .img-wr p { color: #000; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; margin-top:8px; }
+#catholicinfant .program .program-list .item .text-wr { padding:20px 8px; }
+#catholicinfant .program .program-list .item .text-wr .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; }
+#catholicinfant .program .program-list .item .text-wr .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:8px; }
+
 
 @media (max-width: 1240px){
  #catholicinfant { --logo-w: auto; --logo-h: 32px; } 
@@ -96,4 +110,7 @@
 
  #catholicinfant .edu_parents .flex { gap:10px; }
  #catholicinfant .edu_parents .img-wrap p { font-size:16px; }
+
+ #catholicinfant .program .program-list .item { flex-direction: column; }
+ #catholicinfant .program .program-list .item .text-wr { padding:0; }
  }
