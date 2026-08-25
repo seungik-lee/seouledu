@@ -1,6 +1,19 @@
-@charset "UTF-8";
-/* --- site A --- */
-#siteA { --logo: url('../img/siteA/logo.png'); --logo-white: url('../img/siteA/logo-white.png'); --logo-receipt: url('../img/siteA/receipt-stamp.png'); --logo-w: 17%; --logo-max-w: 222px; --logo-h: auto; --logo-ratio: 222 / 36; --gnb-dep1-padding: 70px; --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat; --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff; --bg-arch: url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff; } 
+@charset "UTF-8";/* --- site A --- */
+#siteA {
+   --logo: url('../img/siteA/logo.png');
+   --logo-white: url('../img/siteA/logo-white.png');
+   --logo-receipt: url('../img/siteA/receipt-stamp.png');
+   --logo-w: 17%;
+   --logo-max-w: 222px;
+   --logo-h: auto;
+   --logo-ratio: 222 / 36;
+   --gnb-dep1-padding: 70px;
+   --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+   --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+   --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff;
+   --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff;
+   --bg-arch: url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff;
+}
 
 @media (max-width: 1240px){
  #siteA { --logo-w: auto; --logo-h: 32px; } 
@@ -11,10 +24,25 @@
  }
 
 /* --- 천주교 서울대교구 청소년국 장애인신앙교육부 --- */
-#cafema { --logo: url('../img/cafema/logo.png'); --logo-white: url('../img/cafema/logo-white.png'); --logo-w: 30%; --logo-max-w: 194px; --logo-h: auto; --logo-ratio: 194 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); } 
-#cafema[data-theme="theme04"] { --color-theme: #87C237; --color-theme-hover: #497e00; --color-theme-opacity: rgba(135, 194, 55, 0.08); } 
-#cafema[data-theme="theme04"] .lastest-wrap.board .board-wrap li.new:before { --color-theme: #FFC629; } 
-#cafema .lastest-wrap.board { background:#fff; } 
+#cafema {
+   --logo: url('../img/cafema/logo.png');
+   --logo-white: url('../img/cafema/logo-white.png');
+   --logo-w: 30%;
+   --logo-max-w: 194px;
+   --logo-h: auto;
+   --logo-ratio: 194 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+#cafema[data-theme="theme04"] {
+   --color-theme: #87C237;
+   --color-theme-hover: #497e00;
+   --color-theme-opacity: rgba(135, 194, 55, 0.08);
+}
+#cafema[data-theme="theme04"] .lastest-wrap.board .board-wrap li.new:before {
+   --color-theme: #FFC629;
+}
+
+#cafema .lastest-wrap.board { background: #fff; } 
 
 @media (max-width: 1240px){
  #cafema { --logo-w: auto; --logo-h: 32px; } 
@@ -25,16 +53,25 @@
  }
 
 /* --- 천주교서울대교구 청소년국 유아부 --- */
-#catholicinfant { --logo: url('../img/catholicinfant/logo.png'); --logo-white: url('../img/catholicinfant/logo-white.png'); --logo-receipt: url('../img/siteA/receipt-stamp.png'); --logo-w: 30%; --logo-max-w: 251px; --logo-h: auto; --logo-ratio: 251 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); --bg-tile: url('../img/siteA/lastest-wrap-tile-bg.png') bottom center / cover no-repeat; --bg-board: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-tab-slider: url('../img/siteA/lastest-wrap-board-bg.png') bottom -30px right / auto no-repeat #fff; --bg-slider: url('../img/siteA/lastest-wrap-slider-bg.png') bottom -140px right / auto no-repeat #fff; --bg-arch: url('../img/siteA/arch-slider-bg.png') bottom -140px center / 1482px auto no-repeat #fff; } 
+#catholicinfant {
+   --logo: url('../img/catholicinfant/logo.png');
+   --logo-white: url('../img/catholicinfant/logo-white.png');
+   --logo-receipt: url('../img/siteA/receipt-stamp.png');
+   --logo-w: 30%;
+   --logo-max-w: 251px;
+   --logo-h: auto;
+   --logo-ratio: 251 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
 
-#catholicinfant .map-wrap .label { display:flex; justify-content: center; align-items: center; gap:12px; margin-top:40px; }
-#catholicinfant .map-wrap .label > * { display:flex; justify-content: flex-start; align-items: center; gap:8px; color: #111; font-size: 14px; font-weight: 600; line-height: 1.2; letter-spacing: -0.35px; }
-#catholicinfant .map-wrap .label > *:before { content:""; display:block; width:12px; height:auto; aspect-ratio: 1/1; border-radius:200px; }
-#catholicinfant .map-wrap .label > *.red:before { background:#DD312D; }
-#catholicinfant .map-wrap .label > *.green:before { background:#43A924; }
-#catholicinfant .quick-btn-wrap { margin-bottom:0; }
-#catholicinfant .board-wrap li { border-bottom: 1px dashed #ccc; padding:10px 5px; }
-#catholicinfant .slider-wrap.tab .youtube .swiper-slide .img { aspect-ratio: 184/97; }
+#catholicinfant .map-wrap .label { display:flex; justify-content: center; align-items: center; gap:12px; margin-top:40px; } 
+#catholicinfant .map-wrap .label > * { display:flex; justify-content: flex-start; align-items: center; gap:8px; color: #111; font-size: 14px; font-weight: 600; line-height: 1.2; letter-spacing: -0.35px; } 
+#catholicinfant .map-wrap .label > *:before { content:""; display:block; width:12px; height:auto; aspect-ratio: 1/1; border-radius:200px; } 
+#catholicinfant .map-wrap .label > *.red:before { background:#DD312D; } 
+#catholicinfant .map-wrap .label > *.green:before { background:#43A924; } 
+#catholicinfant .quick-btn-wrap { margin-bottom:0; } 
+#catholicinfant .board-wrap li { border-bottom: 1px dashed #ccc; padding:10px 5px; } 
+#catholicinfant .slider-wrap.tab .youtube .swiper-slide .img { aspect-ratio: 184/97; } 
 
 #catholicinfant .ideology .img-bx { padding:40px 32px; border-radius: 16px; background:url('../img/catholicinfant/ideology_img01.png') left center / cover no-repeat; } 
 #catholicinfant .ideology .img-bx ul { display:flex; flex-direction: column; gap:8px; } 
@@ -75,17 +112,17 @@
 #catholicinfant .book .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:8px; } 
 
 #catholicinfant .edu_parents .flex { gap:20px; align-items: flex-start; } 
-#catholicinfant .edu_parents .img-wrap { align-items: center; text-align: center; }
-#catholicinfant .edu_parents .img-wrap img { border-radius: 12px; overflow:hidden; }
-#catholicinfant .edu_parents .img-wrap p { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; }
+#catholicinfant .edu_parents .img-wrap { align-items: center; text-align: center; } 
+#catholicinfant .edu_parents .img-wrap img { border-radius: 12px; overflow:hidden; } 
+#catholicinfant .edu_parents .img-wrap p { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
 
-#catholicinfant .program .program-list .item { display:flex; justify-content: flex-start; align-items: flex-start; padding:20px; border-bottom: 1px dashed #CCC; gap:20px; }
-#catholicinfant .program .program-list .item .img-wr { flex-shrink: 0; text-align:center; }
-#catholicinfant .program .program-list .item .img-wr img { display:block; }
-#catholicinfant .program .program-list .item .img-wr p { color: #000; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; margin-top:8px; }
-#catholicinfant .program .program-list .item .text-wr { padding:20px 8px; }
-#catholicinfant .program .program-list .item .text-wr .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; }
-#catholicinfant .program .program-list .item .text-wr .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:8px; }
+#catholicinfant .program .program-list .item { display:flex; justify-content: flex-start; align-items: flex-start; padding:20px; border-bottom: 1px dashed #CCC; gap:20px; } 
+#catholicinfant .program .program-list .item .img-wr { flex-shrink: 0; text-align:center; } 
+#catholicinfant .program .program-list .item .img-wr img { display:block; } 
+#catholicinfant .program .program-list .item .img-wr p { color: #000; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; margin-top:8px; } 
+#catholicinfant .program .program-list .item .text-wr { padding:20px 8px; } 
+#catholicinfant .program .program-list .item .text-wr .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; } 
+#catholicinfant .program .program-list .item .text-wr .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:8px; } 
 
 
 @media (max-width: 1240px){
@@ -108,9 +145,54 @@
  #catholicinfant .book .tit { font-size: 16px; } 
  #catholicinfant .book .desc { font-size: 15px; margin-top:5px; } 
 
- #catholicinfant .edu_parents .flex { gap:10px; }
- #catholicinfant .edu_parents .img-wrap p { font-size:16px; }
+ #catholicinfant .edu_parents .flex { gap:10px; } 
+ #catholicinfant .edu_parents .img-wrap p { font-size:16px; } 
 
- #catholicinfant .program .program-list .item { flex-direction: column; }
- #catholicinfant .program .program-list .item .text-wr { padding:0; }
+ #catholicinfant .program .program-list .item { flex-direction: column; } 
+ #catholicinfant .program .program-list .item .text-wr { padding:0; } 
  }
+
+/* --- 천주교 서울대교구 청소년국 초등부 --- */
+#chota {
+   --logo: url('../img/chota/logo.png');
+   --logo-white: url('../img/chota/logo-white.png');
+   --logo-w: 30%;
+   --logo-max-w: 157px;
+   --logo-h: auto;
+   --logo-ratio: 157 / 42;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#chota .word .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; }
+#chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; }
+#chota .word .img-wr .text-bx { padding:24px; }
+#chota .word .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; } 
+#chota .word .sign span { color:var(--color-theme); } 
+#chota .history .dl-wrap dt { flex-direction: column; }
+#chota .history .dl-wrap dt p { font-size:22px; }
+#chota .history .dl-wrap dd { flex-direction: column; align-items: flex-start; gap:4px; }
+#chota .history .dl-wrap dd p { font-size:16px; }
+
+@media (max-width: 768px){
+ #chota .word .img-wr { flex-direction: column; align-items: center; }
+ #chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; }
+ #chota .word .img-wr .text-bx { padding:24px; }
+#chota .history .dl-wrap dt p { font-size:18px; }
+#chota .history .dl-wrap dd p { font-size:14px; }
+}
+
+/* --- 천주교 서울대교구 청소년국 가톨릭 스카우트 --- */
+#kcscouts {
+   --logo: url('../img/kcscouts/logo.png');
+   --logo-white: url('../img/kcscouts/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 211px;
+   --logo-h: auto;
+   --logo-ratio: 211 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#kcscouts .frsr .img-wrap img { border-radius: 20px; overflow:hidden; }
+#kcscouts .frsr .img-wrap .text { text-align: center; }
+#kcscouts .frsr .img-wrap .text .title { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:24px; }
+#kcscouts .frsr .img-wrap .text .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:4px; }
