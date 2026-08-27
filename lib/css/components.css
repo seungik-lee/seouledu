@@ -535,6 +535,20 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .map-list-item .tags span { color: #111; font-size: 12px; font-weight: 500; line-height: 1.4; letter-spacing: -0.3px; padding: 6px 12px; border-radius: 200px; background: #F5F5F5; } 
 .map-list-item:hover .tags span, .map-list-item.active .tags span { background:#fff; } 
 
+.transportation-wr { display: flex; flex-direction: column; gap:20px; } 
+.transportation-wr + .transportation-wr { margin-top:32px; } 
+.transportation-wr .tit { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
+.transportation-wr .info { display:flex; justify-content: flex-start; align-items: flex-start; gap:8px; } 
+.transportation-wr .info .num { display:flex; justify-content: flex-start; align-items: stretch; gap:8px; } 
+.transportation-wr .info .num > p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: -0.14px; padding: 8px 12px; border-radius:200px; } 
+.transportation-wr .info .txt { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
+.transportation-wr .green { background:#1CB155; } 
+.transportation-wr .orange { background:#F57D2F; } 
+.transportation-wr .blue { background:#3A8DDE; } 
+.transportation-wr .lightblue { background:#00AAE7; } 
+.transportation-wr .yellow { background:#F2C506; } 
+.transportation-wr .red { background:#E60013; } 
+
 /* --- 카카오 커스텀 오버레이 --- */
 .map-overlay { position: relative; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-theme); background: #FFF; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.04); overflow:hidden; } 
 .map-overlay .ov-close { display:none; } 
@@ -750,6 +764,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .status.theme { background:var(--color-theme); } 
 .status.green { background:#00873B; } 
 .status.blue { background:#3A8DDE; } 
+.status.lightblue { background:#00AAE7; } 
 .status.yellow { background:#FFC629; } 
 .status.red { background:#E60013; } 
 .status.gray { background:#F5F5F5; color:#000; } 
@@ -825,6 +840,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .history-row { display: flex; gap: var(--clamp-size-64); padding: 32px 40px; border-bottom: 1px solid #E5E5E5; } 
 .history-row .month { flex-shrink: 0; width: 44px; color: var(--color-theme); font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
 .history-row .txt p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; } 
+.history-row .txt > span { display:block; color: #111; font-size: 16px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
 
 /* 대관신청 */
 .step-flow { display: flex; align-items: stretch; justify-content: space-between; gap: auto; margin-bottom:40px; } 
@@ -1184,6 +1200,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .map-list-ul { display:flex; justify-content: flex-start; align-items:stretch; overflow-x:auto; gap:12px; padding:0; padding-bottom:10px; } 
  .map-list-item { width:300px; flex-shrink: 0; } 
  .map-list-item + .map-list-item { margin:0; } 
+ 
+ .transportation-wr .info .num > p { padding:6px 10px; } 
+ .transportation-wr .info .txt { font-size:16px; } 
 
  .mypage #wrap .inner .top { margin:30px 0; } 
  .mypage #wrap .inner .top .cate { padding:6px 12px; } 

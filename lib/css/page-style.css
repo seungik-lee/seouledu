@@ -94,19 +94,6 @@
 #catholicinfant .family .notice-bx .text .name { color: #000; font-size: 18px; font-weight: 700; line-height: 1.45; letter-spacing: -0.36px; margin-bottom:4px; } 
 #catholicinfant .family .notice-bx .text .work { color: #000; font-size: 14px; font-weight: 400; line-height: 1.55; letter-spacing: -0.28px; } 
 
-#catholicinfant .map .transportation-wr { display: flex; flex-direction: column; gap:20px; } 
-#catholicinfant .map .transportation-wr + .transportation-wr { margin-top:32px; } 
-#catholicinfant .map .transportation-wr .tit { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
-#catholicinfant .map .transportation-wr .info { display:flex; justify-content: flex-start; align-items: flex-start; gap:8px; } 
-#catholicinfant .map .transportation-wr .info .num { display:flex; justify-content: flex-start; align-items: stretch; gap:8px; } 
-#catholicinfant .map .transportation-wr .info .num > p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: -0.14px; padding: 8px 12px; border-radius:200px; } 
-#catholicinfant .map .transportation-wr .info .txt { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
-#catholicinfant .map .transportation-wr .green { background:#1CB155; } 
-#catholicinfant .map .transportation-wr .orange { background:#F57D2F; } 
-#catholicinfant .map .transportation-wr .blue { background:#00AAE7; } 
-#catholicinfant .map .transportation-wr .yellow { background:#F2C506; } 
-#catholicinfant .map .transportation-wr .red { background:#E60013; } 
-
 #catholicinfant .book .cate { color: #555; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
 #catholicinfant .book .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; } 
 #catholicinfant .book .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:8px; } 
@@ -137,9 +124,6 @@
  #catholicinfant .work .text-bx p { margin-left:22px; } 
 
  #catholicinfant .family .notice-bx { padding: 20px 16px; width:calc(50% - 10px); } 
-
- #catholicinfant .map .transportation-wr .info .num > p { padding:6px 10px; } 
- #catholicinfant .map .transportation-wr .info .txt { font-size:16px; } 
 
  #catholicinfant .book .cate { font-size: 14px; } 
  #catholicinfant .book .tit { font-size: 16px; } 
@@ -191,6 +175,12 @@
    --logo-ratio: 211 / 36;
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
+#kcscouts.main .lastest-wrap.board { padding-bottom:0; }
+#kcscouts.main .board-wrap li.notice::before { @supports (mask: url('')) { background-color: #7D0037;} }
+#kcscouts.main .slider-wrap.schedule .swiper-slide.on { background-color: #7D0037; }
+#kcscouts .slider-wrap.tab { padding:60px 0; }
+#kcscouts .slider-wrap.tab .youtube .swiper-slide .img { aspect-ratio: 184/97; } 
+
 
 #kcscouts .frsr .img-wrap img { border-radius: 20px; overflow:hidden; }
 #kcscouts .frsr .img-wrap .text { text-align: center; }

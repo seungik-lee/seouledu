@@ -216,12 +216,12 @@ td.right { text-align: right !important; }
 .text-size-40, .text-5xl { font-size: 40px; }
 .text-size-52, .text-6xl { font-size: 52px; } 
 
-.font-weight-300, .font-light { font-weight:300; }
-.font-weight-400, .font-normal { font-weight: 400; } 
-.font-weight-500, .font-medium { font-weight: 500; } 
-.font-weight-600, .font-semibold { font-weight: 600; } 
-.font-weight-700, .font-bold { font-weight: 700; } 
-.font-weight-800, .font-extrabold { font-weight: 800; } 
+.font-weight-300, .font-light { font-weight:300 !important; }
+.font-weight-400, .font-normal { font-weight: 400 !important; } 
+.font-weight-500, .font-medium { font-weight: 500 !important; } 
+.font-weight-600, .font-semibold { font-weight: 600 !important; } 
+.font-weight-700, .font-bold { font-weight: 700 !important; } 
+.font-weight-800, .font-extrabold { font-weight: 800 !important; } 
 
 .text-primary { color: var(--text-primary); } 
 .text-secondary { color: var(--text-secondary); } 
