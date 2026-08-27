@@ -10,8 +10,8 @@ table .pc-only { display:table-cell !important; }
 .green-text { color:#00873B !important; } 
 
 .text-bx p { color: #111; font-weight: 400; line-height: 1.45; } 
-.text-bx.t16 p { font-size: 16px; letter-spacing: -0.36px; } 
-.text-bx.t18 p { font-size: 18px; letter-spacing: -0.32px; } 
+.text-bx.t16 p, .text-bx p.t16 { font-size: 16px; letter-spacing: -0.36px; } 
+.text-bx.t18 p, .text-bx p.t18 { font-size: 18px; letter-spacing: -0.32px; } 
 .text-bx .tit { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; }
 .text-bx .tit.big { font-size:32px; }
 .text-bx .desc p {  font-size: 18px;  letter-spacing: -0.36px; }
@@ -277,7 +277,7 @@ header .util a { display:block; text-align: center; font-size: 14px; font-weight
 header .util a:not(.bg-grey-scale-01) { background-color:var(--color-theme); color:var(--text-white); } 
 header .util a:not(.bg-grey-scale-01):hover { background-color:var(--color-theme-hover); } 
 header .menu { display:none; }
-header .rnb > * { display:block; width:32px; height:auto; aspect-ratio: 1/1; background: center / 100% auto no-repeat; text-indent:-999px; overflow:hidden; }
+header .rnb > * { display:block; width:32px; height:auto; aspect-ratio: 1/1; background-position: center; background-size:100% auto; background-repeat:no-repeat; text-indent:-999px; overflow:hidden; }
 header .rnb .mypage { background-image: url('../img/common/ico-mypage.svg'); }
 header .rnb .menu.close { background-image:url('../img/common/ico-close.svg') !important; }
 
@@ -535,6 +535,20 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .map-list-item .tags span { color: #111; font-size: 12px; font-weight: 500; line-height: 1.4; letter-spacing: -0.3px; padding: 6px 12px; border-radius: 200px; background: #F5F5F5; } 
 .map-list-item:hover .tags span, .map-list-item.active .tags span { background:#fff; } 
 
+.transportation-wr { display: flex; flex-direction: column; gap:20px; } 
+.transportation-wr + .transportation-wr { margin-top:32px; } 
+.transportation-wr .tit { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
+.transportation-wr .info { display:flex; justify-content: flex-start; align-items: flex-start; gap:8px; } 
+.transportation-wr .info .num { display:flex; justify-content: flex-start; align-items: stretch; gap:8px; } 
+.transportation-wr .info .num > p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: -0.14px; padding: 8px 12px; border-radius:200px; } 
+.transportation-wr .info .txt { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
+.transportation-wr .green { background:#1CB155; } 
+.transportation-wr .orange { background:#F57D2F; } 
+.transportation-wr .blue { background:#3A8DDE; } 
+.transportation-wr .lightblue { background:#00AAE7; } 
+.transportation-wr .yellow { background:#F2C506; } 
+.transportation-wr .red { background:#E60013; } 
+
 /* --- 카카오 커스텀 오버레이 --- */
 .map-overlay { position: relative; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-theme); background: #FFF; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.04); overflow:hidden; } 
 .map-overlay .ov-close { display:none; } 
@@ -750,6 +764,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .status.theme { background:var(--color-theme); } 
 .status.green { background:#00873B; } 
 .status.blue { background:#3A8DDE; } 
+.status.lightblue { background:#00AAE7; } 
 .status.yellow { background:#FFC629; } 
 .status.red { background:#E60013; } 
 .status.gray { background:#F5F5F5; color:#000; } 
@@ -825,6 +840,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .history-row { display: flex; gap: var(--clamp-size-64); padding: 32px 40px; border-bottom: 1px solid #E5E5E5; } 
 .history-row .month { flex-shrink: 0; width: 44px; color: var(--color-theme); font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
 .history-row .txt p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; } 
+.history-row .txt > span { display:block; color: #111; font-size: 16px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
 
 /* 대관신청 */
 .step-flow { display: flex; align-items: stretch; justify-content: space-between; gap: auto; margin-bottom:40px; } 
@@ -975,6 +991,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 
  header { --headerH-mo:70px; } 
  header .inner { height: var(--headerH-mo); } 
+ header .rnb > * { width:24px; }
  header .menu { display:block; width:24px; height:auto; aspect-ratio: 1/1; margin-left: 15px; } 
  header .menu.close { --icon-menu: url('../img/common/ico-close.svg') no-repeat center / contain; } 
  header .util, header .rnb { margin-left:auto; } 
@@ -999,12 +1016,12 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  table .pc-only { display:none !important; } 
  .inner.wide { padding:0 var(--content-padding-x); } 
  .more.plus { width:27px; } 
-.text-bx.t16 p { font-size: 14px; } 
-.text-bx.t18 p { font-size: 16px; } 
-.text-bx .tit {  font-size: 18px; }
-.text-bx .tit.big { font-size:22px; }
-.text-bx .desc p { font-size: 16px; }
-.text-bx .tit + .desc { margin-top:8px; }
+ .text-bx.t16 p, .text-bx p.t16 { font-size: 14px; } 
+ .text-bx.t18 p, .text-bx p.t18 { font-size: 16px; } 
+ .text-bx .tit {  font-size: 18px; }
+ .text-bx .tit.big { font-size:22px; }
+ .text-bx .desc p { font-size: 16px; }
+ .text-bx .tit + .desc { margin-top:8px; }
 
  section + section { margin-top:32px; } 
 
@@ -1066,7 +1083,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  header .util { display:none; } 
  .menu-open header .util { display:flex; position: fixed; bottom: calc(var(--headerH-mo)/1.5); z-index: 9999; } 
  .menu-open header .util a { min-width:100px; } 
- header .rnb { gap:10px; } 
+ header .rnb { gap:5px; } 
  header.typeC .rnb .mypage svg { width:24px; } 
 
  footer { font-size:min(4.5vw, 16px); } 
@@ -1183,6 +1200,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .map-list-ul { display:flex; justify-content: flex-start; align-items:stretch; overflow-x:auto; gap:12px; padding:0; padding-bottom:10px; } 
  .map-list-item { width:300px; flex-shrink: 0; } 
  .map-list-item + .map-list-item { margin:0; } 
+ 
+ .transportation-wr .info .num > p { padding:6px 10px; } 
+ .transportation-wr .info .txt { font-size:16px; } 
 
  .mypage #wrap .inner .top { margin:30px 0; } 
  .mypage #wrap .inner .top .cate { padding:6px 12px; } 
