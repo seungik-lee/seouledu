@@ -259,12 +259,13 @@
 .lastest-wrap.tile { padding:60px 0 140px; background: var(--bg-tile, #fff); } 
 .lastest-wrap.tile .tab-wrap { margin-bottom:40px; } 
 .lastest-wrap.tile .list { display:grid; grid-template-columns: repeat(3, 1fr); gap:var(--clamp-size-24); } 
-.lastest-wrap.tile .list a { display:block; border-radius: 20px; border: 1px solid #EEE; background: #fff; overflow:hidden; padding:27px 23px; transition: all 0.2s ease; } 
+.lastest-wrap.tile .list a { display:block; border-radius: 20px; border: 1px solid #EEE; background: #fff; overflow:hidden; padding:27px 23px; transition: all 0.2s ease; position:relative; } 
 .lastest-wrap.tile .list a:hover, .lastest-wrap.tile .list a:focus, .lastest-wrap.tile .list a:active { border-color: var(--color-theme); } 
 .lastest-wrap.tile .list a .category { display:flex; color: #111; font-size: 16px; font-weight: 700; line-height: 1.4; letter-spacing: -0.4px; gap:7px; margin-bottom:12px; } 
 .lastest-wrap.tile .list a .category:before { content:""; display:block; width:20px; height:auto; background: url('../img/common/ico-megaphone.svg') center / auto no-repeat; aspect-ratio: 1/1; @supports (mask: url('')) { background-color: var(--color-theme); -webkit-mask: url('../img/common/ico-megaphone.svg') center / auto no-repeat; mask: url('../img/common/ico-megaphone.svg') center / auto no-repeat; background-image:none; } 
  }
 .lastest-wrap.tile .list a .subject { height:56px; color: #111; font-size: 20px; font-weight: 500; line-height: 1.4; letter-spacing: -0.5px; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; transition: all 0.2s ease; } 
+.lastest-wrap.tile .list a.new:before { width: 20px; height: auto; aspect-ratio: 1 / 1; content: "N"; display: flex; justify-content: center; align-items: center; background: var(--color-theme); border-radius: 3.667px; color: #FFF; font-size: 12px; font-weight: 500; line-height: 1; letter-spacing: -0.12px; flex-shrink: 0; position:absolute; top:27px; right:23px; }
 .lastest-wrap.tile .list a:hover .subject, .lastest-wrap.tile .list a:focus .subject, .lastest-wrap.tile .list a:active .subject { color:var(--color-theme-hover); } 
 .lastest-wrap.tile .list a .date { color: #767676; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.4px; margin-top:40px; } 
 .lastest-wrap.tile .more { margin:64px auto 0; } 
