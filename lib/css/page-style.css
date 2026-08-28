@@ -1,4 +1,4 @@
-@charset "UTF-8";/* --- site A --- */
+@charset "UTF-8"; /* --- site A --- */
 #siteA {
    --logo: url('../img/siteA/logo.png');
    --logo-white: url('../img/siteA/logo-white.png');
@@ -23,6 +23,48 @@
  #siteA #ft-logo { --logo-w: 50%; --logo-h: 32px; } 
  }
 
+/* --- 천주교 서울대교구 청소년국 (재)서울가톨릭청소년회 --- */
+#eduseoul { --logo: url('../img/eduseoul/logo.png'); --logo-white: url('../img/eduseoul/logo-white.png'); --logo-w: 40%; --logo-max-w: 222px; --logo-h: auto; --logo-ratio: 222 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); --bg-tile: url('../img/eduseoul/main-lastest-wrap-bg.png') bottom center / cover no-repeat;}
+
+#eduseoul .visual-link { width:100%; height:800px; padding:92px 0 40px; background:url('../img/eduseoul/main-visaul-link-bg.png') center / cover no-repeat; } 
+#eduseoul .visual-link .inner { height:90%; display:flex; justify-content: center; align-items: center; } 
+#eduseoul .visual-link .inner .bx { width:100%; display:flex; justify-content: center; align-items: stretch; gap:20px; } 
+#eduseoul .visual-link .inner .bx a { display:flex; flex-direction: column; justify-content: space-between; align-items: flex-start; border-radius: 16px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) -4.64%, rgba(255, 255, 255, 0.60) 100%); padding: 40px; width:25%; gap:32px; } 
+#eduseoul .visual-link .inner .bx a .title { color: #FFF; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; } 
+#eduseoul .visual-link .inner .bx a .logo { margin-left:auto; } 
+
+#eduseoul .lastest-wrap.tile { padding:180px 0; } 
+#eduseoul .lastest-wrap.tile .category { color:var(--color-theme); } 
+#eduseoul .lastest-wrap.tile .category:before { display:none; } 
+
+#eduseoul .lastest-wrap.tile.link .list a { display:flex; flex-direction: column; justify-content: center; align-items: center; gap:28px; } 
+#eduseoul .lastest-wrap.tile.link .list a .logo img { display:block; } 
+#eduseoul .lastest-wrap.tile.link .list a .desc { color: #555; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.48px; } 
+
+#eduseoul .catholicyouth .img-wr.intro { display:flex; justify-content: flex-start; align-items: flex-start; } 
+#eduseoul .catholicyouth .img-wr.intro img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+#eduseoul .catholicyouth .img-wr.intro .text-bx { padding:24px; } 
+#eduseoul .catholicyouth .text-bx li { display:flex; font-size:16px; color:#333; gap:4px; align-items: flex-start; } 
+#eduseoul .catholicyouth .text-bx li:before { content:""; display:block; width:3px; height:auto; aspect-ratio: 1/1; background:var(--color-theme); flex-shrink: 0; border-radius:100px; margin-top:11px; } 
+#eduseoul .catholicyouth .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; } 
+#eduseoul .catholicyouth .sign span { color:var(--color-theme); } 
+
+@media (max-width: 768px){
+ #eduseoul .visual-link { height: auto; } 
+ #eduseoul .visual-link .inner .bx { flex-wrap: wrap; } 
+ #eduseoul .visual-link .inner .bx a { width: calc(50% - 16px); height: auto; aspect-ratio: 1/1; padding: 15px; } 
+ #eduseoul .visual-link .inner .bx a .title { font-size: 18px; } 
+ #eduseoul .visual-link .inner .bx a .logo { width: 50px; } 
+
+ #eduseoul .lastest-wrap.tile { padding: 8.7vw 0 20vw; } 
+ #eduseoul .lastest-wrap.tile.link .list a .logo img { max-height: 40px; } 
+
+ #eduseoul .catholicyouth .img-wr.intro { flex-direction: column; align-items: center; } 
+ #eduseoul .catholicyouth .img-wr.intro img { flex-shrink: 0; border-radius: 20px; overflow: hidden; } 
+ #eduseoul .catholicyouth .img-wr.intro .text-bx { padding: 24px; } 
+ #eduseoul .catholicyouth .dl-wrap dt { width:max(160px, 11.5vw); }
+ }
+
 /* --- 천주교 서울대교구 청소년국 장애인신앙교육부 --- */
 #cafema {
    --logo: url('../img/cafema/logo.png');
@@ -33,11 +75,13 @@
    --logo-ratio: 194 / 36;
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
+
 #cafema[data-theme="theme04"] {
    --color-theme: #87C237;
    --color-theme-hover: #497e00;
    --color-theme-opacity: rgba(135, 194, 55, 0.08);
 }
+
 #cafema[data-theme="theme04"] .lastest-wrap.board .board-wrap li.new:before {
    --color-theme: #FFC629;
 }
@@ -147,23 +191,23 @@
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
 
-#chota .word .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; }
-#chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; }
-#chota .word .img-wr .text-bx { padding:24px; }
+#chota .word .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; } 
+#chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+#chota .word .img-wr .text-bx { padding:24px; } 
 #chota .word .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; } 
 #chota .word .sign span { color:var(--color-theme); } 
-#chota .history .dl-wrap dt { flex-direction: column; }
-#chota .history .dl-wrap dt p { font-size:22px; }
-#chota .history .dl-wrap dd { flex-direction: column; align-items: flex-start; gap:4px; }
-#chota .history .dl-wrap dd p { font-size:16px; }
+#chota .history .dl-wrap dt { flex-direction: column; } 
+#chota .history .dl-wrap dt p { font-size:22px; } 
+#chota .history .dl-wrap dd { flex-direction: column; align-items: flex-start; gap:4px; } 
+#chota .history .dl-wrap dd p { font-size:16px; } 
 
 @media (max-width: 768px){
- #chota .word .img-wr { flex-direction: column; align-items: center; }
- #chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; }
- #chota .word .img-wr .text-bx { padding:24px; }
-#chota .history .dl-wrap dt p { font-size:18px; }
-#chota .history .dl-wrap dd p { font-size:14px; }
-}
+ #chota .word .img-wr { flex-direction: column; align-items: center; } 
+ #chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+ #chota .word .img-wr .text-bx { padding:24px; } 
+#chota .history .dl-wrap dt p { font-size:18px; } 
+#chota .history .dl-wrap dd p { font-size:14px; } 
+ }
 
 /* --- 천주교 서울대교구 청소년국 가톨릭 스카우트 --- */
 #kcscouts {
@@ -175,14 +219,14 @@
    --logo-ratio: 211 / 36;
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
-#kcscouts.main .lastest-wrap.board { padding-bottom:0; }
-#kcscouts.main .board-wrap li.notice::before { @supports (mask: url('')) { background-color: #7D0037;} }
-#kcscouts.main .slider-wrap.schedule .swiper-slide.on { background-color: #7D0037; }
-#kcscouts .slider-wrap.tab { padding:60px 0; }
+
+#kcscouts.main .lastest-wrap.board { padding-bottom:0; } 
+#kcscouts.main .board-wrap li.notice::before { @supports (mask: url('')) { background-color: #7D0037; } } 
+#kcscouts.main .slider-wrap.schedule .swiper-slide.on { background-color: #7D0037; } 
+#kcscouts .slider-wrap.tab { padding:60px 0; } 
 #kcscouts .slider-wrap.tab .youtube .swiper-slide .img { aspect-ratio: 184/97; } 
 
-
-#kcscouts .frsr .img-wrap img { border-radius: 20px; overflow:hidden; }
-#kcscouts .frsr .img-wrap .text { text-align: center; }
-#kcscouts .frsr .img-wrap .text .title { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:24px; }
-#kcscouts .frsr .img-wrap .text .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:4px; }
+#kcscouts .frsr .img-wrap img { border-radius: 20px; overflow:hidden; } 
+#kcscouts .frsr .img-wrap .text { text-align: center; } 
+#kcscouts .frsr .img-wrap .text .title { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:24px; } 
+#kcscouts .frsr .img-wrap .text .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:4px; } 

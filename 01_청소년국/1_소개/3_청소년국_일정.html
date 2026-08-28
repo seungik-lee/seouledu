@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="../../lib/css/import.css" />
+   <link rel="stylesheet" href="../../lib/css/base.css" />
+   <link rel="stylesheet" href="../../lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="../../lib/css/components.css" />
+   <link rel="stylesheet" href="../../lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="../../lib/js/jquery-4.0.0.min.js"></script>
+   <script src="../../lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="../../lib/js/common.js" defer></script>
+
+   <title>천주교 서울대교구 청소년국</title>
+</head>
+
+<body data-theme="theme01" id="eduseoul" class="sub">
+   <header class="typeC">
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+         <nav id="gnb">
+            <ul>
+               <li class="dep1">
+                  <a href=""><span>소개</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>청소년국 소개</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>(재)서울가톨릭청소년 소개</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>청소년국 일정</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>공지사항</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>공지사항</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+            </ul>
+            <div class="gnb_bg"></div>
+         </nav>
+         <div class="rnb">
+            <a href="" class="mypage"></a>
+            <button href="" class="menu"></button>
+         </div>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div id="lnb">
+         <p>소개</p>
+         <ul>
+            <li><a href="">청소년국 소개</a></li>
+            <li class="on"><a href="">(재)서울가톨릭청소년 소개</a></li>
+            <li><a href="">청소년국 일정</a></li>
+         </ul>
+      </div>
+      <div id="contents" class="calendar">
+         <div class="cont-top">
+            <div class="page-title">청소년국 소개</div>
+            <div class="location">
+               <a href="">홈</a>
+               <span></span>
+               <a href="">소개</a>
+               <span></span>
+               <a href="" class="cur">청소년국 소개</a>
+            </div>
+         </div>
+         <div class="cont-wrap">
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
+            <link rel="stylesheet" href="../../lib/css/calendar.css" />
+            <script src="../../lib/js/callendar.js"></script>
+            <div class="line-bx schedule-calendar-wrap">
+               <div class="calendar-wrap" data-type="notice">
+                  <div class="calendar" style="background:#fff;"></div>
+                  <ul class="calendar-legend">
+                     <li><span class="dot dp00"></span>청소년국</li>
+                     <li><span class="dot dp01"></span>유아부</li>
+                     <li><span class="dot dp02"></span>초등부</li>
+                     <li><span class="dot dp03"></span>장애인신앙교육부</li>
+                     <li><span class="dot dp04"></span>중고등부</li>
+                     <li><span class="dot dp05"></span>학교사목부</li>
+                     <li><span class="dot dp06"></span>청년부</li>
+                     <li><span class="dot dp07"></span>대학교사목부</li>
+                     <li><span class="dot dp08"></span>가톨릭스카우트</li>
+                  </ul>
+               </div>
+            </div>
+
+            <section class="mt-40">
+               <div class="title-dot" id="scheduleListTitle">2026년 6월 전체 일정</div>
+
+               <!-- 표(PC) + 스와이퍼 카드(모바일) : 기존 .table-swiper-wrap + initTableSwiper() 재사용.
+           768px 이하에서는 common.js가 자동으로 Swiper를 붙이고, 위쪽 테이블은 CSS로 숨김 -->
+               <div class="table-swiper-wrap mt-20">
+
+                  <div class="tbl-wrap overflow schedule-tbl pc-only">
+                     <table>
+                        <colgroup>
+                           <col style="width:26%;">
+                           <col style="width:18%;">
+                           <col style="width:18%;">
+                           <col style="width:auto;">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th>일정명</th>
+                              <th>부서명</th>
+                              <th>행사구분</th>
+                              <th>장소</th>
+                           </tr>
+                        </thead>
+                        <tbody id="scheduleTableBody"></tbody>
+                     </table>
+                  </div>
+
+                  <div class="slider-wrap mo-only">
+                     <div class="swiper slide">
+                        <div class="swiper-wrapper" id="scheduleSwiperWrapper"></div>
+                     </div>
+                     <div class="slider-control">
+                        <button type="button" class="btn prev">이전</button>
+                        <span class="counter">
+                           <span class="cur"></span>
+                           <span class="sep">/</span>
+                           <span class="total"></span>
+                        </span>
+                        <button type="button" class="btn next">다음</button>
+                     </div>
+                  </div>
+
+               </div>
+            </section>
+
+         </div>
+
+         <style>
+         </style>
+
+         <script>
+            (function () {
+
+               window.scheduleEvents = [
+                  { title: '창립기념일', start: '2026-08-01', extendedProps: { type: 'holiday' } },
+                  { title: '현충일', start: '2026-08-06', extendedProps: { type: 'holiday' } },
+                  { title: '2026 초급 교사 연수 1차', start: '2026-08-07', extendedProps: { type: 'edu' } },
+                  { title: '2026 초급 교사 연수 2차', start: '2026-08-08', extendedProps: { type: 'edu' } },
+                  { title: '여름캠프 행사', start: '2026-08-20', extendedProps: { type: 'dp06' } },
+                  { title: '여름캠프 준비 회의', start: '2026-08-20', extendedProps: { type: 'dp08' } },
+                  { title: '여름캠프 특강', start: '2026-08-20', extendedProps: { type: 'dp03' } },
+                  { title: '유아부 신입교사 연수', start: '2026-08-11', extendedProps: { type: 'dp01' } },
+                  { title: '초등부 여름캠프', start: '2026-08-12', extendedProps: { type: 'dp02' } },
+                  { title: '장애인신앙교육부 체육대회', start: '2026-08-13', extendedProps: { type: 'dp03' } },
+                  { title: '중고등부 지도자 워크숍', start: '2026-08-14', extendedProps: { type: 'dp04' } },
+                  { title: '학교사목부 교사 간담회', start: '2026-08-15', extendedProps: { type: 'dp05' } },
+                  { title: '청년부 여름 피정', start: '2026-08-18', extendedProps: { type: 'dp06' } },
+                  { title: '대학교사목부 신앙학교', start: '2026-08-19', extendedProps: { type: 'dp07' } },
+                  { title: '가톨릭스카우트 기본강습', start: '2026-08-21', extendedProps: { type: 'dp08' } },
+                  { title: '용문청소년수련장 여름캠프', start: '2026-08-22', extendedProps: { type: 'dp09' } },
+                  { title: '청소년문화공간JU 프로그램', start: '2026-08-25', extendedProps: { type: 'dp10' } },
+                  { title: '임시공휴일', start: '2026-08-20', extendedProps: { type: 'holiday' } },
+                  { title: '지구장 회의', start: '2026-08-28', extendedProps: { type: 'etc' } }
+               ];
+
+               window.scheduleListByMonth = {
+                  '2026-08': [
+                     { title: '2026 초급 교사 연수 1차', dept: '청소년국', category: '교육·연수', date: '2026-08-07', place: '혜화동 가톨릭청소년회관' },
+                     { title: '2026 초급 교사 연수 2차', dept: '청소년국', category: '교육·연수', date: '2026-08-08', place: '혜화동 가톨릭청소년회관' },
+                     { title: '유아부 신입교사 연수', dept: '유아부', category: '교육·연수', date: '2026-08-11', place: '혜화동 가톨릭청소년회관' },
+                     { title: '초등부 여름캠프', dept: '초등부', category: '행사', date: '2026-08-12', place: '용문 청소년 수련장' },
+                     { title: '장애인신앙교육부 체육대회', dept: '장애인신앙교육부', category: '행사', date: '2026-08-13', place: '삼숭리 야영장' },
+                     { title: '중고등부 지도자 워크숍', dept: '중고등부', category: '기타', date: '2026-08-14', place: '청소년국 회의실' },
+                     { title: '학교사목부 교사 간담회', dept: '학교사목부', category: '기타', date: '2026-08-15', place: '온라인(줌)' },
+                     { title: '여름캠프 행사', dept: '청소년국', category: '행사', date: '2026-08-20', place: '청소년국' },
+                     { title: '여름캠프 준비 회의', dept: '청소년국', category: '기타', date: '2026-08-20', place: '청소년국' },
+                     { title: '여름캠프 특강', dept: '청소년국', category: '교육·연수', date: '2026-08-20', place: '청소년국' },
+                     { title: '청년부 여름 피정', dept: '청년부', category: '행사', date: '2026-08-18', place: '강원도 고성 청소년수련원' },
+                     { title: '대학교사목부 신앙학교', dept: '대학교사목부', category: '교육·연수', date: '2026-08-19', place: '서울대교구청 대강당' },
+                     { title: '가톨릭스카우트 기본강습', dept: '가톨릭스카우트', category: '교육·연수', date: '2026-08-21', place: '삼숭동 야영장' },
+                     { title: '용문청소년수련장 여름캠프', dept: '용문청소년수련장', category: '행사', date: '2026-08-22', place: '용문청소년수련장' },
+                     { title: '청소년문화공간JU 프로그램', dept: '청소년문화공간JU', category: '교육·연수', date: '2026-08-25', place: '청소년문화공간JU' },
+                     { title: '지구장 회의', dept: '중고등부', category: '기타', date: '2026-08-28', place: '청소년국 회의실' }
+                  ]
+               };
+
+               function monthKeyOf(dateObj) {
+                  return dateObj.getFullYear() + '-' + String(dateObj.getMonth() + 1).padStart(2, '0');
+               }
+
+               var scheduleSwiperInstance = null;
+
+               function renderScheduleList(monthKey) {
+                  var list = window.scheduleListByMonth[monthKey] || [];
+                  var monthLabel = monthKey.split('-')[0] + '년 ' + parseInt(monthKey.split('-')[1], 10) + '월';
+                  $('#scheduleListTitle').text(monthLabel + ' 전체 일정');
+
+                  var $tbody = $('#scheduleTableBody').empty();
+                  if (!list.length) {
+                     $tbody.append('<tr><td colspan="4">해당 월의 일정이 없습니다.</td></tr>');
+                  } else {
+                     list.forEach(function (item) {
+                        $tbody.append(
+                           '<tr>' +
+                           '<td>' + item.title + '</td>' +
+                           '<td>' + item.dept + '</td>' +
+                           '<td>' + item.category + '</td>' +
+                           '<td>' + item.place + '</td>' +
+                           '</tr>'
+                        );
+                     });
+                  }
+
+                  var $wrapper = $('#scheduleSwiperWrapper').empty();
+                  list.forEach(function (item) {
+                     var $slide = $(
+                        '<div class="swiper-slide">' +
+                        '<div class="bx">' +
+                        '<h5><p></p><span class="status"></span></h5>' +
+                        '<ul>' +
+                        '<li><p class="dt">일정명</p><p class="dd"></p></li>' +
+                        '<li><p class="dt">부서명</p><p class="dd"></p></li>' +
+                        '<li><p class="dt">행사구분</p><p class="dd"></p></li>' +
+                        '<li><p class="dt">장소</p><p class="dd"></p></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>'
+                     );
+                     $slide.find('h5 p').text(item.title);
+                     $slide.find('h5 .status').text(item.category);
+                     var $dd = $slide.find('.dd');
+                     $dd.eq(0).text(item.title);
+                     $dd.eq(1).text(item.dept);
+                     $dd.eq(2).text(item.category);
+                     $dd.eq(3).text(item.place);
+                     $wrapper.append($slide);
+                  });
+
+                  renderPaging(list.length);
+
+                  if (typeof Swiper !== 'undefined') {
+                     var $swiperEl = $('.table-swiper-wrap .swiper.slide')[0];
+                     if ($swiperEl && $swiperEl.swiper) {
+                        $swiperEl.swiper.update();
+                        $swiperEl.swiper.slideTo(0);
+                        $('.table-swiper-wrap .counter .cur').text(1);
+                        $('.table-swiper-wrap .counter .total').text($swiperEl.swiper.slides.length);
+                     }
+                  }
+               }
+
+               function renderPaging(total) {
+                  var $paging = $('#schedulePaging');
+                  var $number = $paging.find('.number').empty();
+
+                  for (var i = 1; i <= total; i++) {
+                     var $a = $('<a href="">' + i + '</a>');
+                     if (i === 1) $a.addClass('current');
+                     $number.append($a);
+                  }
+               }
+
+               $(document).on('click', '#schedulePaging .number a', function (e) {
+                  e.preventDefault();
+                  var idx = $(this).text() - 1;
+                  $('#schedulePaging .number a').removeClass('current');
+                  $(this).addClass('current');
+
+                  var $swiperEl = $('.table-swiper-wrap .swiper.slide')[0];
+                  if ($swiperEl && $swiperEl.swiper) {
+                     $swiperEl.swiper.slideToLoop ? $swiperEl.swiper.slideTo(idx) : $swiperEl.swiper.slideTo(idx);
+                  }
+               });
+
+               window.onNoticeCalendarMonthChange = function (dateObj) {
+                  renderScheduleList(monthKeyOf(dateObj));
+               };
+
+            })();
+         </script>
+
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">서울 중구 명동길 74-3 교구청별관 4층 장애인신앙교육부</p>
+            <ul class="contact">
+               <li>연락처<span class="line"></span>02-727-2107</li>
+               <li>FAX<span class="line"></span>02-727-2097</li>
+            </ul>
+            <div class="sns-link">
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">© 2026 The Faith Education Ministry for disAbilities, All Rights Reserved</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li class="tit">- 서울대교구 청소년국 -</li>
+                  <li><a href="https://www.eduseoul.or.kr" target="_blank">청소년국</a></li>
+                  <li><a href="https://www.catholicinfant.or.kr" target="_blank">유아부</a></li>
+                  <li><a href="https://www.chota.or.kr" target="_blank">초등부</a></li>
+                  <li><a href="https://www.foryouth.or.kr" target="_blank">중고등부</a></li>
+                  <li><a href="https://www.kycs.or.kr" target="_blank">학교사목부</a></li>
+                  <li><a href="https://www.2030.or.kr/" target="_blank">청년부</a></li>
+                  <li><a href="https://www.sfcs.or.kr" target="_blank">대학교사목부</a></li>
+                  <li><a href="https://seoul.kcscouts.or.kr" target="_blank">가톨릭스카우트</a></li>
+                  <li><a href="https://www.cafema.or.kr" target="_blank">장애인신앙교육부</a></li>
+                  <li><a href="https://didache.eduseoul.or.kr" target="_blank">디다케</a></li>
+                  <li><a href="https://www.yongmooncamp.or.kr" target="_blank">용문청소년수련장</a></li>
+                  <li><a href="https://www.catholicshop.or.kr" target="_blank">청국장</a></li>
+                  <li class="tit">- 서울가톨릭청소년회 -</li>
+                  <li><a href="https://www.iju.or.kr" target="_blank">청소년문화공간JU</a></li>
+                  <li><a href="https://www.yju.or.kr" target="_blank">청년문화공간JU</a></li>
+                  <li><a href="https://www.ajit.or.kr" target="_blank">서울A지T</a></li>
+                  <li><a href="http://www.scy.or.kr" target="_blank">구립서초유스센터</a></li>
+                  <li><a href="http://www.sdyc.or.kr" target="_blank">시립성동청소년수련관</a></li>
+                  <li><a href="http://www.boramyc.or.kr" target="_blank">시립보라매청소년수련관</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="../../lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="../../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>청소년국<br>자료실</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/siteA/ico-logo-symbol-02.svg">
+               <p>교재구입<br>링크</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>교리교육<br>자료실</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>공모전<br>전시관</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+</body>
+
+</html>
