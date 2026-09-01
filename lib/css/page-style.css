@@ -24,7 +24,16 @@
  }
 
 /* --- 천주교 서울대교구 청소년국 (재)서울가톨릭청소년회 --- */
-#eduseoul { --logo: url('../img/eduseoul/logo.png'); --logo-white: url('../img/eduseoul/logo-white.png'); --logo-w: 40%; --logo-max-w: 222px; --logo-h: auto; --logo-ratio: 222 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); --bg-tile: url('../img/eduseoul/main-lastest-wrap-bg.png') bottom center / cover no-repeat;}
+#eduseoul {
+   --logo: url('../img/eduseoul/logo.png');
+   --logo-white: url('../img/eduseoul/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 222px;
+   --logo-h: auto;
+   --logo-ratio: 222 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+   --bg-tile: url('../img/eduseoul/main-lastest-wrap-bg.png') bottom center / cover no-repeat;
+}
 
 #eduseoul .visual-link { width:100%; height:800px; padding:92px 0 40px; background:url('../img/eduseoul/main-visaul-link-bg.png') center / cover no-repeat; } 
 #eduseoul .visual-link .inner { height:90%; display:flex; justify-content: center; align-items: center; } 
@@ -230,3 +239,51 @@
 #kcscouts .frsr .img-wrap .text { text-align: center; } 
 #kcscouts .frsr .img-wrap .text .title { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:24px; } 
 #kcscouts .frsr .img-wrap .text .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:4px; } 
+
+/* --- 천주교 서울대교구 청소년국 학교사목부 --- */
+#kycs {   
+   --logo: url('../img/kycs/logo.png');
+   --logo-white: url('../img/kycs/logo-white.png');
+   --logo-footer: url('../img/kycs/logo-footer.png');
+   --logo-w: 40%;
+   --logo-max-w: 240px;
+   --logo-h: auto;
+   --logo-ratio: 240 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#kycs .visual-link { width:100%; height:800px; padding:92px 0 40px; background:url('../img/eduseoul/main-visaul-link-bg.png') center / cover no-repeat; } 
+#kycs .visual-link .inner { height:90%; display:flex; flex-direction: column; justify-content: center; align-items: center; } 
+#kycs .visual-link .inner > .title { color: #FFF; text-align: center; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; margin-bottom:35px; }
+#kycs .visual-link .inner .bx { width:100%; display:flex; justify-content: center; align-items: stretch; gap:20px; } 
+#kycs .visual-link .inner .bx a { display:flex; flex-direction: column; justify-content: space-between; align-items: flex-start; border-radius: 16px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) -4.64%, rgba(255, 255, 255, 0.60) 100%); padding: 40px; width:25%; gap:32px; } 
+#kycs .visual-link .inner .bx a .title { color: #FFF; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; word-break: break-all; } 
+#kycs .visual-link .inner .bx a .logo { margin-left:auto; } 
+
+#kycs footer .inner { align-items: flex-start; }
+#kycs footer .familysite + .familysite { margin-top:10px; }
+#kycs footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
+#kycs footer .ft-wrap .contact li { flex-wrap:wrap; }
+#kycs #ft-logo { background-image:var(--logo-footer); }
+
+#kycs .introduce .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; } 
+#kycs .introduce .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+#kycs .introduce .img-wr .text-bx { padding:24px; } 
+
+#kycs .rental .img-bx { display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+#kycs .rental .img-wr { max-width:250px; text-align:center; }
+#kycs .rental .img-wr img { border-radius:20px; overflow:hidden; }
+#kycs .rental .img-wr p { font-size:18px; font-weight:500; color:#111; margin-top:8px; }
+
+@media (max-width: 768px){
+ #kycs .visual-link { height: auto; } 
+ #kycs .visual-link .inner > .title { font-size:20px; margin-bottom:15px; }
+ #kycs .visual-link .inner .bx { flex-wrap: wrap; } 
+ #kycs .visual-link .inner .bx a { width: calc(50% - 16px); height: auto; aspect-ratio: 1/1; padding: 15px; } 
+ #kycs .visual-link .inner .bx a .title { font-size: 18px; } 
+ #kycs .visual-link .inner .bx a .logo { width: 50px; } 
+
+ #kycs .introduce .img-wr { flex-direction: column; align-items: center; } 
+ #kycs .introduce .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+ #kycs .introduce .img-wr .text-bx { padding:24px; } 
+ }
