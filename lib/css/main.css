@@ -207,7 +207,7 @@
 .slider-wrap.schedule .swiper-slide { display:flex; flex-direction:column; height:auto; border-right: 1px solid #E5E5E5; padding:24px; width:auto; height:240px; aspect-ratio: 1/1; } 
 .slider-wrap.schedule .swiper-slide.on { background: var(--color-theme); color: #fff; } 
 .slider-wrap.schedule .swiper-slide .date { display:flex; flex-direction: column; } 
-.slider-wrap.schedule .swiper-slide .date .name { color: #EF6E47; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
+.slider-wrap.schedule .swiper-slide .date .name { color: var(--color-theme); font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
 .slider-wrap.schedule .swiper-slide .date .num { color: #111; font-size: 52px; font-weight: 700; line-height: 1.2; } 
 .slider-wrap.schedule .swiper-slide .date .short { display:none; color: #FFF; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
 .slider-wrap.schedule .swiper-slide.on .date { display:flex; flex-direction: row; align-items:center; gap:20px; } 

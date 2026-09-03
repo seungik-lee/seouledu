@@ -211,6 +211,21 @@ section + section { margin-top:64px; }
 .accordion-bottom { display:none; width:100%; } 
 .accordion-bottom.overflow { max-height:300px; overflow-y:auto; } 
 .accordion-bottom .tbl-wrap thead tr { border-bottom:1px dashed #CCC; } 
+
+.accordion-wrap.color { border-radius: 12px; background: #F5F5F5; padding: 0; overflow:hidden; gap:0; }
+.accordion-wrap.color .accordion-head .tit { justify-content: flex-start; gap:12px; padding: 24px 28px; }
+.accordion-wrap.color .accordion-head .tit .col { color:var(--color-theme); }
+.accordion-wrap.color .accordion-head .tit:after { display:none; }
+.accordion-wrap.color .accordion-head .tit .btn { flex-shrink: 0; width:36px; height:auto; aspect-ratio: 1/1; border-radius:100px; background:var(--color-theme); margin-left:auto; position:relative; }
+.accordion-wrap.color .accordion-head .tit .btn:before { content:""; width:16px; height:2px; background:#fff; position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); }
+.accordion-wrap.color .accordion-head .tit .btn:after { content:""; width:16px; height:2px; background:#fff; position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); transition: all 0.2s ease; }
+.accordion-wrap.color .accordion-bottom { padding: 24px 28px; }
+.accordion-wrap.color.open .accordion-head { background:var(--color-theme); }
+.accordion-wrap.color.open .accordion-head .tit, .accordion-wrap.color.open .accordion-head .tit .col { color:#fff; }
+.accordion-wrap.color.open .accordion-head .tit .btn { background:#fff; }
+.accordion-wrap.color.open .accordion-head .tit .btn:before { background:var(--color-theme); }
+.accordion-wrap.color.open .accordion-head .tit .btn:after { background:var(--color-theme); transform: translate(-50%, -50%) rotate(-90deg);}
+
 .accordion-wrap-list { border-radius:4px; overflow:hidden; border:1px solid #E8EDF3; } 
 .accordion-wrap-list .accordion-wrap { gap:0; } 
 .accordion-wrap-list .accordion-wrap + .accordion-wrap { border-top:1px solid #E8EDF3; } 
@@ -218,6 +233,8 @@ section + section { margin-top:64px; }
 .accordion-wrap-list .accordion-wrap.open .accordion-head .tit { border-bottom:1px solid #E8EDF3; } 
 .accordion-wrap-list .chk-wrap { width:100%; padding: 8px 24px; border-bottom:1px solid #E8EDF3; } 
 .accordion-wrap-list .chk-wrap:last-child { border:0; } 
+
+.accordion-wrap-bx { display:flex; flex-direction: column; gap:16px; }
 
 /* =========================================================
  2. 레이아웃 (header / footer)
@@ -374,7 +391,6 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .title-dot a { color: #666; font-size: 16px; font-weight: 700; line-height: 1.55; letter-spacing: -0.32px; margin-left:auto; display:block; } 
 .title-dot span { color:#666; font-weight:400; } 
 .title-dot span.sm { font-size:20px; margin-top: 7px; } 
-.title-dot button { } 
 .title-dot .required { margin-top:-20px; }
 .title-sub { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; } 
 .title-desc { color: #111; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; } 
@@ -559,7 +575,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .map-overlay .ov-address { color: #000; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; margin-bottom:20px; } 
 .map-overlay .ov-btn { border-radius: 4px; border: 1px solid var(--color-theme); background: #FFF; padding: 6px 12px; color: var(--color-theme); font-size: 14px; font-weight: 600; line-height: 1.40; letter-spacing: -0.28px; float:right; } 
 .map-overlay .ov-btn:hover { background:var(--color-theme-hover); color:#fff; } 
-.map-overlay .ov-etc { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; margin-top:5px;}
+.map-overlay .ov-etc { color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; margin-top:5px; }
 
 /* =========================================================
  6. 정보 테이블 / 검색 결과 테이블
@@ -640,7 +656,6 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .dl-wrap dd.tbl.row dl + dl { border:0; border-top:1px solid #E5E5E5; } 
 .dl-wrap dd.tbl.row dd { border:0; } 
 .dl-wrap dd.tbl.row dd.f1 { width: auto; flex-shrink: 0; border-right:1px solid #E5E5E5; } 
-
 
 .num-bx { display:flex; flex-direction: column; gap:12px; } 
 .num-item { display:flex; justify-content: flex-start; align-items: flex-start; color: #111; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; gap:4px; } 
@@ -933,7 +948,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 .receipt-head { text-align: center; }
 .receipt-head .tit { color: #111; text-align: center; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; }
 
-.receipt-head .type-badge { display: inline-block; margin-top: 24px; padding: 12px 20px; border-radius: 100px; background: var(--color-theme); color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1% letter-spacing: -0.14px; }
+.receipt-head .type-badge { display: inline-block; margin-top: 24px; padding: 12px 20px; border-radius: 100px; background: var(--color-theme); color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1%; letter-spacing: -0.14px; }
 .receipt-info-row { display: flex; margin: 64px 0; }
 .receipt-info-row .info-item { flex: 1; text-align: center; color: #4C4C4C; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
 .receipt-info-row .label { font-weight: 700; }
@@ -958,6 +973,11 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 .num-circle-list li { display:flex; justify-content: flex-start; align-items: flex-start; gap:12px; }
 .num-circle-list li .num { color: #111; font-size: 16px; font-weight: 600;  letter-spacing: -0.32px; display:flex; justify-content: center; align-items: center; width:22px; height:auto; aspect-ratio: 1/1; background:#F5F5F5; border-radius:200px; margin-top:2px; flex-shrink: 0; }
 .num-circle-list li p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
+
+.cate-list-wrap { display:flex; flex-direction: column; gap:20px; }
+.cate-list-wrap .item { display:flex; justify-content: flex-start; align-items: center; gap:12px; }
+.cate-list-wrap .item .cate { min-width:90px; display: flex; padding: 8px 12px; justify-content: center; align-items: center; gap: 6px; border-radius: 200px; background: #F5F5F5; color: #111; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; }
+.cate-list-wrap .item .desc { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
 
 /* =========================================================
  반응형 (1240px / 1200px / 1024px / 768px)
@@ -1051,6 +1071,13 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .accordion-wrap .accordion-head .tit:after { width:18px; } 
  .accordion-wrap .tbl-wrap thead th, .accordion-wrap .tbl-wrap tbody td { font-size:14px; } 
  
+ .accordion-wrap.color { border-radius: 8px; }
+ .accordion-wrap.color .accordion-head .tit { gap:8px; padding: 12px 14px; }
+ .accordion-wrap.color .accordion-head .tit .btn { width:16px; padding:12px; }
+ .accordion-wrap.color .accordion-head .tit .btn:before { width:12px; }
+ .accordion-wrap.color .accordion-head .tit .btn:after { width:12px; }
+ .accordion-wrap.color .accordion-bottom { padding: 12px 14px; }
+
  .tab-wrap { overflow-x: auto; }
  .tab-wrap.center { justify-content: center; }
  .tab-wrap.center ul { justify-content: flex-start; width:auto; max-width: 100%; } 
@@ -1364,4 +1391,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .num-circle-list li { gap:8px; }
  .num-circle-list li .num { font-size: 14px; margin-top:0; }
  .num-circle-list li p { font-size: 16px; }
+
+ .cate-list-wrap { gap:10px; }
+ .cate-list-wrap .item { gap:8px; }
+ .cate-list-wrap .item .cate { min-width:65px; font-size: 14px; }
+.cate-list-wrap .item .desc { font-size: 16px; }
 }
