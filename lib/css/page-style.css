@@ -24,7 +24,16 @@
  }
 
 /* --- 천주교 서울대교구 청소년국 (재)서울가톨릭청소년회 --- */
-#eduseoul { --logo: url('../img/eduseoul/logo.png'); --logo-white: url('../img/eduseoul/logo-white.png'); --logo-w: 40%; --logo-max-w: 222px; --logo-h: auto; --logo-ratio: 222 / 36; --gnb-dep1-padding: clamp(30px, 3.125vw, 60px); --bg-tile: url('../img/eduseoul/main-lastest-wrap-bg.png') bottom center / cover no-repeat;}
+#eduseoul {
+   --logo: url('../img/eduseoul/logo.png');
+   --logo-white: url('../img/eduseoul/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 222px;
+   --logo-h: auto;
+   --logo-ratio: 222 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+   --bg-tile: url('../img/eduseoul/main-lastest-wrap-bg.png') bottom center / cover no-repeat;
+}
 
 #eduseoul .visual-link { width:100%; height:800px; padding:92px 0 40px; background:url('../img/eduseoul/main-visaul-link-bg.png') center / cover no-repeat; } 
 #eduseoul .visual-link .inner { height:90%; display:flex; justify-content: center; align-items: center; } 
@@ -230,3 +239,132 @@
 #kcscouts .frsr .img-wrap .text { text-align: center; } 
 #kcscouts .frsr .img-wrap .text .title { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:24px; } 
 #kcscouts .frsr .img-wrap .text .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; margin-top:4px; } 
+
+/* --- 천주교 서울대교구 청소년국 학교사목부 --- */
+#kycs {   
+   --logo: url('../img/kycs/logo.png');
+   --logo-white: url('../img/kycs/logo-white.png');
+   --logo-footer: url('../img/kycs/logo-footer.png');
+   --logo-w: 40%;
+   --logo-max-w: 240px;
+   --logo-h: auto;
+   --logo-ratio: 240 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#kycs .visual-link { width:100%; height:800px; padding:92px 0 40px; background:url('../img/eduseoul/main-visaul-link-bg.png') center / cover no-repeat; } 
+#kycs .visual-link .inner { height:90%; display:flex; flex-direction: column; justify-content: center; align-items: center; } 
+#kycs .visual-link .inner > .title { color: #FFF; text-align: center; font-size: 40px; font-weight: 700; line-height: 1.45; letter-spacing: -0.8px; margin-bottom:35px; }
+#kycs .visual-link .inner .bx { width:100%; display:flex; justify-content: center; align-items: stretch; gap:20px; } 
+#kycs .visual-link .inner .bx a { display:flex; flex-direction: column; justify-content: space-between; align-items: flex-start; border-radius: 16px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) -4.64%, rgba(255, 255, 255, 0.60) 100%); padding: 40px; width:25%; gap:32px; } 
+#kycs .visual-link .inner .bx a .title { color: #FFF; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; word-break: break-all; } 
+#kycs .visual-link .inner .bx a .logo { margin-left:auto; } 
+
+#kycs footer .inner { align-items: flex-start; }
+#kycs footer .familysite + .familysite { margin-top:10px; }
+#kycs footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
+#kycs footer .ft-wrap .contact li { flex-wrap:wrap; }
+#kycs #ft-logo { background-image:var(--logo-footer); }
+
+#kycs .introduce .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; } 
+#kycs .introduce .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+#kycs .introduce .img-wr .text-bx { padding:24px; } 
+
+#kycs .rental .img-bx { display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+#kycs .rental .img-wr { max-width:250px; text-align:center; }
+#kycs .rental .img-wr img { border-radius:20px; overflow:hidden; }
+#kycs .rental .img-wr p { font-size:18px; font-weight:500; color:#111; margin-top:8px; }
+
+@media (max-width: 768px){
+ #kycs .visual-link { height: auto; } 
+ #kycs .visual-link .inner > .title { font-size:20px; margin-bottom:15px; }
+ #kycs .visual-link .inner .bx { flex-wrap: wrap; } 
+ #kycs .visual-link .inner .bx a { width: calc(50% - 16px); height: auto; aspect-ratio: 1/1; padding: 15px; } 
+ #kycs .visual-link .inner .bx a .title { font-size: 18px; } 
+ #kycs .visual-link .inner .bx a .logo { width: 50px; } 
+
+ #kycs .introduce .img-wr { flex-direction: column; align-items: center; } 
+ #kycs .introduce .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+ #kycs .introduce .img-wr .text-bx { padding:24px; } 
+ }
+
+ 
+/* --- 천주교 서울대교구 청소년국 가톨릭학생회 CELL --- */
+#kycs_cell {
+   --logo: url('../img/kycs_cell/logo.png');
+   --logo-white: url('../img/kycs_cell/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 196px;
+   --logo-h: auto;
+   --logo-ratio: 196 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);   
+   --bg-tile: url('../img/kycs_cell/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+
+}
+
+#kycs_cell[data-theme="theme04"] {
+   --color-theme: #87C237;
+   --color-theme-hover: #497e00;
+   --color-theme-opacity: rgba(135, 194, 55, 0.08);
+}
+
+#kycs_cell footer .inner { align-items: flex-start; }
+#kycs_cell footer .familysite + .familysite { margin-top:10px; }
+#kycs_cell footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
+#kycs_cell footer .ft-wrap .contact li { flex-wrap:wrap; }
+
+#kycs_cell .textbook .rull-bx { display:flex; flex-direction: column; align-items: center; gap:24px; padding:40px 0; }
+#kycs_cell .textbook .rull-bx .title { text-align:center; }
+#kycs_cell .textbook .rull-bx .title p { color: #111; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: -0.64px; }
+#kycs_cell .textbook .rull-bx .title span { color: #111; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -0.4px; margin-top:12px; }
+#kycs_cell .textbook .rull-bx li { display:flex; justify-content: flex-start; align-items: center; gap:12px; }
+#kycs_cell .textbook .rull-bx li + li { margin-top:20px; }
+#kycs_cell .textbook .rull-bx li .cate { display: flex; width:115px; padding: 8px 12px; justify-content: center; align-items: center; color: #FFF; font-size: 16px; font-weight: 600; line-height: 1; letter-spacing: -0.32px; border-radius: 200px; background: #7FC15C; flex-shrink: 0; }
+#kycs_cell .textbook .rull-bx li p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; }
+#kycs_cell .textbook .rull-bx .arr { color: #000; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: -0.64px; transform: rotate(90deg); }
+#kycs_cell .textbook .rull-bx > p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; }
+
+#kycs_cell .textbook .step-wr { display: flex; justify-content: space-between; align-items: stretch; gap:20px; }
+#kycs_cell .textbook .step-wr .item { width:100%; }
+#kycs_cell .textbook .step-wr .img { display: flex; width:100%; height: auto; aspect-ratio: 363 / 295; padding: 24px; border-radius: 12px; border: 1px solid #CCC; }
+#kycs_cell .textbook .step-wr .img img { display: block; width:100%; height:100%; object-fit: contain; object-position: center;}
+#kycs_cell .textbook .step-wr .text { margin-top:20px; }
+#kycs_cell .textbook .step-wr .text .tt { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-bottom:8px; }
+#kycs_cell .textbook .step-wr .text .dd { color: #333; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
+#kycs_cell .textbook .step-wr .arr { display:flex; align-items: center; flex-shrink: 0; }
+
+#kycs_cell .international .img-wr { display:flex; justify-content: space-between; }
+#kycs_cell .international .img-wr img { display:block; width:calc(50% - 10px); height:auto; aspect-ratio: 3/2; border-radius: 8px; overflow:hidden; object-fit: cover; object-position: center ;}
+
+#kycs_cell .information .list-wrap { display: flex; flex-direction: column; gap:40px; }
+#kycs_cell .information .list-wrap .item-wr { display:flex; justify-content: flex-start; align-items: flex-start; gap:20px; }
+#kycs_cell .information .list-wrap .item-wr .img { width:220px; height:auto; aspect-ratio: 220/180; border-radius:12px; overflow:hidden; flex-shrink: 0; }
+#kycs_cell .information .list-wrap .item-wr .img img { width:100%; height:100%; object-fit: cover; object-position: center; }
+#kycs_cell .information .list-wrap .item-wr .txt { padding:20px 0; }
+#kycs_cell .information .list-wrap .item-wr .txt .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; margin-bottom:8px; }
+#kycs_cell .information .list-wrap .item-wr .txt .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
+
+@media (max-width: 768px){
+ #kycs_cell .textbook .rull-bx { gap:12px; padding:20px 0; }
+ #kycs_cell .textbook .rull-bx .title p { font-size: 24px; }
+ #kycs_cell .textbook .rull-bx .title span { font-size: 16px; margin-top:8px; }
+ #kycs_cell .textbook .rull-bx li { gap:8px; }
+ #kycs_cell .textbook .rull-bx li + li { margin-top:12px; }
+ #kycs_cell .textbook .rull-bx li .cate { width:115px; padding: 8px 12px; font-size: 14px; }
+ #kycs_cell .textbook .rull-bx li p { font-size: 16px;}
+ #kycs_cell .textbook .rull-bx .arr { font-size: 24px; }
+ #kycs_cell .textbook .rull-bx > p { font-size: 18px; }
+ 
+ #kycs_cell .textbook .step-wr { flex-direction: column; align-items: center; }
+ #kycs_cell .textbook .step-wr .img { aspect-ratio: unset; }
+ #kycs_cell .textbook .step-wr .text .tt { font-size:18px; }
+ #kycs_cell .textbook .step-wr .text .dd { font-size:16px; }
+ #kycs_cell .textbook .step-wr .arr { transform: rotate(90deg); }
+ #kycs_cell .textbook .step-wr .arr > * { width:24px; }
+
+ #kycs_cell .information .list-wrap .item-wr { gap:10px; flex-direction: column; }
+ #kycs_cell .information .list-wrap .item-wr .img { width:100%; }
+ #kycs_cell .information .list-wrap .item-wr .txt { padding:5px 0; }
+ #kycs_cell .information .list-wrap .item-wr .txt .tit { font-size: 18px; }
+ #kycs_cell .information .list-wrap .item-wr .txt .desc { font-size: 16px; }
+}
