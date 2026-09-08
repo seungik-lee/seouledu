@@ -287,7 +287,6 @@
  #kycs .introduce .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
  #kycs .introduce .img-wr .text-bx { padding:24px; } 
  }
-
  
 /* --- 천주교 서울대교구 청소년국 가톨릭학생회 CELL --- */
 #kycs_cell {
@@ -336,14 +335,6 @@
 #kycs_cell .international .img-wr { display:flex; justify-content: space-between; }
 #kycs_cell .international .img-wr img { display:block; width:calc(50% - 10px); height:auto; aspect-ratio: 3/2; border-radius: 8px; overflow:hidden; object-fit: cover; object-position: center ;}
 
-#kycs_cell .information .list-wrap { display: flex; flex-direction: column; gap:40px; }
-#kycs_cell .information .list-wrap .item-wr { display:flex; justify-content: flex-start; align-items: flex-start; gap:20px; }
-#kycs_cell .information .list-wrap .item-wr .img { width:220px; height:auto; aspect-ratio: 220/180; border-radius:12px; overflow:hidden; flex-shrink: 0; }
-#kycs_cell .information .list-wrap .item-wr .img img { width:100%; height:100%; object-fit: cover; object-position: center; }
-#kycs_cell .information .list-wrap .item-wr .txt { padding:20px 0; }
-#kycs_cell .information .list-wrap .item-wr .txt .tit { color: #000; font-size: 20px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; margin-bottom:8px; }
-#kycs_cell .information .list-wrap .item-wr .txt .desc { color: #000; font-size: 18px; font-weight: 400; line-height: 1.45; letter-spacing: -0.36px; }
-
 @media (max-width: 768px){
  #kycs_cell .textbook .rull-bx { gap:12px; padding:20px 0; }
  #kycs_cell .textbook .rull-bx .title p { font-size: 24px; }
@@ -361,10 +352,33 @@
  #kycs_cell .textbook .step-wr .text .dd { font-size:16px; }
  #kycs_cell .textbook .step-wr .arr { transform: rotate(90deg); }
  #kycs_cell .textbook .step-wr .arr > * { width:24px; }
+}
 
- #kycs_cell .information .list-wrap .item-wr { gap:10px; flex-direction: column; }
- #kycs_cell .information .list-wrap .item-wr .img { width:100%; }
- #kycs_cell .information .list-wrap .item-wr .txt { padding:5px 0; }
- #kycs_cell .information .list-wrap .item-wr .txt .tit { font-size: 18px; }
- #kycs_cell .information .list-wrap .item-wr .txt .desc { font-size: 16px; }
+/* --- 천주교 서울대교구 청소년국 가톨릭문화연구회 CA --- */
+#kycs_ca {
+   --logo: url('../img/kycs_ca/logo.png');
+   --logo-white: url('../img/kycs_ca/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 258px;
+   --logo-h: auto;
+   --logo-ratio: 258 / 39;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);   
+   --bg-tile: url('../img/kycs_ca/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#kycs_ca footer .inner { align-items: flex-start; }
+#kycs_ca footer .familysite + .familysite { margin-top:10px; }
+#kycs_ca footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
+#kycs_ca footer .ft-wrap .contact li { flex-wrap:wrap; }
+
+#kycs_ca .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; }
+#kycs_ca .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
+#kycs_ca .introduce .list-wr li.item.mark { padding-top:65px; }
+#kycs_ca .introduce .list-wr li.item img { aspect-ratio: 1/1; }
+#kycs_ca .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+
+@media (max-width: 768px) { 
+   #kycs_ca .introduce .list-wr { flex-direction: column; align-items: center; }
+   #kycs_ca .introduce .list-wr li.item.mark { padding:0; }
+   #kycs_ca .introduce .list-wr li.item p { font-size:18px; }
 }
