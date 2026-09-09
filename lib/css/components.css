@@ -674,7 +674,7 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .dl-wrap dd.tbl dd { gap:8px; } 
 .dl-wrap dd.tbl dd p:not(.status) { font-size:inherit; font-weight:inherit; line-height:inherit; letter-spacing: inherit; } 
 .dl-wrap dd.tbl dl + dl { border-left:1px solid #E5E5E5; } 
-.dl-wrap dd.tbl dd { border-top:1px solid #E5E5E5; } 
+.dl-wrap dd.tbl dd:not(:first-child) { border-top:1px solid #E5E5E5; } 
 .dl-wrap dd.tbl.row { border:0; } 
 .dl-wrap dd.tbl.row dl { flex-direction: row; width:100%; } 
 .dl-wrap dd.tbl.row dl + dl { border:0; border-top:1px solid #E5E5E5; } 
@@ -717,7 +717,8 @@ footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul 
 .tbl-dl-wrap td { font-weight:400; padding:16px 24px; } 
 .tbl-dl-wrap thead th { background:#E9E9E9; } 
 .tbl-dl-wrap tbody th, .tbl-dl-wrap tbody td { border-bottom:1px solid #E5E5E5; } 
-.tbl-dl-wrap tbody td:not(.last) { border-right:1px solid #E5E5E5; } 
+.tbl-dl-wrap tbody td { border-right:1px solid #E5E5E5; } 
+.tbl-dl-wrap tr > *:last-child, .tbl-dl-wrap tbody td.last { border-right:0; }
 .tbl-dl-wrap.overflow { overflow-x:auto; } 
 .tbl-dl-wrap.overflow table { min-width:800px; white-space: nowrap; } 
 
