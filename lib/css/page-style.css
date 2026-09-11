@@ -382,3 +382,28 @@
    #kycs_ca .introduce .list-wr li.item.mark { padding:0; }
    #kycs_ca .introduce .list-wr li.item p { font-size:18px; }
 }
+
+/* --- 천주교 서울대교구 청소년국 가톨릭초등교육자회 CCE --- */
+#cce_ps {
+   --logo: url('../img/cce_ps/logo.png');
+   --logo-white: url('../img/cce_ps/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 258px;
+   --logo-h: auto;
+   --logo-ratio: 258 / 39;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);   
+   --bg-tile: url('../img/cce_ps/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#cce_ps .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
+#cce_ps .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
+#cce_ps .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
+#cce_ps .introduce .list-wr li.item.mark { padding-top:65px; }
+#cce_ps .introduce .list-wr li.item img { aspect-ratio: 1/1; }
+#cce_ps .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+
+@media (max-width: 768px) { 
+   #cce_ps .introduce .list-wr { flex-direction: column; align-items: center; }
+   #cce_ps .introduce .list-wr li.item.mark { padding:0; }
+   #cce_ps .introduce .list-wr li.item p { font-size:18px; }
+}
