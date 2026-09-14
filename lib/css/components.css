@@ -996,8 +996,8 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 
 .num-circle-list { display:flex; flex-direction: column; gap:20px; } 
 .num-circle-list li { display:flex; justify-content: flex-start; align-items: flex-start; gap:12px; } 
-.num-circle-list li .num { color: #111; font-size: 16px; font-weight: 600; letter-spacing: -0.32px; display:flex; justify-content: center; align-items: center; width:22px; height:auto; aspect-ratio: 1/1; background:#F5F5F5; border-radius:200px; margin-top:2px; flex-shrink: 0; } 
-.num-circle-list li p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; } 
+.num-circle-list li .num { color: #111; font-size: 16px; font-weight: 600; letter-spacing: -0.32px; display:flex; justify-content: center; align-items: center; width:30px; height:auto; aspect-ratio: 1/1; background:#F5F5F5; border-radius:200px; margin-top:2px; flex-shrink: 0; } 
+.num-circle-list li p { color: #111; font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -0.4px; padding-top:2px; } 
 
 .cate-list-wrap { display:flex; flex-direction: column; gap:20px; } 
 .cate-list-wrap .item { display:flex; justify-content: flex-start; align-items: center; gap:12px; } 
@@ -1194,8 +1194,7 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .board-wrap .view-wrap .post-nav .post-nav-item { gap:5px; } 
  .board-wrap .view-wrap .post-nav .post-nav-item.prev .label::before, .board-wrap .view-wrap .post-nav .post-nav-item.next .label::after { display:none; } 
 
- .board-wrap.list-type,
- .board-wrap.list-type table-wrap { margin-top:0; } 
+ .board-wrap.list-type, .board-wrap.list-type .table-wrap { margin-top:0; } 
  .board-wrap.list-type .table-wrap table td { padding:16px 12px; } 
  .board-wrap.list-type .table-wrap table td.no,
  .board-wrap.list-type .table-wrap table td.info .bx p.view { display:none } 
@@ -1421,8 +1420,8 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 
  .num-circle-list { gap:10px; } 
  .num-circle-list li { gap:8px; } 
- .num-circle-list li .num { font-size: 14px; margin-top:0; } 
- .num-circle-list li p { font-size: 16px; } 
+ .num-circle-list li .num { font-size: 14px; margin-top:0; width:22px; } 
+ .num-circle-list li p { font-size: 16px; padding-top:0; } 
 
  .cate-list-wrap { gap:10px; } 
  .cate-list-wrap .item { gap:8px; } 
