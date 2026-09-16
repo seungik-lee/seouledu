@@ -260,10 +260,6 @@
 #kycs .visual-link .inner .bx a .title { color: #FFF; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; word-break: break-all; } 
 #kycs .visual-link .inner .bx a .logo { margin-left:auto; } 
 
-#kycs footer .inner { align-items: flex-start; }
-#kycs footer .familysite + .familysite { margin-top:10px; }
-#kycs footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs footer .ft-wrap .contact li { flex-wrap:wrap; }
 #kycs #ft-logo { background-image:var(--logo-footer); }
 
 #kycs .introduce .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; } 
@@ -306,11 +302,6 @@
    --color-theme-hover: #497e00;
    --color-theme-opacity: rgba(135, 194, 55, 0.08);
 }
-
-#kycs_cell footer .inner { align-items: flex-start; }
-#kycs_cell footer .familysite + .familysite { margin-top:10px; }
-#kycs_cell footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs_cell footer .ft-wrap .contact li { flex-wrap:wrap; }
 
 #kycs_cell .textbook .rull-bx { display:flex; flex-direction: column; align-items: center; gap:24px; padding:40px 0; }
 #kycs_cell .textbook .rull-bx .title { text-align:center; }
@@ -366,11 +357,6 @@
    --bg-tile: url('../img/kycs_ca/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
 }
 
-#kycs_ca footer .inner { align-items: flex-start; }
-#kycs_ca footer .familysite + .familysite { margin-top:10px; }
-#kycs_ca footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs_ca footer .ft-wrap .contact li { flex-wrap:wrap; }
-
 #kycs_ca .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; }
 #kycs_ca .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
 #kycs_ca .introduce .list-wr li.item.mark { padding-top:65px; }
@@ -391,14 +377,11 @@
    --logo-max-w: 258px;
    --logo-h: auto;
    --logo-ratio: 258 / 39;
-   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);   
-   --bg-tile: url('../img/cce_ps/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
 
-#cce_ps footer .inner { align-items: flex-start; }
-#cce_ps footer .familysite + .familysite { margin-top:10px; }
-#cce_ps footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#cce_ps footer .ft-wrap .contact li { flex-wrap:wrap; }
+#cce_ps.main .more.plus { background-image: url('../img/cce_ps/ico-plus.svg'); }
+#cce_ps.main .schedule-wrap .title.horizontal { color:#111; }
 
 #cce_ps .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
 #cce_ps .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
@@ -413,3 +396,22 @@
    #cce_ps .introduce .list-wr li.item.mark { padding:0; }
    #cce_ps .introduce .list-wr li.item p { font-size:18px; }
 }
+
+/* --- 천주교 서울대교구 청소년국 가톨릭중등교육자회 CCE --- */
+#cce {
+   --logo: url('../img/cce/logo.png');
+   --logo-white: url('../img/cce/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 242px;
+   --logo-h: auto;
+   --logo-ratio: 242 / 30;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#cce .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
+#cce .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
+#cce .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
+#cce .introduce .list-wr li.item.mark { padding-top:65px; }
+#cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
+#cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+#cce .bod .tbl-dl-wrap th { text-align: left; }

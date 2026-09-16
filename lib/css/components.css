@@ -348,6 +348,11 @@ footer .familysite .site-list-wr { display:none; position:absolute; top:48px; le
 footer .familysite .site-list-wr ul { max-height:120px; overflow-y:auto; } 
 footer .familysite .site-list-wr ul li.tit, footer .familysite .site-list-wr ul li > * { display:block; font-size:inherit; padding:5px 18px; } 
 
+footer.other .inner { align-items: flex-start; }
+footer.other .familysite + .familysite { margin-top:10px; }
+footer.other .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
+footer.other .ft-wrap .contact li { flex-wrap:wrap; }
+
 /* =========================================================
  3. 플로팅
 ========================================================= */
