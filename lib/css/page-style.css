@@ -408,10 +408,15 @@
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
 }
 
+#cce[data-theme="theme02"] {
+   --color-theme: #E44262;
+   --color-theme-hover: #c20027;
+   --color-theme-opacity: rgba(228, 66, 98, 0.2);
+}
+
 #cce .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
 #cce .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
 #cce .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
 #cce .introduce .list-wr li.item.mark { padding-top:65px; }
 #cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
-#cce .bod .tbl-dl-wrap th { text-align: left; }
