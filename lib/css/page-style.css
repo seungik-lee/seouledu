@@ -431,6 +431,7 @@
    --logo-h: auto;
    --logo-ratio: 174.11 / 36;
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+   --bg-tile: url('../img/foryouth/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
 }
 
 #foryouth .word .img-wr { display:flex; justify-content: flex-start; align-items: stretch; } 
