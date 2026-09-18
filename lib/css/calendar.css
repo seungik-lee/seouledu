@@ -18,7 +18,7 @@
 .fc-day-today .fc-daygrid-day-number, .fc-daygrid-day.selected .fc-daygrid-day-number { color: #fff !important; width: auto; height: auto; display: flex; align-items: center; justify-content: center; } 
 .fc-daygrid-day-bg { position:absolute; width:48px; height:auto; aspect-ratio: 1/1; border-radius: 100px; left: 50%; top: 50%; transform: translate(-50%, -50%); display:none; } 
 .fc-day-today .fc-daygrid-day-bg { background: var(--color-theme); display:block; } 
-.fc-daygrid-day.selected .fc-daygrid-day-bg { background:var(--color-theme-hover); } 
+.fc-daygrid-day.selected .fc-daygrid-day-bg { background:var(--color-theme-hover); display:block; } 
 .fc-day-today { background: transparent !important; } 
 .event-dot { position:absolute; display: block; width: 8px; height: auto; aspect-ratio:1/1; background: var(--color-theme); border-radius: 100px; right:-10px; top:-10px; } 
 .fc-daygrid-day.selected .event-dot { display:none; } 

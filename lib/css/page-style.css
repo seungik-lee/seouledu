@@ -214,8 +214,9 @@
  #chota .word .img-wr { flex-direction: column; align-items: center; } 
  #chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
  #chota .word .img-wr .text-bx { padding:24px; } 
-#chota .history .dl-wrap dt p { font-size:18px; } 
-#chota .history .dl-wrap dd p { font-size:14px; } 
+ #chota .word .sign { font-size:20px; }
+ #chota .history .dl-wrap dt p { font-size:18px; } 
+ #chota .history .dl-wrap dd p { font-size:14px; } 
  }
 
 /* --- 천주교 서울대교구 청소년국 가톨릭 스카우트 --- */
@@ -260,10 +261,6 @@
 #kycs .visual-link .inner .bx a .title { color: #FFF; font-size: 24px; font-weight: 600; line-height: 1.4; letter-spacing: -0.6px; word-break: break-all; } 
 #kycs .visual-link .inner .bx a .logo { margin-left:auto; } 
 
-#kycs footer .inner { align-items: flex-start; }
-#kycs footer .familysite + .familysite { margin-top:10px; }
-#kycs footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs footer .ft-wrap .contact li { flex-wrap:wrap; }
 #kycs #ft-logo { background-image:var(--logo-footer); }
 
 #kycs .introduce .img-wr { display:flex; justify-content: flex-start; align-items: flex-start; } 
@@ -306,11 +303,6 @@
    --color-theme-hover: #497e00;
    --color-theme-opacity: rgba(135, 194, 55, 0.08);
 }
-
-#kycs_cell footer .inner { align-items: flex-start; }
-#kycs_cell footer .familysite + .familysite { margin-top:10px; }
-#kycs_cell footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs_cell footer .ft-wrap .contact li { flex-wrap:wrap; }
 
 #kycs_cell .textbook .rull-bx { display:flex; flex-direction: column; align-items: center; gap:24px; padding:40px 0; }
 #kycs_cell .textbook .rull-bx .title { text-align:center; }
@@ -366,11 +358,6 @@
    --bg-tile: url('../img/kycs_ca/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
 }
 
-#kycs_ca footer .inner { align-items: flex-start; }
-#kycs_ca footer .familysite + .familysite { margin-top:10px; }
-#kycs_ca footer .ft-wrap .contact { display: flex; flex-direction: column; gap:10px; }
-#kycs_ca footer .ft-wrap .contact li { flex-wrap:wrap; }
-
 #kycs_ca .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; }
 #kycs_ca .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
 #kycs_ca .introduce .list-wr li.item.mark { padding-top:65px; }
@@ -382,3 +369,79 @@
    #kycs_ca .introduce .list-wr li.item.mark { padding:0; }
    #kycs_ca .introduce .list-wr li.item p { font-size:18px; }
 }
+
+/* --- 천주교 서울대교구 청소년국 가톨릭초등교육자회 CCE --- */
+#cce_ps {
+   --logo: url('../img/cce_ps/logo.png');
+   --logo-white: url('../img/cce_ps/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 258px;
+   --logo-h: auto;
+   --logo-ratio: 258 / 39;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#cce_ps.main .more.plus { background-image: url('../img/cce_ps/ico-plus.svg'); }
+#cce_ps.main .schedule-wrap .title.horizontal { color:#111; }
+
+#cce_ps .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
+#cce_ps .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
+#cce_ps .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
+#cce_ps .introduce .list-wr li.item.mark { padding-top:65px; }
+#cce_ps .introduce .list-wr li.item img { aspect-ratio: 1/1; }
+#cce_ps .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+#cce_ps .bod .tbl-dl-wrap th { text-align: left; }
+
+@media (max-width: 768px) { 
+   #cce_ps .introduce .list-wr { flex-direction: column; align-items: center; }
+   #cce_ps .introduce .list-wr li.item.mark { padding:0; }
+   #cce_ps .introduce .list-wr li.item p { font-size:18px; }
+}
+
+/* --- 천주교 서울대교구 청소년국 가톨릭중등교육자회 CCE --- */
+#cce {
+   --logo: url('../img/cce/logo.png');
+   --logo-white: url('../img/cce/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 242px;
+   --logo-h: auto;
+   --logo-ratio: 242 / 30;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#cce[data-theme="theme02"] {
+   --color-theme: #E44262;
+   --color-theme-hover: #c20027;
+   --color-theme-opacity: rgba(228, 66, 98, 0.2);
+}
+
+#cce .introduce .img-wrap img { max-width:200px; margin-bottom:64px; }
+#cce .introduce .list-wr { display:flex; align-items: flex-start; gap:25px; justify-content: space-between; }
+#cce .introduce .list-wr li.item { display: flex; flex-direction: column; align-items: center; gap:12px; }
+#cce .introduce .list-wr li.item.mark { padding-top:65px; }
+#cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
+#cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+
+/* --- 천주교 서울대교구 청소년국 중고등부 --- */
+#foryouth {
+   --logo: url('../img/foryouth/logo.png');
+   --logo-white: url('../img/foryouth/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 174.11px;
+   --logo-h: auto;
+   --logo-ratio: 174.11 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#foryouth .word .img-wr { display:flex; justify-content: flex-start; align-items: stretch; } 
+#foryouth .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; max-width: 345px; width:100%; height:auto; aspect-ratio: 3/4; object-fit: cover; object-position: center; } 
+#foryouth .word .img-wr .text-bx { padding:24px; width:100%; display: flex; flex-direction: column; justify-content: flex-start; } 
+#foryouth .word .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:auto; } 
+#foryouth .word .sign span { color:var(--color-theme); font-size:inherit; font-weight: inherit; } 
+
+@media (max-width: 768px){
+ #foryouth .word .img-wr { flex-direction: column; align-items: center; } 
+ #foryouth .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+ #foryouth .word .img-wr .text-bx { padding:24px; } 
+#foryouth .word .sign { font-size:20px; margin-top:32px; } 
+ }

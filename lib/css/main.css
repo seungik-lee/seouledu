@@ -256,7 +256,7 @@
 .lastest-wrap.list .more { margin:64px auto 0; } 
 
 /* --- 최신글 - tile --- */
-.lastest-wrap.tile { padding:60px 0 140px; background: var(--bg-tile, #fff); } 
+.lastest-wrap.tile { padding:100px 0 140px; background: var(--bg-tile, #fff); } 
 .lastest-wrap.tile .tab-wrap { margin-bottom:40px; } 
 .lastest-wrap.tile .list { display:grid; grid-template-columns: repeat(3, 1fr); gap:var(--clamp-size-24); } 
 .lastest-wrap.tile .list a { display:block; border-radius: 20px; border: 1px solid #EEE; background: #fff; overflow:hidden; padding:27px 23px; transition: all 0.2s ease; position:relative; } 
@@ -431,7 +431,7 @@
 [data-type="typeB"] .slide-content p { font-size:var(--clamp-size-20); font-weight:500; line-height:1.4; letter-spacing: -0.5px; } 
 [data-type="typeB"] .slide-content .more { margin-top:var(--clamp-size-56); background:transparent; color:#fff; } 
 [data-type="typeB"] .slide-content .more:after { background:#fff; } 
-[data-type="typeB"] .slider-control { width:260px; left:calc(var(--clamp-size-64)*2 - 8px); bottom:47.5%; overflow:hidden; display: flex; justify-content: center; align-items: center; gap: 14px; } 
+[data-type="typeB"] .slider-control { width:260px; left:calc(var(--clamp-size-64)*2 - 8px); bottom:37.5%; overflow:hidden; display: flex; justify-content: center; align-items: center; gap: 14px; } 
 [data-type="typeB"] .slider-control .counter { display:flex; flex:1; gap:var(--clamp-size-16); } 
 [data-type="typeB"] .slider-control .counter > span { color: #FFF; font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -0.4px; } 
 [data-type="typeB"] .slider-control .progress-track { flex: 1; display: flex; align-items: center; gap: 4px; } 
