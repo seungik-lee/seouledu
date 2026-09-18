@@ -214,8 +214,9 @@
  #chota .word .img-wr { flex-direction: column; align-items: center; } 
  #chota .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
  #chota .word .img-wr .text-bx { padding:24px; } 
-#chota .history .dl-wrap dt p { font-size:18px; } 
-#chota .history .dl-wrap dd p { font-size:14px; } 
+ #chota .word .sign { font-size:20px; }
+ #chota .history .dl-wrap dt p { font-size:18px; } 
+ #chota .history .dl-wrap dd p { font-size:14px; } 
  }
 
 /* --- 천주교 서울대교구 청소년국 가톨릭 스카우트 --- */
@@ -420,3 +421,27 @@
 #cce .introduce .list-wr li.item.mark { padding-top:65px; }
 #cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+
+/* --- 천주교 서울대교구 청소년국 중고등부 --- */
+#foryouth {
+   --logo: url('../img/foryouth/logo.png');
+   --logo-white: url('../img/foryouth/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 174.11px;
+   --logo-h: auto;
+   --logo-ratio: 174.11 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+}
+
+#foryouth .word .img-wr { display:flex; justify-content: flex-start; align-items: stretch; } 
+#foryouth .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; max-width: 345px; width:100%; height:auto; aspect-ratio: 3/4; object-fit: cover; object-position: center; } 
+#foryouth .word .img-wr .text-bx { padding:24px; width:100%; display: flex; flex-direction: column; justify-content: flex-start; } 
+#foryouth .word .sign { color: #111; text-align: right; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; margin-top:auto; } 
+#foryouth .word .sign span { color:var(--color-theme); font-size:inherit; font-weight: inherit; } 
+
+@media (max-width: 768px){
+ #foryouth .word .img-wr { flex-direction: column; align-items: center; } 
+ #foryouth .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
+ #foryouth .word .img-wr .text-bx { padding:24px; } 
+#foryouth .word .sign { font-size:20px; margin-top:32px; } 
+ }
