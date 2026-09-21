@@ -1032,9 +1032,8 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
 
  .menu-open header #gnb { position: fixed; left: 0; top:var(--headerH); width:100%; background-color: #fff; z-index:9999; transition: none; overflow: auto; } 
  .menu-open header #gnb > ul { flex-direction: column; color:#fff; margin: 20px 0; padding:0 var(--content-padding-x); } 
- .menu-open header #gnb > ul > li.dep1 { --arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M17.0177 8L12.4277 12.58L7.83773 8L6.42773 9.41L12.4277 15.41L18.4277 9.41L17.0177 8Z' fill='black'/%3E%3C/svg%3E") no-repeat center / contain; } 
- .menu-open header #gnb > ul > li.dep1 > a { position: relative; padding:0; transition: none; text-align: left; line-height:calc(var(--headerH) * 0.8); } 
- .menu-open header #gnb > ul > li.dep1:not(.one) > a:after { content: ''; position: absolute; right: 0px; top: 50%; transform: translateY(-50%); width: 24px; height: auto; aspect-ratio: 1/1; background-color: #111111; -webkit-mask: var(--arrow-mask); mask: var(--arrow-mask); transition: all 0.2s ease; } 
+ .menu-open header #gnb > ul > li.dep1 > a { position: relative; padding:0; transition: none; text-align: left; line-height:calc(var(--headerH) * 0.8); }
+ .menu-open header #gnb > ul > li.dep1:not(.one) > a:after { content: ''; position: absolute; right: 0px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: url('../img/common/ico-arrow-down-mobile.svg') center / contain no-repeat; transition: all 0.2s ease; @supports (mask: url('')) { background-color: #111111; -webkit-mask: url('../img/common/ico-arrow-down-mobile.svg') center / contain no-repeat; mask: url('../img/common/ico-arrow-down-mobile.svg') center / contain no-repeat; background-image:none; } }
  
  .menu-open header #gnb > ul > li.dep1.open > a { color: var(--color-theme); border-color: transparent; } 
  .menu-open header #gnb > ul > li.dep1.open > a:after { transform: translateY(-50%) rotate(180deg); background-color: var(--color-theme); } 
