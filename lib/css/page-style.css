@@ -478,7 +478,31 @@
 #sfcs .office-info-card .value { color:#111; font-size:24px; font-weight:700; line-height:1.45; letter-spacing:-0.48px; min-height:70px; padding-right:50px; }
 #sfcs .office-info-card .value .sub { color:#333; font-size:inherit; font-weight:inherit; }
 
-#sfcs #contents.mass .office-info { margin-top:0; }
+#sfcs .prayer-wrap { display:flex; align-items: flex-start; gap:24px; }
+#sfcs .prayer-wrap .prayer-photo { display:flex; flex-direction: column; gap:12px; align-items: center; justify-content: center; flex-shrink:0; }
+#sfcs .prayer-wrap .prayer-photo .img { width:280px; height:596px; border-radius:20px; overflow:hidden; }
+#sfcs .prayer-wrap .prayer-photo .img img { width:100%; height:100%; object-fit: cover; object-position: center; }
+#sfcs .prayer-wrap .prayer-photo .cap { color:#111; font-size:16px; font-weight:600; line-height:1.55; letter-spacing:-0.32px; }
+#sfcs .prayer-wrap .prayer-txt { flex:1 0 0; min-width:0; display:flex; flex-direction: column; gap:20px; padding:24px 0; }
+
+#sfcs .group .img-wrap.text img { border-radius: 12px; overflow:hidden; }
+#sfcs .group .img-wrap.text { align-items: stretch; }
+#sfcs .group .img-wrap.text .cont { justify-content: space-between; }
+#sfcs .group .text-bx { display:flex; flex-direction: column; }
+#sfcs .group .text-bx .tit { margin:0; }
+#sfcs .group .text-bx .desc p { margin:0; }
+#sfcs .group .text-bx .tit + .desc { margin-top:0; }
+
+#sfcs .group .search-input-wrap { justify-content: flex-end; }
+#sfcs .group .select-box-wrap .select-box-list-wr { max-height:200px; }
+#sfcs .group .select-box-wrap .select-box-list-wr ul { max-height:200px; }
+
+#sfcs .group .univ-map { aspect-ratio: 235/154.5; }
+#sfcs .group .univ-marker { display:inline-flex; align-items:center; padding:2px 10px; border-radius:200px; font-size:13px; font-weight:600; line-height:1.5; white-space:nowrap; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.15); border:1px solid rgba(0,0,0,0.15); }
+#sfcs .group .parish-marker { background:#6b4eff; color:#fff; cursor:default; }
+#sfcs .group .univ-overlay .ov-address { margin-bottom:4px; }
+#sfcs .group .univ-overlay .ov-address:last-of-type { margin-bottom:16px; }
+#sfcs .group .univ-overlay .ov-address strong { font-weight:700; margin-right:4px; }
 
 @media (max-width: 768px){
  #sfcs .office .office-staff-row { flex-direction: column; }
@@ -492,4 +516,11 @@
  #sfcs .office-info-card .ico { position:absolute; top:50%; right:20px; transform:translateY(-50%); }
  #sfcs .office-info-card .badge { font-size:14px; }
  #sfcs .office-info-card .value { font-size:18px; min-height:auto;}
-} 
+ 
+ #sfcs .prayer-wrap { flex-direction: column; align-items: center; }
+ #sfcs .prayer-wrap .prayer-photo { width:100%; max-width:280px; }
+ #sfcs .prayer-wrap .prayer-photo .img { width:100%; height:auto; aspect-ratio: 280/596; }
+ #sfcs .prayer-wrap .prayer-txt { width:100%; padding:0; }
+
+ #sfcs .group .univ-map { aspect-ratio: 1/1.5; }
+ }

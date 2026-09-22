@@ -45,7 +45,7 @@ section + section { margin-top:64px; }
 .select-box-wrap .select-label.open { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } 
 .select-box-wrap .select-label:after { content:""; display:block; width:20px; height:auto; aspect-ratio: 1/1; background:url('../img/common/ico-arrow-down-black.svg') center / 100% auto no-repeat; flex-shrink: 0; } 
 .select-box-wrap .select-label.open:after { transform:rotate(180deg); } 
-.select-box-wrap .select-box-list-wr { display:none; position:absolute; top:46px; left:0; width: max-content; min-width:100%; max-height:130px; border: 1px solid #CECCCC; background: #FFF; border-top:0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding-bottom:5px; overflow:hidden; z-index: 1; } 
+.select-box-wrap .select-box-list-wr { display:none; position:absolute; top:46px; left:0; width: max-content; min-width:100%; max-height:130px; border: 1px solid #CECCCC; background: #FFF; border-top:0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding-bottom:5px; overflow:hidden; z-index: 99; } 
 .select-box-wrap .select-box-list-wr ul { max-height:130px; overflow-y:auto; } 
 .select-box-wrap .select-box-list-wr ul li p { display:block; font-size:inherit; padding: 5px 12px; color: #666; cursor:pointer; white-space: nowrap; text-align: left; } 
 .select-box-wrap .select-box-list-wr ul li:hover p { color:#000; } 
