@@ -431,6 +431,7 @@
    --logo-h: auto;
    --logo-ratio: 174.11 / 36;
    --gnb-dep1-padding: clamp(30px, 3.125vw, 60px);
+   --bg-tile: url('../img/foryouth/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
 }
 
 #foryouth .word .img-wr { display:flex; justify-content: flex-start; align-items: stretch; } 
@@ -443,5 +444,87 @@
  #foryouth .word .img-wr { flex-direction: column; align-items: center; } 
  #foryouth .word .img-wr img { flex-shrink: 0; border-radius:20px; overflow:hidden; } 
  #foryouth .word .img-wr .text-bx { padding:24px; } 
-#foryouth .word .sign { font-size:20px; margin-top:32px; } 
- }
+ #foryouth .word .sign { font-size:20px; margin-top:32px; } 
+}
+
+ /* --- 천주교 서울대교구 청소년국 대학교사목부 --- */
+#sfcs {   
+   --logo: url('../img/sfcs/logo.png');
+   --logo-white: url('../img/sfcs/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 167px;
+   --logo-h: auto;
+   --logo-ratio: 167 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/sfcs/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+#sfcs #ft-logo { --logo-max-w: 257px; }
+
+#sfcs .office-staff { display:flex; flex-direction: column; gap:20px; }
+#sfcs .office-staff-row { display:flex; align-items: stretch; gap:20px; }
+#sfcs .office-staff-card { flex:1 0 0; min-width:0; display:flex; align-items: center; gap:40px; background:#FFF; border:1px solid #E5E5E5; border-radius:12px; padding:24px 28px; }
+#sfcs .office-staff-card .photo { flex-shrink:0; width:140px; height:140px; border-radius:100px; border:1px solid #E5E5E5; overflow:hidden; }
+#sfcs .office-staff-card .photo img { width:100%; height:100%; object-fit: cover; object-position: center; }
+#sfcs .office-staff-card .info { display:flex; flex-direction: column; gap:4px; }
+#sfcs .office-staff-card .info .role { color:#111; font-size:20px; font-weight:700; line-height:1.45; letter-spacing:-0.4px; }
+#sfcs .office-staff-card .info .name { color:#111; font-size:28px; font-weight:700; line-height:1.45; letter-spacing:-0.56px; }
+#sfcs .office-staff-card .info .dept { color:#111; font-size:18px; font-weight:400; line-height:1.45; letter-spacing:-0.36px; }
+#sfcs .staff .office-staff-row:last-child .office-staff-card:only-child { flex:0 1 calc(50% - 10px); }
+#sfcs .office-info { display:flex; flex-direction: column; gap:20px; margin-top:64px; }
+#sfcs .office-info-row { display:flex; align-items: stretch; gap:20px; }
+#sfcs .office-info-card { position:relative; flex:1 0 0; min-width:0; display:flex; flex-direction: column; justify-content: space-between; gap:20px; background:#F5F5F5; border-radius:12px; padding:24px 28px; min-height:190px; }
+#sfcs .office-info-card .ico { width:48px; height:auto; margin-left:auto; aspect-ratio: 1/1; }
+#sfcs .office-info-card .ico img { width:100%; height:100%; }
+#sfcs .office-info-card .txt { display:flex; flex-direction: column; gap:8px; align-items: flex-start; }
+#sfcs .office-info-card .badge { display:inline-flex; align-items: center; justify-content: center; padding:4px 12px; border-radius:200px; background:var(--color-theme); color:#FFF; font-size:16px; font-weight:600; line-height:1.55; letter-spacing:-0.32px; white-space:nowrap; }
+#sfcs .office-info-card .value { color:#111; font-size:24px; font-weight:700; line-height:1.45; letter-spacing:-0.48px; min-height:70px; padding-right:50px; }
+#sfcs .office-info-card .value .sub { color:#333; font-size:inherit; font-weight:inherit; }
+#sfcs .prayer-wrap { display:flex; align-items: flex-start; gap:24px; }
+#sfcs .prayer-wrap .prayer-photo { display:flex; flex-direction: column; gap:12px; align-items: center; justify-content: center; flex-shrink:0; }
+#sfcs .prayer-wrap .prayer-photo .img { width:280px; height:596px; border-radius:20px; overflow:hidden; }
+#sfcs .prayer-wrap .prayer-photo .img img { width:100%; height:100%; object-fit: cover; object-position: center; }
+#sfcs .prayer-wrap .prayer-photo .cap { color:#111; font-size:16px; font-weight:600; line-height:1.55; letter-spacing:-0.32px; }
+#sfcs .prayer-wrap .prayer-txt { flex:1 0 0; min-width:0; display:flex; flex-direction: column; gap:20px; padding:24px 0; }
+#sfcs .group .img-wrap.text img { border-radius: 12px; overflow:hidden; }
+#sfcs .group .img-wrap.text { align-items: stretch; }
+#sfcs .group .img-wrap.text .cont { justify-content: space-between; }
+#sfcs .group .text-bx { display:flex; flex-direction: column; }
+#sfcs .group .text-bx .tit { margin:0; }
+#sfcs .group .text-bx .desc p { margin:0; }
+#sfcs .group .text-bx .tit + .desc { margin-top:0; }
+#sfcs .group .search-input-wrap { justify-content: flex-end; }
+#sfcs .group .select-box-wrap .select-box-list-wr { max-height:200px; }
+#sfcs .group .select-box-wrap .select-box-list-wr ul { max-height:200px; }
+#sfcs .group .univ-map { aspect-ratio: 235/154.5; }
+#sfcs .group .univ-marker { display:inline-flex; align-items:center; padding:2px 10px; border-radius:200px; font-size:13px; font-weight:600; line-height:1.5; white-space:nowrap; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.15); border:1px solid rgba(0,0,0,0.15); }
+#sfcs .group .parish-marker { background:#6b4eff; color:#fff; cursor:default; }
+#sfcs .group .univ-overlay .ov-address { margin-bottom:4px; }
+#sfcs .group .univ-overlay .ov-address:last-of-type { margin-bottom:16px; }
+#sfcs .active .img-wrap.text img { width:352px; border-radius:12px; overflow:hidden; }
+#sfcs .active .img-wrap.text .cont .desc { display:flex; flex-direction: column; gap:4px; }
+#sfcs .active .img-wrap.text .cont .desc p { margin:0; }
+#sfcs .group .univ-overlay .ov-address strong { font-weight:700; margin-right:4px; }
+#sfcs .paxmass .img-wrap.poster { max-width:640px; margin:0 auto; }
+
+@media (max-width: 768px){
+ #sfcs .office-staff-row { flex-direction: column; }
+ #sfcs .office-staff-card { gap:20px; padding:20px; }
+ #sfcs .office-staff-card .photo { width:100px; height:100px; }
+ #sfcs .office-staff-card .info .role { font-size:16px; }
+ #sfcs .office-staff-card .info .name { font-size:20px; }
+ #sfcs .office-staff-card .info .dept { font-size:16px; }
+ #sfcs .staff .office-staff-row:last-child .office-staff-card:only-child { flex:1 0 0; }
+ #sfcs .office-info { margin-top:20px; }
+ #sfcs .office-info-row { flex-direction: column; }
+ #sfcs .office-info-card { min-height:auto; padding:20px; }
+ #sfcs .office-info-card .ico { position:absolute; top:50%; right:20px; transform:translateY(-50%); }
+ #sfcs .office-info-card .badge { font-size:14px; }
+ #sfcs .office-info-card .value { font-size:18px; min-height:auto;} 
+ #sfcs .prayer-wrap { flex-direction: column; align-items: center; }
+ #sfcs .prayer-wrap .prayer-photo { width:100%; max-width:280px; }
+ #sfcs .prayer-wrap .prayer-photo .img { width:100%; height:auto; aspect-ratio: 280/596; }
+ #sfcs .prayer-wrap .prayer-txt { width:100%; padding:0; }
+ #sfcs .group .univ-map { aspect-ratio: 1/1.5; }
+ #sfcs .active .img-wrap.text img { width:100%; }
+ #sfcs .active .img-wrap p { margin:0; }
+}
