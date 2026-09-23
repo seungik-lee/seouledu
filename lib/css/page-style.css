@@ -458,7 +458,16 @@
    --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
    --bg-tile: url('../img/sfcs/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
 }
+
 #sfcs #ft-logo { --logo-max-w: 257px; }
+
+#sfcs[data-theme="theme02"] {
+   --color-theme: #7D0037;
+   --color-theme-hover: #500023;
+   --color-theme-opacity: rgba(125, 0, 55, 0.04);
+}
+#sfcs .title.vertical p { color:#EF6E47; }
+#sfcs .tab-wrap li.on, #sfcs .tab-btn-wrap li:hover, #sfcs .tab-btn-wrap li:active { background-color:#EF6E47; }
 
 #sfcs .office-staff { display:flex; flex-direction: column; gap:20px; }
 #sfcs .office-staff-row { display:flex; align-items: stretch; gap:20px; }
