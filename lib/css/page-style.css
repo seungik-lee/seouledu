@@ -272,8 +272,10 @@
 #kycs .rental .img-wr img { border-radius:20px; overflow:hidden; }
 #kycs .rental .img-wr p { font-size:18px; font-weight:500; color:#111; margin-top:8px; }
 
+#kycs .ft-wrap .contact li .tit { min-width:auto; }
+
 @media (max-width: 768px){
- #kycs .visual-link { height: auto; } 
+ #kycs .visual-link { height: auto; }
  #kycs .visual-link .inner > .title { font-size:20px; margin-bottom:15px; }
  #kycs .visual-link .inner .bx { flex-wrap: wrap; } 
  #kycs .visual-link .inner .bx a { width: calc(50% - 16px); height: auto; aspect-ratio: 1/1; padding: 15px; } 
@@ -327,6 +329,8 @@
 #kycs_cell .international .img-wr { display:flex; justify-content: space-between; }
 #kycs_cell .international .img-wr img { display:block; width:calc(50% - 10px); height:auto; aspect-ratio: 3/2; border-radius: 8px; overflow:hidden; object-fit: cover; object-position: center ;}
 
+#kycs_cell .ft-wrap .contact li .tit { min-width:auto; }
+
 @media (max-width: 768px){
  #kycs_cell .textbook .rull-bx { gap:12px; padding:20px 0; }
  #kycs_cell .textbook .rull-bx .title p { font-size: 24px; }
@@ -363,8 +367,9 @@
 #kycs_ca .introduce .list-wr li.item.mark { padding-top:65px; }
 #kycs_ca .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #kycs_ca .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
+#kycs_ca .ft-wrap .contact li .tit { min-width:auto; }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
    #kycs_ca .introduce .list-wr { flex-direction: column; align-items: center; }
    #kycs_ca .introduce .list-wr li.item.mark { padding:0; }
    #kycs_ca .introduce .list-wr li.item p { font-size:18px; }
@@ -391,8 +396,9 @@
 #cce_ps .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #cce_ps .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
 #cce_ps .bod .tbl-dl-wrap th { text-align: left; }
+#cce_ps .ft-wrap .contact li .tit { min-width:auto; }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
    #cce_ps .introduce .list-wr { flex-direction: column; align-items: center; }
    #cce_ps .introduce .list-wr li.item.mark { padding:0; }
    #cce_ps .introduce .list-wr li.item p { font-size:18px; }
@@ -421,9 +427,7 @@
 #cce .introduce .list-wr li.item.mark { padding-top:65px; }
 #cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
-
-/* footer 연락처 라벨이 strong에서 div.tit로 바뀌기 전 원래 min-width 없이 쓰던 페이지들: 공통 min-width 적용 제외 */
-#kycs .ft-wrap .contact li .tit, #kycs_cell .ft-wrap .contact li .tit, #kycs_ca .ft-wrap .contact li .tit, #cce_ps .ft-wrap .contact li .tit, #cce .ft-wrap .contact li .tit { min-width:auto; }
+#cce .ft-wrap .contact li .tit { min-width:auto; }
 
 /* --- 천주교 서울대교구 청소년국 중고등부 --- */
 #foryouth {
