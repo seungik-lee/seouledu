@@ -555,6 +555,29 @@
 #choice .quick-btn-wrap.typeA .inner, #choice .login-wrap .inner { padding:0; }
 #choice .login-wrap .inner > .flex { background:#f5f5f5; }
 
+ /* --- 천주교 서울대교구 청소년국 청년부 --- */
+#yams {   
+   --logo: url('../img/yams/logo.png');
+   --logo-white: url('../img/yams/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 183px;
+   --logo-h: auto;
+   --logo-ratio: 183 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/yams/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#yams .other-wrap { margin:120px auto; }
+#yams .table-swiper-wrap { margin:20px auto; }
+#yams .info-wrap .item { margin-bottom:20px; }
+#yams .table-swiper-wrap .inner, #yams .login-wrap .inner, #yams .info-wrap, #yams .info-wrap .inner { padding:0; }
+#yams .login-wrap .inner > .flex { background:#f5f5f5; }
+
+@media (min-width: 1301px) {
+   /* 청년부 PC 전용: 안내 센터 목록 가로 3 x 세로 2 배열 (다른 페이지는 기본 4열 유지) */
+   #yams .info-wrap .item { grid-template-columns: repeat(3, 1fr); }
+}
+
  /* --- 서울 A지T --- */
 #ajit {   
    --logo: url('../img/ajit/logo.png');
