@@ -537,3 +537,49 @@
  #sfcs .active .img-wrap.text img { width:100%; }
  #sfcs .active .img-wrap p { margin:0; }
 }
+
+ /* --- 서울 선택 --- */
+#choice {   
+   --logo: url('../img/choice/logo.png');
+   --logo-white: url('../img/choice/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 189px;
+   --logo-h: auto;
+   --logo-ratio: 189 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/choice/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#choice .other-wrap { margin:120px auto; }
+#choice .quick-btn-wrap { margin:20px auto; }
+#choice .quick-btn-wrap.typeA .inner, #choice .login-wrap .inner { padding:0; }
+#choice .login-wrap .inner > .flex { background:#f5f5f5; }
+
+ /* --- 서울 A지T --- */
+#ajit {   
+   --logo: url('../img/ajit/logo.png');
+   --logo-white: url('../img/ajit/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 126px;
+   --logo-h: auto;
+   --logo-ratio: 126 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/ajit/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#ajit[data-theme="theme03"] {
+   --color-theme: #FE7419;
+   --color-theme-hover: #c0540c;
+   --color-theme-opacity: rgba(254, 117, 25, 0.493);
+}
+
+#ajit .quick-btn-wrap .inner { flex-wrap:wrap; }
+#ajit .quick-btn-wrap.typeA a { width:calc(33.3% - var(--clamp-size-20)); }
+
+@media (max-width: 1288px){
+   #ajit .quick-btn-wrap.typeA a { width:calc(50% - var(--clamp-size-20)); }
+}
+
+@media (max-width: 768px){
+   #ajit .quick-btn-wrap.typeA a { width:100%; }
+}

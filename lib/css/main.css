@@ -233,7 +233,18 @@
 .slider-wrap.schedule .slider-control .btn.prev { background-image:url('../img/common/ico-arrow-left-black.svg'); } 
 .slider-wrap.schedule .slider-control .btn.next { background-image:url('../img/common/ico-arrow-right-black.svg'); } 
 .slider-wrap.schedule .slider-control .btn.prev:hover, .slider-wrap.schedule .slider-control .btn.prev:active, .slider-wrap.schedule .slider-control .btn.prev:focus { background-image:url('../img/common/ico-arrow-left.svg'); } 
-.slider-wrap.schedule .slider-control .btn.next:hover, .slider-wrap.schedule .slider-control .btn.next:active, .slider-wrap.schedule .slider-control .btn.next:focus { background-image:url('../img/common/ico-arrow-right.svg'); } 
+.slider-wrap.schedule .slider-control .btn.next:hover, .slider-wrap.schedule .slider-control .btn.next:active, .slider-wrap.schedule .slider-control .btn.next:focus { background-image:url('../img/common/ico-arrow-right.svg'); }
+
+/* 주요일정 - 기수/접수일정 변형(.session): 기존 .slider-wrap.schedule 구조/스와이퍼/호버 로직 그대로, 이 변형에서만 쓰는 비주얼만 재정의 */
+/* name/num/short는 .on 토글 시 display:none↔block으로 즉시 전환되는 용도라 호버 모션과 안 맞아서, 이 변형은 전용 클래스(tag/term)로 분리하고 .on의 영향을 받지 않게 함 */
+.slider-wrap.schedule.session .swiper-slide.on { background:transparent; color:#111; }
+.slider-wrap.schedule.session .swiper-slide.on .date { flex-direction: column; align-items: flex-start; gap:0; }
+.slider-wrap.schedule.session .swiper-slide.on .btn-detail { background-image:url('../img/common/ico-arrow-line-right-black.svg'); }
+.slider-wrap.schedule.session .swiper-slide .date .tag { color: var(--color-theme); font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; }
+.slider-wrap.schedule.session .swiper-slide .date .term { color: #111; font-size: 28px; font-weight: 700; line-height: 1.2; }
+.slider-wrap.schedule.session .swiper-slide.start { background:var(--color-theme); }
+.slider-wrap.schedule.session .swiper-slide.start .date .tag, .slider-wrap.schedule.session .swiper-slide.start .date .term { color:#fff; }
+.slider-wrap.schedule.session .swiper-slide.start .btn-detail { display:block; background-image:url('../img/common/ico-arrow-line-right-white.svg'); }
 
 /* =========================================================
  11. 퀵버튼 / 최신글(타일·게시판) / 테이블스와이퍼 / 스케줄 / 지도
@@ -657,8 +668,11 @@ header.typeC .rnb .menu { background-image:url('../img/common/ico-menu-white.svg
  .slider-wrap.schedule .swiper-slide .date .short { font-size: 14px; } 
  .slider-wrap.schedule .swiper-slide.on .date { gap:10px; } 
  .slider-wrap.schedule .swiper-slide.on .date .num { font-size:24px; } 
- .slider-wrap.schedule .slider-control { gap:8px; } 
- .slider-wrap.schedule .slider-control .btn { width: 40px; } 
+ .slider-wrap.schedule .slider-control { gap:8px; }
+ .slider-wrap.schedule .slider-control .btn { width: 40px; }
+
+ /* 주요일정 - 기수/접수일정 변형(.session) */
+ .slider-wrap.schedule.session .swiper-slide .date .term { font-size:20px; }
 
  /* 최신글 / 스케줄 / 지도 */
  .lastest-wrap.list { padding:8.7vw 0 20vw; } 
