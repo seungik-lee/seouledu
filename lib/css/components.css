@@ -328,7 +328,7 @@ footer .ft-wrap #ft-logo { flex-shrink:0; }
 footer .ft-wrap .address { margin-top:30px; } 
 footer .ft-wrap .contact { margin:20px 0; } 
 footer .ft-wrap .contact li { display:flex; align-items: center; gap:13px; }
-footer .ft-wrap .contact li .tit { min-width:42px; }
+footer .ft-wrap .contact li .tit { min-width:42px; font-weight:600; }
 footer .ft-wrap .contact li + li, footer .ft-wrap .contact .flex + li { margin-top:10px; }
 footer .ft-wrap .contact .flex { gap:30px; }
 footer .ft-wrap .contact .flex li { margin:0; } 

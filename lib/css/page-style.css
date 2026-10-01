@@ -422,6 +422,9 @@
 #cce .introduce .list-wr li.item img { aspect-ratio: 1/1; }
 #cce .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
 
+/* footer 연락처 라벨이 strong에서 div.tit로 바뀌기 전 원래 min-width 없이 쓰던 페이지들: 공통 min-width 적용 제외 */
+#kycs .ft-wrap .contact li .tit, #kycs_cell .ft-wrap .contact li .tit, #kycs_ca .ft-wrap .contact li .tit, #cce_ps .ft-wrap .contact li .tit, #cce .ft-wrap .contact li .tit { min-width:auto; }
+
 /* --- 천주교 서울대교구 청소년국 중고등부 --- */
 #foryouth {
    --logo: url('../img/foryouth/logo.png');
