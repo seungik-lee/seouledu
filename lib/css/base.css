@@ -242,13 +242,15 @@ td.right { text-align: right !important; }
 .bg-accent03 { background-color: var(--accent-color-03); color:#fff; } 
 .bg-accent04 { background-color: var(--accent-color-04); color:#fff; } 
 .bg-grey-scale-01 { background-color:var(--grey-scale-01); color:#111; }
+.bg-black { background-color:#111; color:var(--text-white); }
 
-.hb-bg-primary:hover, .bg-primary:hover { background-color: var(--primary-color-hover) !important; color:#fff !important; } 
-.hb-bg-accent01:hover, .bg-accent01:hover { background-color: var(--accent-color-01-hover) !important; color:#fff !important; } 
-.hb-bg-accent02:hover, .bg-accent02:hover { background-color: var(--accent-color-02-hover) !important; color:#fff !important; } 
-.hb-bg-accent03:hover, .bg-accent03:hover { background-color: var(--accent-color-03-hover) !important; color:#fff !important; } 
-.hb-bg-accent04:hover, .bg-accent04:hover { background-color: var(--accent-color-04-hover) !important; color:#fff !important; } 
+.hb-bg-primary:hover, .bg-primary:hover { background-color: var(--primary-color-hover) !important; color:#fff !important; }
+.hb-bg-accent01:hover, .bg-accent01:hover { background-color: var(--accent-color-01-hover) !important; color:#fff !important; }
+.hb-bg-accent02:hover, .bg-accent02:hover { background-color: var(--accent-color-02-hover) !important; color:#fff !important; }
+.hb-bg-accent03:hover, .bg-accent03:hover { background-color: var(--accent-color-03-hover) !important; color:#fff !important; }
+.hb-bg-accent04:hover, .bg-accent04:hover { background-color: var(--accent-color-04-hover) !important; color:#fff !important; }
 .hb-bg-grey-scale-01:hover, .bg-grey-scale-01:hover { background-color:var(--grey-scale-02) !important; color:#111 !important; }
+.hb-bg-black:hover, .bg-black:hover { background-color:#333 !important; color:var(--text-white) !important; }
 
 .block { display: block; } 
 .inline { display: inline; } 
