@@ -293,8 +293,8 @@ header .menu { display:block; width:32px; height:auto; aspect-ratio: 1/1; backgr
 header .util, header .rnb { display:flex; justify-content: center; align-items: center; gap:8px; z-index: 1; } 
 header .rnb { gap:clamp(10px, 1.25vw, 24px); } 
 header .util a { display:block; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.57; letter-spacing: -0.14px; border-radius:100px; transition: all 0.2s ease; } 
-header .util a:not(.bg-grey-scale-01) { background-color:var(--color-theme); color:var(--text-white); } 
-header .util a:not(.bg-grey-scale-01):hover { background-color:var(--color-theme-hover); } 
+header .util a:not(.bg-grey-scale-01):not(.bg-black) { background-color:var(--color-theme); color:var(--text-white); }
+header .util a:not(.bg-grey-scale-01):not(.bg-black):hover { background-color:var(--color-theme-hover); }
 header .menu { display:none; } 
 header .rnb > * { display:block; width:32px; height:auto; aspect-ratio: 1/1; background-position: center; background-size:100% auto; background-repeat:no-repeat; text-indent:-999px; overflow:hidden; } 
 header .rnb .mypage { background-image: url('../img/common/ico-mypage.svg'); } 
@@ -332,13 +332,16 @@ footer .ft-wrap .contact li .tit { min-width:42px; font-weight:600; }
 footer .ft-wrap .contact li + li, footer .ft-wrap .contact .flex + li { margin-top:10px; }
 footer .ft-wrap .contact .flex { gap:30px; }
 footer .ft-wrap .contact .flex li { margin:0; } 
-footer .ft-wrap .contact .line { width: 1px; height: 12px; background: rgba(255, 255, 255, 0.40); } 
+footer .ft-wrap .contact .line { width: 1px; height: 12px; background: rgba(255, 255, 255, 0.40); }
+footer .ft-wrap .contact .mail-list { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+footer .ft-wrap .contact .mail-list .dot { width:3px; height:3px; border-radius:50%; background:rgba(255, 255, 255, 0.40); flex-shrink:0; }
 footer .ft-wrap .sns-link { display:flex; align-items:center; gap:8px; } 
 footer .ft-wrap .sns-link a { display:block; width:40px; height:auto; aspect-ratio: 1/1; background: center / cover no-repeat; } 
 footer .ft-wrap .sns-link a.blog { background-image:url('../img/common/ico-ft-blog.svg'); } 
 footer .ft-wrap .sns-link a.youtube { background-image:url('../img/common/ico-ft-youtube.svg'); } 
 footer .ft-wrap .sns-link a.facebook { background-image:url('../img/common/ico-ft-facebook.svg'); } 
-footer .ft-wrap .sns-link a.instagram { background-image:url('../img/common/ico-ft-instagram.svg'); } 
+footer .ft-wrap .sns-link a.instagram { background-image:url('../img/common/ico-ft-instagram.svg'); }
+footer .ft-wrap .sns-link a.kakao { background-image:url('../img/common/ico-ft-kakao.svg'); }
 footer .ft-wrap .ft-link { display:flex; align-items:center; gap:32px; margin:20px 0 10px; } 
 footer .copyright { color: #FFF; font-size: 14px; font-weight: 400; line-height: 1.45; letter-spacing: -0.35px; } 
 footer .familysite { position:relative; cursor:pointer; } 
@@ -362,7 +365,12 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .floating.open { padding:24px; aspect-ratio: none; } 
 .floating .defalut { display:flex; flex-direction: column; justify-content: center; align-items: center; gap:7px; max-width:30px; } 
 .floating img { max-width:28px; height:auto; } 
-.floating p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; white-space: nowrap; } 
+.floating p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; white-space: nowrap; }
+
+/* 호버 시 펼쳐지는 서브메뉴 없이 버튼 하나만 고정으로 떠있는 변형 (initFloating의 .floating 호버 토글 로직과 분리하기 위해 별도 클래스 사용) */
+.floating-single { position:fixed; right:var(--content-padding-x-wide); bottom:var(--content-padding-x-wide); display:flex; flex-direction: column; justify-content: center; align-items: center; gap:7px; background:var(--color-theme); padding:12px 24px; border-radius:1000px; z-index:99; width:80px; height:auto; aspect-ratio: 1/1; }
+.floating-single img { max-width:28px; height:auto; }
+.floating-single p { color: #FFF; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: -0.28px; white-space: nowrap; }
 
 .floating .floating-links { display:none; } 
 .floating .floating-links a { display:flex; flex-direction: column; justify-content: center; align-items: center; gap:7px; max-width:30px; } 
@@ -1168,7 +1176,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .floating .defalut { gap:5px; max-width:25px; } 
  .floating svg { max-width:28px; height:auto; } 
  .floating p { font-size: 12px; } 
- .floating .floating-links a { gap:5px; max-width:25px; } 
+ .floating .floating-links a { gap:5px; max-width:25px; }
+ .floating-single { padding:10px; width:70px; }
+ .floating-single p { font-size: 12px; }
 
  #wrap { margin-top:70px; padding:20px 0 50px; } 
  #contents .cont-top { flex-direction: column; align-items:flex-start; gap:15px; margin-bottom:20px; } 

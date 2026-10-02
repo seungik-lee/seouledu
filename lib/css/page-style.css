@@ -397,6 +397,7 @@
 #cce_ps .introduce .list-wr li.item p { color: #111; font-size: 24px; font-weight: 700; line-height: 1.45; letter-spacing: -0.48px; text-align:center;}
 #cce_ps .bod .tbl-dl-wrap th { text-align: left; }
 #cce_ps .ft-wrap .contact li .tit { min-width:auto; }
+#cce_ps .floating-single.cce { background:#00ee65; }
 
 @media (max-width: 768px) {
    #cce_ps .introduce .list-wr { flex-direction: column; align-items: center; }
@@ -577,13 +578,94 @@
 #yams .other-wrap { margin:120px auto; }
 #yams .table-swiper-wrap { margin:20px auto; }
 #yams .info-wrap .item { margin-bottom:20px; }
-#yams .table-swiper-wrap .inner, #yams .login-wrap .inner, #yams .info-wrap, #yams .info-wrap .inner { padding:0; }
+#yams .table-swiper-wrap .inner, #yams .login-wrap .inner, #yams .info-wrap, #yams .info-wrap .inner { padding:0 var(--content-padding-x); }
 #yams .login-wrap .inner > .flex { background:#f5f5f5; }
 
 @media (min-width: 1301px) {
-   /* 청년부 PC 전용: 안내 센터 목록 가로 3 x 세로 2 배열 (다른 페이지는 기본 4열 유지) */
    #yams .info-wrap .item { grid-template-columns: repeat(3, 1fr); }
 }
+
+ /* --- 천주교 서울대교구 용문청소년수련장 --- */
+#yongmooncamp {   
+   --logo: url('../img/yongmooncamp/logo.png');
+   --logo-white: url('../img/yongmooncamp/logo-white.png');
+   --logo-w: 40%;
+   --logo-max-w: 241px;
+   --logo-h: auto;
+   --logo-ratio: 241 / 48;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/yongmooncamp/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#yongmooncamp .info-wrap .inner { padding:0 var(--content-padding-x); }
+
+@media (min-width: 1301px) {
+   #yongmooncamp .info-wrap .item:not(.full) { display:flex; flex-wrap:wrap; }
+   #yongmooncamp .info-wrap .item:not(.full) dl:nth-child(-n+3) { width:calc((100% - 24px) / 3); }
+   #yongmooncamp .info-wrap .item:not(.full) dl:nth-child(n+4) { width:calc((100% - 36px) / 4); }
+}
+#yongmooncamp .board-wrap li.notice::before {
+    @supports (mask: url('')) { background-color:#7D0037; }
+}
+
+#yongmooncamp .schedule-wrap { background:#F5F5F5; }
+#yongmooncamp .schedule-wrap .title.vertical p { color:#3A8DDE; }
+#yongmooncamp .schedule-wrap .title.vertical h2 { color:#111; }
+
+ /* --- 청소년문화공간JU --- */
+#iju {   
+   --logo: url('../img/iju/logo.png');
+   --logo-white: url('../img/iju/logo.png');
+   --logo-w: 40%;
+   --logo-max-w: 158px;
+   --logo-h: auto;
+   --logo-ratio: 158 / 36;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/iju/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#iju[data-theme="theme06"] {
+   --color-theme: #4FA0AB;
+   --color-theme-hover: #377078;
+   --color-theme-opacity: rgba(79, 160, 171, 0.1);
+}
+
+#iju .info-wrap { padding:64px 0; }
+#iju .schedule-wrap .title.vertical p, #iju .schedule-wrap .title.vertical h2 { color:#fff; }
+#iju .fc-day-today .fc-daygrid-day-bg { background:#FFC629; }
+#iju .event-dot { background:#FFC629; }
+
+@media (min-width: 1301px) {
+   #iju .info-wrap .item:not(.full) { display:flex; flex-wrap:wrap; }
+   #iju .info-wrap .item:not(.full) dl:nth-child(-n+2) { width:calc((100% - 12px) / 2); }
+   #iju .info-wrap .item:not(.full) dl:nth-child(n+3) { width:calc((100% - 24px) / 3); }
+   #iju .bx.img-bx { min-height:685px; }
+}
+
+ /* --- 청년문화공간JU --- */
+#yju {   
+   --logo: url('../img/yju/logo.png');
+   --logo-white: url('../img/yju/logo.png');
+   --logo-w: 40%;
+   --logo-max-w: 150px;
+   --logo-h: auto;
+   --logo-ratio: 150 / 34;
+   --gnb-dep1-padding: clamp(30px, 3.125vw, 50px);
+   --bg-tile: url('../img/yju/lastest-wrap-tile-bg.png') bottom center / cover no-repeat;
+}
+
+#yju[data-theme="theme06"] {
+   --color-theme: #4FA0AB;
+   --color-theme-hover: #377078;
+   --color-theme-opacity: rgba(79, 160, 171, 0.1);
+}
+
+#yju .info-wrap { padding:64px 0; }
+#yju .schedule-wrap .title.vertical p, #yju .schedule-wrap .title.vertical h2 { color:#fff; }
+
+#yju .fc-day-today .fc-daygrid-day-bg { background:#EF6E47; }
+#yju .event-dot { background:#EF6E47; }
+#yju .title.vertical p { color:#EF6E47; }
 
  /* --- 서울 A지T --- */
 #ajit {   

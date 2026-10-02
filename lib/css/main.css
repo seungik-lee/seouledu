@@ -64,7 +64,7 @@
 /* =========================================================
  4. 타이틀 / 슬라이더 공통
 ========================================================= */
-.title.vertical { text-align:center; margin-bottom:32px; } 
+.title.vertical { text-align:center; margin-bottom:32px; z-index: 1; position: relative; } 
 .title.vertical p { color: var(--color-theme); font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.45px; margin-bottom:18px; } 
 .title.vertical h2 { color: #111; font-size: 48px; font-weight: 700; line-height: 1.4; letter-spacing: -1.2px; } 
 .title.vertical .desc { color: #333; text-align: center; font-size: 18px; font-weight: 500; line-height: normal; margin-top:20px; } 
@@ -313,14 +313,19 @@
 
 /* --- 스케줄 --- */
 .schedule-wrap { position:relative; padding:115px 0 140px; overflow:hidden; background: var(--color-theme); } 
-.schedule-wrap .bg-circle { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; opacity:0.5; } 
+.schedule-wrap .bg-circle { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; opacity:0.5; z-index: 0; } 
 .schedule-wrap .bg-circle::before, .schedule-wrap .bg-circle::after { content:""; display:block; position:absolute; width:70vw; height:auto; aspect-ratio: 1/1; border-radius:100vw; opacity:0.6; } 
 .schedule-wrap .bg-circle::before { background: linear-gradient(180deg, var(--color-theme-opacity) 50%, #FFF 100%); left:-30vw; } 
 .schedule-wrap .bg-circle::after { background: linear-gradient(0, var(--color-theme-opacity) 50%, #FFF 100%); right:-30vw; top:-10vw; } 
-.schedule-wrap .inner { position:relative; gap: var(--clamp-size-40); z-index: 1; } 
-.schedule-wrap .inner .inner-wrap { width:calc(50% - var(--clamp-size-40) / 2); } 
-.schedule-wrap .title.horizontal { margin-bottom:35px; color:#fff; } 
-.inner-wrap .bx { background:#fff; border-radius:20px; padding:clamp(25px, 3vw, 48px); height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 20px; position:relative; overflow:hidden; } 
+.schedule-wrap .inner { position:relative; gap: var(--clamp-size-40); z-index: 1; align-items: stretch; }
+.schedule-wrap .inner .inner-wrap { width:calc(50% - var(--clamp-size-40) / 2); }
+.schedule-wrap .title.horizontal { margin-bottom:35px; color:#fff; }
+/* .inner-wrap 안에 title.horizontal이 같이 있는 경우(각 컬럼마다 소제목이 있는 typeB 등),
+   .bx의 height:100%가 그 타이틀 높이까지 포함해 버려 내용이 부모 밖으로 넘치므로
+   flex-column으로 바꿔서 타이틀은 제 높이만, .bx는 나머지 공간을 전부 쓰도록 함 */
+.inner-wrap:has(> .title.horizontal) { display:flex; flex-direction:column; }
+.inner-wrap:has(> .title.horizontal) .bx { height:auto; flex:1 1 auto; min-height:0; }
+.inner-wrap .bx { background:#fff; border-radius:20px; padding:clamp(25px, 3vw, 48px); height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 20px; position:relative; overflow:hidden; }
 
 /* --- 지도 --- */
 .map-wrap { aspect-ratio: auto; margin-bottom:0; } 
@@ -339,8 +344,12 @@
 .map-wrap .map .pin-wrap .pin:hover span { color:var(--color-theme); } 
 .map-wrap .map .pin-wrap .pin:hover:before { background-color:var(--color-theme); } 
 
-.inner-wrap .bx.map-img { justify-content: center; align-items:center; } 
-.map-img img { width:auto; max-width:100%; width: fit-content; } 
+.inner-wrap .bx.map-img { justify-content: center; align-items:center; }
+.map-img img { width:auto; max-width:100%; width: fit-content; }
+
+/* 관리자가 올리는 이미지를 영역에 맞게 비율 유지하며 꽉 채우는 변형 (지도 아닌 일반 포스터/이미지용) */
+.inner-wrap .bx.img-bx { justify-content: stretch; align-items: stretch; }
+.img-bx img { width:100%; height:100%; object-fit:contain; }
 
 .inner-wrap .bx.map-table { padding:20px clamp(25px, 3vw, 48px) 40px; } 
 .map-table .img { position:relative; width:100%; height:auto; aspect-ratio: 511/390; background:center / min(100%, 511px) auto no-repeat; transition: all 0.2s ease; } 
@@ -448,7 +457,7 @@
 [data-type="typeB"] .slider-control .progress-track { flex: 1; display: flex; align-items: center; gap: 4px; } 
 [data-type="typeB"] .slider-control .progress-track .seg { flex: 1; height: 4px; background: rgba(255,255,255,0.2); overflow: hidden; position: relative; } 
 [data-type="typeB"] .slider-control .progress-track .seg-fill { position: absolute; left: 0; top: 0; width: 0%; height: 100%; background: #fff; } 
-[data-type="typeB"] .inner-wrap .bx { height:90%; } 
+[data-type="typeB"] .inner-wrap .bx { height:100%; }
 
 .quick-btn-wrap.typeB .inner .wrap { width:100%; display:flex; justify-content:space-between; background:var(--color-theme); gap:10px; border-radius:100px; padding:17px 64px; flex-wrap:wrap; } 
 .quick-btn-wrap.typeB a { display:flex; align-items:center; gap:8px; padding: clamp(12px, calc(0.5vw + 5px), 16px); } 
@@ -487,10 +496,9 @@ header.typeC .rnb .menu { background-image:url('../img/common/ico-menu-white.svg
 .info-wrap .title.vertical { margin-bottom:64px; } 
 .info-wrap .item { display:grid; flex-wrap:wrap; width:100%;grid-template-columns: repeat(4, 1fr); gap:12px; } 
 .info-wrap .item dl { display:flex; align-items:center; border-radius: 8px; background: #F5F5F5; padding:20px; gap:12px; line-height: 1.4; letter-spacing: -0.45px; color: #111; } 
-.info-wrap .item dt { display:flex; gap:8px; font-size: 18px; font-weight: 700; width:96px; } 
+.info-wrap .item dt { display:flex; gap:8px; font-size: 18px; font-weight: 700; min-width:96px; } 
 .info-wrap .item dd { font-size: 18px; font-weight: 400; } 
-.info-wrap .item.full { display:block; margin-top:64px; } 
-.info-wrap .item.full dt { width:140px; } 
+.info-wrap .item.full { display:block; margin-top:40px; } 
 .info-wrap .item.full dd { display:flex; align-items:center; gap:12px; } 
 .info-wrap .item.full dd .dot { width:6px; height:6px; background:#666; border-radius:10px; } 
 
