@@ -227,7 +227,7 @@ td.right { text-align: right !important; }
 .text-secondary { color: var(--text-secondary); } 
 .text-muted { color: var(--text-muted); } 
 .text-white { color: var(--text-white); } 
-.text-highlight { color: var(--text-highlight); } 
+.text-highlight { color: var(--text-highlight) !important; }
 .text-cancel { color: var(--accent-color-01); } 
 
 .color-primary { color: var(--primary-color); } 

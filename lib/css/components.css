@@ -109,7 +109,11 @@ section + section { margin-top:64px; }
 .input-btn.de { background: #F5F5F5; color:#000; } 
 .input-btn.de:hover, .input-btn.de:active { background:#e1e1e1; } 
 .input-btn.bl { background: #000; } 
-.input-btn.bl:hover, .input-btn.bl:active { background:#222; } 
+.input-btn.bl:hover, .input-btn.bl:active { background:#222; }
+.input-btn.line { background:#fff; color:#111; border:1px solid #111; }
+.input-btn.line:hover, .input-btn.line:active { background:#f5f5f5; }
+.btn-center { display:flex; justify-content:center; align-items:center; gap:12px; }
+.btn-center .input-btn.br { margin:0; min-width:120px; text-align:center; }
 .input-wrap .select-box-wrap > p { border-radius: 4px; border: 1px solid #CECCCC; background: #FFF; color: #111; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: -0.24px; padding:12px; height:48px; } 
 .input-wrap .select-box-wrap .select-box-list-wr { top:46px; border: 1px solid #CECCCC; background: #FFF; border-top:0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding-bottom:5px; } 
 .input-wrap .select-box-wrap .select-box-list-wr ul li p { padding: 5px 12px; } 
@@ -538,7 +542,13 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .board-wrap.thumbnail-type .swiper.thumb { margin-top:20px; } 
 .board-wrap.thumbnail-type .swiper.thumb .swiper-slide { aspect-ratio: 243/173; width:240px; height: auto; } 
 .board-wrap.thumbnail-type .swiper.thumb .img { opacity:0.8; transition: all 0.2s ease; aspect-ratio: 243/173; } 
-.board-wrap.thumbnail-type .swiper.thumb .is-active .img { opacity:1; } 
+.board-wrap.thumbnail-type .swiper.thumb .is-active .img { opacity:1; }
+.board-wrap.thumbnail-type.vertical .list-wrap ul { grid-template-columns: 1fr; gap:40px; }
+.board-wrap.thumbnail-type.vertical .list-wrap li a { display:flex; justify-content: flex-start; align-items: flex-start; gap:20px; }
+.board-wrap.thumbnail-type.vertical .list-wrap li .img { flex:0 0 352px; width:352px; margin-bottom:0; }
+.board-wrap.thumbnail-type.vertical .list-wrap li .img img { aspect-ratio: 352/213; }
+.board-wrap.thumbnail-type.vertical .list-wrap li .text { flex:1 1 0; min-width:0; padding-top:24px; }
+.board-wrap.thumbnail-type.vertical .list-wrap li .text p { max-width:480px; margin-bottom:0; overflow:visible; text-overflow: clip; white-space: normal; }
 
 /* --- 페이징 --- */
 .paging { margin-top:64px; } 
@@ -659,13 +669,15 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .dl-wrap dt .sub { display:block; color:#999; font-size:14px; font-weight:400; } 
 .dl-wrap dl .row, .dl-wrap dl .col { display:flex; justify-content: flex-start; align-items: stretch; position:relative; } 
 .dl-wrap dl .row { width:100%; border-bottom: 1px solid #E5E5E5; } 
-.dl-wrap dl .double { display:flex; justify-content: flex-start; align-items: center; } 
+.dl-wrap dl .double { display:flex; justify-content: flex-start; align-items: stretch; }
 .dl-wrap dl .double .col { width:50%; } 
 .dl-wrap dt { color: #000; text-align: center; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; background: #F5F5F5; width: max(110px, 11.5vw); padding: 16px 0; flex-shrink: 0; display:flex; justify-content: center; align-items: center; } 
 .dl-wrap dt > p { font-size:inherit; } 
 .dl-wrap dd { width:100%; color: #000; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; padding:16px 24px; gap:12px; display:flex; align-items: center; min-width:0; flex-wrap: wrap; } 
 .dl-wrap dd.pd { padding:12px 24px; } 
-.dl-wrap dd.col { flex-direction: column; gap:12px; } 
+.dl-wrap dd.col { flex-direction: column; gap:12px; }
+.dl-wrap dd.col > p:not(.desc) { font-size:inherit; line-height:inherit; letter-spacing:inherit; }
+.dl-wrap dd.col.gap-sm { gap:2px; }
 .dl-wrap dd .input-wrap { width:100%; } 
 .dl-wrap dd .input-wrap input { padding:4px 12px; height:33px; } 
 .dl-wrap dd .btn-de { color: #111; font-size: 12px; font-weight: 600; line-height: 1.4; letter-spacing: -0.24px; border-radius: 4px; background: #F5F5F5; padding: 3px 12px; } 
@@ -799,6 +811,26 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .mypage #wrap.login .inner .link .lost a { color: #666; font-size: 16px; font-weight: 400; line-height: 1.55; letter-spacing: -0.32px; } 
 .mypage #wrap.login .inner .link .lost span { width: 1px; height: 12px; background:#999; } 
 .mypage #wrap.login .inner .link .register { color: var(--color-theme-hover); font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -0.32px; } 
+
+/* 로그인 박스 : 페이지 어디에든 .login-wrap > .box-wrap 구조로 삽입해서 사용 (.mypage 로그인 페이지와 별개) */
+.login-wrap .box-wrap { gap:0; } 
+.login-wrap .top { margin-bottom:40px; text-align:center; } 
+.login-wrap .top .tit { color:#111; font-size:32px; font-weight:700; line-height:1.45; letter-spacing:-0.64px; } 
+.login-wrap .top .desc { margin-top:8px; color:#666; font-size:16px; line-height:1.55; letter-spacing:-0.32px; } 
+.login-wrap .input-wrap { position:relative; } 
+.login-wrap .input-wrap:before { content:""; position:absolute; top:50%; transform:translateY(-50%); left:14px; display:block; width:24px; height:auto; aspect-ratio:1/1; background:center / 100% auto no-repeat; } 
+.login-wrap .input-wrap.id:before { background-image:url(../img/common/ico-login-id.svg); } 
+.login-wrap .input-wrap.pw:before { background-image:url(../img/common/ico-login-pw.svg); } 
+.login-wrap .input-wrap input { padding-left:42px; } 
+.login-wrap .input-wrap + .input-wrap { margin-top:12px; } 
+.login-wrap .chk { margin-top:20px; } 
+.login-wrap .chk label { color:#666; font-size:16px; font-weight:400; line-height:1.55; letter-spacing:-0.32px; } 
+.login-wrap .input-btn { margin-top:32px; } 
+.login-wrap .link { display:flex; justify-content:space-between; align-items:center; margin-top:12px; } 
+.login-wrap .link .lost { display:flex; justify-content:center; align-items:center; gap:8px; } 
+.login-wrap .link .lost a { color:#666; font-size:16px; font-weight:400; line-height:1.55; letter-spacing:-0.32px; } 
+.login-wrap .link .lost span { width:1px; height:12px; background:#999; } 
+.login-wrap .link .register { color:var(--color-theme-hover); font-size:16px; font-weight:600; line-height:1.55; letter-spacing:-0.32px; } 
 .mypage .bx + .bx { margin-top:32px; } 
 
 .popup-cont .id-info { display:flex; flex-direction: column; align-items: flex-start; gap:16px; border-bottom: 1px dashed #CECCCC; margin:16px 0; } 
@@ -815,7 +847,7 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .addr-postcode-wrap { display: none; width: 100%; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; } 
 .addr-postcode-layer { width: 100%; height: 400px; } 
 
-.status { border-radius: 4px; display: inline-flex; min-width:65px; height:25px; padding: 3px 12px; justify-content: center; align-items: center; gap: 4px; color: #FFF; font-size: 12px; font-weight: 600; letter-spacing: -0.24px; white-space: nowrap; } 
+.status { border-radius: 4px; display: inline-flex; min-width:65px; height:25px; padding: 3px 12px; justify-content: center; align-items: center; gap: 4px; color: #FFF; font-size: 12px; font-weight: 600; line-height: 1; letter-spacing: -0.24px; white-space: nowrap; }
 .status.light { font-size:14px; font-weight:600; line-height:1; letter-spacing:-0.14px; padding:6px 12px; } 
 .status.mid { font-size: 16px; font-weight: 600; line-height: 1; letter-spacing: -0.14px; padding: 8px 12px; min-width:80px; height:30px; } 
 .status.big { font-size:18px; font-weight:700; letter-spacing: -0.36px; border-radius:12px; padding:12px 16px; min-width:100px; height:45px; } 
@@ -919,7 +951,32 @@ footer.other .ft-wrap .contact li { flex-wrap:wrap; }
 .step-flow.text .step-flow-item.on * { color:var(--color-theme); } 
 
 .scroll-bx { max-height: 250px; overflow-y: auto; padding: 24px; border-radius: 12px; background: #F5F5F5; } 
-.scroll-bx p { color: #666; font-size: 15px; line-height: 1.7; } 
+.scroll-bx p { color: #666; font-size: 15px; line-height: 1.7; }
+
+/* 에디터 출력 영역 : WYSIWYG 에디터에서 입력한 HTML이 그대로 출력되는 영역 */
+.editor-cont { color:#1D1D1D; font-size:18px; font-weight:400; line-height:1.6; letter-spacing:-0.36px; word-break:keep-all; overflow-wrap:anywhere; min-height:120px; }
+.editor-cont p, .editor-cont li { font-size:inherit; line-height:inherit; }
+.editor-cont > * + * { margin-top:16px; }
+.editor-cont h1, .editor-cont h2, .editor-cont h3, .editor-cont h4, .editor-cont h5, .editor-cont h6 { color:#111; font-weight:700; line-height:1.45; letter-spacing:-0.4px; }
+.editor-cont h1, .editor-cont h2 { font-size:28px; }
+.editor-cont h3, .editor-cont h4 { font-size:22px; }
+.editor-cont h5, .editor-cont h6 { font-size:20px; }
+.editor-cont > h1, .editor-cont > h2, .editor-cont > h3, .editor-cont > h4, .editor-cont > h5, .editor-cont > h6 { margin-top:32px; }
+.editor-cont strong, .editor-cont b { font-weight:700; }
+.editor-cont em, .editor-cont i { font-style:italic; }
+.editor-cont u { text-decoration:underline; }
+.editor-cont a { color:var(--color-theme); text-decoration:underline; text-underline-position:under; }
+.editor-cont ul { list-style:disc; padding-left:24px; }
+.editor-cont ol { list-style:decimal; padding-left:24px; }
+.editor-cont li { list-style:inherit; }
+.editor-cont li + li { margin-top:6px; }
+.editor-cont img, .editor-cont video, .editor-cont iframe { max-width:100%; height:auto; }
+.editor-cont iframe { aspect-ratio:16 / 9; width:100%; border:0; }
+.editor-cont blockquote { padding:16px 20px; border-left:4px solid var(--color-theme); background:#F5F5F5; color:#555; }
+.editor-cont table { width:100%; border-top:1px solid #111; border-collapse:collapse; }
+.editor-cont th, .editor-cont td { padding:12px 16px; border-bottom:1px solid #E5E5E5; text-align:left; vertical-align:middle; }
+.editor-cont th { background:#F5F5F5; font-weight:600; }
+.editor-cont hr { border:0; border-top:1px solid #E5E5E5; }
 
 .rental-input-wrap { display:flex; justify-content: space-between; align-items: stretch; gap:20px; } 
 .rental-input-col { width:100%; } 
@@ -1192,8 +1249,9 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .title-dot span.sm { font-size:16px; } 
 
  .img-wrap p { font-size:14px; line-height: 1.55; letter-spacing: -0.28px; } 
- .img-wrap.overflow { padding-bottom:10px; overflow-x:auto; } 
- .img-wrap.overflow img { width:auto; max-width:none; } 
+ .img-wrap.overflow { padding-bottom:10px; overflow-x:auto; }
+ .img-wrap.overflow img { width:auto; max-width:none; }
+ .img-wrap.center.overflow { align-items:flex-start; }
  .img-wrap.cap-wrap .cap { padding:24px; font-size:20px; } 
  .img-wrap.text { flex-direction: column; } 
 
@@ -1236,7 +1294,12 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .board-wrap.thumbnail-type .list-wrap li .img img { aspect-ratio: 459/258; } 
 
  .board-wrap.thumbnail-type .swiper.thumb .swiper-slide { width:10%; } 
- .board-wrap.thumbnail-type .slider-control .btn { width:30px; height:55px; } 
+ .board-wrap.thumbnail-type .slider-control .btn { width:30px; height:55px; }
+ .board-wrap.thumbnail-type.vertical .list-wrap ul { gap:24px; }
+ .board-wrap.thumbnail-type.vertical .list-wrap li a { flex-direction: column; gap:12px; }
+ .board-wrap.thumbnail-type.vertical .list-wrap li .img { flex:none; width:100%; }
+ .board-wrap.thumbnail-type.vertical .list-wrap li .text { width:100%; padding-top:0; }
+ .board-wrap.thumbnail-type.vertical .list-wrap li .text p { max-width:none; } 
 
  .paging { margin-top:20px; } 
  .paging a { width:32px; } 
@@ -1302,6 +1365,18 @@ body.receipt-page { min-height: 100vh; display: flex; align-items: center; justi
  .box-wrap .title { font-size:20px; } 
  .info-bx .txt .tit.sm { font-size:14px; } 
  .box-wrap .chk label { font-size:14px; } 
+ .login-wrap .top { margin-bottom:30px; } 
+ .login-wrap .top .tit { font-size:24px; } 
+ .login-wrap .top .desc { font-size:14px; } 
+ .login-wrap .chk { margin-top:8px; } 
+ .login-wrap .input-btn { margin-top:16px; } 
+ .login-wrap .chk label, .login-wrap .link .lost a, .login-wrap .link .register { font-size:14px; }
+ .editor-cont { font-size:15px; line-height:1.55; letter-spacing:-0.3px; }
+ .editor-cont h1, .editor-cont h2 { font-size:22px; }
+ .editor-cont h3, .editor-cont h4 { font-size:18px; }
+ .editor-cont h5, .editor-cont h6 { font-size:16px; }
+ .editor-cont > h1, .editor-cont > h2, .editor-cont > h3, .editor-cont > h4, .editor-cont > h5, .editor-cont > h6 { margin-top:24px; }
+ .editor-cont th, .editor-cont td { padding:10px 12px; }
 
  .status { min-width:50px; padding: 3px 8px; } 
  .status.big { font-size:16px; font-weight:700; letter-spacing: -0.36px; border-radius:12px; padding:6px 8px; min-width:80px; height:40px; } 

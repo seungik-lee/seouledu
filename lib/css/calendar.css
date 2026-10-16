@@ -9,7 +9,8 @@
 .fc table { text-align: center; font-size: 20px; font-weight: 700; line-height: 1.4; letter-spacing: -0.5px; } 
 .fc-theme-standard .fc-scrollgrid, .fc-theme-standard td, .fc-theme-standard th { border:0; } 
 .fc-day-sat .fc-daygrid-day-number { color: #1e88e5; } 
-.fc-day-sun .fc-daygrid-day-number { color: #e53935; } 
+.fc-day-sun .fc-daygrid-day-number { color: #e53935; }
+.fc-day-holiday .fc-daygrid-day-number { color: #e53935; }
 .fc .fc-col-header-cell-cushion { padding:0; } 
 .fc .fc-scroller { overflow:hidden !important; } 
 .fc .fc-daygrid-day-number { padding:0; } 
@@ -84,7 +85,7 @@
 .tit-total .total strong { font-weight:700; } 
 
 @media (max-width: 768px){
- .rental-status-wrap { flex-direction:column; } 
+ .rental-status-wrap { flex-direction:column; gap:40px; }
  .rental-detail { gap:12px; } 
  .rental-detail .date-tit { font-size:20px; } 
  .rental-detail .sub-tit { font-size:16px; margin-bottom:10px; } 
@@ -94,7 +95,44 @@
  .timeline-row .room { width:80px; font-size:14px; } 
  .timeline-row .bar-track { width:100%; height:26px; } 
  .timeline-row .bar { height:26px; font-size:10px; padding:0 4px; } 
- .tit-total .total { font-size:14px; } 
+ .tit-total .total { font-size:14px; }
+
+ .calendar-wrap[data-type="rental"] { border:0; border-radius:0; padding:24px 0 0; }
+ .calendar-wrap[data-type="rental"] .fc-header-toolbar { margin-bottom:54px; }
+ .calendar-wrap[data-type="rental"] .fc-toolbar-title { font-size:20px; }
+ .calendar-wrap[data-type="rental"] .fc table { font-size:14px; font-weight:500; letter-spacing:-0.35px; }
+ .rental-detail-wrap { justify-content:center; min-height:0; padding:0; border:0; border-radius:0; }
+ .rental-empty { padding:40px 0; }
+
+ .rental-detail { align-items:flex-start; gap:20px; }
+ .rental-detail .date-tit { font-size:24px; text-align:left; letter-spacing:-0.48px; }
+ .rental-detail .sub-tit { font-size:20px; margin-bottom:20px; }
+
+ .timeline-legend { gap:12px; margin-bottom:20px; }
+
+ .timeline-legend li { font-size:12px; letter-spacing:-0.3px; gap:4px; }
+ .timeline-legend .dot { width:12px; }
+ .timeline-hours { padding-left:84px; margin-bottom:20px; font-size:14px; }
+ .timeline-hours span:nth-child(2), .timeline-hours span:nth-child(6) { display:none; }
+ .timeline-row { align-items:center; gap:12px; }
+ .timeline-row + .timeline-row { margin-top:20px; }
+ .timeline-row .room { width:72px; font-size:14px; letter-spacing:-0.28px; }
+ .timeline-row .bar-track { height:29px; }
+ .timeline-row .bar { height:29px; font-size:10px; padding:0 6px; letter-spacing:-0.2px; }
+ .rental-detail .input-info-wrap p { font-size:14px; }
+ .rental-list-wrap { padding:0; border:0; border-radius:0; }
+ .rental-list-wrap .tit-total .total { display:none; }
+ .rental-list-wrap .title-dot { font-size:24px; margin-bottom:0; }
+ .rental-list-wrap .title-dot:before { display:none; }
+ .rental-list-wrap .table-swiper-wrap { margin-top:20px; }
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx li { padding:6px 0; align-items:center; }
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx li p { font-size:14px; letter-spacing:-0.14px; }
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx ul { margin:-6px 0; }
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt { width:76px; min-width:76px; color:#111; font-weight:600; white-space:nowrap; }
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dt:after { height:8px; margin-left:auto; }
+
+ .rental-list-wrap .table-swiper-wrap .slider-wrap .swiper-slide .bx li p.dd { padding-left:8px; }
+
  }
 
 .edu { background: #FFC629 !important; color:#111 !important; } 
@@ -121,9 +159,10 @@
 .dp16 { background:#87aed5 !important; color:#fff !important; }
 .dp17 { background:#e98f9b !important; color:#fff !important; }
 
-.schedule-calendar-wrap { position: relative; } 
+.schedule-calendar-wrap, .calendar-wrap[data-type="rental"] { position: relative; }
 .calendar-legend { position: absolute; top: 68px; right: 24px; display: flex; align-items: center; gap: 16px; padding: 0 4px; z-index: 2; } 
-.calendar-legend li { display: flex; align-items: center; gap: 6px; color: #555; font-size: 14px; font-weight: 600; } 
+.calendar-legend li { display: flex; align-items: center; gap: 6px; color: #555; font-size: 14px; font-weight: 600; }
+.calendar-wrap[data-type="rental"] .calendar-legend { top: auto; bottom: 24px; left: 40px; right: auto; margin-top: 0; }
 .event-pill { display: block; margin-top: 4px; padding: 6px 12px; border-radius: 200px; font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } 
 .fc .fc-daygrid-day.fc-day-today .event-pill { margin-top:16px; }
 .calendar-wrap[data-type="notice"] .fc-toolbar.fc-header-toolbar { margin-bottom:40px; }
@@ -149,4 +188,7 @@
  .event-pill { position:absolute; height: auto; aspect-ratio: 1 / 1; border-radius: 100px; left: 50%; top: -33px; width: 70%; max-width: 40px; display: block; text-indent: -999px; transform: translate(-50%, 0); overflow:hidden; } 
  .calendar-wrap[data-type="notice"] .has-event .fc-daygrid-day-number { color:#fff; } 
 .calendar-wrap[data-type="notice"] .calendar-legend { margin-bottom:30px; }
+ .calendar-wrap[data-type="rental"] .calendar-legend { top:76px; bottom:auto; left:0; right:0; justify-content:center; gap:12px; padding:0; }
+ .calendar-wrap[data-type="rental"] .calendar-legend li { gap:4px; font-size:12px; letter-spacing:-0.3px; }
+ .calendar-wrap[data-type="rental"] .calendar-legend .dot { width:12px; }
 }
