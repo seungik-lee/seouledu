@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme01" id="eduseoul" class="sub">
-   <header class="typeC">
+   <header class="overlay">
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -83,7 +83,7 @@
             <li class="on"><a href="">청소년국 일정</a></li>
          </ul>
       </div>
-      <div id="contents" class="calendar">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">청소년국 소개</div>
             <div class="location">
@@ -94,7 +94,7 @@
                <a href="" class="cur">청소년국 소개</a>
             </div>
          </div>
-         <div class="cont-wrap">
+         <div class="cont-wrap calendar">
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
             <link rel="stylesheet" href="../../lib/css/calendar.css" />
             <script src="../../lib/js/callendar.js"></script>
@@ -169,45 +169,50 @@
             (function () {
 
                window.scheduleEvents = [
-                  { title: '창립기념일', start: '2026-08-01', extendedProps: { type: 'holiday' } },
-                  { title: '현충일', start: '2026-08-06', extendedProps: { type: 'holiday' } },
-                  { title: '2026 초급 교사 연수 1차', start: '2026-08-07', extendedProps: { type: 'edu' } },
-                  { title: '2026 초급 교사 연수 2차', start: '2026-08-08', extendedProps: { type: 'edu' } },
-                  { title: '여름캠프 행사', start: '2026-08-20', extendedProps: { type: 'dp06' } },
-                  { title: '여름캠프 준비 회의', start: '2026-08-20', extendedProps: { type: 'dp08' } },
-                  { title: '여름캠프 특강', start: '2026-08-20', extendedProps: { type: 'dp03' } },
-                  { title: '유아부 신입교사 연수', start: '2026-08-11', extendedProps: { type: 'dp01' } },
-                  { title: '초등부 여름캠프', start: '2026-08-12', extendedProps: { type: 'dp02' } },
-                  { title: '장애인신앙교육부 체육대회', start: '2026-08-13', extendedProps: { type: 'dp03' } },
-                  { title: '중고등부 지도자 워크숍', start: '2026-08-14', extendedProps: { type: 'dp04' } },
-                  { title: '학교사목부 교사 간담회', start: '2026-08-15', extendedProps: { type: 'dp05' } },
-                  { title: '청년부 여름 피정', start: '2026-08-18', extendedProps: { type: 'dp06' } },
-                  { title: '대학교사목부 신앙학교', start: '2026-08-19', extendedProps: { type: 'dp07' } },
-                  { title: '가톨릭스카우트 기본강습', start: '2026-08-21', extendedProps: { type: 'dp08' } },
-                  { title: '용문청소년수련장 여름캠프', start: '2026-08-22', extendedProps: { type: 'dp09' } },
-                  { title: '청소년문화공간JU 프로그램', start: '2026-08-25', extendedProps: { type: 'dp10' } },
-                  { title: '임시공휴일', start: '2026-08-20', extendedProps: { type: 'holiday' } },
-                  { title: '지구장 회의', start: '2026-08-28', extendedProps: { type: 'etc' } }
+                  { title: '창립기념일', start: '2026-11-04', extendedProps: { type: 'holiday' } },
+                  { title: '2026 초급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+                  { title: '2026 중급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+                  { title: '2026 초급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+                  { title: '2026 중급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+                  { title: '여름캠프 행사', start: '2026-11-20', extendedProps: { type: 'event' } },
+                  { title: '여름캠프 준비 회의', start: '2026-11-20', extendedProps: { type: 'etc' } },
+                  { title: '여름캠프 특강', start: '2026-11-20', extendedProps: { type: 'edu' } },
+                  { title: '임시공휴일', start: '2026-11-20', extendedProps: { type: 'holiday' } },
+                  { title: '지구장 회의', start: '2026-11-27', extendedProps: { type: 'etc' } },
+                  { title: '유아부 신입교사 연수', start: '2026-11-11', extendedProps: { type: 'dp01' } },
+                  { title: '초등부 여름캠프', start: '2026-11-12', extendedProps: { type: 'dp02' } },
+                  { title: '장애인신앙교육부 체육대회', start: '2026-11-13', extendedProps: { type: 'dp03' } },
+                  { title: '중고등부 지도자 워크숍', start: '2026-11-16', extendedProps: { type: 'dp04' } },
+                  { title: '학교사목부 교사 간담회', start: '2026-11-17', extendedProps: { type: 'dp05' } },
+                  { title: '청년부 여름 피정', start: '2026-11-18', extendedProps: { type: 'dp06' } },
+                  { title: '대학교사목부 신앙학교', start: '2026-11-19', extendedProps: { type: 'dp07' } },
+                  { title: '가톨릭스카우트 기본강습', start: '2026-11-23', extendedProps: { type: 'dp08' } },
+                  { title: '용문청소년수련장 여름캠프', start: '2026-11-24', extendedProps: { type: 'dp09' } },
+                  { title: '청소년문화공간JU 프로그램', start: '2026-11-25', extendedProps: { type: 'dp10' } }
                ];
 
                window.scheduleListByMonth = {
-                  '2026-08': [
-                     { title: '2026 초급 교사 연수 1차', dept: '청소년국', category: '교육·연수', date: '2026-08-07', place: '혜화동 가톨릭청소년회관' },
-                     { title: '2026 초급 교사 연수 2차', dept: '청소년국', category: '교육·연수', date: '2026-08-08', place: '혜화동 가톨릭청소년회관' },
-                     { title: '유아부 신입교사 연수', dept: '유아부', category: '교육·연수', date: '2026-08-11', place: '혜화동 가톨릭청소년회관' },
-                     { title: '초등부 여름캠프', dept: '초등부', category: '행사', date: '2026-08-12', place: '용문 청소년 수련장' },
-                     { title: '장애인신앙교육부 체육대회', dept: '장애인신앙교육부', category: '행사', date: '2026-08-13', place: '삼숭리 야영장' },
-                     { title: '중고등부 지도자 워크숍', dept: '중고등부', category: '기타', date: '2026-08-14', place: '청소년국 회의실' },
-                     { title: '학교사목부 교사 간담회', dept: '학교사목부', category: '기타', date: '2026-08-15', place: '온라인(줌)' },
-                     { title: '여름캠프 행사', dept: '청소년국', category: '행사', date: '2026-08-20', place: '청소년국' },
-                     { title: '여름캠프 준비 회의', dept: '청소년국', category: '기타', date: '2026-08-20', place: '청소년국' },
-                     { title: '여름캠프 특강', dept: '청소년국', category: '교육·연수', date: '2026-08-20', place: '청소년국' },
-                     { title: '청년부 여름 피정', dept: '청년부', category: '행사', date: '2026-08-18', place: '강원도 고성 청소년수련원' },
-                     { title: '대학교사목부 신앙학교', dept: '대학교사목부', category: '교육·연수', date: '2026-08-19', place: '서울대교구청 대강당' },
-                     { title: '가톨릭스카우트 기본강습', dept: '가톨릭스카우트', category: '교육·연수', date: '2026-08-21', place: '삼숭동 야영장' },
-                     { title: '용문청소년수련장 여름캠프', dept: '용문청소년수련장', category: '행사', date: '2026-08-22', place: '용문청소년수련장' },
-                     { title: '청소년문화공간JU 프로그램', dept: '청소년문화공간JU', category: '교육·연수', date: '2026-08-25', place: '청소년문화공간JU' },
-                     { title: '지구장 회의', dept: '중고등부', category: '기타', date: '2026-08-28', place: '청소년국 회의실' }
+                  '2026-11': [
+                     { title: '창립기념일', dept: '청소년국', category: '공휴일', date: '2026-11-04', place: '혜화동 가톨릭청소년회관', content: '창립기념일 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '2026 초급 교사 연수 1차', dept: '청소년국', category: '교육·연수', date: '2026-11-10', place: '혜화동 가톨릭청소년회관', content: '2026 초급 교사 연수 1차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '2026 중급 교사 연수 1차', dept: '청소년국', category: '교육·연수', date: '2026-11-10', place: '혜화동 가톨릭청소년회관', content: '2026 중급 교사 연수 1차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '2026 초급 교사 연수 2차', dept: '청소년국', category: '교육·연수', date: '2026-11-11', place: '혜화동 가톨릭청소년회관', content: '2026 초급 교사 연수 2차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '2026 중급 교사 연수 2차', dept: '청소년국', category: '교육·연수', date: '2026-11-11', place: '혜화동 가톨릭청소년회관', content: '2026 중급 교사 연수 2차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '유아부 신입교사 연수', dept: '유아부', category: '교육·연수', date: '2026-11-11', place: '혜화동 가톨릭청소년회관', content: '유아부 신입교사 연수 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '초등부 여름캠프', dept: '초등부', category: '행사', date: '2026-11-12', place: '용문 청소년 수련장', content: '초등부 여름캠프 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '장애인신앙교육부 체육대회', dept: '장애인신앙교육부', category: '행사', date: '2026-11-13', place: '삼숭리 야영장', content: '장애인신앙교육부 체육대회 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '중고등부 지도자 워크숍', dept: '중고등부', category: '기타', date: '2026-11-16', place: '청소년국 회의실', content: '중고등부 지도자 워크숍 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '학교사목부 교사 간담회', dept: '학교사목부', category: '기타', date: '2026-11-17', place: '온라인(줌)', content: '학교사목부 교사 간담회 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '청년부 여름 피정', dept: '청년부', category: '행사', date: '2026-11-18', place: '강원도 고성 청소년수련원', content: '청년부 여름 피정 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '대학교사목부 신앙학교', dept: '대학교사목부', category: '교육·연수', date: '2026-11-19', place: '서울대교구청 대강당', content: '대학교사목부 신앙학교 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '여름캠프 특강', dept: '청소년국', category: '교육·연수', date: '2026-11-20', place: '청소년국', content: '여름캠프 특강 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '여름캠프 행사', dept: '청소년국', category: '행사', date: '2026-11-20', place: '청소년국', content: '여름캠프 행사 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '여름캠프 준비 회의', dept: '청소년국', category: '기타', date: '2026-11-20', place: '청소년국', content: '여름캠프 준비 회의 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '임시공휴일', dept: '청소년국', category: '공휴일', date: '2026-11-20', place: '청소년국', content: '임시공휴일 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '가톨릭스카우트 기본강습', dept: '가톨릭스카우트', category: '교육·연수', date: '2026-11-23', place: '삼숭동 야영장', content: '가톨릭스카우트 기본강습 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '용문청소년수련장 여름캠프', dept: '용문청소년수련장', category: '행사', date: '2026-11-24', place: '용문청소년수련장', content: '용문청소년수련장 여름캠프 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '청소년문화공간JU 프로그램', dept: '청소년문화공간JU', category: '교육·연수', date: '2026-11-25', place: '청소년문화공간JU', content: '청소년문화공간JU 프로그램 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { title: '지구장 회의', dept: '청소년국', category: '기타', date: '2026-11-27', place: '청소년국', content: '지구장 회의 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' }
                   ]
                };
 
@@ -216,9 +221,11 @@
                }
 
                var scheduleSwiperInstance = null;
+               var currentList = [];
 
                function renderScheduleList(monthKey) {
                   var list = window.scheduleListByMonth[monthKey] || [];
+                  currentList = list;
                   var monthLabel = monthKey.split('-')[0] + '년 ' + parseInt(monthKey.split('-')[1], 10) + '월';
                   $('#scheduleListTitle').text(monthLabel + ' 전체 일정');
 
@@ -226,9 +233,9 @@
                   if (!list.length) {
                      $tbody.append('<tr><td colspan="4">해당 월의 일정이 없습니다.</td></tr>');
                   } else {
-                     list.forEach(function (item) {
+                     list.forEach(function (item, idx) {
                         $tbody.append(
-                           '<tr>' +
+                           '<tr class="clickable" data-popup="popupSchedule" data-idx="' + idx + '">' +
                            '<td>' + item.title + '</td>' +
                            '<td>' + item.dept + '</td>' +
                            '<td>' + item.category + '</td>' +
@@ -239,10 +246,10 @@
                   }
 
                   var $wrapper = $('#scheduleSwiperWrapper').empty();
-                  list.forEach(function (item) {
+                  list.forEach(function (item, idx) {
                      var $slide = $(
                         '<div class="swiper-slide">' +
-                        '<div class="bx">' +
+                        '<div class="bx" data-popup="popupSchedule" data-idx="' + idx + '">' +
                         '<h5><p></p><span class="status"></span></h5>' +
                         '<ul>' +
                         '<li><p class="dt">일정명</p><p class="dd"></p></li>' +
@@ -297,6 +304,12 @@
                   if ($swiperEl && $swiperEl.swiper) {
                      $swiperEl.swiper.slideToLoop ? $swiperEl.swiper.slideTo(idx) : $swiperEl.swiper.slideTo(idx);
                   }
+               });
+
+               /* 일정 내용보기 팝업(popupSchedule) : 일정(표의 행 · 모바일 카드 · 달력 알약)을 누르면 해당 일정의 내용을 채워서 엶 */
+               $(document).on('click', '[data-popup="popupSchedule"]', function () {
+                  var item = currentList[$(this).data('idx')];
+                  if (item) fillSchedulePopup(item);
                });
 
                window.onNoticeCalendarMonthChange = function (dateObj) {
@@ -382,6 +395,32 @@
          </div>
       </div>
    </footer>
+
+   <div class="layer-popup-wrap">
+      <!--
+         [일정 내용보기 팝업] 일정 표의 행(모바일은 카드) · 달력 알약(PC)을 누르면 열림 (트리거: data-popup="popupSchedule")
+         일정명(title) · 부서명(dept) · 행사구분(type) · 기간(date) · 장소(place) · 내용(content)은 data-field 칸에 해당 일정 데이터가 채워짐 (샘플: 위 스크립트가 채움)
+      -->
+      <div class="layer-popup schedule-view" data-popup="popupSchedule">
+         <div class="head">
+            <p class="tit">일정 내용보기</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <dl class="view-info">
+               <div><dt>일정명</dt><dd data-field="title">-</dd></div>
+               <div><dt>부서명</dt><dd data-field="dept">-</dd></div>
+               <div><dt>행사구분</dt><dd data-field="type">-</dd></div>
+               <div><dt>기간</dt><dd data-field="date">-</dd></div>
+               <div><dt>장소</dt><dd data-field="place">-</dd></div>
+               <div><dt>내용</dt><dd data-field="content">-</dd></div>
+            </dl>
+         </div>
+         <div class="btn-wrap">
+            <button type="button" class="close">닫기</button>
+         </div>
+      </div>
+   </div>
 
 </body>
 

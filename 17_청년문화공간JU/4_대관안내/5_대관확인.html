@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme06" id="yju" class="sub">
-   <header class="typeC">
+   <header class="overlay">
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -115,7 +115,7 @@
             <li class="on"><a href=""><span>대관확인</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="rental-check">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">대관확인</div>
             <div class="location">
@@ -126,7 +126,7 @@
                <a href="" class="cur">대관확인</a>
             </div>
          </div>
-         <div class="cont-wrap">
+         <div class="cont-wrap rental-check">
             <div class="login-wrap">
                <div class="box-wrap">
                   <div class="top">
@@ -151,13 +151,13 @@
                var $form = $("form[name='frm_act']");
 
                function goLogin() {
-                  if ($.trim($form.find("[name='name']").val()) === "") {
-                     alert("이름을 입력해주세요!");
+                  if (($form.find("[name='name']").val() || "").trim() === "") {
+                     showToast("이름을 입력해주세요!", "warning");
                      $form.find("[name='name']").focus();
                      return;
                   }
-                  if ($.trim($form.find("[name='pwd']").val()) === "") {
-                     alert("비밀번호를 입력해주세요!");
+                  if (($form.find("[name='pwd']").val() || "").trim() === "") {
+                     showToast("비밀번호를 입력해주세요!", "warning");
                      $form.find("[name='pwd']").focus();
                      return;
                   }

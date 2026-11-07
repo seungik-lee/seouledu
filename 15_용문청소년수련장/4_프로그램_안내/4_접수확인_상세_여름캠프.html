@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="../../lib/css/import.css" />
+   <link rel="stylesheet" href="../../lib/css/base.css" />
+   <link rel="stylesheet" href="../../lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="../../lib/css/components.css" />
+   <link rel="stylesheet" href="../../lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="../../lib/js/jquery-4.0.0.min.js"></script>
+   <script src="../../lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="../../lib/js/common.js" defer></script>
+
+   <title>천주교 서울대교구 용문청소년수련장</title>
+</head>
+
+<body data-theme="theme03" id="yongmooncamp" class="sub">
+
+   <header>
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+         <nav id="gnb">
+            <ul>
+               <li class="dep1">
+                  <a href=""><span>수련장 소개</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>인사말</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>오시는 길</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1 one">
+                  <a href=""><span>시설안내</span></a>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>이용 안내</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>대관 안내</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>이용 시 주의사항</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>대관 신청</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>대관 신청 확인</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>대관 현황</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>프로그램 안내</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>프로그램 안내</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>복사학교 신청</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>여름캠프 신청</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>신청접수 확인</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+               <li class="dep1">
+                  <a href=""><span>커뮤니티</span></a>
+                  <ul class="dep2-wrap">
+                     <li class="dep2">
+                        <a href=""><span>공지사항</span></a>
+                     </li>
+                     <li class="dep2">
+                        <a href=""><span>자료실</span></a>
+                     </li>
+                  </ul>
+               </li>
+
+            </ul>
+            <div class="gnb_bg"></div>
+         </nav>
+         <div class="util">
+            <a href="" class="register bg-grey-scale-01">회원가입</a>
+            <a href="" class="login bg-black">로그인</a>
+         </div>
+         <button type="button" class="menu"></button>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div id="lnb">
+         <p>프로그램 안내</p>
+         <ul>
+            <li><a href=""><span>프로그램 안내</span></a></li>
+            <li><a href=""><span>복사학교 신청</span></a></li>
+            <li><a href=""><span>여름캠프 신청</span></a></li>
+            <li class="on"><a href=""><span>신청접수 확인</span></a></li>
+         </ul>
+      </div>
+      <div id="contents">
+         <div class="cont-top">
+            <div class="page-title">신청접수 확인</div>
+            <div class="location">
+               <a href="">홈</a>
+               <span></span>
+               <a href="">프로그램 안내</a>
+               <span></span>
+               <a href="" class="cur">신청접수 확인</a>
+            </div>
+         </div>
+         <div class="cont-wrap rent-complete rent-check-detail">
+            <section>
+               <div class="title-dot">신청내역</div>
+
+               <div class="dl-wrap mt-20">
+                  <dl>
+                     <!--
+                        [진행상태] 접수 단계에 따라 status-text 색과 문구가 바뀜
+                        - 대기접수 : span.status-text.orange + 신청취소 버튼(button.status.red) 노출 (입금 전이라 취소 가능)
+                        - 접수완료 : span.status-text.green  (입금 완료 후, 신청취소 버튼 없음)
+                        - 교육완료 : span.status-text.gray   (교육일 이후, 신청취소 버튼 없음)
+                     -->
+                     <div class="row">
+                        <dt>진행상태</dt>
+                        <dd>
+                           <span class="status-text orange">대기접수</span>
+                           <button type="button" class="status red">신청취소</button>
+                        </dd>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>교육명</dt>
+                           <dd>2026년 여름캠프 서울대교구 3차</dd>
+                        </div>
+                        <div class="col">
+                           <dt>교육일</dt>
+                           <dd>2026년 10월 15일(목) ~ 2026년 10월 16일(금)</dd>
+                        </div>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>본당</dt>
+                           <dd>명동</dd>
+                        </div>
+                        <div class="col">
+                           <dt>신청자</dt>
+                           <dd>홍길동 (요한)</dd>
+                        </div>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>연락처</dt>
+                           <dd>010-1245-4567</dd>
+                        </div>
+                        <div class="col">
+                           <dt>이메일 주소</dt>
+                           <dd>dfad@naver.com</dd>
+                        </div>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>참가인원 (남/여)</dt>
+                           <dd>4명 (3명/1명)</dd>
+                        </div>
+                        <div class="col">
+                           <dt>봉사자인원 (남/여)</dt>
+                           <dd>2명 (1명/1명)</dd>
+                        </div>
+                     </div>
+                  </dl>
+               </div>
+            </section>
+
+            <section class="mt-40">
+               <div class="title-dot">입금안내</div>
+
+               <div class="dl-wrap mt-20">
+                  <dl>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>입금계좌</dt>
+                           <dd>
+                              <div class="text-bx">
+                                 농협 <strong>351-0841-4655-73</strong><br>
+                                 (재)천주교서울대교구유지재단
+                              </div>
+                           </dd>
+                        </div>
+                        <div class="col">
+                           <dt>입금비용</dt>
+                           <dd><strong>136,000원</strong></dd>
+                        </div>
+                     </div>
+                     <div class="row double">
+                        <div class="col">
+                           <dt>입금자명</dt>
+                           <dd>명동 홍길동</dd>
+                        </div>
+                        <div class="col">
+                           <dt>청구서</dt>
+                           <dd>
+                              <!--
+                                 [청구서 팝업] .invoice-area 에 청구서 내용(서버 생성)을 출력. [프린트 하기]는 data-print 선택자(.layer-popup.active .invoice-area) 영역만 인쇄 (data-print 값이 없으면 페이지 전체 인쇄)
+                              -->
+                              <button type="button" class="status blue" data-popup="popupInvoice">보기</button>
+                           </dd>
+                        </div>
+                     </div>
+                     <!--
+                        [영수증] 입금 확인 전에는 "-" 로 표시하고, 입금 확인 후 <button type="button" class="status blue">보기</button> 로 교체
+                     -->
+                     <div class="row double">
+                        <div class="col">
+                           <dt>영수증</dt>
+                           <dd>-</dd>
+                        </div>
+                        <!--
+                           [명단 등록/수정] 입금 완료 전에는 비활성 버튼(button.status.light.gray.end[disabled]), 입금 완료 후에는 disabled 를 빼고 a.status.light.theme 로 바꿔 명단 작성 페이지(4_접수확인_상세_명단작성_여름캠프.html)로 연결
+                        -->
+                        <div class="col">
+                           <dt>명단 등록/수정</dt>
+                           <dd>
+                              <button type="button" class="status light gray end" disabled>명단 등록</button>
+                           </dd>
+                        </div>
+                     </div>
+                  </dl>
+               </div>
+
+               <div class="info-bx info mt-20">
+                  <div class="ico"></div>
+                  <div class="txt">
+                     <div class="tit sm"><strong>입금 기한</strong>은 신청완료 문자를 받은 후 1주일까지입니다.</div>
+                     <p>1. 기한 내 예약금이 입금되지 않으면 접수는 자동 취소되오니 유의해 주세요.</p>
+                     <p>2. <strong>계약금은 환불되지 않으며</strong> 잔금은 한 달 내로 입금해 주세요. 입금 완료 후에는 입력된 인원의 취소 및 환불이 불가합니다.</p>
+                     <p>3. 입금 완료 상태가 되어야 <strong>명단 등록/수정</strong> 버튼이 활성화됩니다.</p>
+                  </div>
+               </div>
+            </section>
+
+            <div class="result-nav mt-40">
+               <div class="result-nav-left">
+                  <a href="4_접수확인_리스트.html" class="btn br pd">목록으로</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">경기 양평군 용문면 덕촌길 125 (덕촌리, 천주교 서울대교구 용문청소년수련장)<br>업무시간 : 월요일-금요일08:30-17:30 (점심시간 12:00-13:00)</p>
+            <ul class="contact">
+               <div class="flex items-center">
+                  <li><div class="tit">연락처</div><span class="line"></span>031-774-3587(대관관련), 031-774-6422(복사학교/여름캠프)</li>
+                  <li><div class="tit">FAX</div><span class="line"></span>0303-0954-3587</li>
+               </div>
+               <li><div class="tit">메일</div><span class="line"></span>eduseoul11@seoul.catholic.kr</li>
+            </ul>
+            <div class="sns-link">
+               <a class="blog"></a>
+               <a class="youtube"></a>
+               <a class="facebook"></a>
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">© 용문청소년수련장 All rights reserved</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li class="tit">- 서울대교구 청소년국 -</li>
+                  <li><a href="https://www.eduseoul.or.kr" target="_blank">청소년국</a></li>
+                  <li><a href="https://www.catholicinfant.or.kr" target="_blank">유아부</a></li>
+                  <li><a href="https://www.chota.or.kr" target="_blank">초등부</a></li>
+                  <li><a href="https://www.foryouth.or.kr" target="_blank">중고등부</a></li>
+                  <li><a href="https://www.kycs.or.kr" target="_blank">학교사목부</a></li>
+                  <li><a href="https://www.2030.or.kr/" target="_blank">청년부</a></li>
+                  <li><a href="https://www.sfcs.or.kr" target="_blank">대학교사목부</a></li>
+                  <li><a href="https://seoul.kcscouts.or.kr" target="_blank">가톨릭스카우트</a></li>
+                  <li><a href="https://www.cafema.or.kr" target="_blank">장애인신앙교육부</a></li>
+                  <li><a href="https://didache.eduseoul.or.kr" target="_blank">디다케</a></li>
+                  <li><a href="https://www.yongmooncamp.or.kr" target="_blank">용문청소년수련장</a></li>
+                  <li><a href="https://www.catholicshop.or.kr" target="_blank">청국장</a></li>
+                  <li class="tit">- 서울가톨릭청소년회 -</li>
+                  <li><a href="https://www.iju.or.kr" target="_blank">청소년문화공간JU</a></li>
+                  <li><a href="https://www.yju.or.kr" target="_blank">청년문화공간JU</a></li>
+                  <li><a href="https://www.ajit.or.kr" target="_blank">서울A지T</a></li>
+                  <li><a href="http://www.scy.or.kr" target="_blank">구립서초유스센터</a></li>
+                  <li><a href="http://www.sdyc.or.kr" target="_blank">시립성동청소년수련관</a></li>
+                  <li><a href="http://www.boramyc.or.kr" target="_blank">시립보라매청소년수련관</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="../../lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="../../lib/img/common/ico-logo-symbol-blog.svg">
+               <p>블로그</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/common/ico-logo-symbol-kakao.svg">
+               <p>카카오톡</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/common/ico-logo-symbol-facebook.svg">
+               <p>페이스북</p>
+            </a>
+            <a href="">
+               <img src="../../lib/img/common/ico-logo-symbol-insta.svg">
+               <p>인스타</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   <div class="layer-popup-wrap">
+      <div class="layer-popup mw600" data-popup="popupInvoice">
+         <div class="head">
+            <p class="tit">용문청소년수련장 여름캠프 <span>청구서</span></p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <div class="invoice-area"></div>
+         </div>
+         <div class="btn-wrap center">
+            <button type="button" class="close">닫기</button>
+            <button type="button" class="theme" data-print=".layer-popup.active .invoice-area">프린트 하기</button>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>

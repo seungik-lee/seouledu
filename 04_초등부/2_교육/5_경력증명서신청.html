@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme01" id="chota" class="sub">
-   <header class="typeB">
+   <header>
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -132,7 +132,7 @@
             <li class="on"><a href=""><span>경력 증명서</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="career-cert">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">경력 증명서</div>
             <div class="location">
@@ -143,7 +143,7 @@
                <a href="" class="cur">경력 증명서</a>
             </div>
          </div>
-         <div class="cont-wrap">
+         <div class="cont-wrap career-cert">
             <section>
                <div class="title-dot none">
                   <button type="button" class="btn color after plus right" data-popup="popup01">신청하기</button>
@@ -501,7 +501,7 @@
                   <div class="file-upload-wrap">
                      <button type="button" class="file-btn">첨부하기</button>
                      <span class="file-name">선택된 파일없음</span>
-                     <input type="file" class="file-input" accept=".pdf,.hwp,.hwpx,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.zip" hidden>
+                     <input type="file" class="file-input" accept=".pdf,.hwp,.hwpx,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.zip" data-alert="문서, 이미지, ZIP 파일만 첨부할 수 있습니다." hidden>
                   </div>
                   <p class="popup-note">※ 파일이 여러 개인 경우, ZIP 파일로 압축하여 업로드해 주세요.</p>
                </div>
@@ -634,25 +634,6 @@
       </div>
 
    </div>
-
-   <script>
-      /* 증빙자료 첨부 : 파일선택 → 파일명 표시 */
-      $(document).on('click', '.file-upload-wrap .file-btn', function () {
-         $(this).siblings('.file-input').trigger('click');
-      });
-      $(document).on('change', '.file-upload-wrap .file-input', function () {
-         // 문서 / 이미지 / ZIP 파일만 허용
-         var allow = /\.(pdf|hwp|hwpx|doc|docx|xls|xlsx|ppt|pptx|txt|jpe?g|png|gif|zip)$/i;
-         if (this.files.length && !allow.test(this.files[0].name)) {
-            alert('문서, 이미지, ZIP 파일만 첨부할 수 있습니다.');
-            this.value = '';
-            $(this).siblings('.file-name').text('선택된 파일없음');
-            return;
-         }
-         var name = this.files.length ? this.files[0].name : '선택된 파일없음';
-         $(this).siblings('.file-name').text(name);
-      });
-   </script>
 
 </body>
 

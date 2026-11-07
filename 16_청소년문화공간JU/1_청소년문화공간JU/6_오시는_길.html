@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme06" id="iju" class="sub">
-   <header class="typeA">
+   <header>
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -97,7 +97,7 @@
             <li class="on"><a href=""><span>오시는 길</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="direction">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">오시는 길</div>
             <div class="location">
@@ -108,8 +108,52 @@
                <a href="" class="cur">오시는 길</a>
             </div>
          </div>
-         <div class="cont-wrap">
-
+         <div class="cont-wrap direction">
+            <!--자바스크립트 키 변경필요-->
+            <script src="../../lib/js/kakao-maps.js"></script>
+            <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6eb0575e8d8c603a81538da0bf9690b&libraries=services&autoload=false"></script>
+            <script>
+               kakao.maps.load(function () {
+                  initKakaoMap();
+               });
+            </script>
+            <div class="map-wrap">
+               <div id="map" data-address="서울 마포구 월드컵북로2길 49" class="logo"></div>
+            </div>
+            <section>
+               <div class="title-dot">지하철 이용</div>
+               <div class="transportation-wr">
+                  <div class="info">
+                     <div class="num">
+                        <p class="green">2호선</p>
+                     </div>
+                     <div class="txt">2호선 홍대입구역에서 하차 (2번 출구 이용)</div>
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="title-dot">버스 이용</div>
+               <div class="transportation-wr">
+                  <div class="info">
+                     <div class="num">
+                        <p class="red">광역[R]</p>
+                     </div>
+                     <div class="txt">6002, 3000, 3100</div>
+                  </div>
+                  <div class="info">
+                     <div class="num">
+                        <p class="blue">간선[B]</p>
+                     </div>
+                     <div class="txt">271, 273, 602, 603, 604, 760, 921</div>
+                  </div>
+                  <div class="info">
+                     <div class="num">
+                        <p class="green">지선[G]</p>
+                     </div>
+                     <div class="txt">5712, 5714, 6712, 6716, 7016, 7711, 7612, 7737</div>
+                  </div>
+               </div>
+            </section>
          </div>
       </div>
    </div>

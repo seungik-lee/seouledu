@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link rel="canonical" href="" />
+   <meta name="description" content="" />
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="index, follow" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta property="og:locale" content="ko_KR" />
+   <link rel="icon" href="/favicon.ico" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="../lib/css/import.css" />
+   <link rel="stylesheet" href="../lib/css/base.css" />
+   <link rel="stylesheet" href="../lib/css/swiperjs/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="../lib/css/components.css" />
+   <link rel="stylesheet" href="../lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="../lib/js/jquery-4.0.0.min.js"></script>
+   <script src="../lib/js/swiperjs/swiper-bundle.min.js" defer></script>
+   <script src="../lib/js/common.js" defer></script>
+   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+   <title>청소년국 프로젝트</title>
+</head>
+
+<body data-theme="theme03" id="siteA" class="sub mypage">
+   <header>
+      <div class="inner wide">
+         <a href="/" id="logo"></a>
+      </div>
+   </header>
+
+   <div id="wrap">
+      <div class="inner">
+         <div class="top">
+            <div class="cate">가톨릭 스카우트</div>
+            <h2 class="tit">청소년국 통합 회원가입</h2>
+            <p class="sub-des"><span class="required">필수</span>표시는 필수 입력 항목입니다</p>
+         </div>
+         <div class="cont">
+            <!--
+               [통합 추가정보] 통합 회원가입 후 각 부서에 처음 로그인하면 나오는 부서별 추가 정보 입력 화면 (세부정보 + 부서 추가정보를 한 페이지에 모음)
+               - 필수 입력(data-req)은 [저장]을 눌렀을 때 첫 미입력 항목을 경고 토스트로 알림 (세례명 · 학생구분 · 소속단위대)
+               - 본당명: 서울대교구는 [본당검색] 팝업(popup03)으로 입력, 타교구는 직접 입력 (라디오로 입력칸이 전환됨, data-radio-pair)
+               - 주소: [주소선택]을 누르면 우편번호 검색이 열림 (.addr-search-btn, 카카오 우편번호)
+            -->
+            <div class="input-wrap col">
+               <p class="label">세례명 <span class="required">필수</span></p>
+               <input type="text" placeholder="세례명을 입력해 주세요" data-req="세례명을 입력해 주세요.">
+            </div>
+            <div class="input-wrap col">
+               <p class="label">축일</p>
+               <div class="input-btn-wrap date">
+                  <div class="select-box-wrap" data-reset>
+                     <input type="hidden" value="">
+                     <div class="select-label">
+                        <p>월 선택</p>
+                     </div>
+                     <div class="select-box-list-wr">
+                        <ul>
+                           <li data-value="1"><p>1월</p></li>
+                           <li data-value="2"><p>2월</p></li>
+                           <li data-value="3"><p>3월</p></li>
+                           <li data-value="4"><p>4월</p></li>
+                           <li data-value="5"><p>5월</p></li>
+                           <li data-value="6"><p>6월</p></li>
+                           <li data-value="7"><p>7월</p></li>
+                           <li data-value="8"><p>8월</p></li>
+                           <li data-value="9"><p>9월</p></li>
+                           <li data-value="10"><p>10월</p></li>
+                           <li data-value="11"><p>11월</p></li>
+                           <li data-value="12"><p>12월</p></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="select-box-wrap" data-reset>
+                     <input type="hidden" value="">
+                     <div class="select-label">
+                        <p>일 선택</p>
+                     </div>
+                     <div class="select-box-list-wr">
+                        <ul>
+                           <li data-value="1"><p>1일</p></li>
+                           <li data-value="2"><p>2일</p></li>
+                           <li data-value="3"><p>3일</p></li>
+                           <li data-value="4"><p>4일</p></li>
+                           <li data-value="5"><p>5일</p></li>
+                           <li data-value="6"><p>6일</p></li>
+                           <li data-value="7"><p>7일</p></li>
+                           <li data-value="8"><p>8일</p></li>
+                           <li data-value="9"><p>9일</p></li>
+                           <li data-value="10"><p>10일</p></li>
+                           <li data-value="11"><p>11일</p></li>
+                           <li data-value="12"><p>12일</p></li>
+                           <li data-value="13"><p>13일</p></li>
+                           <li data-value="14"><p>14일</p></li>
+                           <li data-value="15"><p>15일</p></li>
+                           <li data-value="16"><p>16일</p></li>
+                           <li data-value="17"><p>17일</p></li>
+                           <li data-value="18"><p>18일</p></li>
+                           <li data-value="19"><p>19일</p></li>
+                           <li data-value="20"><p>20일</p></li>
+                           <li data-value="21"><p>21일</p></li>
+                           <li data-value="22"><p>22일</p></li>
+                           <li data-value="23"><p>23일</p></li>
+                           <li data-value="24"><p>24일</p></li>
+                           <li data-value="25"><p>25일</p></li>
+                           <li data-value="26"><p>26일</p></li>
+                           <li data-value="27"><p>27일</p></li>
+                           <li data-value="28"><p>28일</p></li>
+                           <li data-value="29"><p>29일</p></li>
+                           <li data-value="30"><p>30일</p></li>
+                           <li data-value="31"><p>31일</p></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="input-wrap col stack">
+               <p class="label">주소</p>
+               <div class="input-btn-wrap">
+                  <input type="text" class="addr-zip" placeholder="우편번호" readonly>
+                  <button type="button" class="btn addr-search-btn">주소선택</button>
+               </div>
+               <div class="addr-postcode-wrap">
+                  <div class="addr-postcode-layer"></div>
+               </div>
+               <input type="text" class="addr-main" placeholder="기본 주소" readonly>
+               <input type="text" class="addr-detail" placeholder="상세 주소 입력">
+            </div>
+            <div class="input-wrap col stack diocese">
+               <p class="label">본당명 <span class="required">필수</span></p>
+               <div class="radio-input-wrap">
+                  <label class="radio-wrap">
+                     <input type="radio" name="diocese-type" value="서울대교구" data-radio-pair="diocese01" checked>
+                     <span>서울대교구</span>
+                  </label>
+                  <div class="input-btn-wrap">
+                     <input type="text" name="diocese01" placeholder="본당을 검색해 주세요" readonly>
+                     <button type="button" class="btn lp-search-btn" data-popup="popup03">본당검색</button>
+                  </div>
+               </div>
+               <div class="diocese-etc">
+                  <div class="radio-input-wrap">
+                     <label class="radio-wrap">
+                        <input type="radio" name="diocese-type" value="타교구" data-radio-pair="diocese02">
+                        <span>타교구</span>
+                     </label>
+                     <input type="text" name="diocese02" placeholder="직접 입력" disabled>
+                  </div>
+                  <div class="input-wrap-info-wrap">
+                     <p class="none">※ 타교구, 교구청 및 기타부서는 직접 입력하세요.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">자기소개</p>
+               <textarea placeholder="자기소개를 입력해 주세요"></textarea>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">학생구분 <span class="required">필수</span></p>
+               <div class="radio-group" data-req="학생구분을 선택해 주세요.">
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="재학">
+                     <span>재학</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="휴학">
+                     <span>휴학</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="졸업">
+                     <span>졸업</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="협조수도자">
+                     <span>협조수도자</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="집행부">
+                     <span>집행부</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="중앙일꾼">
+                     <span>중앙일꾼</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="student-type" value="일반학생">
+                     <span>일반학생</span>
+                  </label>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">소속단위대 <span class="required">필수</span></p>
+               <div class="select-box-wrap w100">
+                  <input type="hidden" value="" data-req="소속단위대를 선택해 주세요.">
+                  <div class="select-label">
+                     <p>단위대 선택</p>
+                  </div>
+                  <div class="select-box-list-wr">
+                     <ul>
+                        <li>
+                           <p>단위대 1</p>
+                        </li>
+                        <li>
+                           <p>단위대 2</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="input-wrap-info-wrap">
+                  <p class="none">※ 학부모는 자녀의 소속(서울지구-단위대)으로 선택해주세요!</p>
+               </div>
+            </div>
+            <div class="input-wrap col">
+               <p class="label">문자발송</p>
+               <div class="radio-group">
+                  <label class="radio-wrap">
+                     <input type="radio" name="sms" value="수신" checked>
+                     <span>수신</span>
+                  </label>
+                  <label class="radio-wrap">
+                     <input type="radio" name="sms" value="거부">
+                     <span>거부</span>
+                  </label>
+               </div>
+            </div>
+            <button type="button" class="input-btn mt-32" data-validate-btn>저장</button>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <div class="inner">
+         <div class="ft-wrap">
+            <div id="ft-logo"></div>
+            <p class="address">서울 종로구 대학로 156 가톨릭청소년회관 청소년국 중고등부</p>
+            <ul class="contact">
+               <li><div class="tit">연락처</div><span class="line"></span>02-1234-5678</li>
+               <li><div class="tit">연락처</div><span class="line"></span>02-1234-5678</li>
+            </ul>
+            <div class="sns-link">
+               <a class="blog"></a>
+               <a class="youtube"></a>
+               <a class="facebook"></a>
+               <a class="instagram"></a>
+            </div>
+            <div class="ft-link">
+               <a>이용약관</a>
+               <a><strong>개인정보처리방침</strong></a>
+               <a>이메일무단수집거부</a>
+            </div>
+            <p class="copyright">Copyrightsⓒ 2022 foryouth. All Rights Reserved.</p>
+         </div>
+         <div class="familysite">
+            <p>Family Site</p>
+            <div class="site-list-wr">
+               <ul>
+                  <li><a>사이트 1</a></li>
+                  <li><a>사이트 2</a></li>
+                  <li><a>사이트 3</a></li>
+                  <li><a>사이트 4</a></li>
+                  <li><a>사이트 5</a></li>
+                  <li><a>사이트 6</a></li>
+                  <li><a>사이트 7</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <div class="floating">
+         <div class="defalut">
+            <img src="../lib/img/common/ico-floating-default.svg">
+            <p>퀵메뉴</p>
+         </div>
+         <div class="floating-links">
+            <a href="">
+               <img src="../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="../lib/img/siteA/ico-logo-symbol-02.svg">
+               <p>자원봉사<br>포털</p>
+            </a>
+            <a href="">
+               <img src="../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>교재구입<br>링크</p>
+            </a>
+            <a href="">
+               <img src="../lib/img/siteA/ico-logo-symbol-01.svg">
+               <p>공모전<br>전시관</p>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   <div class="layer-popup-wrap">
+      <div class="layer-popup lp-search" data-popup="popup03">
+         <div class="head">
+            <p class="tit">본당 검색</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <div class="input-wrap col">
+               <p class="label">본당 이름을 입력해 주세요.(예: 명동성당 → 명동)</p>
+               <div class="input-btn-wrap">
+                  <input type="text" placeholder="본당 이름 입력">
+                  <button class="btn">검색</button>
+               </div>
+            </div>
+            <div class="list-bx lp-search-list">
+               <p><strong>명동</strong> (제01중구 - 용산지구)</p>
+               <p><strong>명동(아미쿠스)</strong> (제02중구 - 용산지구)</p>
+            </div>
+            <div class="btn-wrap">
+               <button class="close">닫기</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</body>
+
+</html>

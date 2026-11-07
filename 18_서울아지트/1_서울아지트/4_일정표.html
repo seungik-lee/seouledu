@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme03" id="ajit" class="sub">
-   <header class="typeB">
+   <header>
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -95,7 +95,7 @@
             <li class="on"><a href=""><span>일정표</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="callendar">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">일정표</div>
             <div class="location">
@@ -106,7 +106,7 @@
                <a href="" class="cur">일정표</a>
             </div>
          </div>
-         <div class="cont-wrap">
+         <div class="cont-wrap callendar">
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
             <link rel="stylesheet" href="../../lib/css/calendar.css" />
             <script src="../../lib/js/callendar.js"></script>
@@ -176,28 +176,31 @@
 
                /* 달력에 표시할 일정. type: 'edu'(교육·연수) | 'event'(행사) | 'etc'(기타) | 'holiday'(공휴일) */
                window.scheduleEvents = [
-                  { title: '창립기념일', start: '2026-08-01', extendedProps: { type: 'holiday' } },
-                  { title: '현충일', start: '2026-08-06', extendedProps: { type: 'holiday' } },
-                  { title: '2026 초급 교사 연수 1차', start: '2026-08-07', extendedProps: { type: 'edu' } },
-                  { title: '2026 초급 교사 연수 2차', start: '2026-08-08', extendedProps: { type: 'edu' } },
-                  { title: '여름캠프 행사', start: '2026-08-20', extendedProps: { type: 'event' } },
-                  { title: '여름캠프 준비 회의', start: '2026-08-20', extendedProps: { type: 'etc' } },
-                  { title: '여름캠프 특강', start: '2026-08-20', extendedProps: { type: 'edu' } },
-                  { title: '여름캠프 행사', start: '2026-08-20', extendedProps: { type: 'event' } },
-                  { title: '여름캠프 준비 회의', start: '2026-08-20', extendedProps: { type: 'etc' } },
-                  { title: '임시공휴일', start: '2026-08-20', extendedProps: { type: 'holiday' } },
-                  { title: '지구장 회의', start: '2026-08-28', extendedProps: { type: 'etc' } }
+                  { title: '창립기념일', start: '2026-11-04', extendedProps: { type: 'holiday' } },
+                  { title: '2026 초급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+                  { title: '2026 중급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+                  { title: '2026 초급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+                  { title: '2026 중급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+                  { title: '여름캠프 행사', start: '2026-11-20', extendedProps: { type: 'event' } },
+                  { title: '여름캠프 준비 회의', start: '2026-11-20', extendedProps: { type: 'etc' } },
+                  { title: '여름캠프 특강', start: '2026-11-20', extendedProps: { type: 'edu' } },
+                  { title: '임시공휴일', start: '2026-11-20', extendedProps: { type: 'holiday' } },
+                  { title: '지구장 회의', start: '2026-11-27', extendedProps: { type: 'etc' } }
                ];
 
                /* "전체 일정" 표/카드용 월별 데이터. 캘린더가 보여주는 달과 같은 달을 보여줌 */
                window.scheduleListByMonth = {
-                  '2026-08': [
-                     { type: 'holiday', typeLabel: '공휴일', title: '창립기념일', date: '2026-08-01', place: '혜화동 가톨릭청소년회관' },
-                     { type: 'holiday', typeLabel: '공휴일', title: '현충일', date: '2026-08-06', place: '청소년국 회의실' },
-                     { type: 'edu', typeLabel: '교육·연수', title: '2026 초급 교사 연수 1차', date: '2026-08-07', place: '혜화동 가톨릭청소년회관' },
-                     { type: 'edu', typeLabel: '교육·연수', title: '2026 초급 교사 연수 2차', date: '2026-08-08', place: '혜화동 가톨릭청소년회관' },
-                     { type: 'event', typeLabel: '행사', title: '여름캠프 행사', date: '2026-08-20', place: '청소년국' },
-                     { type: 'etc', typeLabel: '기타', title: '지구장 회의', date: '2026-08-28', place: '청소년국' }
+                  '2026-11': [
+                     { type: 'holiday', typeLabel: '공휴일', title: '창립기념일', date: '2026-11-04', place: '혜화동 가톨릭청소년회관', content: '창립기념일 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'edu', typeLabel: '교육·연수', title: '2026 초급 교사 연수 1차', date: '2026-11-10', place: '혜화동 가톨릭청소년회관', content: '2026 초급 교사 연수 1차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'edu', typeLabel: '교육·연수', title: '2026 중급 교사 연수 1차', date: '2026-11-10', place: '혜화동 가톨릭청소년회관', content: '2026 중급 교사 연수 1차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'edu', typeLabel: '교육·연수', title: '2026 초급 교사 연수 2차', date: '2026-11-11', place: '혜화동 가톨릭청소년회관', content: '2026 초급 교사 연수 2차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'edu', typeLabel: '교육·연수', title: '2026 중급 교사 연수 2차', date: '2026-11-11', place: '혜화동 가톨릭청소년회관', content: '2026 중급 교사 연수 2차 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'edu', typeLabel: '교육·연수', title: '여름캠프 특강', date: '2026-11-20', place: '청소년국', content: '여름캠프 특강 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'event', typeLabel: '행사', title: '여름캠프 행사', date: '2026-11-20', place: '청소년국', content: '여름캠프 행사 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'etc', typeLabel: '기타', title: '여름캠프 준비 회의', date: '2026-11-20', place: '청소년국', content: '여름캠프 준비 회의 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'holiday', typeLabel: '공휴일', title: '임시공휴일', date: '2026-11-20', place: '청소년국', content: '임시공휴일 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' },
+                     { type: 'etc', typeLabel: '기타', title: '지구장 회의', date: '2026-11-27', place: '청소년국', content: '지구장 회의 안내입니다. 자세한 내용은 청소년국으로 문의해 주세요.' }
                   ]
                };
 
@@ -208,9 +211,11 @@
                }
 
                var scheduleSwiperInstance = null;
+               var currentList = [];
 
                function renderScheduleList(monthKey) {
                   var list = window.scheduleListByMonth[monthKey] || [];
+                  currentList = list;
                   var monthLabel = monthKey.split('-')[0] + '년 ' + parseInt(monthKey.split('-')[1], 10) + '월';
                   $('#scheduleListTitle').text(monthLabel + ' 전체 일정');
 
@@ -219,9 +224,9 @@
                   if (!list.length) {
                      $tbody.append('<tr><td colspan="4">해당 월의 일정이 없습니다.</td></tr>');
                   } else {
-                     list.forEach(function (item) {
+                     list.forEach(function (item, idx) {
                         $tbody.append(
-                           '<tr>' +
+                           '<tr class="clickable" data-popup="popupSchedule" data-idx="' + idx + '">' +
                            '<td>' + item.title + '</td>' +
                            '<td>' + item.date + '</td>' +
                            '<td>' + item.place + '</td>' +
@@ -232,10 +237,10 @@
 
                   // 카드(모바일 스와이퍼)
                   var $wrapper = $('#scheduleSwiperWrapper').empty();
-                  list.forEach(function (item) {
+                  list.forEach(function (item, idx) {
                      var $slide = $(
                         '<div class="swiper-slide">' +
-                        '<div class="bx">' +
+                        '<div class="bx" data-popup="popupSchedule" data-idx="' + idx + '">' +
                         '<h5><p></p><span class="status ' + TYPE_STATUS_CLASS[item.type] + '"></span></h5>' +
                         '<ul>' +
                         '<li><p class="dt">일정명</p><p class="dd"></p></li>' +
@@ -291,6 +296,12 @@
                   }
                });
 
+               /* 일정 내용보기 팝업(popupSchedule) : 일정(표의 행 · 모바일 카드 · 달력 알약)을 누르면 해당 일정의 내용을 채워서 엶 */
+               $(document).on('click', '[data-popup="popupSchedule"]', function () {
+                  var item = currentList[$(this).data('idx')];
+                  if (item) fillSchedulePopup(item);
+               });
+
                window.onNoticeCalendarMonthChange = function (dateObj) {
                   renderScheduleList(monthKeyOf(dateObj));
                };
@@ -310,7 +321,7 @@
                <li><div class="tit">FAX</div><span class="line"></span>ajit@ajit.or.kr</li>
             </ul>
             <div class="sns-link">
-               <a class="instagram"></a>
+               <a href="https://www.instagram.com/seoulajit_official" class="instagram" target="_blank" rel="noopener"></a>
             </div>
             <div class="ft-link">
                <a>이용약관</a>
@@ -373,6 +384,31 @@
          </div>
       </div>
    </footer>
+
+   <div class="layer-popup-wrap">
+      <!--
+         [일정 내용보기 팝업] 일정 표의 행(모바일은 카드) · 달력 알약을 누르면 열림 (트리거: data-popup="popupSchedule")
+         일정명(title) · 구분(type) · 기간(date) · 장소(place) · 내용(content)은 data-field 칸에 해당 일정 데이터가 채워짐 (샘플: 위 스크립트가 채움)
+      -->
+      <div class="layer-popup schedule-view" data-popup="popupSchedule">
+         <div class="head">
+            <p class="tit">일정 내용보기</p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <dl class="view-info">
+               <div><dt>일정명</dt><dd data-field="title">-</dd></div>
+               <div><dt>구분</dt><dd data-field="type">-</dd></div>
+               <div><dt>기간</dt><dd data-field="date">-</dd></div>
+               <div><dt>장소</dt><dd data-field="place">-</dd></div>
+               <div><dt>내용</dt><dd data-field="content">-</dd></div>
+            </dl>
+         </div>
+         <div class="btn-wrap">
+            <button type="button" class="close">닫기</button>
+         </div>
+      </div>
+   </div>
 
 </body>
 

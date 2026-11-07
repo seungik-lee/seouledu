@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="noindex, nofollow" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="../lib/css/import.css" />
+   <link rel="stylesheet" href="../lib/css/base.css" />
+   <link rel="stylesheet" href="../lib/css/components.css" />
+   <link rel="stylesheet" href="../lib/css/page-style.css" />
+
+   <!-- JS -->
+   <script src="../lib/js/jquery-4.0.0.min.js"></script>
+   <script src="../lib/js/common.js" defer></script>
+
+   <title>공통 레이어팝업 · 토스트 확인</title>
+</head>
+
+<body data-theme="theme01" class="sub">
+
+   <div class="tpl-doc">
+      <h1>공통 레이어팝업 · 토스트</h1>
+      <p class="tpl-desc">
+         버튼을 누르면 실제 공통 컴포넌트가 동작합니다. 저장 · 수정 · 삭제는 확인 팝업에서 [예]를 누르면 완료 토스트가 나오고,
+         필수항목 미입력은 [확인] 버튼 하나만 있는 안내 팝업입니다. 처리 결과(저장 · 수정 · 삭제)는 개발 쪽에서 연결합니다.
+      </p>
+
+      <h2>확인 팝업 · 완료 토스트</h2>
+      <div class="tpl-scroll">
+         <table class="tpl-table">
+            <colgroup>
+               <col style="width:110px">
+               <col>
+               <col>
+               <col>
+               <col>
+            </colgroup>
+            <thead>
+               <tr>
+                  <th>구분</th>
+                  <th>저장</th>
+                  <th>수정</th>
+                  <th>삭제</th>
+                  <th class="warn">필수항목 미입력</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>얼럿창</th>
+                  <!--
+                     [확인 팝업] 트리거 버튼에 data-popup / data-confirm-msg / data-toast / data-toast-type 를 달면 됨
+                     - data-popup        : 열 팝업 이름 (아래 popupConfirm)
+                     - data-confirm-msg  : 팝업에 표시할 문구 ("|" 로 줄바꿈)
+                     - data-toast        : [예]를 눌렀을 때 보여줄 완료 토스트 문구
+                     - data-toast-type   : 토스트 종류 (default / info / success / warning / error / confusing)
+                  -->
+                  <td>
+                     <span class="tpl-msg">저장하시겠습니까?</span>
+                     <button type="button" class="btn color" data-popup="popupConfirm" data-confirm-msg="저장하시겠습니까?" data-toast="저장되었습니다." data-toast-type="success">저장 팝업 열기</button>
+                  </td>
+                  <td>
+                     <span class="tpl-msg">수정하시겠습니까?</span>
+                     <button type="button" class="btn color" data-popup="popupConfirm" data-confirm-msg="수정하시겠습니까?" data-toast="수정되었습니다." data-toast-type="success">수정 팝업 열기</button>
+                  </td>
+                  <td>
+                     <span class="tpl-msg">정말로 삭제 하시겠습니까?</span>
+                     <button type="button" class="btn color" data-popup="popupConfirm" data-confirm-msg="정말로 삭제 하시겠습니까?" data-toast="삭제되었습니다." data-toast-type="success">삭제 팝업 열기</button>
+                  </td>
+                  <!--
+                     [안내 팝업] 확인 버튼만 있는 팝업(popupAlert). 문구는 같은 방식으로 data-confirm-msg 로 지정, 토스트는 없음
+                  -->
+                  <td>
+                     <span class="tpl-msg">필수항목을 입력해주세요.</span>
+                     <button type="button" class="btn color" data-popup="popupAlert" data-confirm-msg="필수항목을 입력해주세요.">안내 팝업 열기</button>
+                  </td>
+               </tr>
+               <tr>
+                  <th>토스트</th>
+                  <!--
+                     [토스트만 바로 표시] 팝업 없이 문구만 띄울 때는 data-toast-msg / data-toast-type 사용
+                     위 팝업에서 [예]를 누르면 나오는 토스트와 같은 모양
+                  -->
+                  <td>
+                     <span class="tpl-msg">저장되었습니다.</span>
+                     <button type="button" class="btn" data-toast-msg="저장되었습니다." data-toast-type="success">토스트 보기</button>
+                  </td>
+                  <td>
+                     <span class="tpl-msg">수정되었습니다.</span>
+                     <button type="button" class="btn" data-toast-msg="수정되었습니다." data-toast-type="success">토스트 보기</button>
+                  </td>
+                  <td>
+                     <span class="tpl-msg">삭제되었습니다.</span>
+                     <button type="button" class="btn" data-toast-msg="삭제되었습니다." data-toast-type="success">토스트 보기</button>
+                  </td>
+                  <td class="na">-</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+
+      <h2>토스트 종류</h2>
+      <div class="tpl-scroll">
+         <table class="tpl-table">
+            <colgroup>
+               <col style="width:110px">
+               <col>
+               <col style="width:42%">
+               <col style="width:170px">
+            </colgroup>
+            <thead>
+               <tr>
+                  <th>type</th>
+                  <th>사용 예</th>
+                  <th>문구 예시</th>
+                  <th>확인</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>default</th>
+                  <td>단순 알림 (data-toast-type 생략 가능)</td>
+                  <td>이미 신청이 완료된 교육입니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="이미 신청이 완료된 교육입니다." data-toast-type="default">보기</button></td>
+               </tr>
+               <tr>
+                  <th>info</th>
+                  <td>처리 결과 안내 (취소, 대기접수 등)</td>
+                  <td>대기접수 되었습니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="대기접수 되었습니다." data-toast-type="info">보기</button></td>
+               </tr>
+               <tr>
+                  <th>success</th>
+                  <td>저장 · 수정 · 삭제 · 접수 완료</td>
+                  <td>저장되었습니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="저장되었습니다." data-toast-type="success">보기</button></td>
+               </tr>
+               <tr>
+                  <th>warning</th>
+                  <td>할 수 없는 상태 · 확인 필요</td>
+                  <td>접수 대기중입니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="접수 대기중입니다." data-toast-type="warning">보기</button></td>
+               </tr>
+               <tr>
+                  <th>error</th>
+                  <td>실패 · 불가 안내</td>
+                  <td>접수가 마감된 교육입니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="접수가 마감된 교육입니다." data-toast-type="error">보기</button></td>
+               </tr>
+               <tr>
+                  <th>confusing</th>
+                  <td>헷갈리기 쉬운 상황 안내</td>
+                  <td>동일 본당에서 이미 접수된 교육입니다.</td>
+                  <td><button type="button" class="btn" data-toast-msg="동일 본당에서 이미 접수된 교육입니다." data-toast-type="confusing">보기</button></td>
+               </tr>
+               <tr>
+                  <th>시간 지정</th>
+                  <td>문구가 길 때 data-toast-time 으로 표시 시간 지정 (ms, 생략 시 1500)</td>
+                  <td>이미 접수된 교육입니다. 접수 내역은 신청접수 확인 페이지에서 확인해 주세요.</td>
+                  <td><button type="button" class="btn" data-toast-msg="이미 접수된 교육입니다. 접수 내역은 신청접수 확인 페이지에서 확인해 주세요." data-toast-type="info" data-toast-time="3500">보기 (3.5초)</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+
+      <h2>사용 방법</h2>
+      <pre class="tpl-code">&lt;!-- 토스트 공통 : 기본 1.5초 뒤 사라지며, 토스트 바깥 영역을 누르면 바로 닫힘 --&gt;
+
+&lt;!-- 1. 확인 팝업 + 완료 토스트 --&gt;
+&lt;button type="button" data-popup="popupConfirm"
+        data-confirm-msg="저장하시겠습니까?"      &lt;!-- "|" 로 줄바꿈 --&gt;
+        data-toast="저장되었습니다."              &lt;!-- [예] 클릭 후 토스트 문구 --&gt;
+        data-toast-type="success"&gt;저장&lt;/button&gt;
+
+&lt;!-- 2. 토스트만 바로 표시 --&gt;
+&lt;button type="button" data-toast-msg="접수 대기중입니다." data-toast-type="warning"&gt;접수대기&lt;/button&gt;
+
+&lt;!-- 3. 스크립트에서 호출 --&gt;
+showToast("저장되었습니다.", "success");
+
+&lt;!-- 4. 표시 시간 늘리기 (문구가 길 때) : 시간은 ms 단위, 생략하면 1500 --&gt;
+&lt;button type="button" data-toast-msg="긴 안내 문구입니다." data-toast-type="info"
+        data-toast-time="3000"&gt;긴 문구&lt;/button&gt;     &lt;!-- 1번의 확인 팝업 트리거(data-toast)에도 같이 사용 가능 --&gt;
+showToast("긴 안내 문구입니다.", "info", 3000);
+
+&lt;!-- 5. 팝업 마크업 : 페이지 하단의 .layer-popup-wrap 안에 .layer-popup.confirm 을 둠
+        확인 팝업은 [아니오](.close) + [예](.confirm-yes), 안내 팝업은 [확인](.close) 하나 --&gt;</pre>
+   </div>
+
+   <div class="layer-popup-wrap">
+      <!-- 확인 팝업 : 문구는 트리거의 data-confirm-msg 로 채워짐. [아니오]는 닫기만, [예]는 닫고 트리거의 data-toast 를 토스트로 표시 -->
+      <div class="layer-popup mw600 confirm" data-popup="popupConfirm">
+         <div class="head">
+            <p class="tit"></p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <p class="confirm-msg"></p>
+         </div>
+         <div class="btn-wrap center">
+            <button type="button" class="close">아니오</button>
+            <button type="button" class="black confirm-yes">예</button>
+         </div>
+      </div>
+
+      <!-- 안내 팝업 : 확인 버튼만 있음 (토스트 없음) -->
+      <div class="layer-popup mw600 confirm" data-popup="popupAlert">
+         <div class="head">
+            <p class="tit"></p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <p class="confirm-msg"></p>
+         </div>
+         <div class="btn-wrap center">
+            <button type="button" class="black close">확인</button>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>

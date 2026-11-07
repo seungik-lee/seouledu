@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme06" id="yju" class="sub">
-   <header class="typeC">
+   <header class="overlay">
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -115,7 +115,7 @@
             <li><a href=""><span>대관확인</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="rental">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">대관안내/신청</div>
             <div class="location">
@@ -126,7 +126,7 @@
                <a href="" class="cur">대관안내/신청</a>
             </div>
          </div>
-         <div class="cont-wrap">
+         <div class="cont-wrap rental">
 <section>
 
    <div class="step-flow">
@@ -386,7 +386,7 @@
    </div>
 
    <div class="mode-nav between mt-40">
-      <a href="2_대관안내_신청_03.html" id="prevStepBtn">이전단계</a>
+      <a href="2_대관안내_신청_03.html" id="prevStepBtn" data-popup="popupLeaveConfirm" data-confirm-msg="이 페이지를 벗어나면 신청내역이 저장되지 않습니다.|이동하시겠습니까?">이전단계</a>
       <a href="2_대관안내_신청_05.html" class="on" id="nextStepBtn">다음단계</a>
    </div>
 
@@ -417,19 +417,12 @@
       }
    });
 
-   $(document).on('click', '.file-upload-wrap .file-btn', function () {
-      $(this).siblings('.file-input').trigger('click');
-   });
-
-   $(document).on('change', '.file-upload-wrap .file-input', function () {
-      var name = this.files.length ? this.files[0].name : '선택된 파일없음';
-      $(this).siblings('.file-name').text(name);
-   });
-
+   /* 이전단계 : 링크 이동은 막고 확인 팝업(popupLeaveConfirm)을 띄움. [예]를 누르면 이전 단계로 이동 */
    $('#prevStepBtn').on('click', function (e) {
       e.preventDefault();
-      var go = confirm('이 페이지를 벗어나면 신청내역이 저장되지 않습니다. 이동하시겠습니까?');
-      if (go) window.location.href = $(this).attr('href');
+   });
+   $(document).on('click', '[data-popup="popupLeaveConfirm"] .confirm-yes', function () {
+      window.location.href = $('#prevStepBtn').attr('href');
    });
 
 })();
@@ -521,6 +514,23 @@
          </div>
       </div>
    </footer>
+
+   <div class="layer-popup-wrap">
+      <!-- 이전단계 이동 확인 팝업 : 문구는 #prevStepBtn 의 data-confirm-msg 로 채워지고, [예]를 누르면 이전 단계로 이동 -->
+      <div class="layer-popup mw600 confirm" data-popup="popupLeaveConfirm">
+         <div class="head">
+            <p class="tit"></p>
+            <button class="close" type="button">닫기</button>
+         </div>
+         <div class="popup-cont">
+            <p class="confirm-msg"></p>
+         </div>
+         <div class="btn-wrap center">
+            <button type="button" class="close">아니오</button>
+            <button type="button" class="black confirm-yes">예</button>
+         </div>
+      </div>
+   </div>
 
 </body>
 

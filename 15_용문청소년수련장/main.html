@@ -37,7 +37,7 @@
 </head>
 
 <body data-theme="theme03" id="yongmooncamp" class="main">
-   <header class="typeB">
+   <header>
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -89,13 +89,10 @@
                         <a href=""><span>복사학교 신청</span></a>
                      </li>
                      <li class="dep2">
-                        <a href=""><span>복사학교 접수확인</span></a>
-                     </li>
-                     <li class="dep2">
                         <a href=""><span>여름캠프 신청</span></a>
                      </li>
                      <li class="dep2">
-                        <a href=""><span>여름캠프 접수확인</span></a>
+                        <a href=""><span>신청접수 확인</span></a>
                      </li>
                   </ul>
                </li>
@@ -173,33 +170,21 @@
             <div class="item">
                <dl>
                   <dt>
-                     <img src="../lib/img/common/ico-infocenter05.svg">복사학교
-                  </dt>
-                  <dd>02-6455-4894</dd>
-               </dl>
-               <dl>
-                  <dt>
-                     <img src="../lib/img/common/ico-infocenter05.svg">복사학교
-                  </dt>
-                  <dd>02-6455-4894</dd>
-               </dl>
-               <dl>
-                  <dt>
-                     <img src="../lib/img/common/ico-infocenter05.svg">팩스
-                  </dt>
-                  <dd>02-6455-4894</dd>
-               </dl>
-               <dl>
-                  <dt>
-                     <img src="../lib/img/common/ico-infocenter01.svg">대관문의
+                     <img src="../lib/img/common/ico-infocenter05.svg">대관문의
                   </dt>
                   <dd>031-774-3587</dd>
                </dl>
                <dl>
                   <dt>
-                     <img src="../lib/img/common/ico-infocenter02.svg">사무실
+                     <img src="../lib/img/common/ico-infocenter05.svg">복사학교/여름캠프
                   </dt>
-                  <dd>02-763-7966</dd>
+                  <dd>031-774-6422</dd>
+               </dl>
+               <dl>
+                  <dt>
+                     <img src="../lib/img/common/ico-infocenter05.svg">팩스
+                  </dt>
+                  <dd>0303-0954-3587</dd>
                </dl>
                <dl>
                   <dt>
@@ -213,14 +198,15 @@
                   </dt>
                   <dd>12:00~13:00</dd>
                </dl>
-            </div>
-            <div class="item full">
                <dl>
-                  <dt>(재)천주교서울대교구유지재단</dt>
+                  <dt>
+                     <img src="../lib/img/common/ico-infocenter01.svg">입금처 
+                  </dt>
                   <dd>
                      농협
                      <span class="dot"></span>
                      351-0841-4655-73
+                     <p class="name">예금주 : (재)천주교서울대교구유지재단</p>
                   </dd>
                </dl>
             </div>
@@ -315,7 +301,6 @@
          <div class="inner-wrap">
             <!-- 타임존 JS -->
             <script src="../lib/js/timezone.js"></script>
-            <link rel="stylesheet" href="../lib/css/timezone.css" />
             <!-- 타임존 API와 관련된 사항은 timezone.js 내에 주석으로 달아놨습니다. -->
             <div class="bx timezone-wrap" id="timezoneWidget" data-api="/api/schedule">
                <div class="tz-header">
@@ -352,42 +337,54 @@
             <div class="swiper-wrapper">
                <div class="swiper-slide">
                   <div class="slide-content">
-                     <h2>여름캠프</h2>
-                     <p>텍스트가 들어갈 영역입니다. 텍스트가 들어갈 영역입니다.<br>텍스트가 들어갈 영역입니다.텍스트가 들어갈 영역입니다.텍스트가 들어갈 영역입니다.</p>
+                     <h2>복사학교</h2>
+                     <p>다양한 강의와 작업실습으로 구성되어 있으며 이를 통하여 신앙과 성소의 기틀을 다지는 시간이 될 것입니다.</p>
                      <div class="tag">
-                        <p>복사학교</p>
-                        <p>여름캠프</p>
-                        <p>개인/단체 피정</p>
+                        <button type="button" class="on" data-slide="0">복사학교</button>
+                        <button type="button" data-slide="1">여름캠프</button>
+                        <button type="button" data-slide="2">개인/단체 피정</button>
                      </div>
                      <a href="#" class="more text">View More</a>
                   </div>
                </div>
                <div class="swiper-slide">
                   <div class="slide-content">
-                     <h2>타이틀이 들어갈 영역 01</h2>
-                     <p>부제가 들어갈 영역입니다</p>
+                     <h2>여름캠프</h2>
+                     <p>자연스러운 놀이와 실습, 그리고 어린이와 교사가 함께 나누는 생활 속에서 창조의 정신을 이해하고 그 섭리 안에서 사는 우리가 어떤 존재인지 깨달을 수 있도록 2박 3일의 체험을 준비하였습니다.</p>
                      <div class="tag">
-                        <p># 태그</p>
-                        <p># 태그</p>
-                        <p># 태그</p>
-                        <p># 태그</p>
+                        <button type="button" data-slide="0">복사학교</button>
+                        <button type="button" class="on" data-slide="1">여름캠프</button>
+                        <button type="button" data-slide="2">개인/단체 피정</button>
                      </div>
                      <a href="#" class="more text">View More</a>
                   </div>
                </div>
-               <!-- 슬라이드 추가 -->
+               <div class="swiper-slide">
+                  <div class="slide-content">
+                     <h2>개인/단체 피정</h2>
+                     <p>저희 용문청소년수련장이 자그마한 위로가 되기를 바라며 개인/단체 피정을 준비했습니다.</p>
+                     <div class="tag">
+                        <button type="button" data-slide="0">복사학교</button>
+                        <button type="button" data-slide="1">여름캠프</button>
+                        <button type="button" class="on" data-slide="2">개인/단체 피정</button>
+                     </div>
+                     <a href="#" class="more text">View More</a>
+                  </div>
+               </div>
             </div>
          </div>
          <div class="mo-fl">
             <div class="swiper img">
                <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                     <img src="https://picsum.photos/1920/1080?random=3">
+                     <img src="../lib/img/yongmooncamp/program-img01.jpg" alt="복사학교">
                   </div>
                   <div class="swiper-slide">
-                     <img src="https://picsum.photos/1920/1080?random=4">
+                     <img src="../lib/img/yongmooncamp/program-img02.jpg" alt="여름캠프">
                   </div>
-                  <!-- 슬라이드 추가 -->
+                  <div class="swiper-slide">
+                     <img src="../lib/img/yongmooncamp/program-img03.jpg" alt="개인/단체 피정">
+                  </div>
                </div>
             </div>
             <div class="slider-control">

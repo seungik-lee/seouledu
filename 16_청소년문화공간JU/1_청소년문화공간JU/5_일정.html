@@ -35,7 +35,7 @@
 </head>
 
 <body data-theme="theme06" id="iju" class="sub">
-   <header class="typeA">
+   <header>
       <div class="inner wide">
          <a href="/" id="logo"></a>
          <nav id="gnb">
@@ -97,7 +97,7 @@
             <li><a href=""><span>오시는 길</span></a></li>
          </ul>
       </div>
-      <div id="contents" class="schedule">
+      <div id="contents">
          <div class="cont-top">
             <div class="page-title">일정</div>
             <div class="location">
@@ -108,9 +108,38 @@
                <a href="" class="cur">일정</a>
             </div>
          </div>
-         <div class="cont-wrap">
-
+         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
+         <link rel="stylesheet" href="../../lib/css/calendar.css" />
+         <script src="../../lib/js/callendar.js"></script>
+         <div class="cont-wrap schedule">
+            <div class="line-bx schedule-calendar-wrap">
+               <div class="calendar-wrap" data-type="notice">
+                  <div class="calendar" style="background:#fff;"></div>
+                  <ul class="calendar-legend">
+                     <li><span class="dot edu"></span>교육·연수</li>
+                     <li><span class="dot event"></span>행사</li>
+                     <li><span class="dot etc"></span>기타</li>
+                     <li><span class="dot holiday"></span>공휴일</li>
+                  </ul>
+               </div>
+            </div>
          </div>
+
+         <script>
+            /* 달력에 표시할 일정. type: 'edu'(교육·연수) | 'event'(행사) | 'etc'(기타) | 'holiday'(공휴일) */
+            window.scheduleEvents = [
+               { title: '창립기념일', start: '2026-11-04', extendedProps: { type: 'holiday' } },
+               { title: '2026 초급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+               { title: '2026 중급 교사 연수 1차', start: '2026-11-10', extendedProps: { type: 'edu' } },
+               { title: '2026 초급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+               { title: '2026 중급 교사 연수 2차', start: '2026-11-11', extendedProps: { type: 'edu' } },
+               { title: '여름캠프 행사', start: '2026-11-20', extendedProps: { type: 'event' } },
+               { title: '여름캠프 준비 회의', start: '2026-11-20', extendedProps: { type: 'etc' } },
+               { title: '여름캠프 특강', start: '2026-11-20', extendedProps: { type: 'edu' } },
+               { title: '임시공휴일', start: '2026-11-20', extendedProps: { type: 'holiday' } },
+               { title: '지구장 회의', start: '2026-11-27', extendedProps: { type: 'etc' } }
+            ];
+         </script>
       </div>
    </div>
 

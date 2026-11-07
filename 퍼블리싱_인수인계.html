@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>퍼블리싱 인수인계</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  /* 레이아웃: 좁은 단일 컬럼 문서. 상단 요약 → 기획 확인 → 개발 인수 → 변경 상세 → 미완료 */
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --fg: #1c2330;
+    --muted: #5d6779;
+    --line: #dfe3ea;
+    --accent: #1b5fa8;
+    --accent-soft: #e6eff9;
+    --plan: #8a4b00;
+    --plan-soft: #fdf0dc;
+    --dev: #0d6b4f;
+    --dev-soft: #e0f3ec;
+    --code-bg: #eef1f5;
+    --font: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161d; --surface: #1a2029; --fg: #e5e9f0; --muted: #9aa5b8; --line: #2b3441;
+      --accent: #6fb0f0; --accent-soft: #1b2b3f; --plan: #f0b866; --plan-soft: #3a2c14;
+      --dev: #6fd3ae; --dev-soft: #14332a; --code-bg: #232b36; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161d; --surface: #1a2029; --fg: #e5e9f0; --muted: #9aa5b8; --line: #2b3441;
+    --accent: #6fb0f0; --accent-soft: #1b2b3f; --plan: #f0b866; --plan-soft: #3a2c14;
+    --dev: #6fd3ae; --dev-soft: #14332a; --code-bg: #232b36; color-scheme: dark;
+  }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.65; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 64px; word-break: keep-all; }
+  .wrap { max-width: 920px; margin: 0 auto; display: grid; gap: 40px; }
+  header.top { display: grid; gap: 10px; }
+  header.top .meta { color: var(--muted); font-size: 13px; }
+  h1 { font-size: clamp(24px, 4vw, 32px); line-height: 1.3; margin: 0; text-wrap: balance; }
+  h2 { font-size: 20px; margin: 0 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--fg); text-wrap: balance; }
+  h3 { font-size: 16px; margin: 22px 0 8px; }
+  p { margin: 0 0 8px; }
+  .lead { color: var(--muted); }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+  nav.toc a { color: var(--accent); text-decoration: none; border: 1px solid var(--line); background: var(--surface); padding: 5px 12px; border-radius: 999px; font-size: 13px; }
+  nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--accent); outline: none; }
+  section { min-width: 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 1px 8px; border-radius: 4px; vertical-align: 1px; margin-right: 6px; white-space: nowrap; }
+  .tag.plan { background: var(--plan-soft); color: var(--plan); }
+  .tag.dev { background: var(--dev-soft); color: var(--dev); }
+  .tag.done { background: var(--dev-soft); color: var(--dev); }
+  .tag.todo { background: var(--plan-soft); color: var(--plan); }
+  .tag.pub { background: var(--accent-soft); color: var(--accent); }
+  .tag.css { background: var(--accent-soft); color: var(--accent); }
+  .tag.js { background: var(--plan-soft); color: var(--plan); }
+  .lib-table td:first-child, .verify-table td:first-child { width: auto; white-space: nowrap; }
+  .lib-table code, .verify-table code { word-break: normal; }
+  .lib-table .tag { margin-right: 4px; }
+  .tbl a { color: var(--accent); word-break: break-all; }
+  .files { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--muted); }
+  .files > strong { display: block; margin-bottom: 6px; color: var(--fg); font-size: 12px; letter-spacing: .04em; }
+  .files ul { gap: 4px; }
+  .files a, .card a { color: var(--accent); text-decoration: none; }
+  .files a:hover, .card a:hover { text-decoration: underline; }
+  .files details summary { cursor: pointer; color: var(--accent); }
+  .files details[open] summary { margin-bottom: 6px; }
+  .files details ul { margin-top: 4px; }
+  .files a code, .card a code { color: inherit; background: transparent; padding: 0; }
+  .ref-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ref-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--fg); text-decoration: none; font-weight: 500; }
+  .ref-link:hover, .ref-link:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  .ref-link svg { flex-shrink: 0; width: 16px; height: auto; }
+  .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; }
+  th, td { text-align: left; vertical-align: middle; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; color: var(--muted); font-weight: 700; background: var(--bg); letter-spacing: .04em; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { font-weight: 500; width: 28%; }
+  code { font-family: var(--mono); font-size: 12.5px; background: var(--code-bg); padding: 1px 5px; border-radius: 3px; word-break: break-all; }
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  .note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 6px 6px 0; }
+  .callout { border-left: 4px solid var(--plan); background: var(--plan-soft); color: var(--fg); padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 14.5px; line-height: 1.6; }
+  .callout strong { color: var(--plan); margin-right: 6px; }
+  .cards { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; min-width: 0; }
+  .card h3 { margin: 0 0 8px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  html { scroll-padding-top: 76px; }
+  nav.toc { position: sticky; top: 0; z-index: 20; background: var(--bg); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .overall { display: grid; gap: 8px; }
+  .overall-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .overall-head strong { font-size: 15px; }
+  .overall-head .pct { font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .overall-sub { color: var(--muted); font-size: 13px; }
+  .bar { height: 12px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; border-radius: 999px; background: var(--accent); }
+  .overall .bar { height: 16px; }
+  .prog-list { display: grid; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 16px; }
+  .prog-row { display: grid; grid-template-columns: minmax(130px, 220px) 1fr 52px minmax(96px, 150px); align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .prog-row:last-child { border-bottom: 0; }
+  .prog-name { font-weight: 500; }
+  .prog-name .ext { display: inline-flex; margin-left: 6px; vertical-align: -2px; color: var(--muted); text-decoration: none; }
+  .prog-name .ext:hover, .prog-name .ext:focus-visible { color: var(--accent); outline: none; }
+  .prog-pct { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .prog-note { color: var(--muted); font-size: 12.5px; }
+  .prog-todo { grid-column: 2 / -1; margin-top: -4px; color: var(--muted); font-size: 12.5px; }
+  .prog-todo a { color: var(--accent); text-decoration: none; }
+  .prog-todo a:hover { text-decoration: underline; }
+  .prog-todo code { font-size: 12px; }
+  .prog-row.ok .bar > i { background: var(--dev); }
+  .prog-row.ok .prog-pct { color: var(--dev); }
+  .prog-row.part .bar > i { background: var(--plan); }
+  .prog-row.part .prog-pct { color: var(--plan); }
+  .prog-row.none .prog-pct { color: var(--muted); }
+  @media (max-width: 640px) { .prog-row { grid-template-columns: 1fr 52px; } .prog-row .bar { grid-column: 1 / -1; grid-row: 2; } .prog-note { grid-column: 1 / -1; } .prog-todo { grid-column: 1 / -1; margin-top: 0; } }  @media (max-width: 480px) { th, td { padding: 8px 10px; } td:first-child { width: 34%; } }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="meta">서울대교구 청소년국 통합 웹사이트 퍼블리싱 · 2026-10-28 기준</div>
+    <h1>퍼블리싱 인수인계</h1>
+    <div class="callout" role="note">파일을 직접 열면(file://) 지도·일부 아이콘이 정상으로 보이지 않을 수 있어, 로컬 서버(예: VS Code Live Server)로 띄워서 확인</div>
+    <p class="lead">작업 폴더(<code>contents</code>)에서 진행한 수정사항입니다. 개발 연동이 필요한 항목에는 <span class="tag dev">개발</span> 표시를 붙였습니다. 화면별 상태 전환 방법은 각 HTML 안의 <code>[항목명]</code> 주석에도 적혀 있고, 개발이 필요한 부분에는 "(개발 필요)"라고 표시했습니다.</p>
+
+    <div class="overall">
+      <div class="overall-head"><strong>퍼블리싱 전체 공정률</strong><span class="pct">99%</span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="99" aria-label="퍼블리싱 전체 공정률"><i style="width:99%"></i></div>
+      <div class="overall-sub">18개 부서 진행도의 평균 · 완료 16곳, 일부 진행 2곳(서울선택, 청년부)</div>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="목차">
+      <a href="#progress">공정률</a>
+      <a href="#ref">참고 링크</a>
+      <a href="#check">확인 필요 사항</a>
+      <a href="#dev">개발 인수 사항</a>
+      <a href="#common">공통 구조·컴포넌트</a>
+    </nav>
+
+  <section id="progress">
+    <h2>부서별 진행도</h2>
+    <div class="prog-list">
+        <div class="prog-row ok"><span class="prog-name">청소년국<a class="ext" href="https://sso.eduseoul.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="청소년국 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="청소년국 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">3 / 3 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">장애인신앙교육부<a class="ext" href="https://www.cafema.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="장애인신앙교육부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="장애인신앙교육부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">10 / 10 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">유아부<a class="ext" href="https://catholicinfant.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="유아부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="유아부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">19 / 19 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">초등부<a class="ext" href="https://www.chota.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="초등부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="초등부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">13 / 13 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">가톨릭스카우트<a class="ext" href="https://seoul.kcscouts.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="가톨릭스카우트 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="가톨릭스카우트 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">6 / 6 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">학교사목부<a class="ext" href="https://www.kycs.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="학교사목부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="학교사목부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">6 / 6 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">가톨릭학생회 CELL<a class="ext" href="https://www.kycs.or.kr/cell/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="가톨릭학생회 CELL 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="가톨릭학생회 CELL 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">12 / 12 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">가톨릭문화연구회 CA<a class="ext" href="https://www.kycs.or.kr/ca/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="가톨릭문화연구회 CA 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="가톨릭문화연구회 CA 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">8 / 8 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">가톨릭초등교육자회 CCE<a class="ext" href="https://www.kycs.or.kr/cce_ps/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="가톨릭초등교육자회 CCE 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="가톨릭초등교육자회 CCE 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">8 / 8 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">가톨릭중등교육자회 CCE<a class="ext" href="https://www.kycs.or.kr/cce/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="가톨릭중등교육자회 CCE 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="가톨릭중등교육자회 CCE 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">8 / 8 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">중고등부<a class="ext" href="https://www.foryouth.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="중고등부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="중고등부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">8 / 8 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">대학교사목부<a class="ext" href="https://www.sfcs.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="대학교사목부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="대학교사목부 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">11 / 11 페이지</span></div>
+        <div class="prog-row part"><span class="prog-name">서울선택</span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="94" aria-label="서울선택 진행도"><i style="width:94%"></i></div><span class="prog-pct">94%</span><span class="prog-note">15 / 16 페이지</span><span class="prog-todo">미완료 : <a href="13_%EC%84%A0%ED%83%9D/3_%EC%84%A0%ED%83%9D_%EC%9E%90%EB%A3%8C/1_%EC%84%A0%ED%83%9D_%EC%A3%BC%EB%A7%90%EC%9D%B4%EB%9E%80.html" target="_blank" rel="noopener"><code>13_선택/3_선택_자료/1_선택_주말이란.html</code></a> (원본 사이트에 자료 없음)</span></div>
+        <div class="prog-row part"><span class="prog-name">청년부<a class="ext" href="https://www.2030.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="청년부 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96" aria-label="청년부 진행도"><i style="width:96%"></i></div><span class="prog-pct">96%</span><span class="prog-note">22 / 23 페이지</span><span class="prog-todo">미완료 : <a href="14_%EC%B2%AD%EB%85%84%EB%B6%80/1_%EC%B2%AD%EB%85%84%EB%B6%80/4_%EC%A7%80%EA%B5%AC_%ED%9A%8C%EC%9E%A5_%EB%B0%8F_%EC%A7%80%EB%8F%84_%EC%8B%A0%EB%B6%80%EB%8B%98_%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>14_청년부/1_청년부/4_지구_회장_및_지도_신부님_현황.html</code></a> (데이터 필요)</span></div>
+        <div class="prog-row ok"><span class="prog-name">용문청소년수련장<a class="ext" href="https://www.yongmooncamp.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="용문청소년수련장 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="용문청소년수련장 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">33 / 33 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">청소년문화공간JU<a class="ext" href="https://www.iju.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="청소년문화공간JU 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="청소년문화공간JU 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">23 / 23 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">청년문화공간JU<a class="ext" href="https://www.yju.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="청년문화공간JU 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="청년문화공간JU 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">20 / 20 페이지</span></div>
+        <div class="prog-row ok"><span class="prog-name">서울아지트<a class="ext" href="https://www.ajit.or.kr/" target="_blank" rel="noopener" title="기존 사이트 열기" aria-label="서울아지트 기존 사이트 열기"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7"/><path d="M13.5 2.5 7.5 8.5"/><path d="M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg></a></span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="서울아지트 진행도"><i style="width:100%"></i></div><span class="prog-pct">100%</span><span class="prog-note">10 / 10 페이지</span></div>
+    </div>
+    <p class="note" style="margin-top:12px">원본 사이트에서 확인할 수 없는 페이지(로그인 필요 등)는 협의에 따라 제외하고 진행했습니다.</p>
+  </section>
+
+  <section id="ref">
+    <h2>참고 링크 (피그마)</h2>
+    <div class="ref-links">
+      <a class="ref-link" href="https://www.figma.com/design/szYo8KSoXhmtlhh2Jaua7b/2026_%EC%B2%9C%EC%A3%BC%EA%B5%90-%EC%B2%AD%EC%86%8C%EB%85%84%EA%B5%AD?node-id=1453-9651&amp;m=dev" target="_blank" rel="noopener"><svg viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>부서별 화면구성</a>
+      <a class="ref-link" href="https://www.figma.com/design/szYo8KSoXhmtlhh2Jaua7b/2026_%EC%B2%9C%EC%A3%BC%EA%B5%90-%EC%B2%AD%EC%86%8C%EB%85%84%EA%B5%AD?node-id=278-398&amp;m=dev" target="_blank" rel="noopener"><svg viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>메인디자인</a>
+      <a class="ref-link" href="https://www.figma.com/design/szYo8KSoXhmtlhh2Jaua7b/2026_%EC%B2%9C%EC%A3%BC%EA%B5%90-%EC%B2%AD%EC%86%8C%EB%85%84%EA%B5%AD?node-id=1143-9617&amp;m=dev" target="_blank" rel="noopener"><svg viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>서브디자인</a>
+    </div>
+  </section>
+  <section id="check">
+    <h2>확인 필요 사항</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>내용</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>가톨릭초등교육자회 CCE</td><td>푸터 로고 확인 필요. 메인 지구 소개 지도 디자인 파일 일괄 필요 (피그마 내에 2지구만 있음)</td><td><span class="tag todo">확인 필요</span></td></tr>
+        <tr><td>가톨릭중등교육자회 CCE</td><td>기존 페이지 연혁 탭 오류 (<a href="https://www.kycs.or.kr/cce/sub1/history.asp" target="_blank" rel="noopener">https://www.kycs.or.kr/cce/sub1/history.asp</a> ~2000년대, 2000년대)</td><td><span class="tag todo">확인 필요</span></td></tr>
+        <tr><td>청년문화공간JU</td><td>대관확인(<a href="https://www.yju.or.kr/rent/check.yju" target="_blank" rel="noopener">https://www.yju.or.kr/rent/check.yju</a>) 내부 확인 필요</td><td><span class="tag todo">확인 필요</span></td></tr>
+        <tr><td>서울선택</td><td>'선택 주말이란?' 페이지(<code>13_선택/3_선택_자료/1_선택_주말이란.html</code>) 자료 필요. 선택 지도 신부·수녀 페이지는 피그마 임시 텍스트 상태라 실제 소개 문구 필요.</td><td><span class="tag todo">확인 필요</span></td></tr>
+        <tr><td>청년부</td><td>지구 회장 및 지도 신부님 현황 데이터 필요.</td><td><span class="tag todo">확인 필요</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+
+  <section id="dev">
+    <h2>개발 인수 사항</h2>
+    <p class="lead">각 항목 아래의 <strong>참고 파일</strong>을 열어 보면 실제 마크업과 동작을 바로 확인할 수 있습니다. 경로는 모두 <code>contents</code> 폴더 기준이고, 화면별 상태 전환 방법은 HTML 안의 <code>[항목명]</code> 주석에도 적혀 있습니다. 개발이 필요한 부분에는 "(개발 필요)"라고 표시했습니다.</p>
+    <div class="cards">
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>필수 입력 검사 통과 후 안내 팝업 (data-after-popup)</h3>
+        <ul>
+          <li>접수 버튼(<code>[data-validate-btn]</code>)에 <code>data-after-popup="팝업이름"</code>을 달면, 필수 입력 검사를 통과한 뒤 바로 이동하지 않고 해당 레이어 팝업(<code>.layer-popup[data-popup="팝업이름"]</code>)을 먼저 엽니다. 검사에 걸리면 팝업은 열리지 않고 기존처럼 경고 토스트만 뜹니다</li>
+          <li>팝업의 [확인](<code>.confirm-yes</code>)을 누르면 접수 버튼의 <code>href</code>(다음 단계)로 이동하고, [취소]는 팝업만 닫고 신청서에 머뭅니다. 이동 경로는 개발에서 연결(<code>href</code> 입력)</li>
+          <li>팝업을 코드로 열 때는 <code>window.openLayerPopup("팝업이름")</code>을 호출합니다. 검사를 서버나 자체 로직으로 처리하는 경우, 통과 후 이 함수 한 줄로 같은 팝업을 띄울 수 있습니다(<code>data-validate-btn</code>과 <code>data-after-popup</code>은 삭제)</li>
+          <li>이 속성이 없는 기존 접수 버튼은 동작이 바뀌지 않으며, 다른 팝업의 열기·닫기·확인 처리도 그대로입니다</li>
+          <li>화면 검사는 퍼블리싱 단계의 편의용이므로 서버에서도 같은 항목을 다시 검증해야 합니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="13_%EC%84%A0%ED%83%9D/2_%EC%84%A0%ED%83%9D_%EC%A0%91%EC%88%98/1-2_%EC%A3%BC%EB%A7%90_%EB%8C%80%EA%B8%B0%EC%A0%91%EC%88%98_%EC%8B%A0%EC%B2%AD%EC%84%9C.html" target="_blank" rel="noopener"><code>13_선택/2_선택_접수/1-2_주말_대기접수_신청서.html</code></a>: [확인] 버튼과 "접수전 유의 사항" 팝업(<code>popupWaitNotice</code>)</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "필수 입력 검사" 블록과 <code>initLayerPopups</code>의 <code>window.openLayerPopup</code></li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>초등부 연합회현황 (지도 · 표 DB 연동)</h3>
+        <ul>
+          <li>페이지 맨 아래 <code>&lt;script&gt;</code>에 <strong>테스트용 더미 데이터와 화면 전환 샘플</strong>(3개 지구)이 들어 있습니다.</li>
+          <li>핀을 누르면 해당 핀에 <code>.on</code>이 붙고 <code>document</code>에 <code>parish:select</code> 이벤트(본당명, 요소)가 발생합니다. 이때 [지구 임원] 표(<code>.union-officer</code>)를 숨기고 [본당 정보] 표(<code>.union-parish</code>, 제목 "OO 성당", 구분 · 이름 · 세례명)를 출력합니다. 기본 본당이 없는 지구에서는 [지구 임원] 표를 출력하고, 표시 전환은 <code>hidden</code> 속성으로 합니다</li>
+          <li>지도(<code>#map</code>)는 <code>kakao-maps.js</code>의 <code>initKakaoMapParish()</code>로 띄웁니다. 핀 위치는 <code>data-lat</code> · <code>data-lng</code>(좌표) 또는 <code>data-address</code>(주소) 중 하나를 입력하며, 좌표가 없으면 주소를 카카오 지오코더로 변환해서 표시합니다. 더미 데이터는 좌표와 주소 방식을 섞어 두었고, 좌표 · 주소는 대략적인 위치입니다</li>
+          <li>지구마다 기본으로 선택해 둘 본당 한 곳의 <code>.parish-item</code>에 <code>data-default</code> 속성을 붙입니다(예: <code>&lt;li class="parish-item" data-name="명동" data-address="…" data-default&gt;&lt;/li&gt;</code>). 한 지구에 한 곳만 붙이며, 여러 개면 마지막 항목이 적용됩니다</li>
+          <li><code>data-default</code>가 있는 본당은 페이지 진입, 지구 선택, 새로고침 시 지도가 뜬 뒤 해당 핀이 강조(<code>.on</code>)되고 그 본당의 [본당 정보] 표가 바로 출력됩니다. 붙이지 않은 지구는 선택된 핀 없이 [지구 임원] 표를 출력합니다. 기본 본당을 정하는 규칙(첫 번째 본당 또는 별도 설정값)은 개발에서 정합니다</li>
+          <li>더미 데이터의 <code>isDefault: true</code>는 샘플 스크립트가 <code>data-default</code>로 바꿔 넣는 값입니다(제01중구-용산지구 명동, 제02서대문-마포지구 서대문, 제04성북지구 성북동)</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/6_%EC%97%B0%ED%95%A9%ED%9A%8C%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/6_연합회현황.html</code></a>: 영역별 연동 설명 주석 포함</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <h3><span class="tag dev">개발</span>선택 상자 값 0 처리 (수정 파일 교체 필요)</h3>
+        <ul>
+          <li>선택 상자(<code>.select-box-wrap</code>)에서 <code>data-value="0"</code> 항목을 고르면 값 "0"이 아니라 항목 글자가 숨은 입력값에 저장되던 문제를 수정했습니다. 0이 유효한 값으로 들어갑니다(예: 용문 대관 신청서의 "식사 추가 없음", "사용 안함")</li>
+          <li>같은 원인의 코드도 함께 고쳤습니다. 수량 증감(<code>.count-wrap</code>)의 최소값 0, 지도 검색 필터의 값 0이 "없음"으로 처리되지 않습니다</li>
+          <li><code>data-value=""</code>이거나 속성이 없는 항목("전체 지구 보기" 등)은 기존과 같이 항목 글자가 저장됩니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: 선택 상자 클릭 처리(<code>initSelectBox</code>)의 값 저장, 수량 증감(<code>initCountWrap</code>)</li>
+          <li><a href="lib/js/kakao-maps.js" target="_blank" rel="noopener"><code>lib/js/kakao-maps.js</code></a>: 지구·단위대 필터의 "전체" 판단</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>선택 상자 선택 초기화 (data-reset)</h3>
+        <ul>
+          <li>선택 사항인 선택 상자(<code>.select-box-wrap</code>)에 <code>data-reset</code>을 달면, 목록 맨 위에 처음 안내 문구(예: "숙소 선택")가 초기화 항목(<code>li.reset</code>)으로 자동 추가됩니다. 값을 고른 뒤에도 이 항목을 누르면 아무것도 선택하지 않은 처음 상태로 돌아갑니다</li>
+          <li>초기화하면 안내 문구가 다시 표시되고, 숨은 입력값(<code>input[type="hidden"]</code>)은 <strong>빈 값</strong>이 되며 <code>change</code> 이벤트가 발생합니다</li>
+          <li>항목 이름은 선택 상자의 처음 안내 문구입니다. 처음부터 값이 선택돼 있는 경우(예: 명단 작성의 학년)는 <code>data-reset="학년"</code>처럼 문구를 지정할 수 있습니다</li>
+          <li>필수 항목(전화 앞자리, 생년월일 등)에는 달지 않았습니다. 목록 항목은 <code>common.js</code>가 넣으므로 서버에서 목록을 만들 때 초기화 항목을 따로 넣지 않습니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step02_%EC%8B%A0%EC%B2%AD%EC%84%9C_%EC%88%99%EB%B0%95_%EB%B9%84%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/3_대관_신청_step02_신청서_숙박_비회원.html</code></a> / <a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step02_%EC%8B%A0%EC%B2%AD%EC%84%9C_%EC%88%99%EB%B0%95_%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>_회원.html</code></a>: 다인실·들마을 숙소 (사용법 주석 포함)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%83%81%EC%84%B8_%EB%AA%85%EB%8B%A8%EC%9E%91%EC%84%B1_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_상세_명단작성_복사학교.html</code></a> / <a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%83%81%EC%84%B8_%EB%AA%85%EB%8B%A8%EC%9E%91%EC%84%B1_%EC%97%AC%EB%A6%84%EC%BA%A0%ED%94%84.html" target="_blank" rel="noopener"><code>_여름캠프.html</code></a>: 학년(<code>data-reset="학년"</code>)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/4_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/4_대관_신청_확인_리스트.html</code></a> / <a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>4_접수확인_리스트.html</code></a>: 년도 필터</li>
+          <li><a href="00_%ED%85%9C%ED%94%8C%EB%A6%BF/04_%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_%ED%9A%8C%EC%9B%90%EC%A0%95%EB%B3%B4%EC%88%98%EC%A0%95.html" target="_blank" rel="noopener"><code>00_템플릿/04_마이페이지_회원정보수정.html</code></a> / <a href="00_%ED%85%9C%ED%94%8C%EB%A6%BF/04_%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85_%EC%B6%94%EA%B0%80%EC%A0%95%EB%B3%B4_%ED%86%B5%ED%95%A9.html" target="_blank" rel="noopener"><code>04_회원가입_추가정보_통합.html</code></a>: 축일 월·일</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "선택 초기화" 블록(파일 맨 아래)</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>연결이 필요한 부분 (화면만 있고 처리는 없음)</h3>
+        <ul>
+          <li><strong>단계 간 연결</strong>: 신청 목록의 신청중 버튼은 확인 팝업과 토스트까지만 동작하고, 약관동의의 회원/비회원 버튼 <code>href</code>는 비어 있으며, 접수완료 이후 신청 완료 페이지 이동도 없습니다. 페이지 간 연결과 서버 처리를 연결해야 합니다</li>
+          <li><strong>영수증 보기</strong>: [보기] 버튼만 있고 영수증 화면(팝업)은 없습니다. 영수증 출력은 청구서 팝업의 <code>.invoice-area</code> 방식을 참고해 연결합니다</li>
+          <li><strong>저장·삭제·취소 처리</strong>: 명단 저장, 신청취소, 예약취소는 확인 팝업이나 토스트까지만 동작합니다. 실제 처리는 [예] 클릭 또는 저장 버튼에 연결합니다</li>
+          <li><strong>청년문화공간JU 대관 신청 흐름</strong>: 시설 목록과 중복대관 불가 규칙이 <code>common.js</code>에 고정값으로 들어 있고, 신청 02~05 페이지에 페이지 안 스크립트가 있습니다. 서버 데이터와 처리에 연결해야 합니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/2_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90_%EC%8B%A0%EC%B2%AD_step01_%EC%8B%A0%EC%B2%AD%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/2_복사학교_신청_step01_신청목록.html</code></a> → <code>step02_약관동의</code> → <code>step03_신청자정보_회원</code> / <code>_비회원</code> → <code>step04_신청완료</code> (여름캠프는 <code>3_여름캠프_신청_step01 ~ 04</code>)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step01_%EC%9D%B4%EC%9A%A9%EC%95%88%EB%82%B4_%EC%88%99%EB%B0%95.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/3_대관_신청_step01_이용안내_숙박.html</code></a> → <code>step02_신청서_숙박_회원</code> → <code>step03_신청완료</code> (대관 흐름)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_리스트.html</code></a>: 영수증 [보기], 신청취소(<code>popupCancelConfirm</code>), 청구서 팝업(<code>popupInvoice</code>)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%83%81%EC%84%B8_%EB%AA%85%EB%8B%A8%EC%9E%91%EC%84%B1_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_상세_명단작성_복사학교.html</code></a> (<code>_여름캠프</code>): 명단 저장 버튼</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/4_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/4_대관_신청_확인_리스트.html</code></a>: 예약취소 버튼(동작 없음)</li>
+          <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4/2_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4_%EC%8B%A0%EC%B2%AD_02.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/4_대관안내/2_대관안내_신청_02.html</code></a>: 대관 신청 02(동의 확인) 스크립트</li>
+          <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4/2_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4_%EC%8B%A0%EC%B2%AD_03.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/4_대관안내/2_대관안내_신청_03.html</code></a>: 대관 신청 03(시설·일시 선택, 이용가능여부 확인)</li>
+          <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4/2_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4_%EC%8B%A0%EC%B2%AD_04.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/4_대관안내/2_대관안내_신청_04.html</code></a>: 대관 신청 04(신청자 정보)</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "대관 신청 입력" 블록(<code>initRentalInputStep</code>)의 시설 목록·중복대관 규칙</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>카카오 지도 키 교체</h3>
+        <ul>
+          <li>지도가 있는 <strong>17개 페이지</strong>가 모두 같은 카카오 지도 키 1개를 씁니다. 일부 페이지에는 <code>&lt;!--자바스크립트 키 변경필요--&gt;</code> 주석이 있습니다</li>
+          <li>서비스용 키로 교체하고, 카카오 개발자 설정에 서비스 도메인을 등록해야 지도가 뜹니다</li>
+          <li>키는 각 페이지의 <code>dapi.kakao.com/v2/maps/sdk.js?appkey=…</code> 주소에 들어 있습니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="02_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/1_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/6_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>02_장애인신앙교육부/1_장애인신앙교육부/6_오시는_길.html</code></a>: 키가 들어 있는 부분의 예시</li>
+          <li><a href="lib/js/kakao-maps.js" target="_blank" rel="noopener"><code>lib/js/kakao-maps.js</code></a>: 지도 핀과 목록 연동(<code>initKakaoMap</code>)</li>
+          <li><details><summary>지도가 있는 페이지 17개</summary><ul>
+            <li><a href="02_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/1_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/3_%EC%9E%A5%EC%95%A0%EC%9D%B8_%EC%A3%BC%EC%9D%BC%ED%95%99%EA%B5%90_%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>02_장애인신앙교육부/1_장애인신앙교육부/3_장애인_주일학교_현황.html</code></a></li>
+            <li><a href="02_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/1_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/6_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>02_장애인신앙교육부/1_장애인신앙교육부/6_오시는_길.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/1_%EC%9C%A0%EC%95%84%EB%B6%80_%EC%86%8C%EA%B0%9C/8_%EC%B0%BE%EC%95%84%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>03_유아부/1_유아부_소개/8_찾아오시는_길.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/3_%EA%B8%B0%EA%B4%80%EB%B3%B8%EB%8B%B9/2_%EA%B0%80%ED%86%A8%EB%A6%AD_%EC%9C%A0%EC%95%84%EA%B5%90%EC%9C%A1%EA%B8%B0%EA%B4%80.html" target="_blank" rel="noopener"><code>03_유아부/3_기관본당/2_가톨릭_유아교육기관.html</code></a></li>
+            <li><a href="05_%EA%B0%80%ED%86%A8%EB%A6%AD%EC%8A%A4%EC%B9%B4%EC%9A%B0%ED%8A%B8/1_%EC%86%8C%EA%B0%9C/6_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>05_가톨릭스카우트/1_소개/6_오시는_길.html</code></a></li>
+            <li><a href="06_%ED%95%99%EA%B5%90%EC%82%AC%EB%AA%A9%EB%B6%80/4_%EC%B2%AD%EC%86%8C%EB%85%84%ED%9A%8C%EA%B4%80_%EC%86%8C%EA%B0%9C/2_%ED%98%9C%ED%99%94%EB%8F%99_%EA%B0%80%ED%86%A8%EB%A6%AD%EC%B2%AD%EC%86%8C%EB%85%84%ED%9A%8C%EA%B4%80.html" target="_blank" rel="noopener"><code>06_학교사목부/4_청소년회관_소개/2_혜화동_가톨릭청소년회관.html</code></a></li>
+            <li><a href="07_%EA%B0%80%ED%86%A8%EB%A6%AD%ED%95%99%EC%83%9D%ED%9A%8C_CELL/1_%EC%86%8C%EA%B0%9C/5_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>07_가톨릭학생회_CELL/1_소개/5_오시는_길.html</code></a></li>
+            <li><a href="08_%EA%B0%80%ED%86%A8%EB%A6%AD%EB%AC%B8%ED%99%94%EC%97%B0%EA%B5%AC%ED%9A%8C_CA/1_%EC%86%8C%EA%B0%9C/4_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>08_가톨릭문화연구회_CA/1_소개/4_오시는_길.html</code></a></li>
+            <li><a href="11_%EC%A4%91%EA%B3%A0%EB%93%B1%EB%B6%80/1_%EC%A4%91%EA%B3%A0%EB%93%B1%EB%B6%80/4_%EC%B0%BE%EC%95%84%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>11_중고등부/1_중고등부/4_찾아오시는_길.html</code></a></li>
+            <li><a href="12_%EB%8C%80%ED%95%99%EA%B5%90%EC%82%AC%EB%AA%A9%EB%B6%80/1_%EB%8C%80%ED%95%99%EA%B5%90%EC%82%AC%EB%AA%A9%EB%B6%80/4_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>12_대학교사목부/1_대학교사목부/4_오시는_길.html</code></a></li>
+            <li><a href="12_%EB%8C%80%ED%95%99%EA%B5%90%EC%82%AC%EB%AA%A9%EB%B6%80/2_%EC%84%9C%EA%B0%80%EB%8C%80%EC%97%B0/2_%EC%A1%B0%EC%A7%81%EB%8F%84.html" target="_blank" rel="noopener"><code>12_대학교사목부/2_서가대연/2_조직도.html</code></a></li>
+            <li><a href="14_%EC%B2%AD%EB%85%84%EB%B6%80/1_%EC%B2%AD%EB%85%84%EB%B6%80/5_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>14_청년부/1_청년부/5_오시는_길.html</code></a></li>
+            <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/1_%EC%88%98%EB%A0%A8%EC%9E%A5_%EC%86%8C%EA%B0%9C/2_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/1_수련장_소개/2_오시는_길.html</code></a></li>
+            <li><a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/1_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/6_%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>16_청소년문화공간JU/1_청소년문화공간JU/6_오시는_길.html</code></a></li>
+            <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/1_JU%EB%8A%94/5_%EC%B0%BE%EC%95%84%EC%98%A4%EC%8B%9C%EB%8A%94_%EA%B8%B8.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/1_JU는/5_찾아오시는_길.html</code></a></li>
+            <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/2_%ED%99%9C%EB%8F%99%EC%9E%A5%EC%86%8C/1_%ED%99%9C%EB%8F%99%EC%9E%A5%EC%86%8C.html" target="_blank" rel="noopener"><code>18_서울아지트/2_활동장소/1_활동장소.html</code></a></li>
+            <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/2_%ED%99%9C%EB%8F%99%EC%9E%A5%EC%86%8C/2_%EC%82%AC%EB%AC%B4%EC%8B%A4.html" target="_blank" rel="noopener"><code>18_서울아지트/2_활동장소/2_사무실.html</code></a></li>
+          </ul></details></li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <h3><span class="tag dev">개발</span>샘플 데이터를 서버 데이터로</h3>
+        <ul>
+          <li><strong>일정 달력</strong>: 9개 페이지에 <code>window.scheduleEvents = [...]</code>가 샘플로 들어 있습니다. 서버에서 같은 형식의 배열을 내려주면 됩니다</li>
+          <li><strong>대관 현황</strong>: 용문은 <code>window.scheduleEvents</code>와 <code>data-status</code>, 청년문화공간JU는 <code>window.rentalStatusData</code>(시간대별 현황과 예약 목록)가 샘플입니다</li>
+          <li><strong>게시판 목록</strong>: 자료실·Q&amp;A 등 10개 페이지의 목록과 페이징은 정적 샘플입니다. 목록·검색·페이징을 서버 데이터로 연결합니다</li>
+          <li><strong>기관 검색</strong>(유아부): 구분·검색어 필터가 페이지 안에서 목록을 숨기고 보여 주는 방식입니다. 서버 검색으로 바꿀지 정해야 합니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/5_%EB%8C%80%EA%B4%80_%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/5_대관_현황.html</code></a>: 용문 대관 현황(스크립트 블록과 <code>data-status</code>)</li>
+          <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4/4_%EB%8C%80%EA%B4%80%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/4_대관안내/4_대관현황.html</code></a>: JU 대관 현황(<code>rentalStatusData</code>)</li>
+          <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/3_%EA%B8%B0%EA%B4%80%EB%B3%B8%EB%8B%B9/2_%EA%B0%80%ED%86%A8%EB%A6%AD_%EC%9C%A0%EC%95%84%EA%B5%90%EC%9C%A1%EA%B8%B0%EA%B4%80.html" target="_blank" rel="noopener"><code>03_유아부/3_기관본당/2_가톨릭_유아교육기관.html</code></a>: 기관 검색(<code>initInstituteSearch</code>)</li>
+          <li><a href="lib/js/callendar.js" target="_blank" rel="noopener"><code>lib/js/callendar.js</code></a>: 달력이 읽는 데이터 처리</li>
+          <li><details><summary>일정 달력 페이지 9개</summary><ul>
+            <li><a href="01_%EC%B2%AD%EC%86%8C%EB%85%84%EA%B5%AD/1_%EC%86%8C%EA%B0%9C/3_%EC%B2%AD%EC%86%8C%EB%85%84%EA%B5%AD_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>01_청소년국/1_소개/3_청소년국_일정.html</code></a></li>
+            <li><a href="02_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/1_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/5_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>02_장애인신앙교육부/1_장애인신앙교육부/5_일정.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/1_%EC%9C%A0%EC%95%84%EB%B6%80_%EC%86%8C%EA%B0%9C/7_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>03_유아부/1_유아부_소개/7_일정.html</code></a></li>
+            <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/1_%EC%B4%88%EB%93%B1%EB%B6%80/7_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>04_초등부/1_초등부/7_일정.html</code></a></li>
+            <li><a href="09_%EA%B0%80%ED%86%A8%EB%A6%AD%EC%B4%88%EB%93%B1%EA%B5%90%EC%9C%A1%EC%9E%90%ED%9A%8C_CCE/1_%EC%86%8C%EA%B0%9C/4_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>09_가톨릭초등교육자회_CCE/1_소개/4_일정.html</code></a></li>
+            <li><a href="10_%EA%B0%80%ED%86%A8%EB%A6%AD%EC%A4%91%EB%93%B1%EA%B5%90%EC%9C%A1%EC%9E%90%ED%9A%8C_CCE/1_%EC%86%8C%EA%B0%9C/4_%EC%9D%BC%EC%A0%95%ED%91%9C.html" target="_blank" rel="noopener"><code>10_가톨릭중등교육자회_CCE/1_소개/4_일정표.html</code></a></li>
+            <li><a href="11_%EC%A4%91%EA%B3%A0%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1%EB%A7%88%EB%8B%B9/3_%EA%B5%90%EC%9C%A1_%EB%B0%8F_%ED%96%89%EC%82%AC%EC%95%88%EB%82%B4.html" target="_blank" rel="noopener"><code>11_중고등부/2_교육마당/3_교육_및_행사안내.html</code></a></li>
+            <li><a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/1_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/5_%EC%9D%BC%EC%A0%95.html" target="_blank" rel="noopener"><code>16_청소년문화공간JU/1_청소년문화공간JU/5_일정.html</code></a></li>
+            <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/1_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/4_%EC%9D%BC%EC%A0%95%ED%91%9C.html" target="_blank" rel="noopener"><code>18_서울아지트/1_서울아지트/4_일정표.html</code></a></li>
+          </ul></details></li>
+          <li><details><summary>게시판 목록·상세 페이지 8개</summary><ul>
+            <li><a href="02_%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%8B%A0%EC%95%99%EA%B5%90%EC%9C%A1%EB%B6%80/3_%EC%9E%90%EB%A3%8C%EC%8B%A4/1_%EA%B5%90%EB%A6%AC%EA%B5%90%EC%9C%A1.html" target="_blank" rel="noopener"><code>02_장애인신앙교육부/3_자료실/1_교리교육.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/2_%EC%9E%90%EB%A3%8C/1_%EA%B0%80%ED%86%A8%EB%A6%AD_%EC%9C%A0%EC%95%84%EB%93%A4%EC%9D%98_%EB%85%B8%EB%9E%98.html" target="_blank" rel="noopener"><code>03_유아부/2_자료/1_가톨릭_유아들의_노래.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/2_%EC%9E%90%EB%A3%8C/2_%EA%B0%80%ED%86%A8%EB%A6%AD_%EC%9C%A0%EC%95%84%EB%93%A4%EC%9D%98_%EB%85%B8%EB%9E%98_%ED%94%8C%EB%9E%98%EC%8B%9C.html" target="_blank" rel="noopener"><code>03_유아부/2_자료/2_가톨릭_유아들의_노래_플래시.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/2_%EC%9E%90%EB%A3%8C/3_%EA%B0%80%ED%86%A8%EB%A6%AD_%EC%9C%A0%EC%95%84%EB%93%A4%EC%9D%98_%EB%85%B8%EB%9E%98_%EC%9C%A8%EB%8F%99.html" target="_blank" rel="noopener"><code>03_유아부/2_자료/3_가톨릭_유아들의_노래_율동.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/2_%EC%9E%90%EB%A3%8C/4_%EC%83%AC%EB%A1%AC%2C_%EC%96%B4%EB%A6%B0%EC%9D%B4_%EC%84%B1%EA%B2%BD_%EB%8F%99%ED%99%94.html" target="_blank" rel="noopener"><code>03_유아부/2_자료/4_샬롬,_어린이_성경_동화.html</code></a></li>
+            <li><a href="03_%EC%9C%A0%EC%95%84%EB%B6%80/2_%EC%9E%90%EB%A3%8C/5_%EC%83%AC%EB%A1%AC%2C_%EC%96%B4%EB%A6%B0%EC%9D%B4_%EA%B5%90%EB%A6%AC.html" target="_blank" rel="noopener"><code>03_유아부/2_자료/5_샬롬,_어린이_교리.html</code></a></li>
+            <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/3_%EB%B6%80%EC%84%9C%EC%86%8C%EA%B0%9C/1_%EB%A7%88%EB%8B%88%ED%94%BC%EC%BA%87_%EC%96%B4%EB%A6%B0%EC%9D%B4%ED%95%A9%EC%B0%BD%EB%8B%A8.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/3_부서소개/1_마니피캇_어린이합창단.html</code></a></li>
+            <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/4_%ED%95%A8%EA%BB%98%ED%95%98%EA%B8%B0/3_Q%26A_%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>18_서울아지트/4_함께하기/3_Q&amp;A_목록.html</code></a></li>
+          </ul></details></li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <h3><span class="tag dev">개발</span>로그인 · 권한에 따라 달라지는 화면</h3>
+        <ul>
+          <li>초등부 교육 메뉴의 교사 관련 화면(교사현황관리, 교사승인경력관리, 경력증명서 신청, 교육접수 상세)은 로그인과 권한(교사 / 관리자)에 따라 보이는 내용과 버튼이 달라집니다</li>
+          <li>화면은 모든 요소를 한 번에 보여 주는 정적 샘플이고, 행 단위 수정은 <code>.edit-table</code>(<code>.row-edit</code>로 보기 ↔ 입력 전환)로 구현했습니다. 권한별 노출과 저장 처리는 개발에서 구현합니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/3_%EA%B5%90%EC%82%AC%ED%98%84%ED%99%A9%EA%B4%80%EB%A6%AC.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/3_교사현황관리.html</code></a>: 교사 현황(탭, 편집 표)</li>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/4_%EA%B5%90%EC%82%AC%EC%8A%B9%EC%9D%B8%EA%B2%BD%EB%A0%A5%EA%B4%80%EB%A6%AC.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/4_교사승인경력관리.html</code></a>: 승인 상태와 경력 관리(<code>.edit-table</code>)</li>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/5_%EA%B2%BD%EB%A0%A5%EC%A6%9D%EB%AA%85%EC%84%9C%EC%8B%A0%EC%B2%AD.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/5_경력증명서신청.html</code></a>: 증명서 신청과 파일 첨부</li>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/1_%EA%B5%90%EC%9C%A1%EC%A0%91%EC%88%98_%EC%83%81%EC%84%B8%EB%B3%B4%EA%B8%B0_%EA%B5%90%EC%82%AC.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/1_교육접수_상세보기_교사.html</code></a>: 교육 접수 상세(교사)</li>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/2_%EA%B5%90%EC%9C%A1%EC%A0%91%EC%88%98_%EC%83%81%EC%84%B8%EB%B3%B4%EA%B8%B0_%EC%B2%AD%EC%86%8C%EB%85%84.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/2_교육접수_상세보기_청소년.html</code></a>: 교육 접수 상세(청소년)</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "행 단위 인라인 수정" 블록(<code>initRowEdit</code>)</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <h3><span class="tag dev">개발</span>토스트·확인 팝업</h3>
+        <p>브라우저 기본 <code>alert</code>/<code>confirm</code> 대신 공통 토스트와 확인 팝업을 씁니다.</p>
+        <ul>
+          <li>토스트는 약 1.5초 뒤 사라지고, <strong>토스트 바깥 영역을 누르면 바로 닫힙니다</strong>(<code>common.js</code>의 <code>showToast</code>). 토스트를 띄운 바로 그 클릭과 토스트 자체를 누른 경우는 닫지 않습니다</li>
+          <li>기본 표시 시간은 1.5초입니다. 문구가 길면 시간을 늘려 쓰세요: <code>showToast("문구", "종류", 3000)</code>(세 번째 값, ms 단위) 또는 <code>data-toast-time="3000"</code>. 확인 팝업의 <code>data-toast</code>에도 같이 쓸 수 있고, 생략하면 1.5초입니다</li>
+          <li>토스트: <code>showToast("문구", "종류")</code> 또는 <code>data-toast-msg</code> + <code>data-toast-type</code></li>
+          <li>종류: default / info / success / warning / error / confusing</li>
+          <li>확인 팝업: 트리거에 <code>data-popup</code>, <code>data-confirm-msg</code>("|"로 줄바꿈), <code>data-toast</code>. [예]를 누르면 팝업이 닫히고 토스트가 나옵니다</li>
+          <li>이전단계 이동 확인은 <code>popupLeaveConfirm</code> 팝업([예]에서 이동)</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="00_%ED%85%9C%ED%94%8C%EB%A6%BF/00_%EA%B3%B5%ED%86%B5_%EB%A0%88%EC%9D%B4%EC%96%B4%ED%8C%9D%EC%97%85_%ED%86%A0%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>00_템플릿/00_공통_레이어팝업_토스트.html</code></a>: 눌러 볼 수 있는 확인 페이지와 사용 방법</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "토스트 메시지 / 확인 팝업 / 새로고침" 블록, <code>#prevStepBtn</code> 처리</li>
+          <li><a href="lib/css/components.css" target="_blank" rel="noopener"><code>lib/css/components.css</code></a>: <code>.toast</code>, <code>.layer-popup.confirm</code></li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>상태 표시 규칙</h3>
+        <ul>
+          <li>본문 상태 글자: <code>span.status-text</code> + 색(blue / green / gray / orange / red / theme)</li>
+          <li>복사학교·여름캠프 신청 목록: 신청마감(글자), 신청중·대기접수·접수대기(버튼). 대기접수는 신청기간 중 마감인원이 차도 대기로 접수 가능한 상태, 접수대기는 신청기간 시작 전(접수 불가)</li>
+          <li>접수확인 리스트: 대기접수(주황) · 접수완료(초록) · 교육완료(회색). 영수증과 명단 등록/수정 칸이 상태에 따라 달라짐</li>
+          <li>대관 신청 확인: 신청중(파랑) + 예약취소 · 예약완료(초록) · 사용완료(회색)</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/2_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90_%EC%8B%A0%EC%B2%AD_step01_%EC%8B%A0%EC%B2%AD%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/2_복사학교_신청_step01_신청목록.html</code></a>, <code>3_여름캠프_신청_step01_신청목록.html</code>: 상태 버튼 4종(표 위 주석에 클래스와 동작 정리)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_리스트.html</code></a>: 복사학교 · 여름캠프 탭의 상태별 행</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/4_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/4_대관_신청_확인_리스트.html</code></a>, <code>4_대관_신청_확인_상세.html</code></li>
+          <li><a href="lib/css/components.css" target="_blank" rel="noopener"><code>lib/css/components.css</code></a>: <code>.status</code>, <code>.status-text</code></li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>버튼과 링크 구분</h3>
+        <ul>
+          <li>팝업 열기, 취소, 새로고침, 인쇄 같은 <strong>동작</strong>은 <code>&lt;button type="button"&gt;</code></li>
+          <li>다른 페이지로 <strong>이동</strong>하는 것(상세, 목록으로, 명단 작성 페이지)은 <code>&lt;a href&gt;</code></li>
+          <li><code>javascript:void(0)</code> 링크는 쓰지 않음</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_리스트.html</code></a>: 청구서·영수증 [보기]는 button, 명단 등록/수정과 교육명은 a</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>신청 폼 (.rent-form)</h3>
+        <ul>
+          <li>라벨(<code>.form-row .label</code>) + 입력 한 줄 구성. 폼과 위쪽 제목·안내 박스는 최대 800px로 가운데 정렬</li>
+          <li>회원은 <code>input.locked</code> + <code>readonly</code>로 회원정보를 채워 수정 불가, 비회원은 같은 칸을 빈 값으로 입력 가능하게</li>
+          <li>값이 들어가면 입력칸 테두리와 배경이 테마색으로 바뀜(CSS 처리, <code>placeholder</code> 속성을 지우면 안 됨)</li>
+          <li><code>input.num</code>은 숫자만 입력</li>
+          <li>봉사자 인원은 참가 인원수에 비례해 자동 입력(계산은 개발 필요)</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/2_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90_%EC%8B%A0%EC%B2%AD_step03_%EC%8B%A0%EC%B2%AD%EC%9E%90%EC%A0%95%EB%B3%B4_%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/2_복사학교_신청_step03_신청자정보_회원.html</code></a> / <code>_비회원.html</code> (회원·비회원 차이를 비교)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step02_%EC%8B%A0%EC%B2%AD%EC%84%9C_%EC%88%99%EB%B0%95_%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/3_대관_신청_step02_신청서_숙박_회원.html</code></a> / <code>_비회원.html</code></li>
+          <li><a href="lib/css/components.css" target="_blank" rel="noopener"><code>lib/css/components.css</code></a>: <code>.rent-form</code> 블록, <a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "숫자만 입력"</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>본당 검색 팝업</h3>
+        <ul>
+          <li>본당 입력칸은 readonly, [본당검색]으로 팝업을 열고 [선택]을 누르면 <code>data-value</code>가 입력됨</li>
+          <li>이미 접수된 본당은 <code>p.disabled</code> + <code>button.btn-pick.off[disabled]</code> "선택불가 (접수완료)". 같은 본당 중복 신청 방지는 관리자 설정과 연동 필요</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/2_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90_%EC%8B%A0%EC%B2%AD_step03_%EC%8B%A0%EC%B2%AD%EC%9E%90%EC%A0%95%EB%B3%B4_%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/2_복사학교_신청_step03_신청자정보_회원.html</code></a>: <code>popupParish</code> 팝업과 목록 주석</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: <code>initLpSearch</code>, <a href="lib/css/components.css" target="_blank" rel="noopener"><code>lib/css/components.css</code></a>: <code>.lp-search-list.pick</code></li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>달력 데이터</h3>
+        <ul>
+          <li>달력 종류(<code>data-type</code> notice / panel / timetable / rental / range)별 데이터 형식과 기능 설명, 눌러 볼 수 있는 데모는 <strong>공통 캘린더 템플릿</strong>에 모아 두었습니다. 아래 항목은 그중 일부입니다</li>
+          <li>날짜 선택(범위/단일) 팝업: <code>.calendar-wrap[data-type="range"]</code>, <code>data-in</code>/<code>data-out</code>(입력칸 id, out 생략 시 단일 날짜), <code>data-status</code>(wait 접수전 / full 불가 / done 대관완료), <code>data-holidays</code>. 입소일과 퇴소일 사이에 상태가 있는 날이 끼면 퇴소일로 선택되지 않고, <code>data-max-days="N"</code>(입소·퇴소일 포함 최대 N일, 생략하면 제한 없음)을 주면 그 일수를 넘는 퇴소일도 선택되지 않습니다. 둘 다 토스트로 안내하고 누른 날짜가 새 입소일이 됩니다</li>
+          <li>대관 현황 달력: 일정은 <code>window.scheduleEvents = [...]</code>(다른 일정 페이지와 같은 방식), 날짜별 상태는 <code>data-status</code>. 서버에서는 배열만 내려주면 됨</li>
+          <li>대관 현황 달력(<code>data-type="notice"</code> + <code>data-status</code>)은 <strong>기본이 나머지 날짜 모두 활성이고, <code>data-status</code>에 적힌 날짜에만 상태를 표시</strong>합니다. 값은 <code>on</code>(글자 없이 활성) / <code>wait</code>(접수전) / <code>full</code>(불가)이고, <code>off</code>는 목록에 있어도 비활성으로 막습니다. 오늘 이전 날짜는 항상 비활성입니다. 서버에서는 상태를 표시할 날짜만 내려주면 됨</li>
+          <li>반대로 적힌 날짜만 활성으로 두고 나머지를 모두 회색·클릭 불가로 만들려면 <code>.calendar-wrap</code>에 <code>reverse</code> 클래스를 추가합니다(용문 대관 현황이 사용)</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="00_%ED%85%9C%ED%94%8C%EB%A6%BF/00_%EA%B3%B5%ED%86%B5_%EC%BA%98%EB%A6%B0%EB%8D%94.html" target="_blank" rel="noopener"><code>00_템플릿/00_공통_캘린더.html</code></a>: 달력 타입별 설명과 데모(notice · 상태 표시 · 일반 모드 · panel · timetable · rental · range)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/5_%EB%8C%80%EA%B4%80_%ED%98%84%ED%99%A9.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/5_대관_현황.html</code></a>: 읽기 전용 현황 달력</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step02_%EC%8B%A0%EC%B2%AD%EC%84%9C_%EC%88%99%EB%B0%95_%ED%9A%8C%EC%9B%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/3_대관_신청_step02_신청서_숙박_회원.html</code></a>: 범위 달력 팝업 (<code>당일_회원.html</code>은 단일 날짜)</li>
+          <li><a href="lib/js/callendar.js" target="_blank" rel="noopener"><code>lib/js/callendar.js</code></a>(FullCalendar 6.1.20), <a href="lib/css/calendar.css" target="_blank" rel="noopener"><code>lib/css/calendar.css</code></a></li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>신청서 필수 입력 검사 · 자동 입력</h3>
+        <ul>
+          <li>접수 버튼(<code>[data-validate-btn]</code>)을 누르면 페이지의 <code>[data-req="문구"]</code> 항목을 위에서부터 검사해, 처음 걸리는 항목의 문구를 경고 토스트로 보여 주고 그 항목으로 이동합니다. 모두 통과하면 버튼의 <code>href</code>로 이동</li>
+          <li>입력칸은 값이 있어야 하고, 라디오·체크박스 묶음은 컨테이너에 <code>data-req</code>를 달아 하나 이상 체크되어야 합니다. 선택 상자(<code>.select-box-wrap</code>)는 안의 hidden input에 답니다. 형식 검사는 <code>data-req-pattern</code>(정규식) + <code>data-req-pattern-msg</code>(문구)</li>
+          <li>이메일 도메인 선택(<code>.select-box-wrap[data-fill="입력칸 선택자"]</code>): 고른 도메인이 입력칸에 들어가고 읽기 전용이 되며, [직접입력]을 고르면 비우고 직접 입력</li>
+          <li>접수확인 수정 화면의 등록파일 삭제(<code>.registered[data-req-after="문구"]</code> 안의 <code>.file-del</code> X 버튼): 등록파일 표시를 지우고 양식첨부 입력칸을 필수로 바꿔 새 파일을 등록하게 하며, 안내 토스트를 띄웁니다. 서버의 실제 파일 삭제는 개발에서 연결</li>
+          <li>화면 검사는 편의용이므로 서버에서도 같은 항목을 다시 검증해야 합니다</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EC%8B%A0%EC%B2%AD/1_%EC%B2%AD%EC%86%8C%EB%85%84_%EC%8B%A0%EC%B2%AD_step03_%EC%8B%A0%EC%B2%AD%EC%84%9C.html" target="_blank" rel="noopener"><code>16_청소년문화공간JU/4_신청/1_청소년_신청_step03_신청서.html</code></a>: 이름·생년월일·자퇴 여부·양식첨부·비밀번호·자동등록방지 검사</li>
+          <li><a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EC%8B%A0%EC%B2%AD/2_%EC%9E%90%EC%9B%90%EB%B4%89%EC%82%AC_%EC%8B%A0%EC%B2%AD_step03_%EC%8B%A0%EC%B2%AD%EC%84%9C.html" target="_blank" rel="noopener"><code>16_청소년문화공간JU/4_신청/2_자원봉사_신청_step03_신청서.html</code></a>: 이메일·지원과목 검사와 도메인 자동 입력</li>
+          <li><a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EC%8B%A0%EC%B2%AD/1_%EC%B2%AD%EC%86%8C%EB%85%84_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%88%98%EC%A0%95.html" target="_blank" rel="noopener"><code>16_청소년문화공간JU/4_신청/1_청소년_접수확인_수정.html</code></a> / <a href="16_%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EC%8B%A0%EC%B2%AD/2_%EC%9E%90%EC%9B%90%EB%B4%89%EC%82%AC_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%88%98%EC%A0%95.html" target="_blank" rel="noopener"><code>2_자원봉사_접수확인_수정.html</code></a>: 등록파일 삭제(X)와 접수취소 확인 팝업</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "필수 입력 검사", "선택 값 자동 입력", "등록파일 삭제" 블록(파일 맨 아래)</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>탭 · 인쇄 · 약관 동의 · 명단 작성</h3>
+        <ul>
+          <li>탭(<code>.move-list-tab</code>): 버튼 <code>data-tab</code>과 같은 id의 <code>.tab-cont</code>가 짝으로 활성화, 주소 <code>?tab=</code> 반영. 창 크기가 바뀌면 인디케이터를 다시 계산</li>
+          <li>인쇄(<code>[data-print]</code>): 값이 없으면 페이지 전체, <code>data-print=".선택자"</code>이면 그 영역만 (청구서 팝업)</li>
+          <li>약관 동의: <code>input[data-agree]</code>를 모두 체크해야 <code>[data-agree-btn]</code> 이동, 아니면 경고 토스트. 복사학교·여름캠프 약관동의, 대관 이용안내(숙박·당일), 청소년문화공간JU 신청 약관동의(청소년·자원봉사)에 적용(모두 필수)</li>
+          <li>명단 작성: 행에 값이 입력되면 <code>.filled</code>가 자동으로 붙어 남자 행은 파랑, 여자 행은 분홍</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EB%A6%AC%EC%8A%A4%ED%8A%B8.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_리스트.html</code></a>: 탭(복사학교 / 여름캠프)</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%83%81%EC%84%B8_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_상세_복사학교.html</code></a>: 청구서 팝업 + 인쇄 영역</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/2_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90_%EC%8B%A0%EC%B2%AD_step02_%EC%95%BD%EA%B4%80%EB%8F%99%EC%9D%98.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/2_복사학교_신청_step02_약관동의.html</code></a>, <a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/3_%EC%9D%B4%EC%9A%A9_%EC%95%88%EB%82%B4/3_%EB%8C%80%EA%B4%80_%EC%8B%A0%EC%B2%AD_step01_%EC%9D%B4%EC%9A%A9%EC%95%88%EB%82%B4_%EC%88%99%EB%B0%95.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/3_이용_안내/3_대관_신청_step01_이용안내_숙박.html</code></a>: 약관 동의</li>
+          <li><a href="15_%EC%9A%A9%EB%AC%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EC%9E%A5/4_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8_%EC%95%88%EB%82%B4/4_%EC%A0%91%EC%88%98%ED%99%95%EC%9D%B8_%EC%83%81%EC%84%B8_%EB%AA%85%EB%8B%A8%EC%9E%91%EC%84%B1_%EB%B3%B5%EC%82%AC%ED%95%99%EA%B5%90.html" target="_blank" rel="noopener"><code>15_용문청소년수련장/4_프로그램_안내/4_접수확인_상세_명단작성_복사학교.html</code></a>: 명단 입력 행</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "인쇄 버튼", "약관 동의", "명단 작성" 블록, <code>.move-list-tab</code> 처리</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>비밀글 비밀번호 확인</h3>
+        <p>목록의 비밀글을 누르면 비밀번호 팝업이 열리고, 비밀번호가 다르면 오류 토스트가 뜹니다.</p>
+        <ul>
+          <li>시연용 값: 팝업의 <code>data-pw="123456"</code>, 성공 시 이동은 <code>data-href</code></li>
+          <li>처리 코드는 <a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a> 맨 아래이며, 실제 서비스에서는 서버 검증으로 교체</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/4_%ED%95%A8%EA%BB%98%ED%95%98%EA%B8%B0/3_Q%26A_%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>18_서울아지트/4_함께하기/3_Q&amp;A_목록.html</code></a>: 비밀글 행과 비밀번호 팝업</li>
+          <li><a href="14_%EC%B2%AD%EB%85%84%EB%B6%80/5_%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/3_%EB%AC%BB%EA%B3%A0%EB%8B%B5%ED%95%98%EA%B8%B0_%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>14_청년부/5_공지사항/3_묻고답하기_목록.html</code></a>: 청년부 묻고답하기(같은 구성)</li>
+          <li><a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "비밀번호 확인 팝업" 블록</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>Q&amp;A 답변 상태 · 수정 버튼 · 파일 첨부</h3>
+        <ul>
+          <li>답변 상태 표시: 답변완료 <code>span.status.blue</code>, 답변대기 <code>span.status.dgray</code> (목록은 마지막 열 <code>td.state</code>, 상세는 제목 줄 오른쪽)</li>
+          <li><strong>수정 버튼 노출은 클래스로 제어</strong>: 상세의 <code>.view-wrap</code>에 <code>answered</code> 클래스가 있으면 CSS(<code>.qna .view-wrap.answered .btn-modify { display:none }</code>)가 수정 버튼(<code>.btn-modify</code>)을 숨깁니다. 서버에서 답변완료 글이면 <code>class="view-wrap answered"</code>, 답변대기 글이면 <code>class="view-wrap"</code>으로 출력</li>
+          <li>삭제 버튼은 상태와 상관없이 항상 노출</li>
+          <li>화면에서 숨기는 것뿐이므로 답변완료 글의 수정 요청은 서버에서도 막아야 함</li>
+          <li>파일 첨부 공통 처리: <code>.file-upload-wrap</code>, <code>.file-drop</code>. 화면에서는 확장자만 검사하므로 용량 제한과 서버 검증은 개발 필요</li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/4_%ED%95%A8%EA%BB%98%ED%95%98%EA%B8%B0/3_Q%26A_%EC%83%81%EC%84%B8.html" target="_blank" rel="noopener"><code>18_서울아지트/4_함께하기/3_Q&amp;A_상세.html</code></a>: <code>.view-wrap.answered</code>, 수정·삭제 버튼</li>
+          <li><a href="14_%EC%B2%AD%EB%85%84%EB%B6%80/5_%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/3_%EB%AC%BB%EA%B3%A0%EB%8B%B5%ED%95%98%EA%B8%B0_%EC%83%81%EC%84%B8.html" target="_blank" rel="noopener"><code>14_청년부/5_공지사항/3_묻고답하기_상세.html</code></a>: 청년부 묻고답하기 상세(같은 구성)</li>
+          <li><a href="18_%EC%84%9C%EC%9A%B8%EC%95%84%EC%A7%80%ED%8A%B8/4_%ED%95%A8%EA%BB%98%ED%95%98%EA%B8%B0/3_Q%26A_%EB%AA%A9%EB%A1%9D.html" target="_blank" rel="noopener"><code>18_서울아지트/4_함께하기/3_Q&amp;A_목록.html</code></a>, <code>3_Q&amp;A_작성.html</code></li>
+          <li><a href="lib/css/components.css" target="_blank" rel="noopener"><code>lib/css/components.css</code></a>: <code>.qna</code> 블록, <a href="lib/js/common.js" target="_blank" rel="noopener"><code>lib/js/common.js</code></a>: "파일 첨부" 블록</li>
+          <li><a href="04_%EC%B4%88%EB%93%B1%EB%B6%80/2_%EA%B5%90%EC%9C%A1/5_%EA%B2%BD%EB%A0%A5%EC%A6%9D%EB%AA%85%EC%84%9C%EC%8B%A0%EC%B2%AD.html" target="_blank" rel="noopener"><code>04_초등부/2_교육/5_경력증명서신청.html</code></a>: 증명서 신청 파일 첨부</li>
+          <li><a href="17_%EC%B2%AD%EB%85%84%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84JU/4_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4/2_%EB%8C%80%EA%B4%80%EC%95%88%EB%82%B4_%EC%8B%A0%EC%B2%AD_04.html" target="_blank" rel="noopener"><code>17_청년문화공간JU/4_대관안내/2_대관안내_신청_04.html</code></a>: 대관 신청 04 파일 첨부</li>
+        </ul></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="tag dev">개발</span>페이지·헤더 클래스</h3>
+        <ul>
+          <li>페이지별 클래스는 <code>&lt;div class="cont-wrap 페이지클래스"&gt;</code> 위치에 붙임(#contents가 아님)</li>
+          <li>헤더는 <code>&lt;header&gt;</code>, 메인 히어로 위 투명 헤더는 <code>&lt;header class="overlay"&gt;</code></li>
+        </ul>
+        <div class="files"><strong>참고 파일</strong><ul>
+          <li><a href="00_%ED%85%9C%ED%94%8C%EB%A6%BF/01_%EC%84%9C%EB%B8%8C_%EA%B8%B0%EB%B3%B8%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83.html" target="_blank" rel="noopener"><code>00_템플릿/01_서브_기본레이아웃.html</code></a>: 서브 페이지 기본 구조(헤더, <code>cont-wrap</code>, 푸터)</li>
+        </ul></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="common">
+    <h2>공통 구조·컴포넌트</h2>
+
+    <h3>lib 폴더 구조 (참고)</h3>
+    <p>모든 페이지가 함께 쓰는 CSS·JS가 <code>lib</code> 폴더에 있습니다. 경로는 <code>contents</code> 폴더 기준입니다.</p>
+    <div class="tbl lib-table"><table>
+      <thead><tr><th>경로</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/import.css</code></td><td>웹폰트(Pretendard, Noto Sans KR) 불러오기</td></tr>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/base.css</code></td><td>리셋, CSS 변수(색상·테마 <code>data-theme</code>·폭), 기본·유틸리티 클래스, 프린트 스타일</td></tr>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/components.css</code></td><td>모든 페이지가 쓰는 공통 컴포넌트. 헤더·GNB·LNB·푸터, 레이어팝업, 토스트, 폼·셀렉트, 표, 탭, 게시판, 상태 표시 등</td></tr>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/page-style.css</code></td><td>부서(<code>&lt;body id="사이트코드"&gt;</code>)별·페이지별 전용 스타일. 부서 블록 하단에 해당 부서의 서브페이지 미디어쿼리</td></tr>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/main.css</code></td><td>메인 페이지 전용. 슬라이더(main / thumbnail / tab / arch / text-image), 퀵버튼, 최신글, 주요일정, 안내 센터, 시설 일정 목록(<code>.facility-schedule</code>), 시간대별 이용 현황(<code>.tz-</code>) 등</td></tr>
+        <tr><td><span class="tag css">CSS</span> <code>lib/css/calendar.css</code></td><td>달력(FullCalendar) 스타일. 일정·대관현황·기간 선택 달력</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/common.js</code></td><td>모든 페이지 공통 동작. 헤더·GNB·LNB, 셀렉트박스, 탭, 레이어팝업, 파일 첨부, 토스트·확인 팝업, 인쇄, 약관 동의, 대관 신청 입력 등</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/main.js</code></td><td>메인 페이지 전용 동작(슬라이더, 퀵버튼, 탭 등)</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/callendar.js</code></td><td>달력 동작(FullCalendar 6.1.20). 파일명 오타(callendar)지만 모든 페이지에서 그대로 사용 중</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/timezone.js</code></td><td>시간대별(09~22시) 이용 현황 타임라인 그리기</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/facility-schedule.js</code></td><td>시설별 일정 목록 데이터 표시</td></tr>
+        <tr><td><span class="tag js">JS</span> <code>lib/js/kakao-maps.js</code></td><td>카카오 지도 핀 표시와 기관·위치 목록 연동(<code>initKakaoMap</code>). 카카오 지도 SDK와 함께 지도 페이지에서 사용</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>헤더와 GNB</h3>
+    <ul>
+      <li>헤더 타입(typeA·B·C)을 하나로 통합하고 투명 헤더만 <code>overlay</code>로 구분(전체 페이지 238개)</li>
+      <li>PC 헤더 높이 100px(<code>--headerH</code>), 모바일 70px</li>
+      <li>1450px 이하에서 GNB를 숨기고 모바일 모양의 전체메뉴(아코디언)로 열림. 열고 닫을 때 패널 높이 전환 방식</li>
+      <li>유틸 버튼(회원가입·로그인) 최소 폭과 패딩을 <code>clamp</code> 값으로 변경, 부서별 <code>--gnb-dep1-padding</code> 삭제 후 공통 값으로 통일, 1차 메뉴 최소폭은 글자 폭 기준으로 계산</li>
+    </ul>
+
+  </section>
+
+</div>
+</body>
+
+</html>
